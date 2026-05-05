@@ -15,7 +15,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-50">
       <div className="flex items-center justify-between px-4 h-14">
         {/* Logo + Menú */}
-        <div className="flex items-center gap-4">
+        <div className="items-center gap-4 hidden md:flex">
           <button className="p-2 hover:bg-zinc-800 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
