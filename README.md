@@ -1,42 +1,57 @@
 # Warhammer Minus
 
-A fan-made tool to browse and filter Warhammer painting tutorial videos by tags like beginner, intermediate, advanced, and more.
+A fan-made web app to browse and filter Warhammer painting tutorial videos from the official Warhammer YouTube channel. Search by title, filter by tags like `#40k`, `#aos`, `#beginner`, `#skin`, and more.
 
-🔗 **Live:** [https://rassell.github.io/warhammer-minus/](https://rassell.github.io/warhammer-minus/)
+🔗 **Live:** [https://gonzalosorianodesoto.github.io/warhammer-minus/](https://gonzalosorianodesoto.github.io/warhammer-minus/)
 
 ## Tech Stack
 
-- React 19 + React Router 7 (SPA with HashRouter)
-- Vite 8
-- TailwindCSS 4
-- TypeScript
-- Deployed on GitHub Pages
+- **React 19** + **TypeScript**
+- **Vite 8** (build tool)
+- **Tailwind CSS 4** (styling)
+- **React Router 7** (routing)
+- **Lucide React** (icons)
+- Deployed on **GitHub Pages**
 
 ## Getting Started
 
-Install dependencies:
-
 ```bash
-npm install
+# Install dependencies
+yarn install
+
+# Start dev server
+yarn dev
+
+# Build for production
+yarn build
+
+# Preview production build
+yarn preview
+
+# Type check
+yarn typecheck
 ```
 
-Start the dev server:
+## Data Pipeline
 
-```bash
-npm run dev
-```
+The video catalog is generated with Python scripts in `be/`:
+
+1. **`youtube_channel_search.py`** — Fetches video metadata from the Warhammer YouTube channel via the YouTube Data API.
+2. **`tag_videos.py`** — Applies tags to videos based on regex patterns in their titles (e.g., `40k`, `beginner`, `tyranids`).
+
+The output is saved to `src/videos.json` and bundled with the frontend.
 
 ## Build & Deploy
 
 ```bash
-npm run build
+yarn build
 ```
 
 The production build outputs to `dist/`. Deployment to GitHub Pages is automated via GitHub Actions on push to `main`.
 
-## Backend Scripts
+## License
 
-The `be/` folder contains Python scripts to fetch and tag videos from YouTube channels.
+See [LICENSE](LICENSE) for details.
 
 ---
 

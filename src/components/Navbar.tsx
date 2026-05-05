@@ -1,11 +1,16 @@
-import { Search, Mic, Video, Bell, User } from "lucide-react";
+import { Search } from "lucide-react";
+import { Link, useNavigate } from "react-router";
 
-interface NavbarProps {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
-}
+import { useSearch } from "~/hooks/useSearch";
 
-export default function Navbar({ searchTerm, setSearchTerm }: NavbarProps) {
+export default function Navbar() {
+  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm } = useSearch();
+
+  function search() {
+    navigate(`/?q=${encodeURIComponent(searchTerm)}`);
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-50">
       <div className="flex items-center justify-between px-4 h-14">
@@ -27,22 +32,35 @@ export default function Navbar({ searchTerm, setSearchTerm }: NavbarProps) {
               />
             </svg>
           </button>
-          <span className="font-bold text-xl tracking-tighter">
+          <Link
+            to={{ pathname: "/", search: "" }}
+            reloadDocument
+            className="font-bold text-xl tracking-tighter"
+          >
             Warhammer Minus
-          </span>
+          </Link>
         </div>
 
         {/* Buscador */}
-        <div className="flex-1 max-w-2xl mx-8">
+        <div className="flex-1 max-w-2xl ml-2">
           <div className="relative group">
             <input
               type="text"
               value={searchTerm}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  search();
+                }
+              }}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Buscar videos..."
               className="w-full bg-zinc-900 border border-zinc-700 rounded-full py-2 pl-5 pr-12 focus:outline-none focus:border-blue-500"
             />
-            <button className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white">
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
+              onClick={search}
+            >
               <Search size={20} />
             </button>
           </div>

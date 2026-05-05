@@ -1,7 +1,9 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
+
+import { useSearch } from "~/hooks/useSearch";
 
 import VideoGrid from "../components/VideoGrid";
-import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
 import videos from "../videos.json";
@@ -9,7 +11,7 @@ import videos from "../videos.json";
 const VIDEOS_PER_PAGE = 16;
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTerm } = useSearch();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(VIDEOS_PER_PAGE);
 
@@ -70,48 +72,65 @@ export default function Home() {
   }, [searchTerm, selectedTags]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
-      <div className="flex pt-14">
-        <Sidebar
-          selectedTags={selectedTags}
-          setSelectedTags={setSelectedTags}
+    <>
+      <Helmet>
+        <title>
+          Warhammer Minus - Tutoriales de Pintura Warhammer 40k y Age of Sigmar publicados en su canal de youtube
+        </title>
+        <meta
+          name="description"
+          content="Colección completa de tutoriales oficiales de pintura Warhammer. Encuentra guías paso a paso para Space Marines, Tyranids, Chaos, Age of Sigmar y más."
+        />
+        <meta
+          name="keywords"
+          content="warhammer, warhammer 40k, painting, tutoriales, citadel, space marines, tyranids, age of sigmar, how to paint"
         />
 
-        <main className="flex-1 p-4 md:p-6 lg:ml-64">
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold">Warhammer Painting Videos</h1>
-            <p className="text-zinc-400">
-              Mostrando {visibleVideos.length} de {filteredVideos.length} videos
-            </p>
+        <meta
+          property="og:title"
+          content="Warhammer Minus - Tutoriales de Pintura"
+        />
+        <meta
+          property="og:description"
+          content="La mejor colección de tutoriales de pintura Warhammer"
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <Sidebar selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+
+      <main className="flex-1 p-4 md:p-6 lg:ml-64">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold">Warhammer Painting Videos</h1>
+          <p className="text-zinc-400">
+            Mostrando {visibleVideos.length} de {filteredVideos.length} videos
+          </p>
+        </div>
+
+        <VideoGrid videos={visibleVideos} />
+
+        {/* Sentinel para Infinite Scroll */}
+        {hasMore && (
+          <div
+            ref={observerTarget}
+            className="h-20 flex items-center justify-center mt-8"
+          >
+            <div className="animate-spin w-6 h-6 border-4 border-zinc-700 border-t-blue-500 rounded-full"></div>
           </div>
+        )}
 
-          <VideoGrid videos={visibleVideos} />
+        {!hasMore && filteredVideos.length > 0 && (
+          <p className="text-center text-zinc-500 py-12">
+            Has visto todos los videos 🎨
+          </p>
+        )}
 
-          {/* Sentinel para Infinite Scroll */}
-          {hasMore && (
-            <div
-              ref={observerTarget}
-              className="h-20 flex items-center justify-center mt-8"
-            >
-              <div className="animate-spin w-6 h-6 border-4 border-zinc-700 border-t-blue-500 rounded-full"></div>
-            </div>
-          )}
-
-          {!hasMore && filteredVideos.length > 0 && (
-            <p className="text-center text-zinc-500 py-12">
-              Has visto todos los videos 🎨
-            </p>
-          )}
-
-          {filteredVideos.length === 0 && (
-            <p className="text-center text-zinc-500 py-20 text-xl">
-              No se encontraron videos con esos filtros
-            </p>
-          )}
-        </main>
-      </div>
-    </div>
+        {filteredVideos.length === 0 && (
+          <p className="text-center text-zinc-500 py-20 text-xl">
+            No se encontraron videos con esos filtros
+          </p>
+        )}
+      </main>
+    </>
   );
 }

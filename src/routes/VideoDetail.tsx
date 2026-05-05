@@ -33,16 +33,7 @@ export default function VideoDetail() {
   );
 
   return (
-    <div className="max-w-5xl mx-auto p-4 md:p-6">
-      {/* Botón volver */}
-      <Link
-        to="/"
-        className="inline-flex items-center gap-2 text-zinc-400 hover:text-white mb-6 group"
-      >
-        <ArrowLeft className="group-hover:-translate-x-1 transition" />
-        Volver a todos los vídeos
-      </Link>
-
+    <main className="flex-1 p-4 md:p-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Video + Info */}
         <div className="lg:col-span-2">
@@ -91,6 +82,6 @@ export default function VideoDetail() {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,13 +1,21 @@
 import { Outlet } from "react-router";
 
+import { SearchProvider } from "~/hooks/useSearch";
+
 import ScrollToTop from "./ScrollToTop";
+import Navbar from "./Navbar";
 
 export default function Layout() {
   return (
-    <>
-      <ScrollToTop />
-      <Outlet />
-      <footer className="border-t border-killteam-steel/20 py-8 mt-12">
+    <SearchProvider>
+      <div className="min-h-screen bg-zinc-950 text-white">
+        <Navbar />
+        <ScrollToTop />
+        <div className="flex pt-14">
+          <Outlet />
+        </div>
+      </div>
+      <footer className="py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-killteam-steel text-sm">
             Unofficial fan-made tool. Not affiliated with Games Workshop Or
@@ -32,6 +40,6 @@ export default function Layout() {
           </div>
         </div>
       </footer>
-    </>
+    </SearchProvider>
   );
 }

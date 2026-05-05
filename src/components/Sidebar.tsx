@@ -7,7 +7,10 @@ interface SidebarProps {
   setSelectedTags: (tags: string[]) => void;
 }
 
-export default function Sidebar({ selectedTags, setSelectedTags }: SidebarProps) {
+export default function Sidebar({
+  selectedTags,
+  setSelectedTags,
+}: SidebarProps) {
   const tags = useMemo(() => {
     // Get all unique tags from the videos
     // with an unique thumbnail for each tag (the first video that has that tag)
@@ -25,10 +28,10 @@ export default function Sidebar({ selectedTags, setSelectedTags }: SidebarProps)
       thumbnail,
     }));
   }, []);
-  
+
   const toggleTag = (tag: string) => {
     if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter(t => t !== tag));
+      setSelectedTags(selectedTags.filter((t) => t !== tag));
     } else {
       setSelectedTags([...selectedTags, tag]);
     }
@@ -36,30 +39,21 @@ export default function Sidebar({ selectedTags, setSelectedTags }: SidebarProps)
 
   return (
     <aside className="w-64 hidden lg:block fixed border-r border-zinc-800 h-[calc(100vh-56px)] overflow-y-auto p-4">
-      <div className="mb-6">
-        <h3 className="text-sm font-semibold text-zinc-400 mb-3">EXPLORAR</h3>
-        <button className="flex items-center gap-4 w-full p-3 hover:bg-zinc-800 rounded-xl text-left">
-          <span>🏠</span> <span>Inicio</span>
-        </button>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold text-zinc-400 mb-3">TAGS</h3>
-        <div className="flex flex-wrap gap-2">
-          {tags.map(({ tag, thumbnail }) => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`px-4 py-1.5 text-sm rounded-full border transition-colors cursor-pointer ${
-                selectedTags.includes(tag)
-                  ? 'bg-blue-600 border-blue-600 text-white'
-                  : 'border-zinc-700 hover:border-zinc-500'
-              }`}
-            >
-              #{tag}
-            </button>
-          ))}
-        </div>
+      <h3 className="text-sm font-semibold text-zinc-400 mb-3">TAGS</h3>
+      <div className="flex flex-wrap gap-2">
+        {tags.map(({ tag, thumbnail }) => (
+          <button
+            key={tag}
+            onClick={() => toggleTag(tag)}
+            className={`px-4 py-1.5 text-sm rounded-full border transition-colors cursor-pointer ${
+              selectedTags.includes(tag)
+                ? "bg-blue-600 border-blue-600 text-white"
+                : "border-zinc-700 hover:border-zinc-500"
+            }`}
+          >
+            #{tag}
+          </button>
+        ))}
       </div>
     </aside>
   );
