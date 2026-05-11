@@ -1,11 +1,13 @@
-import { Search } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 
 import { useSearch } from "~/hooks/useSearch";
+import { useSidebar } from "~/hooks/useSidebar";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const { searchTerm, setSearchTerm } = useSearch();
+  const { toggleSidebar } = useSidebar();
 
   function search() {
     navigate(`/?q=${encodeURIComponent(searchTerm)}`);
@@ -14,6 +16,15 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-zinc-900 border-b border-zinc-800 z-50">
       <div className="flex items-center justify-between px-4 h-14">
+        {/* Mobile menu button */}
+        <button
+          onClick={toggleSidebar}
+          className="p-2 hover:bg-zinc-800 rounded-full lg:hidden"
+          aria-label="Toggle sidebar"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+
         {/* Logo + Menú */}
         <div className="items-center gap-4 hidden md:flex">
           <button className="p-2 hover:bg-zinc-800 rounded-full">

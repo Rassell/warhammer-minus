@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { useSearch } from "~/hooks/useSearch";
+import { useSidebar } from "~/hooks/useSidebar";
 
 import VideoGrid from "../components/VideoGrid";
 import Sidebar from "../components/Sidebar";
@@ -12,6 +13,7 @@ const VIDEOS_PER_PAGE = 16;
 
 export default function Home() {
   const { searchTerm } = useSearch();
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(VIDEOS_PER_PAGE);
 
@@ -96,6 +98,14 @@ export default function Home() {
         />
         <meta property="og:type" content="website" />
       </Helmet>
+
+      {/* Mobile backdrop */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          onClick={toggleSidebar}
+        />
+      )}
 
       <Sidebar selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
 
