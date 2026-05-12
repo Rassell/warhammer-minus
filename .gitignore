@@ -3,4 +3,5 @@
 /node_modules/
 /dist/
 /.venv/
-.vscode/
+/.vscode/
+**/__pycache__/

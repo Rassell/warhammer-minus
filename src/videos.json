@@ -7,9 +7,11 @@
     "thumbnail": "https://i.ytimg.com/vi/1s5kiDmvemI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1s5kiDmvemI",
     "tags": [
-      "intermediate",
       "40k",
-      "advanced"
+      "advanced",
+      "intermediate",
+      "raven guard",
+      "space marines"
     ]
   },
   {
@@ -21,7 +23,9 @@
     "url": "https://www.youtube.com/watch?v=c0GGtJ72YUc",
     "tags": [
       "40k",
-      "bases"
+      "bases",
+      "citadel products",
+      "contrast paints"
     ]
   },
   {
@@ -32,8 +36,9 @@
     "thumbnail": "https://i.ytimg.com/vi/yRVCKZqF11o/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yRVCKZqF11o",
     "tags": [
+      "advanced",
       "aos",
-      "advanced"
+      "stormcast eternals"
     ]
   },
   {
@@ -45,7 +50,9 @@
     "url": "https://www.youtube.com/watch?v=yYFJHC9jJuQ",
     "tags": [
       "bases",
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -56,9 +63,11 @@
     "thumbnail": "https://i.ytimg.com/vi/-jP-QpRKRwA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-jP-QpRKRwA",
     "tags": [
-      "skin",
+      "aos",
+      "flesh-eater courts",
       "intermediate",
-      "aos"
+      "skin",
+      "textures & materials"
     ]
   },
   {
@@ -69,8 +78,11 @@
     "thumbnail": "https://i.ytimg.com/vi/mpTRu_0pUgM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=mpTRu_0pUgM",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "iron warriors"
     ]
   },
   {
@@ -94,7 +106,12 @@
     "thumbnail": "https://i.ytimg.com/vi/WGB9CiDnEbE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=WGB9CiDnEbE",
     "tags": [
-      "space marines"
+      "40k",
+      "armour",
+      "cloth",
+      "dark angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -105,8 +122,11 @@
     "thumbnail": "https://i.ytimg.com/vi/QqdZfzGPiEQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QqdZfzGPiEQ",
     "tags": [
-      "horus heresy",
-      "chaos space marines"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "death guard",
+      "horus heresy"
     ]
   },
   {
@@ -117,8 +137,9 @@
     "thumbnail": "https://i.ytimg.com/vi/kiQUYlzD92o/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kiQUYlzD92o",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
+      "painting essentials",
       "tyranids"
     ]
   },
@@ -143,7 +164,8 @@
     "url": "https://www.youtube.com/watch?v=_odi1c7ErCg",
     "tags": [
       "40k",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -153,7 +175,12 @@
     "publishedAt": "2023-04-18T10:24:33Z",
     "thumbnail": "https://i.ytimg.com/vi/uJ4sng1rMb8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=uJ4sng1rMb8",
-    "tags": []
+    "tags": [
+      "40k",
+      "blood angels",
+      "space marines",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "I3TCC6blJ_8",
@@ -162,7 +189,9 @@
     "publishedAt": "2025-02-21T16:42:05Z",
     "thumbnail": "https://i.ytimg.com/vi/I3TCC6blJ_8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I3TCC6blJ_8",
-    "tags": []
+    "tags": [
+      "contrast paints"
+    ]
   },
   {
     "videoId": "DXieGD_h8CI",
@@ -172,8 +201,10 @@
     "thumbnail": "https://i.ytimg.com/vi/DXieGD_h8CI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DXieGD_h8CI",
     "tags": [
+      "40k",
       "horus heresy",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -184,8 +215,11 @@
     "thumbnail": "https://i.ytimg.com/vi/DkwrGhK9U5A/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DkwrGhK9U5A",
     "tags": [
+      "40k",
+      "custodes",
       "intermediate",
-      "40k"
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -196,8 +230,8 @@
     "thumbnail": "https://i.ytimg.com/vi/RyeDXJiqlfM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RyeDXJiqlfM",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
       "necrons"
     ]
   },
@@ -208,7 +242,9 @@
     "publishedAt": "2018-01-12T21:00:03Z",
     "thumbnail": "https://i.ytimg.com/vi/ZBI77q35hHk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZBI77q35hHk",
-    "tags": []
+    "tags": [
+      "chaos"
+    ]
   },
   {
     "videoId": "odEvEhbMxN4",
@@ -230,9 +266,9 @@
     "thumbnail": "https://i.ytimg.com/vi/-DAhOqZ3mP0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-DAhOqZ3mP0",
     "tags": [
-      "skin",
       "aos",
-      "beginner"
+      "beginner",
+      "skin"
     ]
   },
   {
@@ -267,6 +303,8 @@
     "thumbnail": "https://i.ytimg.com/vi/fBUqwBwODdE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fBUqwBwODdE",
     "tags": [
+      "40k",
+      "dark angels",
       "horus heresy",
       "space marines"
     ]
@@ -291,8 +329,13 @@
     "thumbnail": "https://i.ytimg.com/vi/C1z0GF-Uh3M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=C1z0GF-Uh3M",
     "tags": [
+      "40k",
+      "armour",
       "beginner",
-      "space marines"
+      "space marines",
+      "tyranids",
+      "ultramarines",
+      "weapons"
     ]
   },
   {
@@ -315,7 +358,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ZzvbNViZZao/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZzvbNViZZao",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -325,7 +370,11 @@
     "publishedAt": "2015-12-02T09:07:40Z",
     "thumbnail": "https://i.ytimg.com/vi/34L2g_b3oY0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=34L2g_b3oY0",
-    "tags": []
+    "tags": [
+      "40k",
+      "aos",
+      "chaos"
+    ]
   },
   {
     "videoId": "gNNyTNtgI-Q",
@@ -335,8 +384,8 @@
     "thumbnail": "https://i.ytimg.com/vi/gNNyTNtgI-Q/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gNNyTNtgI-Q",
     "tags": [
-      "vehicles",
-      "cloth"
+      "cloth",
+      "vehicles"
     ]
   },
   {
@@ -346,7 +395,10 @@
     "publishedAt": "2023-08-25T09:30:16Z",
     "thumbnail": "https://i.ytimg.com/vi/phU0ofmSm0w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=phU0ofmSm0w",
-    "tags": []
+    "tags": [
+      "painting essentials",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "kkoXPHyVrus",
@@ -369,7 +421,11 @@
     "tags": [
       "40k",
       "advanced",
-      "space marines"
+      "armour",
+      "cloth",
+      "dark angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -380,9 +436,10 @@
     "thumbnail": "https://i.ytimg.com/vi/g9HzqHVg1uE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=g9HzqHVg1uE",
     "tags": [
-      "textures & materials",
       "40k",
-      "space marines"
+      "blood angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -393,7 +450,10 @@
     "thumbnail": "https://i.ytimg.com/vi/P4XaOQKaBpI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=P4XaOQKaBpI",
     "tags": [
-      "beginner"
+      "bases",
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -404,8 +464,10 @@
     "thumbnail": "https://i.ytimg.com/vi/3KezsBrUCvk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3KezsBrUCvk",
     "tags": [
+      "40k",
+      "advanced",
       "intermediate",
-      "40k"
+      "weapons"
     ]
   },
   {
@@ -415,7 +477,9 @@
     "publishedAt": "2021-10-29T11:04:06Z",
     "thumbnail": "https://i.ytimg.com/vi/wlFPWTATBe8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wlFPWTATBe8",
-    "tags": []
+    "tags": [
+      "middle earth"
+    ]
   },
   {
     "videoId": "cjC7Rp_pYdI",
@@ -425,9 +489,11 @@
     "thumbnail": "https://i.ytimg.com/vi/cjC7Rp_pYdI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=cjC7Rp_pYdI",
     "tags": [
+      "40k",
       "armour",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -450,7 +516,9 @@
     "thumbnail": "https://i.ytimg.com/vi/-ARH90AYy3A/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-ARH90AYy3A",
     "tags": [
+      "40k",
       "horus heresy",
+      "imperial fists",
       "space marines"
     ]
   },
@@ -462,6 +530,8 @@
     "thumbnail": "https://i.ytimg.com/vi/D1Ni5A9p-Ng/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=D1Ni5A9p-Ng",
     "tags": [
+      "40k",
+      "dark angels",
       "space marines"
     ]
   },
@@ -485,7 +555,8 @@
     "url": "https://www.youtube.com/watch?v=4OyG_jFE0bY",
     "tags": [
       "aos",
-      "beginner"
+      "beginner",
+      "stormcast eternals"
     ]
   },
   {
@@ -496,9 +567,11 @@
     "thumbnail": "https://i.ytimg.com/vi/lRZzbWeNdOs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lRZzbWeNdOs",
     "tags": [
-      "intermediate",
       "40k",
-      "orcs"
+      "intermediate",
+      "orcs",
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -509,7 +582,9 @@
     "thumbnail": "https://i.ytimg.com/vi/AGsVQGKDfO8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=AGsVQGKDfO8",
     "tags": [
+      "40k",
       "horus heresy",
+      "raven guard",
       "space marines"
     ]
   },
@@ -521,8 +596,9 @@
     "thumbnail": "https://i.ytimg.com/vi/_u0cFgi9Lnw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_u0cFgi9Lnw",
     "tags": [
+      "aos",
       "intermediate",
-      "aos"
+      "stormcast eternals"
     ]
   },
   {
@@ -533,9 +609,12 @@
     "thumbnail": "https://i.ytimg.com/vi/G5NjILq-IsE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=G5NjILq-IsE",
     "tags": [
-      "chaos space marines",
+      "40k",
       "beginner",
-      "space marines"
+      "chaos",
+      "chaos space marines",
+      "space marines",
+      "thousand sons"
     ]
   },
   {
@@ -546,8 +625,8 @@
     "thumbnail": "https://i.ytimg.com/vi/B32cpnG7L6s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=B32cpnG7L6s",
     "tags": [
-      "aos",
-      "advanced"
+      "advanced",
+      "aos"
     ]
   },
   {
@@ -558,8 +637,11 @@
     "thumbnail": "https://i.ytimg.com/vi/v07WWAyJ3Z4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=v07WWAyJ3Z4",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "metal",
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -570,8 +652,11 @@
     "thumbnail": "https://i.ytimg.com/vi/cNWJKFWGusA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=cNWJKFWGusA",
     "tags": [
+      "advanced",
       "aos",
-      "advanced"
+      "flesh-eater courts",
+      "skin",
+      "textures & materials"
     ]
   },
   {
@@ -582,7 +667,8 @@
     "thumbnail": "https://i.ytimg.com/vi/P_oYMKB-QqA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=P_oYMKB-QqA",
     "tags": [
-      "beginner"
+      "beginner",
+      "painting essentials"
     ]
   },
   {
@@ -593,6 +679,10 @@
     "thumbnail": "https://i.ytimg.com/vi/TwmiZ1y7DT0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TwmiZ1y7DT0",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children",
       "horus heresy"
     ]
   },
@@ -604,6 +694,11 @@
     "thumbnail": "https://i.ytimg.com/vi/GXzpLlOyI5M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GXzpLlOyI5M",
     "tags": [
+      "40k",
+      "aos",
+      "chaos",
+      "gloomspite gitz",
+      "orcs",
       "skin"
     ]
   },
@@ -615,6 +710,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ghE8Qk_Wpkc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ghE8Qk_Wpkc",
     "tags": [
+      "aos",
       "intermediate"
     ]
   },
@@ -626,9 +722,11 @@
     "thumbnail": "https://i.ytimg.com/vi/DVb79O0XLlQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DVb79O0XLlQ",
     "tags": [
-      "skin",
+      "40k",
       "horus heresy",
-      "space marines"
+      "skin",
+      "space marines",
+      "white scars"
     ]
   },
   {
@@ -639,8 +737,8 @@
     "thumbnail": "https://i.ytimg.com/vi/enUqWuU-Nns/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=enUqWuU-Nns",
     "tags": [
-      "astra militarum",
-      "40k"
+      "40k",
+      "astra militarum"
     ]
   },
   {
@@ -651,9 +749,12 @@
     "thumbnail": "https://i.ytimg.com/vi/ofvf454Ws_w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ofvf454Ws_w",
     "tags": [
+      "40k",
       "armour",
       "beginner",
-      "space marines"
+      "space marines",
+      "textures & materials",
+      "ultramarines"
     ]
   },
   {
@@ -664,8 +765,11 @@
     "thumbnail": "https://i.ytimg.com/vi/CJ8LDV_xVmg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=CJ8LDV_xVmg",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "dark angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -676,7 +780,8 @@
     "thumbnail": "https://i.ytimg.com/vi/X_Y61xmylas/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=X_Y61xmylas",
     "tags": [
-      "aos"
+      "aos",
+      "stormcast eternals"
     ]
   },
   {
@@ -687,7 +792,9 @@
     "thumbnail": "https://i.ytimg.com/vi/dbLXbYQqqh8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dbLXbYQqqh8",
     "tags": [
+      "40k",
       "beginner",
+      "contrast paints",
       "orcs"
     ]
   },
@@ -699,7 +806,8 @@
     "thumbnail": "https://i.ytimg.com/vi/iH7P5Z_iQ8A/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iH7P5Z_iQ8A",
     "tags": [
-      "40k"
+      "40k",
+      "orcs"
     ]
   },
   {
@@ -709,7 +817,10 @@
     "publishedAt": "2022-07-14T07:47:57Z",
     "thumbnail": "https://i.ytimg.com/vi/fQQ8YXA1xuo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fQQ8YXA1xuo",
-    "tags": []
+    "tags": [
+      "citadel products",
+      "painting essentials"
+    ]
   },
   {
     "videoId": "7AR3K6pfJ60",
@@ -719,8 +830,12 @@
     "thumbnail": "https://i.ytimg.com/vi/7AR3K6pfJ60/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7AR3K6pfJ60",
     "tags": [
+      "40k",
+      "beginner",
+      "chaos",
       "chaos space marines",
-      "beginner"
+      "death guard",
+      "horus heresy"
     ]
   },
   {
@@ -731,6 +846,7 @@
     "thumbnail": "https://i.ytimg.com/vi/qIP__jqk2Gs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=qIP__jqk2Gs",
     "tags": [
+      "40k",
       "horus heresy",
       "salamanders",
       "space marines"
@@ -744,7 +860,10 @@
     "thumbnail": "https://i.ytimg.com/vi/UBNN_QZth-I/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UBNN_QZth-I",
     "tags": [
-      "skin"
+      "40k",
+      "dark angels",
+      "skin",
+      "space marines"
     ]
   },
   {
@@ -754,7 +873,11 @@
     "publishedAt": "2018-08-20T11:44:43Z",
     "thumbnail": "https://i.ytimg.com/vi/Jl9NszJDxt4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Jl9NszJDxt4",
-    "tags": []
+    "tags": [
+      "aos",
+      "horus heresy",
+      "stormcast eternals"
+    ]
   },
   {
     "videoId": "6WrOvtKa7ks",
@@ -775,9 +898,12 @@
     "thumbnail": "https://i.ytimg.com/vi/-HOLM7dXiyk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-HOLM7dXiyk",
     "tags": [
-      "chaos space marines",
       "40k",
-      "space marines"
+      "chaos",
+      "chaos space marines",
+      "metal",
+      "space marines",
+      "thousand sons"
     ]
   },
   {
@@ -788,9 +914,11 @@
     "thumbnail": "https://i.ytimg.com/vi/ezXDnZHRGms/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ezXDnZHRGms",
     "tags": [
+      "40k",
+      "blood angels",
       "horus heresy",
-      "textures & materials",
-      "space marines"
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -801,6 +929,7 @@
     "thumbnail": "https://i.ytimg.com/vi/m9np29lxED4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=m9np29lxED4",
     "tags": [
+      "40k",
       "old world",
       "orcs"
     ]
@@ -813,8 +942,10 @@
     "thumbnail": "https://i.ytimg.com/vi/NLNhzpx785M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NLNhzpx785M",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
+      "orcs",
+      "painting essentials",
       "space marines"
     ]
   },
@@ -826,8 +957,11 @@
     "thumbnail": "https://i.ytimg.com/vi/1OSHoDM3fgo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1OSHoDM3fgo",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "world eaters"
     ]
   },
   {
@@ -838,7 +972,9 @@
     "thumbnail": "https://i.ytimg.com/vi/nHisCEBvd1o/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nHisCEBvd1o",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -849,7 +985,9 @@
     "thumbnail": "https://i.ytimg.com/vi/TnJmtAT6TXY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TnJmtAT6TXY",
     "tags": [
-      "beginner"
+      "beginner",
+      "contrast paints",
+      "painting essentials"
     ]
   },
   {
@@ -860,7 +998,8 @@
     "thumbnail": "https://i.ytimg.com/vi/HHRR_q7iC-Y/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HHRR_q7iC-Y",
     "tags": [
-      "40k"
+      "40k",
+      "weapons"
     ]
   },
   {
@@ -871,9 +1010,10 @@
     "thumbnail": "https://i.ytimg.com/vi/NEAZX3wH48k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NEAZX3wH48k",
     "tags": [
+      "40k",
       "horus heresy",
-      "space wolves",
-      "space marines"
+      "space marines",
+      "space wolves"
     ]
   },
   {
@@ -895,7 +1035,9 @@
     "thumbnail": "https://i.ytimg.com/vi/b0AkG4KVMaQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=b0AkG4KVMaQ",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -906,8 +1048,10 @@
     "thumbnail": "https://i.ytimg.com/vi/3cmqP3-DlY8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3cmqP3-DlY8",
     "tags": [
-      "sororitas",
-      "armour"
+      "40k",
+      "armour",
+      "orcs",
+      "sororitas"
     ]
   },
   {
@@ -918,9 +1062,12 @@
     "thumbnail": "https://i.ytimg.com/vi/wE_R0bX_4fg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wE_R0bX_4fg",
     "tags": [
-      "intermediate",
       "aos",
-      "armour"
+      "armour",
+      "intermediate",
+      "metal",
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -931,7 +1078,9 @@
     "thumbnail": "https://i.ytimg.com/vi/3t07rrSSATg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3t07rrSSATg",
     "tags": [
-      "intermediate"
+      "aos",
+      "intermediate",
+      "metal"
     ]
   },
   {
@@ -942,8 +1091,9 @@
     "thumbnail": "https://i.ytimg.com/vi/fCybi5r71RE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fCybi5r71RE",
     "tags": [
-      "vehicles",
-      "40k"
+      "40k",
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -954,7 +1104,9 @@
     "thumbnail": "https://i.ytimg.com/vi/Pq2c-kIuopk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Pq2c-kIuopk",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -965,7 +1117,8 @@
     "thumbnail": "https://i.ytimg.com/vi/vLsteSBHEcM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=vLsteSBHEcM",
     "tags": [
-      "40k"
+      "40k",
+      "adeptus mechanicus"
     ]
   },
   {
@@ -976,7 +1129,9 @@
     "thumbnail": "https://i.ytimg.com/vi/UFsX5Ejri0Y/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UFsX5Ejri0Y",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -998,8 +1153,10 @@
     "thumbnail": "https://i.ytimg.com/vi/-7PLSmFk3yw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-7PLSmFk3yw",
     "tags": [
-      "skin",
+      "40k",
       "horus heresy",
+      "iron hands",
+      "skin",
       "space marines"
     ]
   },
@@ -1022,7 +1179,9 @@
     "publishedAt": "2024-02-05T16:00:32Z",
     "thumbnail": "https://i.ytimg.com/vi/b1reqyjG9qs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=b1reqyjG9qs",
-    "tags": []
+    "tags": [
+      "metal"
+    ]
   },
   {
     "videoId": "_hlGnkTKNDw",
@@ -1032,7 +1191,10 @@
     "thumbnail": "https://i.ytimg.com/vi/_hlGnkTKNDw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_hlGnkTKNDw",
     "tags": [
-      "intermediate"
+      "citadel products",
+      "contrast paints",
+      "intermediate",
+      "painting essentials"
     ]
   },
   {
@@ -1056,7 +1218,9 @@
     "url": "https://www.youtube.com/watch?v=Q2BjTl4jDEU",
     "tags": [
       "bases",
-      "beginner"
+      "beginner",
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -1067,6 +1231,7 @@
     "thumbnail": "https://i.ytimg.com/vi/39nz6YsYKiw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=39nz6YsYKiw",
     "tags": [
+      "40k",
       "beginner",
       "eldar"
     ]
@@ -1079,7 +1244,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ejXlcA1Mjs4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ejXlcA1Mjs4",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -1101,8 +1268,12 @@
     "thumbnail": "https://i.ytimg.com/vi/YyV5EIt8n6I/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=YyV5EIt8n6I",
     "tags": [
-      "vehicles",
-      "chaos space marines"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "death guard",
+      "horus heresy",
+      "vehicles"
     ]
   },
   {
@@ -1113,8 +1284,9 @@
     "thumbnail": "https://i.ytimg.com/vi/zpDbpu4LvWM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zpDbpu4LvWM",
     "tags": [
-      "orcs",
       "40k",
+      "orcs",
+      "skin",
       "space marines"
     ]
   },
@@ -1126,8 +1298,7 @@
     "thumbnail": "https://i.ytimg.com/vi/XHD4PNJjijo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XHD4PNJjijo",
     "tags": [
-      "intermediate",
-      "space marines"
+      "intermediate"
     ]
   },
   {
@@ -1138,8 +1309,8 @@
     "thumbnail": "https://i.ytimg.com/vi/kGSiHa6m0H8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kGSiHa6m0H8",
     "tags": [
-      "chaos",
-      "aos"
+      "aos",
+      "chaos"
     ]
   },
   {
@@ -1150,7 +1321,6 @@
     "thumbnail": "https://i.ytimg.com/vi/1OT1e8ovG6k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1OT1e8ovG6k",
     "tags": [
-      "textures & materials",
       "bases"
     ]
   },
@@ -1162,6 +1332,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ypiiuvHHD5k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ypiiuvHHD5k",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -1174,8 +1345,8 @@
     "thumbnail": "https://i.ytimg.com/vi/zE69_NgKqBc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zE69_NgKqBc",
     "tags": [
-      "skin",
-      "intermediate"
+      "intermediate",
+      "skin"
     ]
   },
   {
@@ -1186,7 +1357,9 @@
     "thumbnail": "https://i.ytimg.com/vi/j4dwq5Nt6d8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=j4dwq5Nt6d8",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -1197,6 +1370,7 @@
     "thumbnail": "https://i.ytimg.com/vi/CE9YWs-CYR8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=CE9YWs-CYR8",
     "tags": [
+      "chaos",
       "textures & materials"
     ]
   },
@@ -1208,9 +1382,9 @@
     "thumbnail": "https://i.ytimg.com/vi/IUwmagx3mnc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IUwmagx3mnc",
     "tags": [
-      "intermediate",
       "aos",
-      "bases"
+      "bases",
+      "intermediate"
     ]
   },
   {
@@ -1221,7 +1395,9 @@
     "thumbnail": "https://i.ytimg.com/vi/DD166ICwB8M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DD166ICwB8M",
     "tags": [
-      "tau"
+      "40k",
+      "tau",
+      "textures & materials"
     ]
   },
   {
@@ -1243,7 +1419,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ecLescF9CGY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ecLescF9CGY",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -1254,7 +1432,10 @@
     "thumbnail": "https://i.ytimg.com/vi/qugy4x9E4NE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=qugy4x9E4NE",
     "tags": [
-      "40k"
+      "40k",
+      "necrons",
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -1299,7 +1480,8 @@
     "thumbnail": "https://i.ytimg.com/vi/JotmitVvwlQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JotmitVvwlQ",
     "tags": [
-      "beginner"
+      "beginner",
+      "painting essentials"
     ]
   },
   {
@@ -1310,7 +1492,11 @@
     "thumbnail": "https://i.ytimg.com/vi/mpz9FJlRfQ8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=mpz9FJlRfQ8",
     "tags": [
-      "chaos space marines"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "death guard",
+      "horus heresy"
     ]
   },
   {
@@ -1321,8 +1507,10 @@
     "thumbnail": "https://i.ytimg.com/vi/Cs5AnVHPNgU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Cs5AnVHPNgU",
     "tags": [
-      "salamanders",
+      "40k",
+      "armour",
       "beginner",
+      "salamanders",
       "space marines"
     ]
   },
@@ -1333,7 +1521,10 @@
     "publishedAt": "2023-09-12T09:30:08Z",
     "thumbnail": "https://i.ytimg.com/vi/ZDRkJfuptEs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZDRkJfuptEs",
-    "tags": []
+    "tags": [
+      "aos",
+      "gloomspite gitz"
+    ]
   },
   {
     "videoId": "8oD64fWj-Sc",
@@ -1355,7 +1546,9 @@
     "thumbnail": "https://i.ytimg.com/vi/Cs0ubfKJJBY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Cs0ubfKJJBY",
     "tags": [
-      "beginner"
+      "beginner",
+      "chaos",
+      "textures & materials"
     ]
   },
   {
@@ -1366,7 +1559,8 @@
     "thumbnail": "https://i.ytimg.com/vi/DIfPCbLP4Sc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DIfPCbLP4Sc",
     "tags": [
-      "aos"
+      "aos",
+      "underworlds"
     ]
   },
   {
@@ -1378,8 +1572,8 @@
     "url": "https://www.youtube.com/watch?v=8QkUr107RpU",
     "tags": [
       "bases",
-      "kill team",
-      "beginner"
+      "beginner",
+      "kill team"
     ]
   },
   {
@@ -1390,7 +1584,9 @@
     "thumbnail": "https://i.ytimg.com/vi/FW5Rlt-W7Yo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=FW5Rlt-W7Yo",
     "tags": [
-      "beginner"
+      "beginner",
+      "citadel products",
+      "painting essentials"
     ]
   },
   {
@@ -1401,8 +1597,8 @@
     "thumbnail": "https://i.ytimg.com/vi/BqZK0gYPBYM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=BqZK0gYPBYM",
     "tags": [
-      "skin",
-      "chaos"
+      "chaos",
+      "skin"
     ]
   },
   {
@@ -1414,7 +1610,7 @@
     "url": "https://www.youtube.com/watch?v=BtYN3PDaH3M",
     "tags": [
       "intermediate",
-      "metal"
+      "textures & materials"
     ]
   },
   {
@@ -1437,6 +1633,7 @@
     "thumbnail": "https://i.ytimg.com/vi/dN2wGB11j6s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dN2wGB11j6s",
     "tags": [
+      "40k",
       "eldar"
     ]
   },
@@ -1448,8 +1645,8 @@
     "thumbnail": "https://i.ytimg.com/vi/yHfPytAWtLQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yHfPytAWtLQ",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "intermediate"
     ]
   },
   {
@@ -1460,7 +1657,9 @@
     "thumbnail": "https://i.ytimg.com/vi/nBbB1mGVrUE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nBbB1mGVrUE",
     "tags": [
-      "eldar"
+      "40k",
+      "eldar",
+      "harlequins"
     ]
   },
   {
@@ -1471,9 +1670,10 @@
     "thumbnail": "https://i.ytimg.com/vi/mjujMKr4aJs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=mjujMKr4aJs",
     "tags": [
+      "40k",
       "horus heresy",
-      "space wolves",
-      "space marines"
+      "space marines",
+      "space wolves"
     ]
   },
   {
@@ -1484,9 +1684,10 @@
     "thumbnail": "https://i.ytimg.com/vi/y0ZmOafGDpk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=y0ZmOafGDpk",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos"
     ]
   },
   {
@@ -1497,7 +1698,10 @@
     "thumbnail": "https://i.ytimg.com/vi/kqbn3icwjzI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kqbn3icwjzI",
     "tags": [
-      "40k"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children"
     ]
   },
   {
@@ -1507,7 +1711,9 @@
     "publishedAt": "2019-12-09T17:00:15Z",
     "thumbnail": "https://i.ytimg.com/vi/W2JxDSXXjGk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=W2JxDSXXjGk",
-    "tags": []
+    "tags": [
+      "middle earth"
+    ]
   },
   {
     "videoId": "xdCeea4Io90",
@@ -1516,7 +1722,11 @@
     "publishedAt": "2022-04-25T10:00:33Z",
     "thumbnail": "https://i.ytimg.com/vi/xdCeea4Io90/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xdCeea4Io90",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "b6KNdeMhC-Q",
@@ -1526,7 +1736,9 @@
     "thumbnail": "https://i.ytimg.com/vi/b6KNdeMhC-Q/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=b6KNdeMhC-Q",
     "tags": [
+      "40k",
       "beginner",
+      "textures & materials",
       "tyranids"
     ]
   },
@@ -1551,7 +1763,8 @@
     "url": "https://www.youtube.com/watch?v=rKumrvcfKLA",
     "tags": [
       "40k",
-      "beginner"
+      "beginner",
+      "space marines"
     ]
   },
   {
@@ -1562,9 +1775,12 @@
     "thumbnail": "https://i.ytimg.com/vi/-bq0ayOVmxw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-bq0ayOVmxw",
     "tags": [
-      "vehicles",
+      "40k",
+      "chaos",
       "chaos space marines",
-      "tyranids"
+      "space marines",
+      "tyranids",
+      "world eaters"
     ]
   },
   {
@@ -1575,9 +1791,9 @@
     "thumbnail": "https://i.ytimg.com/vi/0OkoTCcFPgE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0OkoTCcFPgE",
     "tags": [
-      "skin",
       "aos",
-      "space marines"
+      "bases",
+      "skin"
     ]
   },
   {
@@ -1598,7 +1814,10 @@
     "publishedAt": "2023-12-15T17:04:01Z",
     "thumbnail": "https://i.ytimg.com/vi/m_B-OB-JXe0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=m_B-OB-JXe0",
-    "tags": []
+    "tags": [
+      "advanced",
+      "metal"
+    ]
   },
   {
     "videoId": "MgVr4U4BnFk",
@@ -1608,7 +1827,9 @@
     "thumbnail": "https://i.ytimg.com/vi/MgVr4U4BnFk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=MgVr4U4BnFk",
     "tags": [
+      "40k",
       "beginner",
+      "painting essentials",
       "tyranids"
     ]
   },
@@ -1620,6 +1841,8 @@
     "thumbnail": "https://i.ytimg.com/vi/OIZ15rL-CwE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=OIZ15rL-CwE",
     "tags": [
+      "40k",
+      "beginner",
       "necrons"
     ]
   },
@@ -1631,8 +1854,10 @@
     "thumbnail": "https://i.ytimg.com/vi/jQtn_w-9u0Y/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jQtn_w-9u0Y",
     "tags": [
+      "beginner",
       "intermediate",
-      "old world"
+      "old world",
+      "textures & materials"
     ]
   },
   {
@@ -1643,7 +1868,11 @@
     "thumbnail": "https://i.ytimg.com/vi/buYS_Zvvzr0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=buYS_Zvvzr0",
     "tags": [
-      "armour"
+      "40k",
+      "aos",
+      "armour",
+      "chaos",
+      "necrons"
     ]
   },
   {
@@ -1653,7 +1882,10 @@
     "publishedAt": "2023-11-10T16:00:18Z",
     "thumbnail": "https://i.ytimg.com/vi/SD0HBT6c8MY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SD0HBT6c8MY",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs"
+    ]
   },
   {
     "videoId": "MDZSvLZYH9Y",
@@ -1673,7 +1905,10 @@
     "publishedAt": "2014-06-02T09:40:29Z",
     "thumbnail": "https://i.ytimg.com/vi/S9bDoIMCSfk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=S9bDoIMCSfk",
-    "tags": []
+    "tags": [
+      "citadel products",
+      "painting essentials"
+    ]
   },
   {
     "videoId": "XrPIRZE4Yv8",
@@ -1694,7 +1929,10 @@
     "publishedAt": "2023-08-30T13:42:20Z",
     "thumbnail": "https://i.ytimg.com/vi/RGuFuDCtoE0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RGuFuDCtoE0",
-    "tags": []
+    "tags": [
+      "citadel products",
+      "painting essentials"
+    ]
   },
   {
     "videoId": "BysZrKKnQ0Q",
@@ -1704,6 +1942,8 @@
     "thumbnail": "https://i.ytimg.com/vi/BysZrKKnQ0Q/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=BysZrKKnQ0Q",
     "tags": [
+      "40k",
+      "aos",
       "beginner",
       "orcs"
     ]
@@ -1715,7 +1955,9 @@
     "publishedAt": "2019-08-09T12:53:34Z",
     "thumbnail": "https://i.ytimg.com/vi/M1K2NFrmQK4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=M1K2NFrmQK4",
-    "tags": []
+    "tags": [
+      "contrast paints"
+    ]
   },
   {
     "videoId": "prl_DQ5ZMKI",
@@ -1725,7 +1967,8 @@
     "thumbnail": "https://i.ytimg.com/vi/prl_DQ5ZMKI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=prl_DQ5ZMKI",
     "tags": [
-      "armour"
+      "armour",
+      "metal"
     ]
   },
   {
@@ -1736,9 +1979,13 @@
     "thumbnail": "https://i.ytimg.com/vi/iXh2wTQdrxU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iXh2wTQdrxU",
     "tags": [
-      "textures & materials",
+      "40k",
+      "armour",
       "beginner",
-      "space marines"
+      "blood angels",
+      "orcs",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -1749,6 +1996,8 @@
     "thumbnail": "https://i.ytimg.com/vi/sGy13fiJAs8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=sGy13fiJAs8",
     "tags": [
+      "40k",
+      "textures & materials",
       "tyranids"
     ]
   },
@@ -1772,6 +2021,10 @@
     "thumbnail": "https://i.ytimg.com/vi/-hCnul0yoVU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-hCnul0yoVU",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children",
       "horus heresy"
     ]
   },
@@ -1783,9 +2036,10 @@
     "thumbnail": "https://i.ytimg.com/vi/SJVG3BuZNYA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SJVG3BuZNYA",
     "tags": [
-      "skin",
-      "textures & materials",
-      "beginner"
+      "40k",
+      "beginner",
+      "orcs",
+      "textures & materials"
     ]
   },
   {
@@ -1796,6 +2050,8 @@
     "thumbnail": "https://i.ytimg.com/vi/kCBLsXvQyDU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kCBLsXvQyDU",
     "tags": [
+      "40k",
+      "contrast paints",
       "orcs"
     ]
   },
@@ -1807,7 +2063,10 @@
     "thumbnail": "https://i.ytimg.com/vi/1hHtolZ-sV8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1hHtolZ-sV8",
     "tags": [
-      "armour"
+      "40k",
+      "armour",
+      "genestealer cults",
+      "kill team"
     ]
   },
   {
@@ -1817,7 +2076,10 @@
     "publishedAt": "2020-09-08T17:00:56Z",
     "thumbnail": "https://i.ytimg.com/vi/7LN0Ezjex3M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7LN0Ezjex3M",
-    "tags": []
+    "tags": [
+      "aos",
+      "armour"
+    ]
   },
   {
     "videoId": "dFOE_3KiFPg",
@@ -1849,6 +2111,7 @@
     "thumbnail": "https://i.ytimg.com/vi/TVKkbzofKQM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TVKkbzofKQM",
     "tags": [
+      "40k",
       "beginner",
       "orcs"
     ]
@@ -1861,8 +2124,8 @@
     "thumbnail": "https://i.ytimg.com/vi/IqCvcnvrOIk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IqCvcnvrOIk",
     "tags": [
-      "skin",
       "intermediate",
+      "skin",
       "textures & materials"
     ]
   },
@@ -1874,7 +2137,9 @@
     "thumbnail": "https://i.ytimg.com/vi/TcWdy_Csuqo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TcWdy_Csuqo",
     "tags": [
+      "40k",
       "beginner",
+      "raven guard",
       "space marines"
     ]
   },
@@ -1886,8 +2151,10 @@
     "thumbnail": "https://i.ytimg.com/vi/LdSy4TKjqg0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=LdSy4TKjqg0",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "skin",
+      "textures & materials"
     ]
   },
   {
@@ -1898,8 +2165,8 @@
     "thumbnail": "https://i.ytimg.com/vi/0aIFcgIit2k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0aIFcgIit2k",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "intermediate"
     ]
   },
   {
@@ -1909,7 +2176,10 @@
     "publishedAt": "2020-12-14T11:27:09Z",
     "thumbnail": "https://i.ytimg.com/vi/kzCs3BgWtN0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kzCs3BgWtN0",
-    "tags": []
+    "tags": [
+      "aos",
+      "flesh-eater courts"
+    ]
   },
   {
     "videoId": "NqY9Ydrt2xs",
@@ -1919,6 +2189,7 @@
     "thumbnail": "https://i.ytimg.com/vi/NqY9Ydrt2xs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NqY9Ydrt2xs",
     "tags": [
+      "contrast paints",
       "kill team"
     ]
   },
@@ -1930,7 +2201,8 @@
     "thumbnail": "https://i.ytimg.com/vi/E4rD-2eW0z8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=E4rD-2eW0z8",
     "tags": [
-      "beginner"
+      "beginner",
+      "painting essentials"
     ]
   },
   {
@@ -1941,7 +2213,8 @@
     "thumbnail": "https://i.ytimg.com/vi/I-M5kOLJiL4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I-M5kOLJiL4",
     "tags": [
-      "40k"
+      "40k",
+      "space marines"
     ]
   },
   {
@@ -1952,9 +2225,10 @@
     "thumbnail": "https://i.ytimg.com/vi/Lr_fWDMR0D8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Lr_fWDMR0D8",
     "tags": [
-      "skin",
+      "40k",
       "intermediate",
-      "40k"
+      "skin",
+      "tau"
     ]
   },
   {
@@ -1965,7 +2239,8 @@
     "thumbnail": "https://i.ytimg.com/vi/BzhyWoOGJGY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=BzhyWoOGJGY",
     "tags": [
-      "old world"
+      "old world",
+      "painting essentials"
     ]
   },
   {
@@ -1976,8 +2251,10 @@
     "thumbnail": "https://i.ytimg.com/vi/6qAK1kRi5Bs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6qAK1kRi5Bs",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "aos",
+      "chaos",
+      "intermediate"
     ]
   },
   {
@@ -1988,8 +2265,11 @@
     "thumbnail": "https://i.ytimg.com/vi/sk9NDV6n6rA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=sk9NDV6n6rA",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "thousand sons"
     ]
   },
   {
@@ -2000,6 +2280,8 @@
     "thumbnail": "https://i.ytimg.com/vi/XdR94i6SEwg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XdR94i6SEwg",
     "tags": [
+      "40k",
+      "dark angels",
       "horus heresy",
       "space marines"
     ]
@@ -2011,7 +2293,11 @@
     "publishedAt": "2023-11-13T13:00:55Z",
     "thumbnail": "https://i.ytimg.com/vi/6OfzoGfka5k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6OfzoGfka5k",
-    "tags": []
+    "tags": [
+      "legions imperialis",
+      "painting essentials",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "U8DmwtMD0oQ",
@@ -2022,7 +2308,9 @@
     "url": "https://www.youtube.com/watch?v=U8DmwtMD0oQ",
     "tags": [
       "40k",
-      "eldar"
+      "armour",
+      "contrast paints",
+      "weapons"
     ]
   },
   {
@@ -2033,9 +2321,10 @@
     "thumbnail": "https://i.ytimg.com/vi/K146pMgzYas/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=K146pMgzYas",
     "tags": [
-      "intermediate",
       "40k",
-      "advanced"
+      "advanced",
+      "intermediate",
+      "space marines"
     ]
   },
   {
@@ -2046,9 +2335,9 @@
     "thumbnail": "https://i.ytimg.com/vi/izhYnpeIbOY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=izhYnpeIbOY",
     "tags": [
-      "vehicles",
+      "cloth",
       "intermediate",
-      "cloth"
+      "vehicles"
     ]
   },
   {
@@ -2059,8 +2348,9 @@
     "thumbnail": "https://i.ytimg.com/vi/PgeUx6aIMlo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PgeUx6aIMlo",
     "tags": [
-      "intermediate",
-      "aos"
+      "aos",
+      "cities of sigmar",
+      "intermediate"
     ]
   },
   {
@@ -2070,7 +2360,9 @@
     "publishedAt": "2020-03-05T15:22:42Z",
     "thumbnail": "https://i.ytimg.com/vi/Zp7ZBcG1Rt4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Zp7ZBcG1Rt4",
-    "tags": []
+    "tags": [
+      "textures & materials"
+    ]
   },
   {
     "videoId": "6ZWPudgk2uc",
@@ -2080,8 +2372,11 @@
     "thumbnail": "https://i.ytimg.com/vi/6ZWPudgk2uc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6ZWPudgk2uc",
     "tags": [
+      "40k",
+      "armour",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -2093,7 +2388,8 @@
     "url": "https://www.youtube.com/watch?v=B6-0bseBO9Q",
     "tags": [
       "aos",
-      "beginner"
+      "beginner",
+      "stormcast eternals"
     ]
   },
   {
@@ -2103,7 +2399,12 @@
     "publishedAt": "2020-09-10T10:30:44Z",
     "thumbnail": "https://i.ytimg.com/vi/8pfvCUBjcdA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8pfvCUBjcdA",
-    "tags": []
+    "tags": [
+      "40k",
+      "aos",
+      "armour",
+      "orcs"
+    ]
   },
   {
     "videoId": "d_i1UkPDoFQ",
@@ -2112,7 +2413,10 @@
     "publishedAt": "2020-01-08T14:00:07Z",
     "thumbnail": "https://i.ytimg.com/vi/d_i1UkPDoFQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=d_i1UkPDoFQ",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs"
+    ]
   },
   {
     "videoId": "_41g6lcN-Yc",
@@ -2133,7 +2437,12 @@
     "publishedAt": "2021-03-17T11:00:12Z",
     "thumbnail": "https://i.ytimg.com/vi/ZjvHKgqufTI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZjvHKgqufTI",
-    "tags": []
+    "tags": [
+      "40k",
+      "armour",
+      "metal",
+      "sororitas"
+    ]
   },
   {
     "videoId": "14RFOCzWNWk",
@@ -2143,8 +2452,9 @@
     "thumbnail": "https://i.ytimg.com/vi/14RFOCzWNWk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=14RFOCzWNWk",
     "tags": [
-      "kill team",
-      "beginner"
+      "armour",
+      "beginner",
+      "kill team"
     ]
   },
   {
@@ -2155,8 +2465,8 @@
     "thumbnail": "https://i.ytimg.com/vi/O8d74Caj_Tc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=O8d74Caj_Tc",
     "tags": [
-      "intermediate",
-      "cloth"
+      "cloth",
+      "intermediate"
     ]
   },
   {
@@ -2167,6 +2477,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Z9YrUsXssUU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Z9YrUsXssUU",
     "tags": [
+      "40k",
       "eldar"
     ]
   },
@@ -2177,7 +2488,9 @@
     "publishedAt": "2021-03-19T10:06:56Z",
     "thumbnail": "https://i.ytimg.com/vi/JtNC854WpPE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JtNC854WpPE",
-    "tags": []
+    "tags": [
+      "bases"
+    ]
   },
   {
     "videoId": "Fe5EWWfVXTQ",
@@ -2187,6 +2500,8 @@
     "thumbnail": "https://i.ytimg.com/vi/Fe5EWWfVXTQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Fe5EWWfVXTQ",
     "tags": [
+      "advanced",
+      "skin",
       "textures & materials"
     ]
   },
@@ -2198,7 +2513,9 @@
     "thumbnail": "https://i.ytimg.com/vi/0D-DqzLOuwg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0D-DqzLOuwg",
     "tags": [
+      "40k",
       "beginner",
+      "painting essentials",
       "tyranids"
     ]
   },
@@ -2210,8 +2527,10 @@
     "thumbnail": "https://i.ytimg.com/vi/PMWShmt9544/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PMWShmt9544",
     "tags": [
-      "metal",
-      "orcs"
+      "40k",
+      "orcs",
+      "space marines",
+      "weapons"
     ]
   },
   {
@@ -2222,8 +2541,9 @@
     "thumbnail": "https://i.ytimg.com/vi/fO-aSXH2PJs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fO-aSXH2PJs",
     "tags": [
-      "warcry",
-      "beginner"
+      "beginner",
+      "chaos",
+      "warcry"
     ]
   },
   {
@@ -2234,9 +2554,11 @@
     "thumbnail": "https://i.ytimg.com/vi/HLUKGiQc37s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HLUKGiQc37s",
     "tags": [
-      "intermediate",
       "40k",
-      "metal"
+      "intermediate",
+      "metal",
+      "orcs",
+      "weapons"
     ]
   },
   {
@@ -2247,8 +2569,8 @@
     "thumbnail": "https://i.ytimg.com/vi/XzSxTEDaOYI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XzSxTEDaOYI",
     "tags": [
-      "skin",
-      "intermediate"
+      "intermediate",
+      "skin"
     ]
   },
   {
@@ -2259,8 +2581,10 @@
     "thumbnail": "https://i.ytimg.com/vi/V5RUsS2b060/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=V5RUsS2b060",
     "tags": [
+      "40k",
       "horus heresy",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -2271,8 +2595,12 @@
     "thumbnail": "https://i.ytimg.com/vi/eVYHnKZYkxg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eVYHnKZYkxg",
     "tags": [
+      "40k",
       "chaos",
-      "chaos space marines"
+      "chaos space marines",
+      "necrons",
+      "skin",
+      "world eaters"
     ]
   },
   {
@@ -2283,9 +2611,10 @@
     "thumbnail": "https://i.ytimg.com/vi/RS9QVbg7wV0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RS9QVbg7wV0",
     "tags": [
-      "space wolves",
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "space wolves"
     ]
   },
   {
@@ -2296,8 +2625,9 @@
     "thumbnail": "https://i.ytimg.com/vi/xQgdqctxsRw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xQgdqctxsRw",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "tau"
     ]
   },
   {
@@ -2308,7 +2638,10 @@
     "thumbnail": "https://i.ytimg.com/vi/g7fKlVXliSA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=g7fKlVXliSA",
     "tags": [
-      "bases"
+      "40k",
+      "bases",
+      "necrons",
+      "space marines"
     ]
   },
   {
@@ -2319,8 +2652,8 @@
     "thumbnail": "https://i.ytimg.com/vi/-bBmfl-gFBw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-bBmfl-gFBw",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "intermediate"
     ]
   },
   {
@@ -2331,8 +2664,9 @@
     "thumbnail": "https://i.ytimg.com/vi/XWkYH4fCOeY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XWkYH4fCOeY",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "space marines"
     ]
   },
   {
@@ -2342,7 +2676,9 @@
     "publishedAt": "2020-08-25T10:00:45Z",
     "thumbnail": "https://i.ytimg.com/vi/jGA9aSkAH-M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jGA9aSkAH-M",
-    "tags": []
+    "tags": [
+      "aeronautica imperialis"
+    ]
   },
   {
     "videoId": "nnGwJo3Thlc",
@@ -2352,7 +2688,10 @@
     "thumbnail": "https://i.ytimg.com/vi/nnGwJo3Thlc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nnGwJo3Thlc",
     "tags": [
-      "space marines"
+      "40k",
+      "black templars",
+      "space marines",
+      "weapons"
     ]
   },
   {
@@ -2363,8 +2702,9 @@
     "thumbnail": "https://i.ytimg.com/vi/zctQl7yPZwM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zctQl7yPZwM",
     "tags": [
-      "intermediate",
       "40k",
+      "beginner",
+      "intermediate",
       "orcs"
     ]
   },
@@ -2376,8 +2716,9 @@
     "thumbnail": "https://i.ytimg.com/vi/GRlSsLgDaZA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GRlSsLgDaZA",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "textures & materials"
     ]
   },
   {
@@ -2388,9 +2729,10 @@
     "thumbnail": "https://i.ytimg.com/vi/tTyypRe0z3s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tTyypRe0z3s",
     "tags": [
-      "vehicles",
+      "beginner",
       "necromunda",
-      "beginner"
+      "textures & materials",
+      "vehicles"
     ]
   },
   {
@@ -2401,7 +2743,10 @@
     "thumbnail": "https://i.ytimg.com/vi/09ze5pUrY7w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=09ze5pUrY7w",
     "tags": [
-      "space marines"
+      "40k",
+      "bases",
+      "orcs",
+      "weapons"
     ]
   },
   {
@@ -2412,7 +2757,9 @@
     "thumbnail": "https://i.ytimg.com/vi/3OwQdiCK4-w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3OwQdiCK4-w",
     "tags": [
+      "40k",
       "armour",
+      "salamanders",
       "space marines"
     ]
   },
@@ -2424,8 +2771,10 @@
     "thumbnail": "https://i.ytimg.com/vi/gCX9F2lbMVQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gCX9F2lbMVQ",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "textures & materials",
+      "weapons"
     ]
   },
   {
@@ -2436,7 +2785,10 @@
     "thumbnail": "https://i.ytimg.com/vi/bkPjfWUJ4NU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bkPjfWUJ4NU",
     "tags": [
-      "intermediate"
+      "aos",
+      "flesh-eater courts",
+      "intermediate",
+      "stormcast eternals"
     ]
   },
   {
@@ -2447,6 +2799,10 @@
     "thumbnail": "https://i.ytimg.com/vi/Ld6WO4rokmA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Ld6WO4rokmA",
     "tags": [
+      "40k",
+      "aos",
+      "beginner",
+      "gloomspite gitz",
       "orcs"
     ]
   },
@@ -2470,7 +2826,11 @@
     "thumbnail": "https://i.ytimg.com/vi/Als82sZ1XaE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Als82sZ1XaE",
     "tags": [
-      "chaos space marines"
+      "40k",
+      "black legion",
+      "chaos",
+      "chaos space marines",
+      "painting essentials"
     ]
   },
   {
@@ -2481,7 +2841,9 @@
     "thumbnail": "https://i.ytimg.com/vi/QsvOw9d3HTc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QsvOw9d3HTc",
     "tags": [
-      "armour"
+      "aos",
+      "armour",
+      "stormcast eternals"
     ]
   },
   {
@@ -2492,7 +2854,10 @@
     "thumbnail": "https://i.ytimg.com/vi/8xOJWJgF1nU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8xOJWJgF1nU",
     "tags": [
-      "40k"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children"
     ]
   },
   {
@@ -2514,9 +2879,11 @@
     "thumbnail": "https://i.ytimg.com/vi/4jMrXeJdmyo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4jMrXeJdmyo",
     "tags": [
-      "intermediate",
       "40k",
-      "armour"
+      "advanced",
+      "armour",
+      "intermediate",
+      "necromunda"
     ]
   },
   {
@@ -2527,9 +2894,10 @@
     "thumbnail": "https://i.ytimg.com/vi/Zbe4y3jpUcE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Zbe4y3jpUcE",
     "tags": [
-      "skin",
+      "40k",
+      "aos",
       "chaos",
-      "aos"
+      "skin"
     ]
   },
   {
@@ -2540,8 +2908,8 @@
     "thumbnail": "https://i.ytimg.com/vi/ohW4Sbe1vgc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ohW4Sbe1vgc",
     "tags": [
-      "textures & materials",
-      "metal"
+      "metal",
+      "textures & materials"
     ]
   },
   {
@@ -2552,9 +2920,11 @@
     "thumbnail": "https://i.ytimg.com/vi/0I79IGIYKqM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0I79IGIYKqM",
     "tags": [
-      "space wolves",
+      "40k",
+      "armour",
       "beginner",
-      "space marines"
+      "space marines",
+      "space wolves"
     ]
   },
   {
@@ -2565,8 +2935,11 @@
     "thumbnail": "https://i.ytimg.com/vi/Polej-TwVF4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Polej-TwVF4",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "iron warriors"
     ]
   },
   {
@@ -2577,6 +2950,7 @@
     "thumbnail": "https://i.ytimg.com/vi/MDSaciYVItU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=MDSaciYVItU",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -2589,8 +2963,9 @@
     "thumbnail": "https://i.ytimg.com/vi/2OfBP8W4djw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=2OfBP8W4djw",
     "tags": [
+      "cloth",
       "intermediate",
-      "cloth"
+      "underworlds"
     ]
   },
   {
@@ -2600,7 +2975,10 @@
     "publishedAt": "2020-01-20T16:00:22Z",
     "thumbnail": "https://i.ytimg.com/vi/W9hRULCOucY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=W9hRULCOucY",
-    "tags": []
+    "tags": [
+      "airbrush",
+      "citadel products"
+    ]
   },
   {
     "videoId": "uHkGLbDBQCY",
@@ -2610,8 +2988,7 @@
     "thumbnail": "https://i.ytimg.com/vi/uHkGLbDBQCY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=uHkGLbDBQCY",
     "tags": [
-      "skin",
-      "orcs"
+      "skin"
     ]
   },
   {
@@ -2634,8 +3011,8 @@
     "url": "https://www.youtube.com/watch?v=eHzoA76nqOQ",
     "tags": [
       "intermediate",
-      "textures & materials",
-      "metal"
+      "metal",
+      "textures & materials"
     ]
   },
   {
@@ -2657,6 +3034,8 @@
     "thumbnail": "https://i.ytimg.com/vi/eF4v5OSLGQc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eF4v5OSLGQc",
     "tags": [
+      "40k",
+      "imperial knights",
       "intermediate",
       "old world"
     ]
@@ -2669,7 +3048,9 @@
     "thumbnail": "https://i.ytimg.com/vi/_tDX-UYCx-s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_tDX-UYCx-s",
     "tags": [
-      "beginner"
+      "40k",
+      "beginner",
+      "tau"
     ]
   },
   {
@@ -2680,6 +3061,7 @@
     "thumbnail": "https://i.ytimg.com/vi/uPvEazlh3w4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=uPvEazlh3w4",
     "tags": [
+      "aos",
       "intermediate"
     ]
   },
@@ -2691,9 +3073,11 @@
     "thumbnail": "https://i.ytimg.com/vi/3dP_5PCHkUo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3dP_5PCHkUo",
     "tags": [
+      "40k",
+      "armour",
       "cloth",
       "kill team",
-      "armour"
+      "tau"
     ]
   },
   {
@@ -2704,8 +3088,9 @@
     "thumbnail": "https://i.ytimg.com/vi/D1DPHwT90JE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=D1DPHwT90JE",
     "tags": [
-      "skin",
-      "necrons"
+      "40k",
+      "necrons",
+      "skin"
     ]
   },
   {
@@ -2716,6 +3101,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HuuPdOkIXM8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HuuPdOkIXM8",
     "tags": [
+      "40k",
       "astra militarum",
       "beginner"
     ]
@@ -2728,8 +3114,7 @@
     "thumbnail": "https://i.ytimg.com/vi/dy7oLQYzGcI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dy7oLQYzGcI",
     "tags": [
-      "cloth",
-      "orcs"
+      "cloth"
     ]
   },
   {
@@ -2740,8 +3125,8 @@
     "thumbnail": "https://i.ytimg.com/vi/H8xAOlLiLVk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=H8xAOlLiLVk",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "intermediate"
     ]
   },
   {
@@ -2752,7 +3137,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ZTccaoZLTeI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZTccaoZLTeI",
     "tags": [
+      "40k",
       "beginner",
+      "metal",
       "necrons"
     ]
   },
@@ -2764,7 +3151,8 @@
     "thumbnail": "https://i.ytimg.com/vi/u5bTX-I4opk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=u5bTX-I4opk",
     "tags": [
-      "cloth"
+      "cloth",
+      "textures & materials"
     ]
   },
   {
@@ -2786,8 +3174,8 @@
     "thumbnail": "https://i.ytimg.com/vi/_Z_55WPQAUc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_Z_55WPQAUc",
     "tags": [
-      "warcry",
-      "beginner"
+      "beginner",
+      "warcry"
     ]
   },
   {
@@ -2798,8 +3186,8 @@
     "thumbnail": "https://i.ytimg.com/vi/p_y0RJmIlXA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=p_y0RJmIlXA",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
       "kill team"
     ]
   },
@@ -2811,7 +3199,9 @@
     "thumbnail": "https://i.ytimg.com/vi/GFG1qZ0PDBk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GFG1qZ0PDBk",
     "tags": [
-      "necrons"
+      "40k",
+      "necrons",
+      "textures & materials"
     ]
   },
   {
@@ -2822,7 +3212,11 @@
     "thumbnail": "https://i.ytimg.com/vi/0H-2diVeIcQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0H-2diVeIcQ",
     "tags": [
-      "sororitas"
+      "40k",
+      "cloth",
+      "contrast paints",
+      "sororitas",
+      "textures & materials"
     ]
   },
   {
@@ -2833,6 +3227,7 @@
     "thumbnail": "https://i.ytimg.com/vi/GI77mQl62u4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GI77mQl62u4",
     "tags": [
+      "aos",
       "cloth"
     ]
   },
@@ -2844,9 +3239,11 @@
     "thumbnail": "https://i.ytimg.com/vi/9WttSKFklEw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=9WttSKFklEw",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos",
+      "necrons"
     ]
   },
   {
@@ -2856,7 +3253,12 @@
     "publishedAt": "2022-02-19T19:00:14Z",
     "thumbnail": "https://i.ytimg.com/vi/nNnReuAXZPk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nNnReuAXZPk",
-    "tags": []
+    "tags": [
+      "40k",
+      "blood angels",
+      "space marines",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "7yj4aMaYYW4",
@@ -2866,6 +3268,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7yj4aMaYYW4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7yj4aMaYYW4",
     "tags": [
+      "40k",
       "necrons"
     ]
   },
@@ -2877,7 +3280,9 @@
     "thumbnail": "https://i.ytimg.com/vi/lHk5QQ8PVmU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lHk5QQ8PVmU",
     "tags": [
-      "beginner"
+      "40k",
+      "beginner",
+      "necrons"
     ]
   },
   {
@@ -2887,7 +3292,10 @@
     "publishedAt": "2020-01-23T14:00:07Z",
     "thumbnail": "https://i.ytimg.com/vi/j3mz-Bw2oto/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=j3mz-Bw2oto",
-    "tags": []
+    "tags": [
+      "airbrush",
+      "citadel products"
+    ]
   },
   {
     "videoId": "LJZ89tRVaSs",
@@ -2897,7 +3305,9 @@
     "thumbnail": "https://i.ytimg.com/vi/LJZ89tRVaSs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=LJZ89tRVaSs",
     "tags": [
-      "astra militarum"
+      "40k",
+      "astra militarum",
+      "contrast paints"
     ]
   },
   {
@@ -2920,7 +3330,7 @@
     "url": "https://www.youtube.com/watch?v=gMGYYUL_GNw",
     "tags": [
       "horus heresy",
-      "space marines"
+      "weapons"
     ]
   },
   {
@@ -2931,7 +3341,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ps2AkZY1IdY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ps2AkZY1IdY",
     "tags": [
-      "beginner"
+      "aos",
+      "beginner",
+      "gloomspite gitz"
     ]
   },
   {
@@ -2942,7 +3354,9 @@
     "thumbnail": "https://i.ytimg.com/vi/5iCoeh6Xz9Y/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5iCoeh6Xz9Y",
     "tags": [
-      "beginner"
+      "40k",
+      "beginner",
+      "space marines"
     ]
   },
   {
@@ -2953,9 +3367,10 @@
     "thumbnail": "https://i.ytimg.com/vi/eZxsIKpcK5g/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eZxsIKpcK5g",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos"
     ]
   },
   {
@@ -2965,7 +3380,10 @@
     "publishedAt": "2023-10-27T09:00:02Z",
     "thumbnail": "https://i.ytimg.com/vi/1ogDMeUtqgg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1ogDMeUtqgg",
-    "tags": []
+    "tags": [
+      "special projects",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "Wgi6dDv7ZbU",
@@ -2975,8 +3393,8 @@
     "thumbnail": "https://i.ytimg.com/vi/Wgi6dDv7ZbU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Wgi6dDv7ZbU",
     "tags": [
-      "skin",
-      "chaos"
+      "chaos",
+      "skin"
     ]
   },
   {
@@ -2987,8 +3405,10 @@
     "thumbnail": "https://i.ytimg.com/vi/RzFsuwhKXt4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RzFsuwhKXt4",
     "tags": [
-      "skin",
+      "40k",
       "beginner",
+      "iron hands",
+      "skin",
       "space marines"
     ]
   },
@@ -3012,8 +3432,10 @@
     "thumbnail": "https://i.ytimg.com/vi/HvLTEzts8-Y/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HvLTEzts8-Y",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -3024,8 +3446,8 @@
     "thumbnail": "https://i.ytimg.com/vi/gAr_OmQaI0k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gAr_OmQaI0k",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "intermediate"
     ]
   },
   {
@@ -3036,8 +3458,8 @@
     "thumbnail": "https://i.ytimg.com/vi/pkXB-lYy11s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pkXB-lYy11s",
     "tags": [
-      "skin",
-      "cloth"
+      "cloth",
+      "skin"
     ]
   },
   {
@@ -3048,8 +3470,11 @@
     "thumbnail": "https://i.ytimg.com/vi/-c66ZKl_BEY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-c66ZKl_BEY",
     "tags": [
-      "cloth",
+      "40k",
       "advanced",
+      "beginner",
+      "cloth",
+      "dark angels",
       "space marines"
     ]
   },
@@ -3060,7 +3485,11 @@
     "publishedAt": "2022-02-19T16:30:04Z",
     "thumbnail": "https://i.ytimg.com/vi/Zl14GheZLJg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Zl14GheZLJg",
-    "tags": []
+    "tags": [
+      "40k",
+      "imperial fists",
+      "space marines"
+    ]
   },
   {
     "videoId": "uPQ0wEpvBtg",
@@ -3081,8 +3510,8 @@
     "thumbnail": "https://i.ytimg.com/vi/7-olHO1xMfU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7-olHO1xMfU",
     "tags": [
-      "kill team",
-      "beginner"
+      "beginner",
+      "kill team"
     ]
   },
   {
@@ -3093,8 +3522,8 @@
     "thumbnail": "https://i.ytimg.com/vi/gYxS3Zij5KE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gYxS3Zij5KE",
     "tags": [
-      "warcry",
-      "beginner"
+      "beginner",
+      "warcry"
     ]
   },
   {
@@ -3105,8 +3534,9 @@
     "thumbnail": "https://i.ytimg.com/vi/NDLIpP5rIs4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NDLIpP5rIs4",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "textures & materials"
     ]
   },
   {
@@ -3117,6 +3547,7 @@
     "thumbnail": "https://i.ytimg.com/vi/k0aENeoYL24/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=k0aENeoYL24",
     "tags": [
+      "40k",
       "astra militarum",
       "beginner"
     ]
@@ -3129,7 +3560,8 @@
     "thumbnail": "https://i.ytimg.com/vi/La-ev1vqGro/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=La-ev1vqGro",
     "tags": [
-      "beginner"
+      "beginner",
+      "textures & materials"
     ]
   },
   {
@@ -3141,7 +3573,8 @@
     "url": "https://www.youtube.com/watch?v=Xpz_ZvQz-kM",
     "tags": [
       "40k",
-      "eldar"
+      "eldar",
+      "vehicles"
     ]
   },
   {
@@ -3152,9 +3585,8 @@
     "thumbnail": "https://i.ytimg.com/vi/yyq5Ne2A5Go/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yyq5Ne2A5Go",
     "tags": [
-      "intermediate",
       "aos",
-      "orcs"
+      "intermediate"
     ]
   },
   {
@@ -3165,8 +3597,11 @@
     "thumbnail": "https://i.ytimg.com/vi/THOb3Pap0TM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=THOb3Pap0TM",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "cloth",
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -3200,9 +3635,10 @@
     "thumbnail": "https://i.ytimg.com/vi/nbL4zz9MP_k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nbL4zz9MP_k",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos"
     ]
   },
   {
@@ -3213,8 +3649,11 @@
     "thumbnail": "https://i.ytimg.com/vi/x9b6VydfCpw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=x9b6VydfCpw",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "world eaters"
     ]
   },
   {
@@ -3235,7 +3674,10 @@
     "publishedAt": "2020-01-22T14:00:34Z",
     "thumbnail": "https://i.ytimg.com/vi/DHme_p4kxLY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DHme_p4kxLY",
-    "tags": []
+    "tags": [
+      "airbrush",
+      "citadel products"
+    ]
   },
   {
     "videoId": "7uFmBLsGndI",
@@ -3245,6 +3687,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7uFmBLsGndI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7uFmBLsGndI",
     "tags": [
+      "40k",
       "old world",
       "orcs"
     ]
@@ -3268,7 +3711,9 @@
     "thumbnail": "https://i.ytimg.com/vi/0El2kgQk0SA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0El2kgQk0SA",
     "tags": [
+      "40k",
       "horus heresy",
+      "imperial fists",
       "space marines"
     ]
   },
@@ -3279,7 +3724,10 @@
     "publishedAt": "2025-04-03T14:00:14Z",
     "thumbnail": "https://i.ytimg.com/vi/HrqOpj_e-PE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HrqOpj_e-PE",
-    "tags": []
+    "tags": [
+      "metal",
+      "weapons"
+    ]
   },
   {
     "videoId": "--WFfu56TFE",
@@ -3289,8 +3737,10 @@
     "thumbnail": "https://i.ytimg.com/vi/--WFfu56TFE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=--WFfu56TFE",
     "tags": [
-      "skin",
+      "40k",
       "horus heresy",
+      "iron hands",
+      "skin",
       "space marines"
     ]
   },
@@ -3324,8 +3774,11 @@
     "thumbnail": "https://i.ytimg.com/vi/zlrBbyO8tAA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zlrBbyO8tAA",
     "tags": [
+      "40k",
+      "armour",
       "drukhari",
-      "armour"
+      "eldar",
+      "special projects"
     ]
   },
   {
@@ -3348,9 +3801,11 @@
     "thumbnail": "https://i.ytimg.com/vi/W9NGcO9Bc00/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=W9NGcO9Bc00",
     "tags": [
-      "skin",
+      "40k",
       "beginner",
-      "space marines"
+      "skin",
+      "space marines",
+      "white scars"
     ]
   },
   {
@@ -3361,6 +3816,9 @@
     "thumbnail": "https://i.ytimg.com/vi/-ux7Hb_H6LM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-ux7Hb_H6LM",
     "tags": [
+      "40k",
+      "armour",
+      "dark angels",
       "space marines"
     ]
   },
@@ -3372,8 +3830,9 @@
     "thumbnail": "https://i.ytimg.com/vi/dS35U1H_6bc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dS35U1H_6bc",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "adeptus mechanicus",
+      "intermediate"
     ]
   },
   {
@@ -3406,6 +3865,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hKWxCYaQqQY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=hKWxCYaQqQY",
     "tags": [
+      "40k",
       "astra militarum"
     ]
   },
@@ -3417,7 +3877,8 @@
     "thumbnail": "https://i.ytimg.com/vi/kz2Tol62mHQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kz2Tol62mHQ",
     "tags": [
-      "skin"
+      "skin",
+      "textures & materials"
     ]
   },
   {
@@ -3428,8 +3889,10 @@
     "thumbnail": "https://i.ytimg.com/vi/7rdbC7JNGo0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7rdbC7JNGo0",
     "tags": [
+      "40k",
       "astra militarum",
-      "beginner"
+      "beginner",
+      "orcs"
     ]
   },
   {
@@ -3441,7 +3904,8 @@
     "url": "https://www.youtube.com/watch?v=JKcnjpLtq3E",
     "tags": [
       "aos",
-      "space marines"
+      "armour",
+      "metal"
     ]
   },
   {
@@ -3453,7 +3917,8 @@
     "url": "https://www.youtube.com/watch?v=jdbIlA2rkIg",
     "tags": [
       "40k",
-      "beginner"
+      "beginner",
+      "orcs"
     ]
   },
   {
@@ -3464,7 +3929,8 @@
     "thumbnail": "https://i.ytimg.com/vi/8ageDMZi6uw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8ageDMZi6uw",
     "tags": [
-      "40k"
+      "40k",
+      "space marines"
     ]
   },
   {
@@ -3475,7 +3941,8 @@
     "thumbnail": "https://i.ytimg.com/vi/XjFq-fjZ8VQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XjFq-fjZ8VQ",
     "tags": [
-      "aos"
+      "aos",
+      "textures & materials"
     ]
   },
   {
@@ -3485,7 +3952,10 @@
     "publishedAt": "2020-12-15T11:00:56Z",
     "thumbnail": "https://i.ytimg.com/vi/jaiVDSzRbBI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jaiVDSzRbBI",
-    "tags": []
+    "tags": [
+      "aos",
+      "sylvaneth"
+    ]
   },
   {
     "videoId": "SgBoa21knjw",
@@ -3495,9 +3965,11 @@
     "thumbnail": "https://i.ytimg.com/vi/SgBoa21knjw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SgBoa21knjw",
     "tags": [
-      "skin",
+      "40k",
+      "astra militarum",
       "horus heresy",
-      "intermediate"
+      "intermediate",
+      "vehicles"
     ]
   },
   {
@@ -3508,10 +3980,11 @@
     "thumbnail": "https://i.ytimg.com/vi/QXPc1Hr84Lk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QXPc1Hr84Lk",
     "tags": [
-      "vehicles",
-      "orcs",
+      "40k",
       "beginner",
-      "space marines"
+      "orcs",
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -3522,6 +3995,7 @@
     "thumbnail": "https://i.ytimg.com/vi/dn4XnVSYWLU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dn4XnVSYWLU",
     "tags": [
+      "40k",
       "space marines"
     ]
   },
@@ -3533,6 +4007,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4qD9DvWsmqw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4qD9DvWsmqw",
     "tags": [
+      "metal",
       "textures & materials"
     ]
   },
@@ -3543,7 +4018,9 @@
     "publishedAt": "2020-12-22T10:00:59Z",
     "thumbnail": "https://i.ytimg.com/vi/0EyDl612IAo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0EyDl612IAo",
-    "tags": []
+    "tags": [
+      "special projects"
+    ]
   },
   {
     "videoId": "PcEkKVcuTyE",
@@ -3553,9 +4030,8 @@
     "thumbnail": "https://i.ytimg.com/vi/PcEkKVcuTyE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PcEkKVcuTyE",
     "tags": [
-      "intermediate",
-      "textures & materials",
-      "bases"
+      "bases",
+      "intermediate"
     ]
   },
   {
@@ -3566,9 +4042,10 @@
     "thumbnail": "https://i.ytimg.com/vi/Lnkors42Ew8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Lnkors42Ew8",
     "tags": [
-      "skin",
+      "chaos",
+      "contrast paints",
       "intermediate",
-      "chaos"
+      "skin"
     ]
   },
   {
@@ -3579,7 +4056,8 @@
     "thumbnail": "https://i.ytimg.com/vi/5RggTENcCQQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5RggTENcCQQ",
     "tags": [
-      "bases"
+      "airbrush",
+      "citadel products"
     ]
   },
   {
@@ -3602,7 +4080,9 @@
     "url": "https://www.youtube.com/watch?v=hGpklyoQ3XU",
     "tags": [
       "40k",
-      "beginner"
+      "beginner",
+      "skin",
+      "space marines"
     ]
   },
   {
@@ -3613,6 +4093,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4F4aAcTbm3w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4F4aAcTbm3w",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -3625,8 +4106,9 @@
     "thumbnail": "https://i.ytimg.com/vi/I_6E1uOEJZY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I_6E1uOEJZY",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "orcs"
     ]
   },
   {
@@ -3637,10 +4119,11 @@
     "thumbnail": "https://i.ytimg.com/vi/7h_4pKf0mkU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7h_4pKf0mkU",
     "tags": [
-      "intermediate",
-      "chaos",
+      "40k",
       "aos",
-      "armour"
+      "armour",
+      "chaos",
+      "intermediate"
     ]
   },
   {
@@ -3651,8 +4134,8 @@
     "thumbnail": "https://i.ytimg.com/vi/dpPtpF9nvws/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dpPtpF9nvws",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
       "kill team"
     ]
   },
@@ -3664,10 +4147,12 @@
     "thumbnail": "https://i.ytimg.com/vi/QcaczmMV1I8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QcaczmMV1I8",
     "tags": [
-      "astra militarum",
-      "intermediate",
       "40k",
-      "bases"
+      "astra militarum",
+      "bases",
+      "cloth",
+      "intermediate",
+      "painting essentials"
     ]
   },
   {
@@ -3680,6 +4165,7 @@
     "tags": [
       "40k",
       "beginner",
+      "space marines",
       "tyranids"
     ]
   },
@@ -3691,7 +4177,8 @@
     "thumbnail": "https://i.ytimg.com/vi/o_VxaxKcC40/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=o_VxaxKcC40",
     "tags": [
-      "aos"
+      "aos",
+      "skin"
     ]
   },
   {
@@ -3702,8 +4189,10 @@
     "thumbnail": "https://i.ytimg.com/vi/zrIFtZdEQHo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zrIFtZdEQHo",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -3713,7 +4202,9 @@
     "publishedAt": "2024-10-01T12:00:13Z",
     "thumbnail": "https://i.ytimg.com/vi/FGZ1w80J9GM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=FGZ1w80J9GM",
-    "tags": []
+    "tags": [
+      "special projects"
+    ]
   },
   {
     "videoId": "0GsCDeo7dZo",
@@ -3734,8 +4225,11 @@
     "thumbnail": "https://i.ytimg.com/vi/iUpUQThpzYQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iUpUQThpzYQ",
     "tags": [
-      "horus heresy",
-      "chaos space marines"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "death guard",
+      "horus heresy"
     ]
   },
   {
@@ -3746,7 +4240,11 @@
     "thumbnail": "https://i.ytimg.com/vi/lQQs3VjkoQ8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lQQs3VjkoQ8",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
+      "iron warriors",
       "textures & materials"
     ]
   },
@@ -3758,7 +4256,9 @@
     "thumbnail": "https://i.ytimg.com/vi/k05tJCpcepY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=k05tJCpcepY",
     "tags": [
-      "beginner"
+      "aos",
+      "beginner",
+      "flesh-eater courts"
     ]
   },
   {
@@ -3769,7 +4269,9 @@
     "thumbnail": "https://i.ytimg.com/vi/R_7t4FRFqIE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=R_7t4FRFqIE",
     "tags": [
+      "40k",
       "horus heresy",
+      "raven guard",
       "space marines"
     ]
   },
@@ -3781,6 +4283,7 @@
     "thumbnail": "https://i.ytimg.com/vi/B9fsYyneQY8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=B9fsYyneQY8",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -3793,9 +4296,12 @@
     "thumbnail": "https://i.ytimg.com/vi/Z2R9IywN-VQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Z2R9IywN-VQ",
     "tags": [
-      "vehicles",
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "textures & materials",
+      "ultramarines",
+      "weapons"
     ]
   },
   {
@@ -3806,8 +4312,10 @@
     "thumbnail": "https://i.ytimg.com/vi/e8MiC83s6hE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=e8MiC83s6hE",
     "tags": [
+      "40k",
+      "armour",
       "horus heresy",
-      "armour"
+      "orcs"
     ]
   },
   {
@@ -3830,8 +4338,10 @@
     "thumbnail": "https://i.ytimg.com/vi/3FV_RB94shQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3FV_RB94shQ",
     "tags": [
-      "vehicles",
-      "horus heresy"
+      "40k",
+      "horus heresy",
+      "salamanders",
+      "space marines"
     ]
   },
   {
@@ -3853,8 +4363,8 @@
     "thumbnail": "https://i.ytimg.com/vi/vG4BZ4MjMEc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=vG4BZ4MjMEc",
     "tags": [
-      "intermediate",
       "40k",
+      "intermediate",
       "kill team",
       "orcs"
     ]
@@ -3867,6 +4377,7 @@
     "thumbnail": "https://i.ytimg.com/vi/kBm1e4PJAIQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kBm1e4PJAIQ",
     "tags": [
+      "40k",
       "orcs"
     ]
   },
@@ -3879,7 +4390,9 @@
     "url": "https://www.youtube.com/watch?v=wf890Pgyj9I",
     "tags": [
       "40k",
-      "space marines"
+      "imperial fists",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -3890,7 +4403,10 @@
     "thumbnail": "https://i.ytimg.com/vi/6MB5hLu9dlw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6MB5hLu9dlw",
     "tags": [
-      "bases"
+      "bases",
+      "legions imperialis",
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -3902,6 +4418,7 @@
     "url": "https://www.youtube.com/watch?v=1cogS7ElbAE",
     "tags": [
       "40k",
+      "raven guard",
       "space marines"
     ]
   },
@@ -3913,7 +4430,9 @@
     "thumbnail": "https://i.ytimg.com/vi/F0TCUKLGVug/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=F0TCUKLGVug",
     "tags": [
+      "40k",
       "beginner",
+      "raven guard",
       "space marines"
     ]
   },
@@ -3925,9 +4444,9 @@
     "thumbnail": "https://i.ytimg.com/vi/ZFnx38-oB8k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZFnx38-oB8k",
     "tags": [
-      "skin",
+      "40k",
       "intermediate",
-      "40k"
+      "skin"
     ]
   },
   {
@@ -3938,7 +4457,9 @@
     "thumbnail": "https://i.ytimg.com/vi/m2uUY1nd4GU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=m2uUY1nd4GU",
     "tags": [
-      "40k"
+      "40k",
+      "salamanders",
+      "space marines"
     ]
   },
   {
@@ -3949,8 +4470,10 @@
     "thumbnail": "https://i.ytimg.com/vi/xmBMr7JJmsI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xmBMr7JJmsI",
     "tags": [
+      "40k",
       "beginner",
-      "tyranids"
+      "tyranids",
+      "weapons"
     ]
   },
   {
@@ -3961,6 +4484,7 @@
     "thumbnail": "https://i.ytimg.com/vi/AotcKArLekk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=AotcKArLekk",
     "tags": [
+      "40k",
       "horus heresy",
       "salamanders",
       "space marines"
@@ -3985,7 +4509,9 @@
     "thumbnail": "https://i.ytimg.com/vi/0TxDWUS6CAE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0TxDWUS6CAE",
     "tags": [
+      "40k",
       "beginner",
+      "painting essentials",
       "tyranids"
     ]
   },
@@ -3998,7 +4524,7 @@
     "url": "https://www.youtube.com/watch?v=CAGTKWlLYFs",
     "tags": [
       "aos",
-      "space marines"
+      "textures & materials"
     ]
   },
   {
@@ -4009,6 +4535,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HsK5HJ2cF0s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HsK5HJ2cF0s",
     "tags": [
+      "40k",
       "kill team",
       "orcs"
     ]
@@ -4021,7 +4548,8 @@
     "thumbnail": "https://i.ytimg.com/vi/qm3xqLkTgn8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=qm3xqLkTgn8",
     "tags": [
-      "aos"
+      "aos",
+      "contrast paints"
     ]
   },
   {
@@ -4032,9 +4560,11 @@
     "thumbnail": "https://i.ytimg.com/vi/3v9mjbeuuSo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3v9mjbeuuSo",
     "tags": [
-      "intermediate",
       "40k",
-      "space marines"
+      "dark angels",
+      "intermediate",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -4045,8 +4575,8 @@
     "thumbnail": "https://i.ytimg.com/vi/PlKEgQfFxcM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PlKEgQfFxcM",
     "tags": [
-      "cloth",
-      "armour"
+      "armour",
+      "cloth"
     ]
   },
   {
@@ -4057,7 +4587,9 @@
     "thumbnail": "https://i.ytimg.com/vi/GbxaG9VYTuk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GbxaG9VYTuk",
     "tags": [
+      "40k",
       "intermediate",
+      "necrons",
       "old world"
     ]
   },
@@ -4070,7 +4602,9 @@
     "url": "https://www.youtube.com/watch?v=ciRRVwZPakY",
     "tags": [
       "40k",
-      "beginner"
+      "beginner",
+      "space marines",
+      "tyranids"
     ]
   },
   {
@@ -4081,8 +4615,10 @@
     "thumbnail": "https://i.ytimg.com/vi/JVaADmN4fLE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JVaADmN4fLE",
     "tags": [
-      "textures & materials",
-      "space marines"
+      "40k",
+      "blood angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -4092,7 +4628,9 @@
     "publishedAt": "2024-01-31T12:00:47Z",
     "thumbnail": "https://i.ytimg.com/vi/GwYNA5xCd58/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GwYNA5xCd58",
-    "tags": []
+    "tags": [
+      "skin"
+    ]
   },
   {
     "videoId": "tspAUHR4CsI",
@@ -4102,6 +4640,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tspAUHR4CsI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tspAUHR4CsI",
     "tags": [
+      "40k",
       "beginner",
       "necrons"
     ]
@@ -4126,8 +4665,9 @@
     "thumbnail": "https://i.ytimg.com/vi/u8XC3iKDVtM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=u8XC3iKDVtM",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "kill team"
     ]
   },
   {
@@ -4138,7 +4678,9 @@
     "thumbnail": "https://i.ytimg.com/vi/3loh5LDTBjs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3loh5LDTBjs",
     "tags": [
+      "40k",
       "beginner",
+      "imperial fists",
       "space marines"
     ]
   },
@@ -4150,9 +4692,10 @@
     "thumbnail": "https://i.ytimg.com/vi/0exqi43RJMs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0exqi43RJMs",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos"
     ]
   },
   {
@@ -4176,7 +4719,8 @@
     "thumbnail": "https://i.ytimg.com/vi/Sut7qJ6Yn0c/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Sut7qJ6Yn0c",
     "tags": [
-      "intermediate"
+      "intermediate",
+      "underworlds"
     ]
   },
   {
@@ -4187,9 +4731,9 @@
     "thumbnail": "https://i.ytimg.com/vi/SvWZspTdYI0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SvWZspTdYI0",
     "tags": [
-      "intermediate",
       "40k",
-      "bases"
+      "bases",
+      "intermediate"
     ]
   },
   {
@@ -4200,7 +4744,11 @@
     "thumbnail": "https://i.ytimg.com/vi/DZk53eos4UM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DZk53eos4UM",
     "tags": [
-      "beginner"
+      "40k",
+      "beginner",
+      "chaos",
+      "chaos space marines",
+      "world eaters"
     ]
   },
   {
@@ -4210,7 +4758,9 @@
     "publishedAt": "2022-04-23T16:00:35Z",
     "thumbnail": "https://i.ytimg.com/vi/y0oM0VnlbJ0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=y0oM0VnlbJ0",
-    "tags": []
+    "tags": [
+      "underworlds"
+    ]
   },
   {
     "videoId": "wwiOZz9YqTI",
@@ -4220,8 +4770,9 @@
     "thumbnail": "https://i.ytimg.com/vi/wwiOZz9YqTI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wwiOZz9YqTI",
     "tags": [
-      "intermediate",
-      "aos"
+      "aos",
+      "cities of sigmar",
+      "intermediate"
     ]
   },
   {
@@ -4232,9 +4783,9 @@
     "thumbnail": "https://i.ytimg.com/vi/lJh6VMFuSYE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lJh6VMFuSYE",
     "tags": [
-      "skin",
+      "aos",
       "intermediate",
-      "aos"
+      "skin"
     ]
   },
   {
@@ -4245,6 +4796,8 @@
     "thumbnail": "https://i.ytimg.com/vi/_Zbl-iblC3s/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_Zbl-iblC3s",
     "tags": [
+      "40k",
+      "armour",
       "horus heresy",
       "salamanders",
       "space marines"
@@ -4269,7 +4822,6 @@
     "thumbnail": "https://i.ytimg.com/vi/NqiNLSXanOo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NqiNLSXanOo",
     "tags": [
-      "textures & materials",
       "aos"
     ]
   },
@@ -4281,6 +4833,7 @@
     "thumbnail": "https://i.ytimg.com/vi/YGPhE2AjsDU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=YGPhE2AjsDU",
     "tags": [
+      "40k",
       "beginner",
       "orcs"
     ]
@@ -4293,7 +4846,12 @@
     "thumbnail": "https://i.ytimg.com/vi/o0MXyobrwQc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=o0MXyobrwQc",
     "tags": [
-      "chaos space marines"
+      "40k",
+      "beginner",
+      "black legion",
+      "chaos",
+      "chaos space marines",
+      "contrast paints"
     ]
   },
   {
@@ -4304,8 +4862,9 @@
     "thumbnail": "https://i.ytimg.com/vi/_Zfyfa_VdMg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_Zfyfa_VdMg",
     "tags": [
+      "40k",
       "drukhari",
-      "40k"
+      "eldar"
     ]
   },
   {
@@ -4316,10 +4875,10 @@
     "thumbnail": "https://i.ytimg.com/vi/0MRVthByICc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0MRVthByICc",
     "tags": [
-      "textures & materials",
       "40k",
+      "space marines",
       "space wolves",
-      "space marines"
+      "textures & materials"
     ]
   },
   {
@@ -4330,9 +4889,9 @@
     "thumbnail": "https://i.ytimg.com/vi/Q0wqN3kbqLk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Q0wqN3kbqLk",
     "tags": [
+      "beginner",
       "textures & materials",
-      "warcry",
-      "beginner"
+      "warcry"
     ]
   },
   {
@@ -4343,7 +4902,9 @@
     "thumbnail": "https://i.ytimg.com/vi/2nM9CipMiBE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=2nM9CipMiBE",
     "tags": [
-      "bases"
+      "40k",
+      "bases",
+      "orcs"
     ]
   },
   {
@@ -4354,8 +4915,9 @@
     "thumbnail": "https://i.ytimg.com/vi/h0aXklEbpLc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=h0aXklEbpLc",
     "tags": [
-      "vehicles",
-      "40k"
+      "40k",
+      "cloth",
+      "vehicles"
     ]
   },
   {
@@ -4366,7 +4928,9 @@
     "thumbnail": "https://i.ytimg.com/vi/pzRFiVFFDkI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pzRFiVFFDkI",
     "tags": [
+      "40k",
       "kill team",
+      "skin",
       "tyranids"
     ]
   },
@@ -4378,7 +4942,9 @@
     "thumbnail": "https://i.ytimg.com/vi/eoXw2xfr0To/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eoXw2xfr0To",
     "tags": [
-      "aos"
+      "40k",
+      "aos",
+      "orcs"
     ]
   },
   {
@@ -4389,7 +4955,9 @@
     "thumbnail": "https://i.ytimg.com/vi/PJ8EhL2yiTA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PJ8EhL2yiTA",
     "tags": [
-      "beginner"
+      "aos",
+      "beginner",
+      "cities of sigmar"
     ]
   },
   {
@@ -4400,7 +4968,8 @@
     "thumbnail": "https://i.ytimg.com/vi/L05H44k8j0I/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=L05H44k8j0I",
     "tags": [
-      "textures & materials",
+      "aos",
+      "cities of sigmar",
       "cloth"
     ]
   },
@@ -4411,7 +4980,9 @@
     "publishedAt": "2025-03-27T16:01:10Z",
     "thumbnail": "https://i.ytimg.com/vi/uTe-P_WrF1M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=uTe-P_WrF1M",
-    "tags": []
+    "tags": [
+      "skin"
+    ]
   },
   {
     "videoId": "8PWECtOkbks",
@@ -4421,9 +4992,12 @@
     "thumbnail": "https://i.ytimg.com/vi/8PWECtOkbks/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8PWECtOkbks",
     "tags": [
-      "horus heresy",
-      "salamanders",
+      "40k",
       "armour",
+      "horus heresy",
+      "legions imperialis",
+      "necrons",
+      "salamanders",
       "space marines"
     ]
   },
@@ -4446,10 +5020,11 @@
     "thumbnail": "https://i.ytimg.com/vi/0rc-NzhOI7A/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0rc-NzhOI7A",
     "tags": [
-      "skin",
+      "40k",
       "intermediate",
       "old world",
-      "orcs"
+      "orcs",
+      "skin"
     ]
   },
   {
@@ -4472,10 +5047,12 @@
     "thumbnail": "https://i.ytimg.com/vi/Fg5bbIPnVSs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Fg5bbIPnVSs",
     "tags": [
-      "intermediate",
-      "chaos",
       "40k",
-      "aos"
+      "aos",
+      "chaos",
+      "chaos space marines",
+      "intermediate",
+      "space marines"
     ]
   },
   {
@@ -4498,7 +5075,8 @@
     "thumbnail": "https://i.ytimg.com/vi/h-mMLj7OBp0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=h-mMLj7OBp0",
     "tags": [
-      "beginner"
+      "beginner",
+      "textures & materials"
     ]
   },
   {
@@ -4509,9 +5087,11 @@
     "thumbnail": "https://i.ytimg.com/vi/3MrD2Tw55gI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3MrD2Tw55gI",
     "tags": [
-      "intermediate",
+      "40k",
+      "aos",
+      "armour",
       "chaos",
-      "aos"
+      "intermediate"
     ]
   },
   {
@@ -4522,8 +5102,10 @@
     "thumbnail": "https://i.ytimg.com/vi/zo_8NUfljkw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zo_8NUfljkw",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -4545,8 +5127,11 @@
     "thumbnail": "https://i.ytimg.com/vi/JK29CBQfeBo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JK29CBQfeBo",
     "tags": [
-      "intermediate",
       "40k",
+      "armour",
+      "cloth",
+      "dark angels",
+      "intermediate",
       "space marines"
     ]
   },
@@ -4559,7 +5144,8 @@
     "url": "https://www.youtube.com/watch?v=RhqprRvQJyg",
     "tags": [
       "aos",
-      "beginner"
+      "beginner",
+      "underworlds"
     ]
   },
   {
@@ -4570,8 +5156,8 @@
     "thumbnail": "https://i.ytimg.com/vi/iVis1LiaG1M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iVis1LiaG1M",
     "tags": [
-      "intermediate",
-      "aos"
+      "aos",
+      "intermediate"
     ]
   },
   {
@@ -4582,9 +5168,11 @@
     "thumbnail": "https://i.ytimg.com/vi/fwPmoVB-WZo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fwPmoVB-WZo",
     "tags": [
-      "skin",
+      "40k",
       "horus heresy",
-      "space marines"
+      "skin",
+      "space marines",
+      "white scars"
     ]
   },
   {
@@ -4595,6 +5183,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7W9agSWLxZQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7W9agSWLxZQ",
     "tags": [
+      "armour",
       "horus heresy"
     ]
   },
@@ -4606,7 +5195,8 @@
     "thumbnail": "https://i.ytimg.com/vi/GPHC-FRr9bk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GPHC-FRr9bk",
     "tags": [
-      "intermediate"
+      "intermediate",
+      "underworlds"
     ]
   },
   {
@@ -4617,7 +5207,9 @@
     "thumbnail": "https://i.ytimg.com/vi/KupnDI221VA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=KupnDI221VA",
     "tags": [
-      "40k"
+      "40k",
+      "astra militarum",
+      "cloth"
     ]
   },
   {
@@ -4628,8 +5220,9 @@
     "thumbnail": "https://i.ytimg.com/vi/QSgiG9uT8Vw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QSgiG9uT8Vw",
     "tags": [
+      "40k",
       "intermediate",
-      "40k"
+      "orcs"
     ]
   },
   {
@@ -4639,7 +5232,9 @@
     "publishedAt": "2025-12-17T11:01:32Z",
     "thumbnail": "https://i.ytimg.com/vi/jf4_QNroa6c/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jf4_QNroa6c",
-    "tags": []
+    "tags": [
+      "textures & materials"
+    ]
   },
   {
     "videoId": "lKRqhT6CTKc",
@@ -4649,7 +5244,10 @@
     "thumbnail": "https://i.ytimg.com/vi/lKRqhT6CTKc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lKRqhT6CTKc",
     "tags": [
+      "40k",
       "beginner",
+      "black templars",
+      "necrons",
       "space marines"
     ]
   },
@@ -4661,9 +5259,9 @@
     "thumbnail": "https://i.ytimg.com/vi/QvQyD8Pm55g/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QvQyD8Pm55g",
     "tags": [
-      "intermediate",
       "40k",
-      "armour"
+      "armour",
+      "intermediate"
     ]
   },
   {
@@ -4675,7 +5273,8 @@
     "url": "https://www.youtube.com/watch?v=M6W80zcP2r8",
     "tags": [
       "aos",
-      "beginner"
+      "beginner",
+      "stormcast eternals"
     ]
   },
   {
@@ -4685,7 +5284,9 @@
     "publishedAt": "2020-08-26T10:00:02Z",
     "thumbnail": "https://i.ytimg.com/vi/Aam6pmKnJ-A/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Aam6pmKnJ-A",
-    "tags": []
+    "tags": [
+      "aeronautica imperialis"
+    ]
   },
   {
     "videoId": "0KE-TPVJUSU",
@@ -4695,8 +5296,8 @@
     "thumbnail": "https://i.ytimg.com/vi/0KE-TPVJUSU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0KE-TPVJUSU",
     "tags": [
-      "astra militarum",
-      "40k"
+      "40k",
+      "astra militarum"
     ]
   },
   {
@@ -4707,7 +5308,11 @@
     "thumbnail": "https://i.ytimg.com/vi/PK-2KSwe7dA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PK-2KSwe7dA",
     "tags": [
-      "beginner"
+      "40k",
+      "beginner",
+      "necrons",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -4718,8 +5323,11 @@
     "thumbnail": "https://i.ytimg.com/vi/idxpUd9LMVQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=idxpUd9LMVQ",
     "tags": [
+      "40k",
+      "chaos",
+      "chaos space marines",
       "horus heresy",
-      "chaos space marines"
+      "thousand sons"
     ]
   },
   {
@@ -4741,7 +5349,8 @@
     "thumbnail": "https://i.ytimg.com/vi/1QRkW-WS0Cg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1QRkW-WS0Cg",
     "tags": [
-      "40k"
+      "40k",
+      "imperial knights"
     ]
   },
   {
@@ -4752,8 +5361,12 @@
     "thumbnail": "https://i.ytimg.com/vi/bPnTvjLgU_k/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bPnTvjLgU_k",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "dark angels",
+      "painting essentials",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -4774,7 +5387,11 @@
     "publishedAt": "2023-12-14T12:00:44Z",
     "thumbnail": "https://i.ytimg.com/vi/ugX7wQWy2u4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ugX7wQWy2u4",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs",
+      "special projects"
+    ]
   },
   {
     "videoId": "XbbFnt9sV9M",
@@ -4784,7 +5401,10 @@
     "thumbnail": "https://i.ytimg.com/vi/XbbFnt9sV9M/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XbbFnt9sV9M",
     "tags": [
+      "40k",
       "beginner",
+      "orcs",
+      "painting essentials",
       "tyranids"
     ]
   },
@@ -4796,7 +5416,10 @@
     "thumbnail": "https://i.ytimg.com/vi/yKwG0X7pXhs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yKwG0X7pXhs",
     "tags": [
+      "40k",
+      "aos",
       "beginner",
+      "gloomspite gitz",
       "orcs"
     ]
   },
@@ -4819,8 +5442,10 @@
     "thumbnail": "https://i.ytimg.com/vi/nWl45NhQ9y0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nWl45NhQ9y0",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -4831,8 +5456,9 @@
     "thumbnail": "https://i.ytimg.com/vi/nkW4R1Rvae0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nkW4R1Rvae0",
     "tags": [
+      "intermediate",
       "skin",
-      "intermediate"
+      "textures & materials"
     ]
   },
   {
@@ -4844,7 +5470,8 @@
     "url": "https://www.youtube.com/watch?v=poZxuX1bB6s",
     "tags": [
       "40k",
-      "eldar"
+      "contrast paints",
+      "textures & materials"
     ]
   },
   {
@@ -4866,9 +5493,9 @@
     "thumbnail": "https://i.ytimg.com/vi/beaIuIPpEt8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=beaIuIPpEt8",
     "tags": [
-      "chaos",
       "aos",
       "armour",
+      "chaos",
       "metal"
     ]
   },
@@ -4902,7 +5529,8 @@
     "thumbnail": "https://i.ytimg.com/vi/Xywp3WQS6Wk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Xywp3WQS6Wk",
     "tags": [
-      "skin",
+      "40k",
+      "orcs",
       "textures & materials"
     ]
   },
@@ -4914,6 +5542,9 @@
     "thumbnail": "https://i.ytimg.com/vi/I5DRUl3OrJI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I5DRUl3OrJI",
     "tags": [
+      "40k",
+      "cloth",
+      "dark angels",
       "space marines"
     ]
   },
@@ -4925,8 +5556,10 @@
     "thumbnail": "https://i.ytimg.com/vi/pBA92IuiPRU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pBA92IuiPRU",
     "tags": [
+      "40k",
       "beginner",
-      "space marines"
+      "space marines",
+      "ultramarines"
     ]
   },
   {
@@ -4936,7 +5569,9 @@
     "publishedAt": "2025-09-10T16:00:47Z",
     "thumbnail": "https://i.ytimg.com/vi/Ou3riz-xyDM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Ou3riz-xyDM",
-    "tags": []
+    "tags": [
+      "underworlds"
+    ]
   },
   {
     "videoId": "IARqio00oRg",
@@ -4946,7 +5581,9 @@
     "thumbnail": "https://i.ytimg.com/vi/IARqio00oRg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IARqio00oRg",
     "tags": [
-      "textures & materials"
+      "special projects",
+      "textures & materials",
+      "vehicles"
     ]
   },
   {
@@ -4956,7 +5593,9 @@
     "publishedAt": "2021-07-27T09:04:55Z",
     "thumbnail": "https://i.ytimg.com/vi/WwqFfS_bJ4w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=WwqFfS_bJ4w",
-    "tags": []
+    "tags": [
+      "underworlds"
+    ]
   },
   {
     "videoId": "wOVQ2uZIwu4",
@@ -4966,7 +5605,11 @@
     "thumbnail": "https://i.ytimg.com/vi/wOVQ2uZIwu4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wOVQ2uZIwu4",
     "tags": [
-      "40k"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children",
+      "textures & materials"
     ]
   },
   {
@@ -4977,6 +5620,7 @@
     "thumbnail": "https://i.ytimg.com/vi/k57h8-tV4Ow/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=k57h8-tV4Ow",
     "tags": [
+      "40k",
       "beginner",
       "orcs"
     ]
@@ -4988,7 +5632,10 @@
     "publishedAt": "2022-07-14T07:52:11Z",
     "thumbnail": "https://i.ytimg.com/vi/peu91xC2TW4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=peu91xC2TW4",
-    "tags": []
+    "tags": [
+      "citadel products",
+      "textures & materials"
+    ]
   },
   {
     "videoId": "ZpDdvqhTnas",
@@ -4998,6 +5645,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ZpDdvqhTnas/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZpDdvqhTnas",
     "tags": [
+      "aeronautica imperialis",
       "textures & materials"
     ]
   },
@@ -5009,7 +5657,10 @@
     "thumbnail": "https://i.ytimg.com/vi/yV2TlLentZw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yV2TlLentZw",
     "tags": [
-      "beginner"
+      "aos",
+      "beginner",
+      "gloomspite gitz",
+      "textures & materials"
     ]
   },
   {
@@ -5020,8 +5671,10 @@
     "thumbnail": "https://i.ytimg.com/vi/yAajD5omlbE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yAajD5omlbE",
     "tags": [
+      "40k",
+      "aos",
       "intermediate",
-      "aos"
+      "orcs"
     ]
   },
   {
@@ -5032,7 +5685,11 @@
     "thumbnail": "https://i.ytimg.com/vi/OXKljazI5WM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=OXKljazI5WM",
     "tags": [
-      "intermediate"
+      "40k",
+      "cloth",
+      "intermediate",
+      "orcs",
+      "space marines"
     ]
   },
   {
@@ -5043,9 +5700,10 @@
     "thumbnail": "https://i.ytimg.com/vi/4O9wEn9C2nE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4O9wEn9C2nE",
     "tags": [
-      "chaos",
+      "40k",
       "aos",
-      "beginner"
+      "beginner",
+      "chaos"
     ]
   },
   {
@@ -5057,6 +5715,10 @@
     "url": "https://www.youtube.com/watch?v=0xZZGws55-k",
     "tags": [
       "40k",
+      "bases",
+      "chaos",
+      "grey knights",
+      "metal",
       "space marines"
     ]
   },
@@ -5068,8 +5730,10 @@
     "thumbnail": "https://i.ytimg.com/vi/4CmGTSnhNjI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4CmGTSnhNjI",
     "tags": [
-      "intermediate",
       "40k",
+      "chaos",
+      "chaos space marines",
+      "intermediate",
       "kill team"
     ]
   },
@@ -5080,7 +5744,10 @@
     "publishedAt": "2025-07-23T10:01:14Z",
     "thumbnail": "https://i.ytimg.com/vi/mkBuKgklUmQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=mkBuKgklUmQ",
-    "tags": []
+    "tags": [
+      "metal",
+      "weapons"
+    ]
   },
   {
     "videoId": "57Mci3famBU",
@@ -5090,7 +5757,8 @@
     "thumbnail": "https://i.ytimg.com/vi/57Mci3famBU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=57Mci3famBU",
     "tags": [
-      "intermediate"
+      "intermediate",
+      "metal"
     ]
   },
   {
@@ -5112,6 +5780,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HmG2pwu5ZZ0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HmG2pwu5ZZ0",
     "tags": [
+      "40k",
       "astra militarum"
     ]
   },
@@ -5134,9 +5803,9 @@
     "thumbnail": "https://i.ytimg.com/vi/pjMJcLQXkyA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pjMJcLQXkyA",
     "tags": [
+      "40k",
       "astra militarum",
-      "intermediate",
-      "40k"
+      "intermediate"
     ]
   },
   {
@@ -5148,7 +5817,8 @@
     "url": "https://www.youtube.com/watch?v=sJeW44VPm6c",
     "tags": [
       "intermediate",
-      "old world"
+      "old world",
+      "textures & materials"
     ]
   },
   {
@@ -5159,7 +5829,8 @@
     "thumbnail": "https://i.ytimg.com/vi/5ORe3OwU2NM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5ORe3OwU2NM",
     "tags": [
-      "beginner"
+      "beginner",
+      "middle earth"
     ]
   },
   {
@@ -5169,7 +5840,10 @@
     "publishedAt": "2023-11-11T16:00:23Z",
     "thumbnail": "https://i.ytimg.com/vi/dqVEjBnE6zc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dqVEjBnE6zc",
-    "tags": []
+    "tags": [
+      "aos",
+      "cities of sigmar"
+    ]
   },
   {
     "videoId": "zBIN6vJOrnw",
@@ -5178,7 +5852,9 @@
     "publishedAt": "2025-04-09T10:04:06Z",
     "thumbnail": "https://i.ytimg.com/vi/zBIN6vJOrnw/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zBIN6vJOrnw",
-    "tags": []
+    "tags": [
+      "painting essentials"
+    ]
   },
   {
     "videoId": "nwOzBHuBt9w",
@@ -5188,9 +5864,8 @@
     "thumbnail": "https://i.ytimg.com/vi/nwOzBHuBt9w/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nwOzBHuBt9w",
     "tags": [
-      "intermediate",
       "aos",
-      "space marines"
+      "intermediate"
     ]
   },
   {
@@ -5212,7 +5887,9 @@
     "publishedAt": "2021-06-18T09:00:57Z",
     "thumbnail": "https://i.ytimg.com/vi/UpEOdXdSuVE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UpEOdXdSuVE",
-    "tags": []
+    "tags": [
+      "underworlds"
+    ]
   },
   {
     "videoId": "ACTMvrY7JNs",
@@ -5222,7 +5899,10 @@
     "thumbnail": "https://i.ytimg.com/vi/ACTMvrY7JNs/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ACTMvrY7JNs",
     "tags": [
-      "40k"
+      "40k",
+      "chaos",
+      "chaos space marines",
+      "emperor's children"
     ]
   },
   {
@@ -5232,7 +5912,11 @@
     "publishedAt": "2023-01-10T15:49:49Z",
     "thumbnail": "https://i.ytimg.com/vi/j6ZqNti15zU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=j6ZqNti15zU",
-    "tags": []
+    "tags": [
+      "40k",
+      "space marines",
+      "ultramarines"
+    ]
   },
   {
     "videoId": "h9L6S36kdhQ",
@@ -5242,8 +5926,8 @@
     "thumbnail": "https://i.ytimg.com/vi/h9L6S36kdhQ/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=h9L6S36kdhQ",
     "tags": [
-      "horus heresy",
-      "chaos"
+      "chaos",
+      "horus heresy"
     ]
   },
   {
@@ -5254,9 +5938,12 @@
     "thumbnail": "https://i.ytimg.com/vi/0LiOZujpdNg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0LiOZujpdNg",
     "tags": [
+      "40k",
       "horus heresy",
+      "legions imperialis",
+      "orcs",
       "textures & materials",
-      "space marines"
+      "vehicles"
     ]
   },
   {
@@ -5278,7 +5965,7 @@
     "thumbnail": "https://i.ytimg.com/vi/GHShSi8oiOk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GHShSi8oiOk",
     "tags": [
-      "space marines"
+      "underworlds"
     ]
   },
   {
@@ -5289,9 +5976,11 @@
     "thumbnail": "https://i.ytimg.com/vi/80z7u-j0Gc4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=80z7u-j0Gc4",
     "tags": [
-      "textures & materials",
+      "40k",
       "beginner",
-      "space marines"
+      "blood angels",
+      "space marines",
+      "textures & materials"
     ]
   },
   {
@@ -5302,7 +5991,6 @@
     "thumbnail": "https://i.ytimg.com/vi/SFTUVpleGF0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SFTUVpleGF0",
     "tags": [
-      "textures & materials",
       "bases"
     ]
   },
@@ -5314,9 +6002,12 @@
     "thumbnail": "https://i.ytimg.com/vi/2itWbVxMQPY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=2itWbVxMQPY",
     "tags": [
-      "orcs",
+      "40k",
       "beginner",
-      "space marines"
+      "dark angels",
+      "orcs",
+      "space marines",
+      "weapons"
     ]
   },
   {
@@ -5340,6 +6031,8 @@
     "thumbnail": "https://i.ytimg.com/vi/3NJz6jPpP-0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3NJz6jPpP-0",
     "tags": [
+      "40k",
+      "astra militarum",
       "old world"
     ]
   },
@@ -5351,8 +6044,8 @@
     "thumbnail": "https://i.ytimg.com/vi/Uwbqr3AmwUc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Uwbqr3AmwUc",
     "tags": [
-      "chaos",
-      "beginner"
+      "beginner",
+      "underworlds"
     ]
   },
   {
@@ -5363,6 +6056,7 @@
     "thumbnail": "https://i.ytimg.com/vi/N01FT07xeMU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=N01FT07xeMU",
     "tags": [
+      "citadel products",
       "metal"
     ]
   },
@@ -5374,6 +6068,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-GmSO_okQzk/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-GmSO_okQzk",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -5386,9 +6081,8 @@
     "thumbnail": "https://i.ytimg.com/vi/LQqZ3rg6ENM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=LQqZ3rg6ENM",
     "tags": [
-      "astra militarum",
-      "textures & materials",
-      "40k"
+      "40k",
+      "astra militarum"
     ]
   },
   {
@@ -5410,8 +6104,8 @@
     "thumbnail": "https://i.ytimg.com/vi/DyY434AzdC4/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DyY434AzdC4",
     "tags": [
-      "intermediate",
-      "aos"
+      "aos",
+      "intermediate"
     ]
   },
   {
@@ -5422,9 +6116,9 @@
     "thumbnail": "https://i.ytimg.com/vi/VEAiLaT2lTU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=VEAiLaT2lTU",
     "tags": [
-      "skin",
+      "aos",
       "chaos",
-      "aos"
+      "skin"
     ]
   },
   {
@@ -5435,7 +6129,11 @@
     "thumbnail": "https://i.ytimg.com/vi/tCMYZ4S0ubU/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tCMYZ4S0ubU",
     "tags": [
-      "astra militarum"
+      "40k",
+      "astra militarum",
+      "legions imperialis",
+      "painting essentials",
+      "textures & materials"
     ]
   },
   {
@@ -5457,7 +6155,8 @@
     "thumbnail": "https://i.ytimg.com/vi/4eCV5wG8tVc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4eCV5wG8tVc",
     "tags": [
-      "aos"
+      "aos",
+      "sylvaneth"
     ]
   },
   {
@@ -5468,8 +6167,9 @@
     "thumbnail": "https://i.ytimg.com/vi/JO4_xxFjgtc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JO4_xxFjgtc",
     "tags": [
-      "textures & materials",
-      "bases"
+      "bases",
+      "special projects",
+      "textures & materials"
     ]
   },
   {
@@ -5480,6 +6180,7 @@
     "thumbnail": "https://i.ytimg.com/vi/bTevm43C6F8/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bTevm43C6F8",
     "tags": [
+      "40k",
       "necrons"
     ]
   },
@@ -5491,7 +6192,8 @@
     "thumbnail": "https://i.ytimg.com/vi/akBZi4eXFHg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=akBZi4eXFHg",
     "tags": [
-      "beginner"
+      "beginner",
+      "underworlds"
     ]
   },
   {
@@ -5513,8 +6215,11 @@
     "thumbnail": "https://i.ytimg.com/vi/IbmVCc2sqkM/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IbmVCc2sqkM",
     "tags": [
+      "40k",
       "chaos",
-      "40k"
+      "chaos space marines",
+      "emperor's children",
+      "textures & materials"
     ]
   },
   {
@@ -5525,8 +6230,8 @@
     "thumbnail": "https://i.ytimg.com/vi/OOpS5-J8BZA/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=OOpS5-J8BZA",
     "tags": [
-      "skin",
-      "beginner"
+      "beginner",
+      "skin"
     ]
   },
   {
@@ -5537,7 +6242,8 @@
     "thumbnail": "https://i.ytimg.com/vi/A4XXSboOMcg/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=A4XXSboOMcg",
     "tags": [
-      "40k"
+      "40k",
+      "space marines"
     ]
   },
   {
@@ -5547,7 +6253,10 @@
     "publishedAt": "2024-03-13T10:45:01Z",
     "thumbnail": "https://i.ytimg.com/vi/KVbSfyCKODE/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=KVbSfyCKODE",
-    "tags": []
+    "tags": [
+      "aos",
+      "cities of sigmar"
+    ]
   },
   {
     "videoId": "B3mPGFP9n40",
@@ -5557,8 +6266,13 @@
     "thumbnail": "https://i.ytimg.com/vi/B3mPGFP9n40/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=B3mPGFP9n40",
     "tags": [
+      "40k",
+      "aos",
+      "armour",
+      "chaos",
+      "chaos space marines",
       "intermediate",
-      "40k"
+      "space marines"
     ]
   },
   {
@@ -5581,7 +6295,10 @@
     "thumbnail": "https://i.ytimg.com/vi/CQ5v46ryz8I/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=CQ5v46ryz8I",
     "tags": [
-      "intermediate"
+      "citadel products",
+      "contrast paints",
+      "intermediate",
+      "textures & materials"
     ]
   },
   {
@@ -5591,7 +6308,10 @@
     "publishedAt": "2025-04-29T09:00:35Z",
     "thumbnail": "https://i.ytimg.com/vi/K765aC4sNNc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=K765aC4sNNc",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs"
+    ]
   },
   {
     "videoId": "6XelpoiEdqo",
@@ -5601,8 +6321,9 @@
     "thumbnail": "https://i.ytimg.com/vi/6XelpoiEdqo/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6XelpoiEdqo",
     "tags": [
-      "intermediate",
-      "40k"
+      "40k",
+      "cloth",
+      "intermediate"
     ]
   },
   {
@@ -5613,6 +6334,7 @@
     "thumbnail": "https://i.ytimg.com/vi/OolAxzV5V-g/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=OolAxzV5V-g",
     "tags": [
+      "40k",
       "beginner",
       "tyranids"
     ]
@@ -5624,7 +6346,11 @@
     "publishedAt": "2023-04-14T09:59:22Z",
     "thumbnail": "https://i.ytimg.com/vi/gwLW3kynzEI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gwLW3kynzEI",
-    "tags": []
+    "tags": [
+      "40k",
+      "dark angels",
+      "space marines"
+    ]
   },
   {
     "videoId": "XzKC5SIZWig",
@@ -5634,7 +6360,8 @@
     "thumbnail": "https://i.ytimg.com/vi/XzKC5SIZWig/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XzKC5SIZWig",
     "tags": [
-      "40k"
+      "40k",
+      "space marines"
     ]
   },
   {
@@ -5645,6 +6372,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7avrNH4drWc/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7avrNH4drWc",
     "tags": [
+      "citadel products",
       "skin"
     ]
   },
@@ -5667,7 +6395,9 @@
     "publishedAt": "2024-12-18T12:26:34Z",
     "thumbnail": "https://i.ytimg.com/vi/z1MIzNy5p5U/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=z1MIzNy5p5U",
-    "tags": []
+    "tags": [
+      "special projects"
+    ]
   },
   {
     "videoId": "znaQDvTpASI",
@@ -5676,7 +6406,9 @@
     "publishedAt": "2025-03-27T04:30:32Z",
     "thumbnail": "https://i.ytimg.com/vi/znaQDvTpASI/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=znaQDvTpASI",
-    "tags": []
+    "tags": [
+      "skin"
+    ]
   },
   {
     "videoId": "PF_hU-4CUp0",
@@ -5685,7 +6417,9 @@
     "publishedAt": "2024-07-19T19:29:29Z",
     "thumbnail": "https://i.ytimg.com/vi/PF_hU-4CUp0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PF_hU-4CUp0",
-    "tags": []
+    "tags": [
+      "skin"
+    ]
   },
   {
     "videoId": "Zt4IxT6546U",
@@ -5694,7 +6428,9 @@
     "publishedAt": "2024-09-19T19:17:17Z",
     "thumbnail": "https://i.ytimg.com/vi/Zt4IxT6546U/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Zt4IxT6546U",
-    "tags": []
+    "tags": [
+      "skin"
+    ]
   },
   {
     "videoId": "8to65OtNGP0",
@@ -5703,7 +6439,10 @@
     "publishedAt": "2026-01-03T16:00:20Z",
     "thumbnail": "https://i.ytimg.com/vi/8to65OtNGP0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8to65OtNGP0",
-    "tags": []
+    "tags": [
+      "40k",
+      "adeptus mechanicus"
+    ]
   },
   {
     "videoId": "w88XWPY-XL0",
@@ -5712,6 +6451,10 @@
     "publishedAt": "2025-12-24T13:00:29Z",
     "thumbnail": "https://i.ytimg.com/vi/w88XWPY-XL0/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=w88XWPY-XL0",
-    "tags": []
+    "tags": [
+      "40k",
+      "orcs",
+      "skin"
+    ]
   }
 ]
