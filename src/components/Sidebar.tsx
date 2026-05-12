@@ -17,21 +17,25 @@ export default function Sidebar({
 
   const tags = useMemo(() => {
     // Get all unique tags from the videos
-    // with an unique thumbnail for each tag (the first video that has that tag)
-    const tagMap: Record<string, string> = {};
+    const uniqueTags = new Set<string>();
     videos.forEach((video) => {
       video.tags.forEach((tag) => {
-        if (!tagMap[tag]) {
-          tagMap[tag] = video.thumbnail;
-        }
+        uniqueTags.add(tag);
       });
     });
 
-    return Object.entries(tagMap).map(([tag, thumbnail]) => ({
-      tag,
-      thumbnail,
-    }));
-  }, []);
+    return Array.from(uniqueTags).sort((a, b) => {
+      const aSelected = selectedTags.includes(a);
+      const bSelected = selectedTags.includes(b);
+
+      // Selected tags come first
+      if (aSelected && !bSelected) return -1;
+      if (!aSelected && bSelected) return 1;
+
+      // Within each group, sort alphabetically
+      return a.localeCompare(b);
+    });
+  }, [selectedTags]);
 
   const toggleTag = (tag: string) => {
     if (selectedTags.includes(tag)) {
@@ -47,18 +51,20 @@ export default function Sidebar({
   };
 
   return (
-    <aside className={`w-64 fixed top-14 border-r border-zinc-800 h-[calc(100vh-56px)] overflow-y-auto p-4 bg-zinc-950 z-40 transition-transform duration-300 ${
-      isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-    } lg:translate-x-0`}>
-      <h3 className="text-sm font-semibold text-zinc-400 mb-3">TAGS</h3>
+    <aside
+      className={`fixed top-14 z-40 h-[calc(100vh-56px)] w-64 overflow-y-auto border-r border-zinc-800 bg-zinc-950 p-4 transition-transform duration-300 ${
+        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+      } lg:translate-x-0`}
+    >
+      <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
       <div className="flex flex-wrap gap-2">
-        {tags.map(({ tag }) => (
+        {tags.map((tag) => (
           <button
             key={tag}
             onClick={() => toggleTag(tag)}
-            className={`px-4 py-1.5 text-sm rounded-full border transition-colors cursor-pointer ${
+            className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
               selectedTags.includes(tag)
-                ? "bg-blue-600 border-blue-600 text-white"
+                ? "border-blue-600 bg-blue-600 text-white"
                 : "border-zinc-700 hover:border-zinc-500"
             }`}
           >

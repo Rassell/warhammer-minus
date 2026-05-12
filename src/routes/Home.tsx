@@ -112,9 +112,8 @@ export default function Home() {
 
       <main className="flex-1 p-4 md:p-6 lg:ml-64">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold">Warhammer Painting Videos</h1>
           <p className="text-zinc-400">
-            Mostrando {visibleVideos.length} de {filteredVideos.length} videos
+            {visibleVideos.length} / {filteredVideos.length} videos
           </p>
         </div>
 
