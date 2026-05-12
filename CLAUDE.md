@@ -58,7 +58,9 @@ warhammer-minus/
 ├── be/                    # Python backend scripts
 │   ├── youtube_channel_search.py  # Fetch videos from YouTube
 │   ├── tag_videos.py             # Add tags to videos
+│   ├── analyze_untagged.py       # Analyze untagged videos
 │   ├── videos.json               # Generated video data
+│   ├── TAGGING_GUIDE.md          # Tagging system documentation
 │   └── .venv/                    # Python virtual environment
 ├── public/                # Static assets
 │   ├── favicon.svg
@@ -126,12 +128,43 @@ cp ../.env.example ../.env
 # Fetch videos
 python youtube_channel_search.py
 
-# Tag videos
+# Tag videos (automatically copies to src/)
 python tag_videos.py
 
-# Copy videos.json to src/
-cp videos.json ../src/videos.json
+# Analyze untagged videos (optional)
+python analyze_untagged.py
 ```
+
+### Video Tagging System
+
+The project uses an intelligent tagging system with **100% coverage** (496/496 videos):
+
+#### Key Features
+- **Dual search**: Matches patterns in both title and description
+- **Automatic hierarchy**: Specific tags inherit general tags (e.g., `salamanders` → `space marines` + `40k`)
+- **Comprehensive patterns**: Covers all Warhammer systems, factions, techniques, and difficulty levels
+- **Statistics tracking**: Shows tag distribution and identifies untagged videos
+
+#### Available Tools
+- **`tag_videos.py`**: Main tagging script - tags all videos and outputs statistics
+- **`analyze_untagged.py`**: Analysis tool to identify missing patterns and suggest improvements
+- **`TAGGING_GUIDE.md`**: Complete documentation of the tagging system
+
+#### Tag Categories
+- **Game Systems**: 40k, AoS, Horus Heresy, Underworlds, Middle Earth, etc.
+- **Factions**: Space Marines (all chapters), Chaos, Xenos, AoS factions
+- **Difficulty**: Beginner, Intermediate, Advanced
+- **Techniques**: Skin, Metal, Cloth, Bases, Textures & Materials
+- **Special**: Painting Essentials, Citadel Products, Special Projects
+
+#### Maintenance Workflow
+1. Fetch new videos with `youtube_channel_search.py`
+2. Run `tag_videos.py` to tag all videos
+3. If untagged videos appear, run `analyze_untagged.py`
+4. Add missing patterns to `TAG_RULES` in `tag_videos.py`
+5. Re-run until 100% coverage is achieved
+
+See `be/TAGGING_GUIDE.md` for detailed documentation.
 
 ## Environment Variables
 
@@ -237,8 +270,10 @@ When helping with this project:
 3. **Maintain TypeScript strictness** - Always provide explicit types
 4. **Follow existing patterns** - Look at similar components for style guidance
 5. **Consider mobile** - All changes should work on mobile screens
-6. **Update both JSON files** - If modifying video data structure, update both `be/videos.json` and `src/videos.json`
+6. **Update both JSON files** - If modifying video data structure, update both `be/videos.json` and `src/videos.json` (note: `tag_videos.py` does this automatically)
 7. **Don't commit .env** - It's gitignored for a reason
+8. **Maintain tag coverage** - When adding new tag patterns, run `analyze_untagged.py` to verify coverage
+9. **Use English** - All code, comments, and documentation should be in English for consistency
 
 ## Useful Commands Reference
 
@@ -251,7 +286,8 @@ npm run preview         # Preview production build
 
 # Python (from be/ directory)
 python youtube_channel_search.py  # Fetch videos
-python tag_videos.py             # Tag videos
+python tag_videos.py              # Tag videos (100% coverage)
+python analyze_untagged.py        # Analyze missing patterns
 
 # Git
 git status              # Check current state

@@ -37,9 +37,19 @@ yarn typecheck
 The video catalog is generated with Python scripts in `be/`:
 
 1. **`youtube_channel_search.py`** — Fetches video metadata from the Warhammer YouTube channel via the YouTube Data API.
-2. **`tag_videos.py`** — Applies tags to videos based on regex patterns in their titles (e.g., `40k`, `beginner`, `tyranids`).
+2. **`tag_videos.py`** — Applies tags to videos using an intelligent pattern-matching system with **100% coverage** (496/496 videos tagged).
+3. **`analyze_untagged.py`** — (Optional) Analyzes videos without tags and suggests missing patterns.
 
 The output is saved to `src/videos.json` and bundled with the frontend.
+
+### Tag System Features
+
+- **Comprehensive coverage**: All videos tagged across 40k, AoS, Horus Heresy, and other systems
+- **Smart hierarchy**: Specific tags inherit general ones (e.g., `salamanders` → `space marines` + `40k`)
+- **Multiple categories**: Factions, difficulty levels, techniques, game systems
+- **Easy maintenance**: Run `analyze_untagged.py` after adding new videos to identify missing patterns
+
+See `be/TAGGING_GUIDE.md` for detailed documentation on the tagging system.
 
 ## Build & Deploy
 
