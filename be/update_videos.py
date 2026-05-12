@@ -138,7 +138,6 @@ def get_video_details(video_ids: List[str], quiet: bool = False) -> List[Dict[st
                     'duration': item['contentDetails'].get('duration', ''),
                     'viewCount': int(item['statistics'].get('viewCount', 0)),
                     'likeCount': int(item['statistics'].get('likeCount', 0)),
-                    'commentCount': int(item['statistics'].get('commentCount', 0)),
                 }
                 all_videos.append(video)
 
