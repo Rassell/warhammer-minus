@@ -2,6 +2,7 @@
 .env
 /node_modules/
 /dist/
-/.venv/
+**/.venv/
 /.vscode/
 **/__pycache__/
+/be/videos.json
