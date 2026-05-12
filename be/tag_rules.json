@@ -1,5 +1,5 @@
 [
-  ["40k", "40[.,]?000|40k|warhammer 40k|space marine|guardsmen|tyranid|necron|tau|eldar|ork|chaos"],
+  ["40k", "40[.,]?000|40k|warhammer 40k|space marine|guardsmen|tyranid|necron|tau|eldar|\\bork\\b|chaos"],
   ["aos", "age of sigmar|aos|stormcast|flesh-eater|nighthaunt|ossiarch|lumineth"],
   ["underworlds", "underworlds|warhammer underworlds|nethermaze|shadespire|nightvault|beastgrave|direchasm|harrowdeep|gnarlwood|deathgorge|elathain|soulraid|kainan|reapers|infinity.?s lament"],
   ["old world", "old world|warhammer fantasy|wfb|tomb kings|bretonnia"],
@@ -34,8 +34,8 @@
   ["eldar", "eldars?|aeldari|craftworld|aspect warrior|farseer|autarch"],
   ["harlequins", "harlequins?|solitaire|troupe"],
   ["drukhari", "drukhari|dark eldars?|incubi|wyches?|haemonculus|Kabals?|kabalite"],
-  ["orcs", "\\bboyz\\b|orcs?|orks?|gretchin|Squig|Orlock|warboss|nob|kommando|red gobbo|da gobbo"],
-  ["necrons", "necrons?|skorpekh|immortal\\b|warrior\\b|tomb blade"],
+  ["orcs", "\\bboyz\\b|\\borcs?\\b|\\borks?\\b|gretchin|Squig|Orlock|warboss|\\bnob\\b|kommando|red gobbo|da gobbo"],
+  ["necrons", "necrons?|skorpekh|necron\\s+immortal|necron\\s+warrior|tomb blade|canoptek"],
   ["tau", "\\btaus?\\b|Farsight|fire warrior|pathfinder|crisis suit|kroot"],
   ["genestealer cults", "genestealer cults?|genestealers?\\b|neophyte|acolyte"],
   ["astra militarum", "astra militarum|Imperialis Solar|imperial guard|guardsmen|cadians?|catachans?|valhallans?|Krieg|death korps of krieg|steel legion|sentinel\\b|leman russ"],

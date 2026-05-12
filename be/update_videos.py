@@ -228,6 +228,12 @@ def clean_description_for_tagging(description: str) -> str:
     - "Dryad Bark" contains "Dryad" (Sylvaneth unit)
     - "Mephiston Red" contains "Mephiston" (Blood Angels character)
     - "Caliban Green" contains "Caliban" (Dark Angels homeworld)
+    - "Black Legion" / "Black Templar" (Contrast paint names)
+    - "Flesh Tearers Red" contains "Flesh Tearers" (Blood Angels successor)
+    - "Iron Hands Steel" / "Iron Warriors" (paint names)
+    - "Fenrisian Blue" contains "Fenrisian" (Space Wolves)
+    - "Genestealer Purple" contains "Genestealer"
+    - "Stormhost Silver" contains "Stormhost" (Stormcast unit)
 
     Args:
         description: Raw video description
@@ -235,22 +241,38 @@ def clean_description_for_tagging(description: str) -> str:
     Returns:
         Cleaned description without paint lists
     """
-    # Pattern to remove paint list sections
-    # Uses . to match any character (including different apostrophe types)
-    # Matches from start markers to end markers (or end of string)
-
+    # Pattern 1: Standard format with introduction
+    # Variations: "Here's a list of the paints", "Here are the colours we used"
     paint_list_patterns = [
-        # "Here's a list of the paints and tools..." - most common format
         r'Here.s\s+a\s+list\s+of\s+the\s+paints.*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
-        # "Paints used:" - alternative format
+        r'Here\s+are\s+the\s+(?:paints|colours).*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
         r'Paints\s+used:.*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
-        # "In this video we used..." - another variant
         r'In\s+this\s+video.*?(?:paints|tools).*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
     ]
 
+    # Pattern 2: Direct paint list format (no introduction)
+    # Starts with paint category headers like "Base:", "Contrast:", "Layer:"
+    # Often follows a model/unit name line
+    # Ends before social media links
+    direct_paint_list = r'''
+        (?:^|\n)                           # Start of line
+        (?:[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\n)?  # Optional model name (e.g., "Asurmen", "Fuegan")
+        (?:                                # Paint categories
+            (?:Base|Layer|Shade|Contrast|Technical|Air|Dry|Glaze|Texture)s?:?\s*\n
+            (?:[A-Z].*?\n)*?               # Paint names (capitalized lines)
+        ){2,}                              # At least 2 categories
+        .*?                                # Rest of paint list
+        (?=Follow\s+for\s+more|If\s+you\s+enjoyed|Sign\s+up|Subscribe|$)
+    '''
+
     cleaned = description
+
+    # Apply standard patterns
     for pattern in paint_list_patterns:
         cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE | re.DOTALL)
+
+    # Apply direct paint list pattern
+    cleaned = re.sub(direct_paint_list, '', cleaned, flags=re.MULTILINE | re.DOTALL | re.VERBOSE)
 
     return cleaned
 
