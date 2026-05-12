@@ -220,6 +220,40 @@ def fetch_videos(channel_id: str, search_query: Optional[str], max_results: int 
 # TAGGING FUNCTIONS
 # ============================================================================
 
+def clean_description_for_tagging(description: str) -> str:
+    """
+    Remove paint lists and other content that can cause false positive tags.
+
+    Paint names often contain faction names or keywords that trigger false positives:
+    - "Dryad Bark" contains "Dryad" (Sylvaneth unit)
+    - "Mephiston Red" contains "Mephiston" (Blood Angels character)
+    - "Caliban Green" contains "Caliban" (Dark Angels homeworld)
+
+    Args:
+        description: Raw video description
+
+    Returns:
+        Cleaned description without paint lists
+    """
+    # Pattern to remove paint list sections
+    # Uses . to match any character (including different apostrophe types)
+    # Matches from start markers to end markers (or end of string)
+
+    paint_list_patterns = [
+        # "Here's a list of the paints and tools..." - most common format
+        r'Here.s\s+a\s+list\s+of\s+the\s+paints.*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
+        # "Paints used:" - alternative format
+        r'Paints\s+used:.*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
+        # "In this video we used..." - another variant
+        r'In\s+this\s+video.*?(?:paints|tools).*?(?=Follow\s+for\s+more|If\s+you\s+enjoyed|$)',
+    ]
+
+    cleaned = description
+    for pattern in paint_list_patterns:
+        cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE | re.DOTALL)
+
+    return cleaned
+
 def apply_tags(videos: List[Dict]) -> List[Dict]:
     """
     Apply TAG_RULES to videos based on title/description.
@@ -233,10 +267,15 @@ def apply_tags(videos: List[Dict]) -> List[Dict]:
     for video in videos:
         title = video.get('title', '')
         description = video.get('description', '')
-        # Combine title and description for matching (title has more weight)
-        search_text = f"{title} {title} {description}"
 
-        tags = set(video.get('tags', []))
+        # Clean description to avoid false positives from paint names
+        cleaned_description = clean_description_for_tagging(description)
+
+        # Combine title and description for matching (title has more weight)
+        search_text = f"{title} {title} {cleaned_description}"
+
+        # Start with empty tags (don't preserve existing tags)
+        tags = set()
 
         # Apply tag rules
         for tag, pattern in TAG_RULES:
