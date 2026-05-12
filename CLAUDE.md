@@ -56,10 +56,13 @@ warhammer-minus/
 │   ├── main.tsx           # React entry point
 │   └── app.css            # Global styles
 ├── be/                    # Python backend scripts
-│   ├── youtube_channel_search.py  # Fetch videos from YouTube
-│   ├── tag_videos.py             # Add tags to videos
+│   ├── update_videos.py          # Unified script: fetch + tag videos
 │   ├── analyze_untagged.py       # Analyze untagged videos
-│   ├── videos.json               # Generated video data
+│   ├── tag_rules.json            # Tagging patterns configuration
+│   ├── tag_hierarchy.json        # Tag parent-child relationships
+│   ├── exclude_patterns.json     # Title patterns to exclude
+│   ├── exclude_ids.json          # Specific video IDs to exclude
+│   ├── videos.json               # Generated video data (intermediate)
 │   ├── TAGGING_GUIDE.md          # Tagging system documentation
 │   └── .venv/                    # Python virtual environment
 ├── public/                # Static assets
@@ -125,15 +128,31 @@ pip install -r ../requirements.txt
 cp ../.env.example ../.env
 # Edit .env and add your YouTube API key
 
-# Fetch videos
-python youtube_channel_search.py
+# Fetch + tag + save in one command
+python update_videos.py
 
-# Tag videos (automatically copies to src/)
-python tag_videos.py
+# With intermediate file saved (for debugging)
+python update_videos.py --save-intermediate
+
+# Quiet mode (minimal output)
+python update_videos.py --quiet
+
+# Fetch videos only
+python update_videos.py --fetch-only
+
+# Tag videos only (requires existing be/videos.json)
+python update_videos.py --tag-only
 
 # Analyze untagged videos (optional)
 python analyze_untagged.py
 ```
+
+**Configuration Files:**
+All tagging and filtering rules are stored in JSON files for easy editing:
+- `tag_rules.json` - Tagging patterns (93 rules)
+- `tag_hierarchy.json` - Tag parent-child relationships
+- `exclude_patterns.json` - Title patterns to filter out
+- `exclude_ids.json` - Specific video IDs to exclude
 
 ### Video Tagging System
 
@@ -146,8 +165,10 @@ The project uses an intelligent tagging system with **100% coverage** (496/496 v
 - **Statistics tracking**: Shows tag distribution and identifies untagged videos
 
 #### Available Tools
-- **`tag_videos.py`**: Main tagging script - tags all videos and outputs statistics
+- **`update_videos.py`**: Unified script - fetches and tags all videos, outputs statistics
 - **`analyze_untagged.py`**: Analysis tool to identify missing patterns and suggest improvements
+- **`tag_rules.json`**: Editable JSON file with all 93 tagging patterns
+- **`tag_hierarchy.json`**: Defines parent-child tag relationships
 - **`TAGGING_GUIDE.md`**: Complete documentation of the tagging system
 
 #### Tag Categories
@@ -158,11 +179,10 @@ The project uses an intelligent tagging system with **100% coverage** (496/496 v
 - **Special**: Painting Essentials, Citadel Products, Special Projects
 
 #### Maintenance Workflow
-1. Fetch new videos with `youtube_channel_search.py`
-2. Run `tag_videos.py` to tag all videos
-3. If untagged videos appear, run `analyze_untagged.py`
-4. Add missing patterns to `TAG_RULES` in `tag_videos.py`
-5. Re-run until 100% coverage is achieved
+1. Run `python update_videos.py` to fetch and tag all videos in one command
+2. If untagged videos appear, run `python analyze_untagged.py`
+3. Add missing patterns to `tag_rules.json` (or add parent tags to `tag_hierarchy.json`)
+4. Re-run `python update_videos.py` until 100% coverage is achieved
 
 See `be/TAGGING_GUIDE.md` for detailed documentation.
 
@@ -270,9 +290,9 @@ When helping with this project:
 3. **Maintain TypeScript strictness** - Always provide explicit types
 4. **Follow existing patterns** - Look at similar components for style guidance
 5. **Consider mobile** - All changes should work on mobile screens
-6. **Update both JSON files** - If modifying video data structure, update both `be/videos.json` and `src/videos.json` (note: `tag_videos.py` does this automatically)
+6. **Update both JSON files** - If modifying video data structure, update both `be/videos.json` and `src/videos.json` (note: `update_videos.py` does this automatically)
 7. **Don't commit .env** - It's gitignored for a reason
-8. **Maintain tag coverage** - When adding new tag patterns, run `analyze_untagged.py` to verify coverage
+8. **Maintain tag coverage** - When adding new tag patterns, edit `tag_rules.json` and run `analyze_untagged.py` to verify coverage
 9. **Use English** - All code, comments, and documentation should be in English for consistency
 
 ## Useful Commands Reference
@@ -285,8 +305,9 @@ npm run build           # Build for production
 npm run preview         # Preview production build
 
 # Python (from be/ directory)
-python youtube_channel_search.py  # Fetch videos
-python tag_videos.py              # Tag videos (100% coverage)
+python update_videos.py           # Fetch + tag + save (one command)
+python update_videos.py --fetch-only  # Fetch videos only
+python update_videos.py --tag-only    # Tag existing videos only
 python analyze_untagged.py        # Analyze missing patterns
 
 # Git

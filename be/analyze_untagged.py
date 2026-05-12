@@ -1,6 +1,20 @@
 import json
 import re
+import os
 from collections import Counter
+
+def load_tag_config():
+    """Load tag rules and hierarchy from JSON files"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    with open(os.path.join(script_dir, 'tag_rules.json'), 'r', encoding='utf-8') as f:
+        tag_rules_list = json.load(f)
+        tag_rules = [(tag, pattern) for tag, pattern in tag_rules_list]
+
+    with open(os.path.join(script_dir, 'tag_hierarchy.json'), 'r', encoding='utf-8') as f:
+        tag_hierarchy = json.load(f)
+
+    return tag_rules, tag_hierarchy
 
 def extract_keywords(text, min_length=4):
     """Extract potential keywords from text"""
@@ -18,8 +32,8 @@ if __name__ == "__main__":
     with open('./videos.json', 'r', encoding='utf-8') as f:
         videos = json.load(f)
 
-    # Run tag_videos logic to identify untagged
-    from tag_videos import TAG_RULES, TAG_HIERARCHY
+    # Load tag configuration from JSON files
+    TAG_RULES, TAG_HIERARCHY = load_tag_config()
 
     untagged_videos = []
     all_keywords = []
@@ -60,7 +74,7 @@ if __name__ == "__main__":
 
         print(f"\n💡 Suggested actions:")
         print(f"  1. Review the common keywords above")
-        print(f"  2. Add new patterns to TAG_RULES in tag_videos.py")
-        print(f"  3. Run tag_videos.py again to re-tag")
+        print(f"  2. Add new patterns to tag_rules.json")
+        print(f"  3. Run update_videos.py again to re-tag")
     else:
         print("✓ All videos are tagged!")
