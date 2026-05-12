@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router";
 
 const SearchContext = createContext({
   searchTerm: "",
-  setSearchTerm: (term: string) => {},
+  setSearchTerm: (_term: string) => {},
 });
 const Provider = SearchContext.Provider;
 

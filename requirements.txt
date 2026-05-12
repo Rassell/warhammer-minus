@@ -1,0 +1,5 @@
+# YouTube Data API client
+google-api-python-client==2.196.0
+
+# Environment variable management
+python-dotenv==1.2.2

@@ -1,5 +1,4 @@
 import { useParams, Link } from "react-router";
-import { ArrowLeft, ExternalLink } from "lucide-react";
 
 import videos from "../videos.json";
 

@@ -52,7 +52,7 @@ export default function Sidebar({
     } lg:translate-x-0`}>
       <h3 className="text-sm font-semibold text-zinc-400 mb-3">TAGS</h3>
       <div className="flex flex-wrap gap-2">
-        {tags.map(({ tag, thumbnail }) => (
+        {tags.map(({ tag }) => (
           <button
             key={tag}
             onClick={() => toggleTag(tag)}

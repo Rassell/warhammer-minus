@@ -70,6 +70,7 @@ export default function Home() {
   }, [loadMore, hasMore]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisibleCount(VIDEOS_PER_PAGE);
   }, [searchTerm, selectedTags]);
 

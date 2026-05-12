@@ -9,8 +9,8 @@ export default function Navbar() {
   const { searchTerm, setSearchTerm } = useSearch();
   const { toggleSidebar } = useSidebar();
 
-  function search() {
-    navigate(`/?q=${encodeURIComponent(searchTerm)}`);
+  async function search() {
+    await navigate(`/?q=${encodeURIComponent(searchTerm)}`);
   }
 
   return (
@@ -61,7 +61,7 @@ export default function Navbar() {
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
-                  search();
+                  void search();
                 }
               }}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -70,7 +70,7 @@ export default function Navbar() {
             />
             <button
               className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
-              onClick={search}
+              onClick={() => void search()}
             >
               <Search size={20} />
             </button>

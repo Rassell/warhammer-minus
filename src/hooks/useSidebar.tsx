@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const SidebarContext = createContext({
   isSidebarOpen: false,
   toggleSidebar: () => {},
-  setSidebarOpen: (open: boolean) => {},
+  setSidebarOpen: (_open: boolean) => {},
 });
 const Provider = SidebarContext.Provider;
 
