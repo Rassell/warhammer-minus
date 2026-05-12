@@ -100,8 +100,10 @@
     "commentCount": 39,
     "tags": [
       "40k",
-      "Red Corsairs",
-      "beginner"
+      "beginner",
+      "chaos",
+      "chaos space marines",
+      "red corsairs"
     ]
   },
   {
@@ -134,9 +136,11 @@
     "commentCount": 110,
     "tags": [
       "40k",
-      "Red Corsairs",
       "armour",
       "beginner",
+      "chaos",
+      "chaos space marines",
+      "red corsairs",
       "space marines"
     ]
   },
@@ -241,7 +245,6 @@
       "40k",
       "bases",
       "beginner",
-      "chaos",
       "grey knights",
       "metal",
       "space marines"
@@ -2946,7 +2949,6 @@
     "tags": [
       "40k",
       "beginner",
-      "chaos",
       "citadel products",
       "intermediate",
       "kill team",
@@ -3088,8 +3090,7 @@
     "likeCount": 1932,
     "commentCount": 88,
     "tags": [
-      "40k",
-      "chaos"
+      "40k"
     ]
   },
   {
@@ -3106,7 +3107,6 @@
     "tags": [
       "40k",
       "beginner",
-      "chaos",
       "citadel products",
       "intermediate",
       "kill team",
@@ -3260,7 +3260,6 @@
     "tags": [
       "40k",
       "armour",
-      "chaos",
       "intermediate"
     ]
   },
@@ -3417,7 +3416,6 @@
       "40k",
       "bases",
       "beginner",
-      "chaos",
       "intermediate",
       "space marines",
       "tyranids"
@@ -3641,7 +3639,6 @@
     "commentCount": 31,
     "tags": [
       "aos",
-      "chaos",
       "intermediate",
       "textures & materials"
     ]
@@ -3765,7 +3762,6 @@
     "likeCount": 1077,
     "commentCount": 9,
     "tags": [
-      "chaos",
       "textures & materials"
     ]
   },
@@ -5287,6 +5283,7 @@
     "likeCount": 1056,
     "commentCount": 65,
     "tags": [
+      "blood bowl",
       "citadel products",
       "intermediate",
       "painting essentials",
@@ -5308,6 +5305,7 @@
     "tags": [
       "aos",
       "armour",
+      "blood bowl",
       "citadel products",
       "flesh-eater courts",
       "intermediate",
@@ -6650,7 +6648,6 @@
       "40k",
       "bases",
       "beginner",
-      "chaos",
       "contrast paints",
       "textures & materials",
       "tyranids"
@@ -7926,6 +7923,7 @@
     "likeCount": 336,
     "commentCount": 0,
     "tags": [
+      "blood bowl",
       "textures & materials"
     ]
   },
@@ -8515,7 +8513,7 @@
     "likeCount": 487,
     "commentCount": 0,
     "tags": [
-      "untagged"
+      "necromunda"
     ]
   },
   {
@@ -8530,7 +8528,7 @@
     "likeCount": 368,
     "commentCount": 0,
     "tags": [
-      "untagged"
+      "necromunda"
     ]
   },
   {
@@ -8560,7 +8558,8 @@
     "likeCount": 778,
     "commentCount": 0,
     "tags": [
-      "beginner"
+      "beginner",
+      "necromunda"
     ]
   },
   {
@@ -9119,6 +9118,7 @@
     "likeCount": 329,
     "commentCount": 0,
     "tags": [
+      "blood bowl",
       "textures & materials"
     ]
   },
@@ -9164,6 +9164,7 @@
     "likeCount": 637,
     "commentCount": 0,
     "tags": [
+      "blood bowl",
       "metal",
       "textures & materials"
     ]
@@ -9515,6 +9516,7 @@
     "likeCount": 353,
     "commentCount": 0,
     "tags": [
+      "blood bowl",
       "textures & materials"
     ]
   },
@@ -9647,7 +9649,8 @@
     "likeCount": 402,
     "commentCount": 0,
     "tags": [
-      "untagged"
+      "blood bowl",
+      "cloth"
     ]
   },
   {
@@ -9663,6 +9666,7 @@
     "commentCount": 0,
     "tags": [
       "40k",
+      "blood bowl",
       "orcs",
       "skin",
       "textures & materials"
@@ -9680,6 +9684,7 @@
     "likeCount": 338,
     "commentCount": 0,
     "tags": [
+      "blood bowl",
       "textures & materials"
     ]
   },
@@ -9697,6 +9702,7 @@
     "tags": [
       "40k",
       "beginner",
+      "blood bowl",
       "orcs",
       "textures & materials"
     ]
@@ -9714,6 +9720,7 @@
     "commentCount": 0,
     "tags": [
       "beginner",
+      "blood bowl",
       "textures & materials"
     ]
   },
@@ -10204,7 +10211,6 @@
     "tags": [
       "40k",
       "armour",
-      "chaos",
       "grey knights",
       "imperial knights",
       "space marines",

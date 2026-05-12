@@ -24,7 +24,7 @@
   ["salamanders", "salamanders?"],
   ["raven guard", "raven guard|ravenguard|raptors chapter"],
   ["black templars", "black templars?"],
-  ["chaos", "\\bchaos\\b|chaotic|daemon\\b|daemons|Vashtorr|Khorne|Tzeentch|Nurgle|Slaanesh|warp|great unclean one|bloodthirster|lord of change|keeper of secrets"],
+  ["chaos", "\\bchaos\\b|chaotic|Vashtorr|Khorne|Tzeentch|Nurgle|Slaanesh|\\bwarp\\b|great unclean one|bloodthirster|lord of change|keeper of secrets"],
   ["chaos space marines", "chaos space marines|CSM\\b|traitor|heretic astartes"],
   ["iron warriors", "iron warriors"],
   ["black legion", "black legion"],
