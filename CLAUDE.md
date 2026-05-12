@@ -71,7 +71,8 @@ warhammer-minus/
 │   ├── sitemap.xml
 │   └── 404.html
 ├── .github/workflows/     # CI/CD automation
-│   └── deploy.yml         # GitHub Pages deployment
+│   ├── deploy.yml         # GitHub Pages deployment
+│   └── update-videos.yml  # Weekly video updates
 ├── dist/                  # Build output (generated)
 └── [config files]         # Project configuration
 ```
@@ -248,6 +249,19 @@ The site deploys automatically via GitHub Actions (`.github/workflows/deploy.yml
 2. **Build:** Runs `npm run build`
 3. **Deploy:** Pushes `dist/` to `gh-pages` branch
 4. **Live:** Available at https://gonzalosorianodesoto.github.io/warhammer-minus/
+
+### Automated Video Updates
+
+Videos are automatically updated weekly via GitHub Actions (`.github/workflows/update-videos.yml`):
+
+1. **Schedule:** Every Monday at 9:00 AM UTC
+2. **Process:** Runs `python update_videos.py` to fetch latest videos
+3. **Commit:** Auto-commits changes to `src/videos.json` if new videos found
+4. **Trigger Deploy:** Pushes to `main` which triggers the Pages deployment
+
+**Manual trigger:** You can also run the workflow manually from the GitHub Actions tab.
+
+**Required Secret:** Set `YOUTUBE_API_KEY` in repository secrets (Settings → Secrets and variables → Actions)
 
 ### Manual Deployment
 

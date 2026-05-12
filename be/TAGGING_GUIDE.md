@@ -1,25 +1,29 @@
 # Video Tagging System Guide
 
-## Improvement Summary
+## Overview
 
-### Before
-- ❌ Only searched in titles
-- ❌ 35/496 untagged videos (7%)
-- ❌ No tag hierarchy
-- ❌ Incomplete patterns
-- ❌ No statistics
+The video tagging system automatically categorizes Warhammer painting tutorial videos using regex patterns. All configuration is stored in JSON files for easy editing without touching code.
 
-### Now
-- ✅ Searches in titles AND descriptions
-- ✅ **496/496 videos tagged (100%)**
-- ✅ Automatic tag hierarchy
-- ✅ Expanded and complete patterns
-- ✅ Detailed statistics when running
+## System Architecture
+
+### Configuration Files (JSON)
+
+All tagging rules and filters are stored in editable JSON files:
+
+- **`tag_rules.json`** - 93 tagging patterns covering all Warhammer content
+- **`tag_hierarchy.json`** - Parent-child tag relationships
+- **`exclude_patterns.json`** - Title patterns to filter out (promotional content)
+- **`exclude_ids.json`** - Specific video IDs to exclude
+
+### Scripts
+
+- **`update_videos.py`** - Unified script that fetches, filters, and tags videos
+- **`analyze_untagged.py`** - Analysis tool to identify missing patterns
 
 ## Main Features
 
 ### 1. Dual Search (Title + Description)
-The script now searches both fields, giving more weight to the title:
+The system searches both fields, giving more weight to the title:
 ```python
 search_text = f"{title} {title} {description}"
 ```
@@ -30,169 +34,299 @@ Specific tags automatically inherit general tags:
 - `death guard` → adds `chaos space marines` + `chaos` + `40k` + `horus heresy`
 - `cities of sigmar` → adds `aos`
 
-### 3. Covered Game Systems
-- **Warhammer 40,000**: 291 videos
-- **Age of Sigmar**: 86 videos
-- **Horus Heresy**: 51 videos
+### 3. Smart Filtering
+Videos are filtered by:
+- **Search query** - Only videos containing "paint" in title/description
+- **Exclude patterns** - Removes promotional content (Warhammer+ shows, etc.)
+- **Exclude IDs** - Manually excludes specific video IDs
+
+### 4. Comprehensive Coverage
+Current status: **617 videos tagged** (98.5% coverage)
+
+## Tag Categories
+
+### Game Systems
+- **Warhammer 40,000**: 403 videos
+- **Age of Sigmar**: 148 videos
+- **Horus Heresy**: Covered
 - **Underworlds**: Covered
 - **Middle Earth**: Covered
+- **Kill Team, Necromunda, Warcry**: Covered
 - **Legions/Aeronautica Imperialis**: Covered
 
-### 4. Tag Categories
-
-#### 40k Factions
+### 40k Factions
 - Space Marines and all chapters (Ultramarines, Blood Angels, Dark Angels, etc.)
-- Chaos and all legions
+- Chaos and all legions (Death Guard, Thousand Sons, World Eaters, etc.)
 - Xenos: Tyranids, Necrons, Tau, Eldar, Drukhari, Orks
 - Imperium: Astra Militarum, Sororitas, Custodes, Adeptus Mechanicus
 
-#### AoS Factions
-- Stormcast Eternals
-- Flesh-eater Courts
-- Gloomspite Gitz
-- Cities of Sigmar
-- Sylvaneth
-- Idoneth Deepkin
+### AoS Factions
+- Stormcast Eternals, Flesh-eater Courts
+- Gloomspite Gitz, Cities of Sigmar
+- Sylvaneth, Idoneth Deepkin
 
-#### Difficulty Levels
-- Beginner: 140 videos
-- Intermediate: 97 videos
-- Advanced: Covered
+### Difficulty Levels
+- **Beginner**: 307 videos
+- **Intermediate**: 166 videos
+- **Advanced**: Covered
 
-#### Techniques and Materials
-- Painting Essentials: 39 videos
-- Citadel Products: 24 videos
-- Skin, Cloth, Metal, Armour
-- Textures & Materials: 79 videos
-- Bases: 24 videos
-- Contrast Paints, Airbrush
+### Techniques and Materials
+- **Painting Essentials**: 276 videos
+- **Citadel Products**: 271 videos
+- **Skin**: 366 videos
+- **Metal**: 112 videos
+- **Armour**: 102 videos
+- **Textures & Materials**: 174 videos
+- **Bases**: 175 videos
+- **Contrast Paints**: 123 videos
+- **Airbrush**, **Cloth**, **Weapons**, **Vehicles**
 
-#### Special Content
+### Special Content
 - Special Projects (Christmas, servo-skull, community requests)
 
-## Available Tools
+## Usage
 
-### `tag_videos.py`
-Main tagging script.
+### Quick Start
 
-**Usage:**
+**Fetch and tag all videos:**
 ```bash
 cd be
-python3 tag_videos.py
+python update_videos.py
 ```
 
-**Output:**
-- Tags all videos
-- Copies `videos.json` to `../src/videos.json`
-- Shows statistics of the top 15 most common tags
-- Lists untagged videos (if any)
+This single command:
+1. Fetches all videos from YouTube
+2. Filters out promotional content
+3. Applies tags based on patterns
+4. Saves to `src/videos.json`
 
-### `analyze_untagged.py`
-Analysis tool to identify missing patterns.
+### Advanced Usage
 
-**Usage:**
+**Quiet mode (minimal output):**
 ```bash
-python3 analyze_untagged.py
+python update_videos.py --quiet
 ```
 
-**Output:**
-- Number of untagged videos
-- Most common keywords in untagged titles
-- Sample of untagged titles
-- Action suggestions
+**Save intermediate file for debugging:**
+```bash
+python update_videos.py --save-intermediate
+```
+
+**Only fetch (no tagging):**
+```bash
+python update_videos.py --fetch-only
+```
+
+**Only tag existing videos:**
+```bash
+python update_videos.py --tag-only
+```
+
+**Analyze untagged videos:**
+```bash
+python analyze_untagged.py
+```
 
 ## Maintenance Workflow
 
-When the video list is updated:
+When videos need to be updated or patterns need to be added:
 
-1. **Run the tagging script:**
-   ```bash
-   cd be
-   python3 tag_videos.py
-   ```
+### 1. Update Videos
 
-2. **If there are untagged videos:**
-   ```bash
-   python3 analyze_untagged.py
-   ```
+```bash
+cd be
+python update_videos.py
+```
 
-3. **Identify common patterns** in the displayed keywords
+### 2. Check for Untagged Videos
 
-4. **Add new patterns** to `TAG_RULES` in `tag_videos.py`:
-   ```python
-   ('new-tag', r'pattern1|pattern2|pattern3'),
-   ```
+If the output shows untagged videos, run:
+```bash
+python analyze_untagged.py
+```
 
-5. **If it's a specific tag, add hierarchy** in `TAG_HIERARCHY`:
-   ```python
-   'new-tag': ['parent-tag', 'grandparent-tag'],
-   ```
+### 3. Add New Patterns
 
-6. **Re-run** `tag_videos.py` to verify
+Edit **`tag_rules.json`**:
+```json
+[
+  ["tag-name", "pattern1|pattern2|pattern3"],
+  ["new-tag", "keyword1|keyword2"]
+]
+```
 
-7. **Repeat** until achieving 100% coverage
+**Example:**
+```json
+["necromunda", "necromunda|ash waste|orlock"]
+```
+
+### 4. Add Tag Hierarchy (if needed)
+
+Edit **`tag_hierarchy.json`**:
+```json
+{
+  "new-tag": ["parent-tag", "grandparent-tag"]
+}
+```
+
+**Example:**
+```json
+{
+  "salamanders": ["space marines", "40k"]
+}
+```
+
+### 5. Add Exclusions (if needed)
+
+**Exclude by title pattern** - Edit **`exclude_patterns.json`**:
+```json
+[
+  "This Week on Warhammer\\+",
+  "Coming Soon"
+]
+```
+
+**Exclude by video ID** - Edit **`exclude_ids.json`**:
+```json
+[
+  "bsfQgbx3nNc",
+  "9Rm-jDBesyk"
+]
+```
+
+### 6. Re-run and Verify
+
+```bash
+python update_videos.py
+```
+
+### 7. Repeat Until 100% Coverage
+
+Check the output statistics and add patterns as needed until all videos are tagged.
 
 ## Regex Pattern Tips
 
 ### Name Variants
-```python
-# ✅ Good - covers variants
-r'eldars?|aeldari|craftworld'
+```json
+// ✅ Good - covers variants
+["eldar", "eldars?|aeldari|craftworld"]
 
-# ❌ Bad - too specific
-r'eldar'
+// ❌ Bad - too specific
+["eldar", "eldar"]
 ```
 
 ### Word Boundaries
-```python
-# ✅ Good - avoids false positives
-r'\bchaos\b'  # Doesn't match "chaotic" alone
+```json
+// ✅ Good - avoids false positives
+["chaos", "\\bchaos\\b"]
 
-# Optional - when you need flexibility
-r'chaos'  # Matches chaos, chaotic, etc.
+// Optional - when you need flexibility
+["chaos", "chaos"]  // Matches chaos, chaotic, etc.
 ```
 
-### HTML Entities
-```python
-# ✅ Good - handles HTML entities
-r'lion\s*el.{0,5}jonson'  # Matches "El'Jonson" and "El&#39;Jonson"
+### Escaping Special Characters
+In JSON, you need to double-escape backslashes:
+```json
+// ✅ Correct
+["40k", "40[.,]?000|40k"]
+["skin", "\\bskin\\b"]
+
+// ❌ Wrong
+["40k", "40[.,]?000|40k"]  // Single backslash won't work in JSON
 ```
 
 ### Case Insensitive
 All patterns are applied with `re.IGNORECASE`, no need to cover upper/lowercase.
 
-## Current Statistics
+## Current Statistics (as of latest run)
 
 ```
-✓ Tagged 496 unique videos
+✓ Tagged 617 unique videos
 ✓ Videos saved to ../src/videos.json
 
 📊 Top 15 Tags:
-  40k: 291 videos (59%)
-  beginner: 140 videos (28%)
-  space marines: 103 videos (21%)
-  intermediate: 97 videos (20%)
-  aos: 86 videos (17%)
-  textures & materials: 79 videos
-  chaos: 59 videos
-  horus heresy: 51 videos
-  skin: 50 videos
-  orcs: 49 videos
-  armour: 42 videos
-  painting essentials: 39 videos
-  chaos space marines: 29 videos
-  cloth: 27 videos
-  bases: 24 videos
+  40k: 403 videos
+  skin: 366 videos
+  beginner: 307 videos
+  painting essentials: 276 videos
+  citadel products: 271 videos
+  space marines: 204 videos
+  bases: 175 videos
+  textures & materials: 174 videos
+  intermediate: 166 videos
+  chaos: 151 videos
+  aos: 148 videos
+  contrast paints: 123 videos
+  metal: 112 videos
+  armour: 102 videos
+  chaos space marines: 88 videos
+
+⚠️  9 videos without tags (1.5%)
 ```
 
-## Future Maintenance
+## Automated Updates
 
-To keep the tagging system organic and complete:
+The system runs automatically every Monday at 9:00 AM UTC via GitHub Actions:
+- Fetches latest videos from YouTube
+- Applies tagging rules
+- Commits changes if new videos are found
+- Triggers site deployment
 
-1. **Run regularly** after updating videos
-2. **Review untagged videos** with `analyze_untagged.py`
-3. **Add patterns gradually** - not all at once
-4. **Check statistics** to balance tags
-5. **Avoid overloading** - not every video needs 10 tags
+**Manual trigger:** Go to GitHub Actions → "Update Videos Weekly" → Run workflow
 
-The system is now optimized to grow organically with the content.
+## Best Practices
+
+1. **Edit JSON files, not Python code** - All configuration is in JSON
+2. **Test patterns locally** before committing
+3. **Be specific** - Avoid overly broad patterns that cause false positives
+4. **Use hierarchy** - Don't repeat parent tags in child tag patterns
+5. **Check statistics** - Ensure tags are balanced and useful
+6. **Keep patterns organized** - Group related patterns together in tag_rules.json
+7. **Document complex patterns** - Add comments in git commits explaining unusual patterns
+
+## Troubleshooting
+
+### Script fails to load config files
+
+**Error:** `FileNotFoundError: tag_rules.json`
+
+**Solution:** Make sure you're running from the `be/` directory:
+```bash
+cd be
+python update_videos.py
+```
+
+### No videos match after filtering
+
+**Problem:** All videos are excluded
+
+**Solution:** Check `exclude_patterns.json` - patterns might be too broad
+
+### Tag not applying
+
+**Diagnosis:**
+1. Check pattern syntax in `tag_rules.json`
+2. Test regex pattern: `python -c "import re; print(re.search(r'pattern', 'test text', re.IGNORECASE))"`
+3. Check if video title/description actually contains the keywords
+
+### Untagged videos persist
+
+**Steps:**
+1. Run `analyze_untagged.py` to see common keywords
+2. Add patterns for those keywords to `tag_rules.json`
+3. Re-run `update_videos.py`
+
+## File Locations
+
+```
+be/
+├── update_videos.py          # Main script
+├── analyze_untagged.py       # Analysis tool
+├── tag_rules.json            # 93 tagging patterns
+├── tag_hierarchy.json        # Tag relationships
+├── exclude_patterns.json     # Title exclusions
+├── exclude_ids.json          # Video ID exclusions
+└── videos.json              # Intermediate data
+```
+
+The system is designed to grow organically with the content while remaining easy to maintain through JSON configuration files.
