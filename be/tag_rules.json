@@ -6,6 +6,7 @@
   ["middle earth", "middle earth|lotr|lord of the rings|hobbit|witch-king|angmar|rohan|gondor|mordor|isengard"],
   ["warcry", "warcry"],
   ["kill team", "kill team"],
+  ["tau", "\\btaus?\\b|Farsight|fire warrior|pathfinder|crisis suit|kroot"],
   ["necromunda", "necromunda|ash waste nomads"],
   ["horus heresy", "horus heresy|heresy\\b|HH\\b"],
   ["legions imperialis", "legions imperialis|legiones astartes"],
