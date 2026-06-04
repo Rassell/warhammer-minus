@@ -307,40 +307,44 @@ def apply_tags(videos: List[Dict]) -> List[Dict]:
 
     return videos
 
-def apply_tags_semantic(videos: List[Dict], threshold: float = 0.65) -> List[Dict]:
+def apply_tags_semantic(videos: List[Dict], threshold: float = 0.65,
+                        model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
     """
     Apply tags using semantic matching with sentence transformers.
 
     Args:
         videos: List of video dictionaries
         threshold: Similarity threshold for tagging
+        model_name: Sentence transformer model to use
 
     Returns:
         Videos with semantic tags and confidence scores
     """
     from semantic_tagger import SemanticTagger
 
-    print(f"🤖 Initializing semantic tagger (threshold: {threshold})...")
-    tagger = SemanticTagger()
+    print(f"🤖 Initializing semantic tagger (model: {model_name}, threshold: {threshold})...")
+    tagger = SemanticTagger(model_name=model_name)
 
     print(f"📊 Tagging {len(videos)} videos semantically...")
     tagged_videos = tagger.tag_videos_batch(videos, threshold=threshold)
 
     return tagged_videos
 
-def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70) -> List[Dict]:
+def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70,
+                     model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
     """
     Hybrid approach: Use regex for high-confidence matches, semantic for validation.
 
     Strategy:
     1. Apply regex tags as usual
     2. For each regex tag, validate with semantic similarity
-    3. Keep tag if semantic score >= threshold OR regex pattern in title
+    3. Keep tag if semantic score >= threshold OR tag appears in title (lower threshold)
     4. Add any high-confidence semantic tags that regex missed
 
     Args:
         videos: List of video dictionaries
         threshold: Semantic validation threshold (higher for hybrid)
+        model_name: Sentence transformer model to use
 
     Returns:
         Videos with validated tags
@@ -352,8 +356,8 @@ def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70) -> List[Dict]
     videos_with_regex = apply_tags(videos)
 
     # Step 2: Get semantic scores
-    print("🤖 Computing semantic scores...")
-    tagger = SemanticTagger()
+    print(f"🤖 Computing semantic scores (model: {model_name})...")
+    tagger = SemanticTagger(model_name=model_name)
 
     for video in videos_with_regex:
         title = video.get('title', '')
@@ -369,8 +373,12 @@ def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70) -> List[Dict]
         for tag in regex_tags:
             semantic_score = all_semantic_scores.get(tag, 0.0)
 
-            # Keep if: high semantic score OR tag in title (obvious match)
-            if semantic_score >= threshold or tag.lower() in title.lower():
+            # Title boost: if tag appears in title, use lower threshold
+            tag_in_title = tag.lower() in title.lower()
+            effective_threshold = threshold - 0.15 if tag_in_title else threshold
+
+            # Keep if: high semantic score OR tag explicitly in title
+            if semantic_score >= effective_threshold:
                 validated_tags.add(tag)
 
         # Add high-confidence semantic tags that regex missed
@@ -465,7 +473,8 @@ def print_tag_statistics(videos: List[Dict]) -> None:
         print(f"\nConsider adding patterns for these videos to TAG_RULES")
 
 def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False,
-                       semantic: bool = False, hybrid: bool = False, threshold: float = 0.65) -> List[Dict]:
+                       semantic: bool = False, hybrid: bool = False, threshold: float = 0.65,
+                       model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
     """
     Orchestrate all tagging steps.
 
@@ -476,6 +485,7 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         semantic: Use semantic tagging instead of regex
         hybrid: Use hybrid (regex + semantic validation)
         threshold: Semantic similarity threshold
+        model_name: Sentence transformer model to use
 
     Returns:
         Tagged and deduplicated videos
@@ -486,9 +496,9 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
 
     # Apply tagging based on mode
     if semantic:
-        videos = apply_tags_semantic(videos, threshold)
+        videos = apply_tags_semantic(videos, threshold, model_name)
     elif hybrid:
-        videos = apply_tags_hybrid(videos, threshold)
+        videos = apply_tags_hybrid(videos, threshold, model_name)
     else:
         videos = apply_tags(videos)  # Original regex
 
@@ -572,7 +582,8 @@ def run_full_pipeline(
     no_stats: bool = False,
     semantic: bool = False,
     hybrid: bool = False,
-    threshold: float = 0.65
+    threshold: float = 0.65,
+    model_name: str = 'all-MiniLM-L6-v2'
 ) -> List[Dict[str, Any]]:
     """
     Execute full fetch + tag + save pipeline.
@@ -586,6 +597,7 @@ def run_full_pipeline(
         semantic: Use semantic tagging
         hybrid: Use hybrid tagging
         threshold: Semantic similarity threshold
+        model_name: Sentence transformer model to use
 
     Returns:
         List of tagged videos
@@ -603,7 +615,8 @@ def run_full_pipeline(
 
     # Step 2: Tag videos
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
-                                       semantic=semantic, hybrid=hybrid, threshold=threshold)
+                                       semantic=semantic, hybrid=hybrid, threshold=threshold,
+                                       model_name=model_name)
 
     # Step 3: Optionally save intermediate file
     if save_intermediate:
@@ -636,7 +649,8 @@ def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = F
     save_videos(videos, './videos.json', 'videos')
 
 def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False,
-                semantic: bool = False, hybrid: bool = False, threshold: float = 0.65) -> None:
+                semantic: bool = False, hybrid: bool = False, threshold: float = 0.65,
+                model_name: str = 'all-MiniLM-L6-v2') -> None:
     """
     Load videos, tag them, save to output.
 
@@ -648,10 +662,12 @@ def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stat
         semantic: Use semantic tagging
         hybrid: Use hybrid tagging
         threshold: Semantic similarity threshold
+        model_name: Sentence transformer model to use
     """
     videos = load_videos(input_path)
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
-                                       semantic=semantic, hybrid=hybrid, threshold=threshold)
+                                       semantic=semantic, hybrid=hybrid, threshold=threshold,
+                                       model_name=model_name)
     save_videos(tagged_videos, output_path, 'tagged videos')
 
 # ============================================================================
@@ -718,6 +734,10 @@ Examples:
                               help='Use hybrid: regex for obvious matches, semantic for validation')
     parser.add_argument('--threshold', type=float, default=0.65,
                        help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
+    parser.add_argument('--model', type=str, default='all-MiniLM-L6-v2',
+                       choices=['all-MiniLM-L6-v2', 'all-mpnet-base-v2',
+                               'paraphrase-MiniLM-L6-v2', 'all-distilroberta-v1'],
+                       help='Sentence transformer model (default: all-MiniLM-L6-v2)')
 
     args = parser.parse_args()
 
@@ -729,7 +749,8 @@ Examples:
         run_fetch_only(args.channel, search_query, args.quiet)
     elif args.tag_only:
         run_tag_only(args.input, args.output, args.quiet, args.no_stats,
-                    semantic=args.semantic, hybrid=args.hybrid, threshold=args.threshold)
+                    semantic=args.semantic, hybrid=args.hybrid, threshold=args.threshold,
+                    model_name=args.model)
     else:
         # Full pipeline (default)
         run_full_pipeline(
@@ -740,7 +761,8 @@ Examples:
             no_stats=args.no_stats,
             semantic=args.semantic,
             hybrid=args.hybrid,
-            threshold=args.threshold
+            threshold=args.threshold,
+            model_name=args.model
         )
 
 if __name__ == "__main__":

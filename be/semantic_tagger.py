@@ -25,7 +25,12 @@ class SemanticTagger:
 
         Args:
             tag_descriptions_path: Path to tag descriptions JSON
-            model_name: Sentence transformer model (all-MiniLM-L6-v2 is fast and good)
+            model_name: Sentence transformer model to use
+                       Options (from fastest to most accurate):
+                       - 'all-MiniLM-L6-v2' (default): 80MB, fast, good quality
+                       - 'all-mpnet-base-v2': 420MB, slower, better quality
+                       - 'paraphrase-MiniLM-L6-v2': 80MB, optimized for paraphrasing
+                       - 'all-distilroberta-v1': 290MB, good balance
         """
         # Load tag descriptions
         with open(tag_descriptions_path, 'r') as f:
