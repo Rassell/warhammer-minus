@@ -307,6 +307,84 @@ def apply_tags(videos: List[Dict]) -> List[Dict]:
 
     return videos
 
+def apply_tags_semantic(videos: List[Dict], threshold: float = 0.65) -> List[Dict]:
+    """
+    Apply tags using semantic matching with sentence transformers.
+
+    Args:
+        videos: List of video dictionaries
+        threshold: Similarity threshold for tagging
+
+    Returns:
+        Videos with semantic tags and confidence scores
+    """
+    from semantic_tagger import SemanticTagger
+
+    print(f"🤖 Initializing semantic tagger (threshold: {threshold})...")
+    tagger = SemanticTagger()
+
+    print(f"📊 Tagging {len(videos)} videos semantically...")
+    tagged_videos = tagger.tag_videos_batch(videos, threshold=threshold)
+
+    return tagged_videos
+
+def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70) -> List[Dict]:
+    """
+    Hybrid approach: Use regex for high-confidence matches, semantic for validation.
+
+    Strategy:
+    1. Apply regex tags as usual
+    2. For each regex tag, validate with semantic similarity
+    3. Keep tag if semantic score >= threshold OR regex pattern in title
+    4. Add any high-confidence semantic tags that regex missed
+
+    Args:
+        videos: List of video dictionaries
+        threshold: Semantic validation threshold (higher for hybrid)
+
+    Returns:
+        Videos with validated tags
+    """
+    from semantic_tagger import SemanticTagger
+
+    # Step 1: Apply regex tags
+    print("🔍 Applying regex tags...")
+    videos_with_regex = apply_tags(videos)
+
+    # Step 2: Get semantic scores
+    print("🤖 Computing semantic scores...")
+    tagger = SemanticTagger()
+
+    for video in videos_with_regex:
+        title = video.get('title', '')
+        description = clean_description_for_tagging(video.get('description', ''))
+
+        # Get semantic scores for all tags
+        all_semantic_scores = tagger.tag_video(title, description, threshold=0.0)
+
+        # Validate regex tags
+        regex_tags = set(video.get('tags', []))
+        validated_tags = set()
+
+        for tag in regex_tags:
+            semantic_score = all_semantic_scores.get(tag, 0.0)
+
+            # Keep if: high semantic score OR tag in title (obvious match)
+            if semantic_score >= threshold or tag.lower() in title.lower():
+                validated_tags.add(tag)
+
+        # Add high-confidence semantic tags that regex missed
+        for tag, score in all_semantic_scores.items():
+            if score >= 0.80 and tag not in validated_tags:  # Very high confidence
+                validated_tags.add(tag)
+
+        # Update video
+        video['tags'] = list(validated_tags)
+        video['tag_scores'] = {tag: all_semantic_scores.get(tag, 0.0)
+                              for tag in validated_tags}
+
+    return videos_with_regex
+
 def apply_tag_hierarchy(videos: List[Dict]) -> List[Dict]:
     """
     Add parent tags based on TAG_HIERARCHY.
@@ -386,22 +464,35 @@ def print_tag_statistics(videos: List[Dict]) -> None:
             print(f"  ... and {len(videos_without_tags) - 10} more")
         print(f"\nConsider adding patterns for these videos to TAG_RULES")
 
-def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False) -> List[Dict]:
+def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False,
+                       semantic: bool = False, hybrid: bool = False, threshold: float = 0.65) -> List[Dict]:
     """
     Orchestrate all tagging steps.
 
     Args:
         videos: List of video dictionaries
         quiet: Suppress progress messages
-        no_stats: Skip tag statistics output
+        no_stats: Skip tag statistics
+        semantic: Use semantic tagging instead of regex
+        hybrid: Use hybrid (regex + semantic validation)
+        threshold: Semantic similarity threshold
 
     Returns:
         Tagged and deduplicated videos
     """
-    # Apply tags
-    videos = apply_tags(videos)
+    if not quiet:
+        mode = "semantic" if semantic else ("hybrid" if hybrid else "regex")
+        print(f"🏷️  Tagging videos ({mode} mode)...")
 
-    # Apply hierarchy
+    # Apply tagging based on mode
+    if semantic:
+        videos = apply_tags_semantic(videos, threshold)
+    elif hybrid:
+        videos = apply_tags_hybrid(videos, threshold)
+    else:
+        videos = apply_tags(videos)  # Original regex
+
+    # Apply hierarchy (works with any tagging mode)
     videos = apply_tag_hierarchy(videos)
 
     # Mark untagged videos
@@ -478,7 +569,10 @@ def run_full_pipeline(
     search_query: Optional[str],
     save_intermediate: bool = False,
     quiet: bool = False,
-    no_stats: bool = False
+    no_stats: bool = False,
+    semantic: bool = False,
+    hybrid: bool = False,
+    threshold: float = 0.65
 ) -> List[Dict[str, Any]]:
     """
     Execute full fetch + tag + save pipeline.
@@ -489,6 +583,9 @@ def run_full_pipeline(
         save_intermediate: Save intermediate be/videos.json
         quiet: Suppress progress messages
         no_stats: Skip tag statistics
+        semantic: Use semantic tagging
+        hybrid: Use hybrid tagging
+        threshold: Semantic similarity threshold
 
     Returns:
         List of tagged videos
@@ -505,7 +602,8 @@ def run_full_pipeline(
         exit(1)
 
     # Step 2: Tag videos
-    tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats)
+    tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
+                                       semantic=semantic, hybrid=hybrid, threshold=threshold)
 
     # Step 3: Optionally save intermediate file
     if save_intermediate:
@@ -537,7 +635,8 @@ def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = F
 
     save_videos(videos, './videos.json', 'videos')
 
-def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False) -> None:
+def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False,
+                semantic: bool = False, hybrid: bool = False, threshold: float = 0.65) -> None:
     """
     Load videos, tag them, save to output.
 
@@ -546,9 +645,13 @@ def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stat
         output_path: Output JSON file path
         quiet: Suppress progress messages
         no_stats: Skip tag statistics
+        semantic: Use semantic tagging
+        hybrid: Use hybrid tagging
+        threshold: Semantic similarity threshold
     """
     videos = load_videos(input_path)
-    tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats)
+    tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
+                                       semantic=semantic, hybrid=hybrid, threshold=threshold)
     save_videos(tagged_videos, output_path, 'tagged videos')
 
 # ============================================================================
@@ -607,6 +710,15 @@ Examples:
     parser.add_argument('--no-stats', action='store_true',
                        help='Skip tag statistics output')
 
+    # Tagging mode arguments
+    tagging_mode = parser.add_mutually_exclusive_group()
+    tagging_mode.add_argument('--semantic', action='store_true',
+                              help='Use semantic tagging instead of regex (slower but more accurate)')
+    tagging_mode.add_argument('--hybrid', action='store_true',
+                              help='Use hybrid: regex for obvious matches, semantic for validation')
+    parser.add_argument('--threshold', type=float, default=0.65,
+                       help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
+
     args = parser.parse_args()
 
     # Handle --no-query flag
@@ -616,7 +728,8 @@ Examples:
     if args.fetch_only:
         run_fetch_only(args.channel, search_query, args.quiet)
     elif args.tag_only:
-        run_tag_only(args.input, args.output, args.quiet, args.no_stats)
+        run_tag_only(args.input, args.output, args.quiet, args.no_stats,
+                    semantic=args.semantic, hybrid=args.hybrid, threshold=args.threshold)
     else:
         # Full pipeline (default)
         run_full_pipeline(
@@ -624,7 +737,10 @@ Examples:
             search_query,
             save_intermediate=args.save_intermediate,
             quiet=args.quiet,
-            no_stats=args.no_stats
+            no_stats=args.no_stats,
+            semantic=args.semantic,
+            hybrid=args.hybrid,
+            threshold=args.threshold
         )
 
 if __name__ == "__main__":

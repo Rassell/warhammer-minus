@@ -3,3 +3,8 @@ google-api-python-client==2.196.0
 
 # Environment variable management
 python-dotenv==1.2.2
+
+# Semantic tagging with sentence transformers
+sentence-transformers==2.7.0
+torch==2.3.0
+numpy>=1.24.0
