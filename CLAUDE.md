@@ -15,10 +15,13 @@ A fan-made web application for browsing and filtering Warhammer painting tutoria
 - **React Helmet Async** - SEO and meta tag management
 
 ### Backend / Data Pipeline
-- **Python 3** - Data fetching scripts
+- **Python 3** - Data fetching and tagging scripts
 - **YouTube Data API v3** - Video data source
 - **google-api-python-client** - YouTube API client library
 - **python-dotenv** - Environment variable management
+- **sentence-transformers** - Semantic tagging with NLP embeddings
+- **torch** - PyTorch for neural network inference
+- **numpy** - Numerical operations for embeddings
 
 ### Deployment
 - **GitHub Pages** - Static hosting
@@ -57,8 +60,10 @@ warhammer-minus/
 │   └── app.css            # Global styles
 ├── be/                    # Python backend scripts
 │   ├── update_videos.py          # Unified script: fetch + tag videos
+│   ├── semantic_tagger.py        # NLP-based semantic tagging module
 │   ├── analyze_untagged.py       # Analyze untagged videos
-│   ├── tag_rules.json            # Tagging patterns configuration
+│   ├── tag_rules.json            # Regex tagging patterns (93 rules)
+│   ├── tag_descriptions.json     # Semantic tag descriptions (68 tags)
 │   ├── tag_hierarchy.json        # Tag parent-child relationships
 │   ├── exclude_patterns.json     # Title patterns to exclude
 │   ├── exclude_ids.json          # Specific video IDs to exclude
@@ -129,9 +134,25 @@ pip install -r ../requirements.txt
 cp ../.env.example ../.env
 # Edit .env and add your YouTube API key
 
-# Fetch + tag + save in one command
+# ===== RECOMMENDED: Hybrid Mode (regex + semantic validation) =====
+# Best balance of coverage and accuracy - eliminates false positives
+python update_videos.py --hybrid --threshold 0.50
+
+# Full pipeline: fetch + tag + save
+python update_videos.py --hybrid
+
+# Tag existing videos only
+python update_videos.py --tag-only --hybrid
+
+# ===== Alternative: Semantic Mode (pure NLP) =====
+# More conservative, context-aware matching
+python update_videos.py --semantic --threshold 0.60
+
+# ===== Fallback: Regex Mode (default) =====
+# Traditional pattern matching - fast but prone to false positives
 python update_videos.py
 
+# ===== Other Options =====
 # With intermediate file saved (for debugging)
 python update_videos.py --save-intermediate
 
@@ -141,36 +162,86 @@ python update_videos.py --quiet
 # Fetch videos only
 python update_videos.py --fetch-only
 
-# Tag videos only (requires existing be/videos.json)
-python update_videos.py --tag-only
-
 # Analyze untagged videos (optional)
 python analyze_untagged.py
 ```
 
+**Tagging Modes:**
+- **Hybrid (Recommended)**: Regex for coverage + semantic validation for accuracy
+  - 86% coverage (530/617 videos)
+  - Zero false positives from paint names
+  - Example: "Liberator Gold" paint won't tag `stormcast eternals`
+  
+- **Semantic**: Pure NLP-based matching using sentence transformers
+  - Most conservative (53-79% coverage depending on threshold)
+  - Best context understanding
+  - Requires ~500MB model download (one-time)
+  
+- **Regex (Default)**: Traditional keyword patterns
+  - 100% coverage
+  - Fast and deterministic
+  - Prone to false positives from paint names
+
 **Configuration Files:**
 All tagging and filtering rules are stored in JSON files for easy editing:
-- `tag_rules.json` - Tagging patterns (93 rules)
-- `tag_hierarchy.json` - Tag parent-child relationships
+- `tag_rules.json` - Regex tagging patterns (93 rules) - used in regex/hybrid modes
+- `tag_descriptions.json` - Semantic tag descriptions (68 tags) - used in semantic/hybrid modes
+- `tag_hierarchy.json` - Tag parent-child relationships (applies to all modes)
 - `exclude_patterns.json` - Title patterns to filter out
 - `exclude_ids.json` - Specific video IDs to exclude
 
 ### Video Tagging System
 
-The project uses an intelligent tagging system with **100% coverage** (496/496 videos):
+The project uses an intelligent tagging system with **three modes**:
+
+#### Tagging Modes
+
+**1. Hybrid Mode (Recommended)**
+- Combines regex pattern matching with semantic validation
+- **Coverage**: 86% (530/617 videos)
+- **Accuracy**: Near-zero false positives
+- **How it works**: 
+  1. Apply regex tags for broad matching
+  2. Validate each tag with semantic similarity (threshold 0.50)
+  3. Keep tags that score high OR appear in video title
+  4. Add high-confidence semantic tags (>0.80) that regex missed
+
+**2. Semantic Mode**
+- Pure NLP-based matching using sentence transformers (embeddings)
+- **Coverage**: 53-79% (depending on threshold 0.55-0.65)
+- **Accuracy**: Highest - understands context
+- **How it works**:
+  1. Embed video title + description
+  2. Compare with tag descriptions via cosine similarity
+  3. Apply tags above threshold
+- **Use case**: Maximum precision, minimal false positives
+
+**3. Regex Mode (Default/Fallback)**
+- Traditional keyword pattern matching
+- **Coverage**: 100%
+- **Accuracy**: Prone to false positives from paint names
+- **How it works**: Match regex patterns against title + cleaned description
+- **Use case**: Fast, deterministic, backwards compatible
 
 #### Key Features
-- **Dual search**: Matches patterns in both title and description
-- **Automatic hierarchy**: Specific tags inherit general tags (e.g., `salamanders` → `space marines` + `40k`)
+- **Context-aware (Hybrid/Semantic)**: Distinguishes "painting Orks" from "Ork Green paint"
+- **Automatic hierarchy**: Child tags inherit parent tags (e.g., `salamanders` → `space marines` + `40k`)
+- **Confidence scores (Hybrid/Semantic)**: Tags include 0-1 similarity scores
 - **Comprehensive patterns**: Covers all Warhammer systems, factions, techniques, and difficulty levels
 - **Statistics tracking**: Shows tag distribution and identifies untagged videos
+- **Paint list cleaning**: Removes paint names from descriptions before matching
 
 #### Available Tools
-- **`update_videos.py`**: Unified script - fetches and tags all videos, outputs statistics
-- **`analyze_untagged.py`**: Analysis tool to identify missing patterns and suggest improvements
-- **`tag_rules.json`**: Editable JSON file with all 93 tagging patterns
-- **`tag_hierarchy.json`**: Defines parent-child tag relationships
-- **`TAGGING_GUIDE.md`**: Complete documentation of the tagging system
+- **`update_videos.py`**: Unified script - fetches and tags all videos
+  - `--hybrid`: Hybrid mode (recommended)
+  - `--semantic`: Semantic mode
+  - `--threshold N`: Similarity threshold (0.0-1.0, default 0.65)
+- **`semantic_tagger.py`**: SemanticTagger class using sentence-transformers
+- **`analyze_untagged.py`**: Analysis tool to identify missing patterns
+- **`tag_rules.json`**: Editable regex patterns (93 rules)
+- **`tag_descriptions.json`**: Editable semantic descriptions (68 tags)
+- **`tag_hierarchy.json`**: Parent-child tag relationships
+- **`TAGGING_GUIDE.md`**: Complete documentation
 
 #### Tag Categories
 - **Game Systems**: 40k, AoS, Horus Heresy, Underworlds, Middle Earth, etc.
@@ -180,10 +251,24 @@ The project uses an intelligent tagging system with **100% coverage** (496/496 v
 - **Special**: Painting Essentials, Citadel Products, Special Projects
 
 #### Maintenance Workflow
-1. Run `python update_videos.py` to fetch and tag all videos in one command
+
+**Recommended (Hybrid Mode):**
+1. Run `python update_videos.py --hybrid` to fetch and tag all videos
+2. Check statistics output - if many untagged, investigate why
+3. For false positives: Adjust tag descriptions in `tag_descriptions.json`
+4. For missing tags: Add patterns to `tag_rules.json` or descriptions to `tag_descriptions.json`
+5. Re-run until satisfied with coverage and accuracy
+
+**Alternative (Regex Mode):**
+1. Run `python update_videos.py` to fetch and tag all videos
 2. If untagged videos appear, run `python analyze_untagged.py`
-3. Add missing patterns to `tag_rules.json` (or add parent tags to `tag_hierarchy.json`)
-4. Re-run `python update_videos.py` until 100% coverage is achieved
+3. Add missing patterns to `tag_rules.json`
+4. Re-run until 100% coverage achieved
+
+**Threshold Tuning (Semantic/Hybrid):**
+- Lower threshold (0.50-0.55): More tags, potential false positives
+- Medium threshold (0.60-0.65): Balanced
+- Higher threshold (0.70-0.80): Fewer tags, high precision
 
 See `be/TAGGING_GUIDE.md` for detailed documentation.
 

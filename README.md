@@ -36,20 +36,39 @@ yarn typecheck
 
 The video catalog is generated with Python scripts in `be/`:
 
-1. **`youtube_channel_search.py`** — Fetches video metadata from the Warhammer YouTube channel via the YouTube Data API.
-2. **`tag_videos.py`** — Applies tags to videos using an intelligent pattern-matching system with **100% coverage** (496/496 videos tagged).
-3. **`analyze_untagged.py`** — (Optional) Analyzes videos without tags and suggests missing patterns.
+1. **`update_videos.py`** — Unified script that fetches videos from YouTube and applies intelligent tagging
+2. **`semantic_tagger.py`** — NLP-based semantic tagging using sentence transformers
+3. **`analyze_untagged.py`** — (Optional) Analyzes untagged videos and suggests improvements
 
 The output is saved to `src/videos.json` and bundled with the frontend.
 
-### Tag System Features
+### Intelligent Tagging System
 
-- **Comprehensive coverage**: All videos tagged across 40k, AoS, Horus Heresy, and other systems
-- **Smart hierarchy**: Specific tags inherit general ones (e.g., `salamanders` → `space marines` + `40k`)
-- **Multiple categories**: Factions, difficulty levels, techniques, game systems
-- **Easy maintenance**: Run `analyze_untagged.py` after adding new videos to identify missing patterns
+**Two tagging modes available:**
 
-See `be/TAGGING_GUIDE.md` for detailed documentation on the tagging system.
+- **Hybrid Mode (Recommended)**: Combines pattern matching with semantic validation to eliminate false positives
+  - 86% coverage (530/617 videos)
+  - Context-aware: Distinguishes "painting Orks" from "Ork Green paint"
+  - Zero false positives from paint names
+
+- **Regex Mode (Fallback)**: Traditional pattern matching
+  - 100% coverage but prone to false positives
+  - Fast and deterministic
+
+**Key Features:**
+- **Smart hierarchy**: Child tags inherit parent tags (e.g., `salamanders` → `space marines` + `40k`)
+- **Confidence scores**: Hybrid/semantic modes provide 0-1 similarity scores
+- **Multiple categories**: Game systems, factions, difficulty levels, techniques
+- **Easy maintenance**: Edit `tag_descriptions.json` for semantic tags or `tag_rules.json` for regex patterns
+
+**Quick Start:**
+```bash
+cd be
+source .venv/bin/activate
+python update_videos.py --hybrid  # Fetch + tag with hybrid mode
+```
+
+See `be/TAGGING_GUIDE.md` for detailed documentation.
 
 ## Build & Deploy
 
