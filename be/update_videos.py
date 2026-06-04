@@ -734,7 +734,7 @@ Examples:
                               help='Use hybrid: regex for obvious matches, semantic for validation')
     parser.add_argument('--threshold', type=float, default=0.65,
                        help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
-    parser.add_argument('--model', type=str, default='all-MiniLM-L6-v2',
+    parser.add_argument('--model', type=str, default='all-distilroberta-v1',
                        choices=['all-MiniLM-L6-v2', 'all-mpnet-base-v2',
                                'paraphrase-MiniLM-L6-v2', 'all-distilroberta-v1'],
                        help='Sentence transformer model (default: all-MiniLM-L6-v2)')
