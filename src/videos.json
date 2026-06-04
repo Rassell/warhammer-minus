@@ -7,14 +7,14 @@
     "thumbnail": "https://i.ytimg.com/vi/4eCV5wG8tVc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4eCV5wG8tVc",
     "duration": "PT5M48S",
-    "viewCount": 11834,
+    "viewCount": 11837,
     "likeCount": 396,
     "tags": [
       "aos",
       "sylvaneth"
     ],
     "tag_scores": {
-      "sylvaneth": 0.5178428292274475
+      "sylvaneth": 0.5178428888320923
     }
   },
   {
@@ -32,7 +32,7 @@
       "astra militarum"
     ],
     "tag_scores": {
-      "40k": 0.5384252071380615,
+      "40k": 0.5384252667427063,
       "astra militarum": 0.5179277658462524
     }
   },
@@ -44,7 +44,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Xpz_ZvQz-kM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Xpz_ZvQz-kM",
     "duration": "PT7M17S",
-    "viewCount": 12352,
+    "viewCount": 12355,
     "likeCount": 527,
     "tags": [
       "40k",
@@ -53,10 +53,10 @@
       "vehicles"
     ],
     "tag_scores": {
-      "beginner": 0.5144963264465332,
       "eldar": 0.5650063753128052,
-      "40k": 0.5121710300445557,
-      "vehicles": 0.5147757530212402
+      "40k": 0.5121710896492004,
+      "vehicles": 0.5147757530212402,
+      "beginner": 0.5144963264465332
     }
   },
   {
@@ -74,7 +74,7 @@
       "underworlds"
     ],
     "tag_scores": {
-      "aos": 0.5097692012786865,
+      "aos": 0.509769082069397,
       "underworlds": 0.6099601984024048
     }
   },
@@ -86,7 +86,7 @@
     "thumbnail": "https://i.ytimg.com/vi/PvL8ClFsLDc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PvL8ClFsLDc",
     "duration": "PT10M52S",
-    "viewCount": 30198,
+    "viewCount": 30202,
     "likeCount": 1108,
     "tags": [
       "40k",
@@ -95,8 +95,8 @@
       "red corsairs"
     ],
     "tag_scores": {
-      "red corsairs": 0.5403507947921753,
-      "40k": 0.5567042827606201
+      "40k": 0.5567044019699097,
+      "red corsairs": 0.5403507947921753
     }
   },
   {
@@ -114,8 +114,8 @@
       "sororitas"
     ],
     "tag_scores": {
-      "sororitas": 0.5002565383911133,
-      "40k": 0.5573426485061646
+      "40k": 0.5573427081108093,
+      "sororitas": 0.5002565383911133
     }
   },
   {
@@ -126,7 +126,7 @@
     "thumbnail": "https://i.ytimg.com/vi/8ageDMZi6uw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8ageDMZi6uw",
     "duration": "PT5M52S",
-    "viewCount": 59197,
+    "viewCount": 59200,
     "likeCount": 2317,
     "tags": [
       "40k",
@@ -136,9 +136,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "red corsairs": 0.7089367508888245,
       "space marines": 0.5654070377349854,
-      "40k": 0.5454275608062744
+      "40k": 0.5454276204109192,
+      "red corsairs": 0.7089367508888245
     }
   },
   {
@@ -149,13 +149,13 @@
     "thumbnail": "https://i.ytimg.com/vi/1KTDh36eJpo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1KTDh36eJpo",
     "duration": "PT10M11S",
-    "viewCount": 11234,
+    "viewCount": 11235,
     "likeCount": 414,
     "tags": [
       "aos"
     ],
     "tag_scores": {
-      "aos": 0.588415801525116
+      "aos": 0.5884157419204712
     }
   },
   {
@@ -183,13 +183,13 @@
     "thumbnail": "https://i.ytimg.com/vi/liYhjOmh91A/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=liYhjOmh91A",
     "duration": "PT7M10S",
-    "viewCount": 21122,
+    "viewCount": 21125,
     "likeCount": 769,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5129333138465881
+      "40k": 0.5129333734512329
     }
   },
   {
@@ -207,7 +207,7 @@
       "astra militarum"
     ],
     "tag_scores": {
-      "40k": 0.6471041440963745,
+      "40k": 0.6471042633056641,
       "astra militarum": 0.5440154075622559
     }
   },
@@ -227,9 +227,9 @@
       "weapons"
     ],
     "tag_scores": {
-      "imperial knights": 0.6357060670852661,
+      "40k": 0.606154203414917,
       "weapons": 0.5331606864929199,
-      "40k": 0.6061540842056274
+      "imperial knights": 0.6357061862945557
     }
   },
   {
@@ -240,7 +240,7 @@
     "thumbnail": "https://i.ytimg.com/vi/0xZZGws55-k/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0xZZGws55-k",
     "duration": "PT7M4S",
-    "viewCount": 32179,
+    "viewCount": 32186,
     "likeCount": 1193,
     "tags": [
       "40k",
@@ -249,9 +249,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "metal": 0.5258086919784546,
-      "40k": 0.5523550510406494,
-      "grey knights": 0.6848061680793762
+      "40k": 0.552355170249939,
+      "grey knights": 0.6848061084747314,
+      "metal": 0.5080649852752686
     }
   },
   {
@@ -262,14 +262,14 @@
     "thumbnail": "https://i.ytimg.com/vi/beaIuIPpEt8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=beaIuIPpEt8",
     "duration": "PT7M9S",
-    "viewCount": 26853,
+    "viewCount": 26854,
     "likeCount": 1158,
     "tags": [
       "armour",
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.5327211022377014,
+      "metal": 0.5294818878173828,
       "armour": 0.44848307967185974
     }
   },
@@ -287,7 +287,7 @@
       "skin"
     ],
     "tag_scores": {
-      "skin": 0.42736661434173584
+      "skin": 0.4204886555671692
     }
   },
   {
@@ -298,7 +298,7 @@
     "thumbnail": "https://i.ytimg.com/vi/A4XXSboOMcg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=A4XXSboOMcg",
     "duration": "PT12M36S",
-    "viewCount": 110884,
+    "viewCount": 110907,
     "likeCount": 4439,
     "tags": [
       "40k",
@@ -307,10 +307,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.505363404750824,
-      "space marines": 0.5701042413711548,
       "ultramarines": 0.5551310777664185,
-      "40k": 0.5436469316482544
+      "space marines": 0.5701042413711548,
+      "beginner": 0.505363404750824,
+      "40k": 0.5436469912528992
     }
   },
   {
@@ -351,13 +351,13 @@
     "thumbnail": "https://i.ytimg.com/vi/jf4_QNroa6c/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jf4_QNroa6c",
     "duration": "PT4M44S",
-    "viewCount": 14165,
+    "viewCount": 14166,
     "likeCount": 766,
     "tags": [
       "textures & materials"
     ],
     "tag_scores": {
-      "textures & materials": 0.5245311856269836
+      "textures & materials": 0.5541317462921143
     }
   },
   {
@@ -374,15 +374,13 @@
       "40k",
       "aos",
       "beginner",
-      "skin",
-      "textures & materials"
+      "skin"
     ],
     "tag_scores": {
-      "beginner": 0.5075475573539734,
-      "aos": 0.523359477519989,
-      "skin": 0.4962957203388214,
-      "40k": 0.5589109659194946,
-      "textures & materials": 0.504658579826355
+      "40k": 0.5589110851287842,
+      "aos": 0.5233594179153442,
+      "skin": 0.4895612597465515,
+      "beginner": 0.5075475573539734
     }
   },
   {
@@ -400,8 +398,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5906798243522644,
-      "aos": 0.6529533863067627
+      "aos": 0.6529532670974731,
+      "beginner": 0.5906798243522644
     }
   },
   {
@@ -412,7 +410,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LVifKAPe22E/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=LVifKAPe22E",
     "duration": "PT5M3S",
-    "viewCount": 24816,
+    "viewCount": 24823,
     "likeCount": 929,
     "tags": [
       "untagged"
@@ -435,8 +433,8 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.5153313875198364,
-      "ultramarines": 0.5790576934814453
+      "ultramarines": 0.5790576934814453,
+      "space marines": 0.5153313875198364
     }
   },
   {
@@ -455,9 +453,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.5224229097366333,
       "ultramarines": 0.5492488741874695,
-      "40k": 0.5118317604064941
+      "space marines": 0.5224229097366333,
+      "40k": 0.5118318796157837
     }
   },
   {
@@ -475,8 +473,8 @@
       "skin"
     ],
     "tag_scores": {
-      "aos": 0.5076007843017578,
-      "skin": 0.4985460042953491
+      "skin": 0.47756463289260864,
+      "aos": 0.507600724697113
     }
   },
   {
@@ -511,8 +509,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5243384838104248,
-      "40k": 0.6260689496994019
+      "40k": 0.6260691285133362,
+      "beginner": 0.5243384838104248
     }
   },
   {
@@ -523,15 +521,15 @@
     "thumbnail": "https://i.ytimg.com/vi/iH7P5Z_iQ8A/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iH7P5Z_iQ8A",
     "duration": "PT8M",
-    "viewCount": 17206,
+    "viewCount": 17207,
     "likeCount": 526,
     "tags": [
       "40k",
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5277180671691895,
-      "40k": 0.555030345916748
+      "40k": 0.555030345916748,
+      "beginner": 0.5277180671691895
     }
   },
   {
@@ -542,14 +540,14 @@
     "thumbnail": "https://i.ytimg.com/vi/JKcnjpLtq3E/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JKcnjpLtq3E",
     "duration": "PT5M34S",
-    "viewCount": 20707,
+    "viewCount": 20708,
     "likeCount": 659,
     "tags": [
       "armour",
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.5580954551696777,
+      "metal": 0.5434181094169617,
       "armour": 0.509161114692688
     }
   },
@@ -569,8 +567,8 @@
       "necrons"
     ],
     "tag_scores": {
-      "necrons": 0.5673076510429382,
       "40k": 0.5703169107437134,
+      "necrons": 0.5673076510429382,
       "armour": 0.5306099653244019
     }
   },
@@ -582,17 +580,17 @@
     "thumbnail": "https://i.ytimg.com/vi/HHRR_q7iC-Y/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HHRR_q7iC-Y",
     "duration": "PT4M15S",
-    "viewCount": 50967,
-    "likeCount": 2790,
+    "viewCount": 50973,
+    "likeCount": 2791,
     "tags": [
       "40k",
       "beginner",
       "weapons"
     ],
     "tag_scores": {
-      "beginner": 0.5009002685546875,
-      "40k": 0.5494928359985352,
-      "weapons": 0.6149935722351074
+      "40k": 0.5494929552078247,
+      "weapons": 0.6149935722351074,
+      "beginner": 0.5009002685546875
     }
   },
   {
@@ -603,7 +601,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_Zfyfa_VdMg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_Zfyfa_VdMg",
     "duration": "PT10M5S",
-    "viewCount": 39286,
+    "viewCount": 39289,
     "likeCount": 1422,
     "tags": [
       "40k",
@@ -611,8 +609,8 @@
       "eldar"
     ],
     "tag_scores": {
-      "40k": 0.5329911708831787,
-      "drukhari": 0.446104496717453
+      "drukhari": 0.446104496717453,
+      "40k": 0.5329912900924683
     }
   },
   {
@@ -623,7 +621,7 @@
     "thumbnail": "https://i.ytimg.com/vi/wf890Pgyj9I/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wf890Pgyj9I",
     "duration": "PT10M16S",
-    "viewCount": 35087,
+    "viewCount": 35090,
     "likeCount": 1218,
     "tags": [
       "40k",
@@ -631,8 +629,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.5378250479698181,
-      "40k": 0.5305083990097046
+      "40k": 0.5305083990097046,
+      "imperial fists": 0.5470482110977173
     }
   },
   {
@@ -643,7 +641,7 @@
     "thumbnail": "https://i.ytimg.com/vi/YxEz7CUZuOc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=YxEz7CUZuOc",
     "duration": "PT10M50S",
-    "viewCount": 37159,
+    "viewCount": 37165,
     "likeCount": 1158,
     "tags": [
       "untagged"
@@ -658,7 +656,7 @@
     "thumbnail": "https://i.ytimg.com/vi/1cogS7ElbAE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1cogS7ElbAE",
     "duration": "PT5M39S",
-    "viewCount": 31280,
+    "viewCount": 31281,
     "likeCount": 1177,
     "tags": [
       "40k",
@@ -694,15 +692,15 @@
     "thumbnail": "https://i.ytimg.com/vi/BzhyWoOGJGY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=BzhyWoOGJGY",
     "duration": "PT10M51S",
-    "viewCount": 17172,
+    "viewCount": 17174,
     "likeCount": 613,
     "tags": [
       "beginner",
       "old world"
     ],
     "tag_scores": {
-      "beginner": 0.5370995998382568,
-      "old world": 0.6183270215988159
+      "old world": 0.6183270215988159,
+      "beginner": 0.5370995998382568
     }
   },
   {
@@ -732,7 +730,7 @@
     "thumbnail": "https://i.ytimg.com/vi/gMGYYUL_GNw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=gMGYYUL_GNw",
     "duration": "PT5M25S",
-    "viewCount": 39070,
+    "viewCount": 39073,
     "likeCount": 1448,
     "tags": [
       "40k",
@@ -754,7 +752,7 @@
     "thumbnail": "https://i.ytimg.com/vi/3FV_RB94shQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3FV_RB94shQ",
     "duration": "PT6M46S",
-    "viewCount": 27310,
+    "viewCount": 27315,
     "likeCount": 1124,
     "tags": [
       "horus heresy"
@@ -771,13 +769,13 @@
     "thumbnail": "https://i.ytimg.com/vi/0GsCDeo7dZo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0GsCDeo7dZo",
     "duration": "PT9M59S",
-    "viewCount": 20374,
+    "viewCount": 20375,
     "likeCount": 620,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.6006514430046082
+      "40k": 0.6006515026092529
     }
   },
   {
@@ -788,7 +786,7 @@
     "thumbnail": "https://i.ytimg.com/vi/m2uUY1nd4GU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=m2uUY1nd4GU",
     "duration": "PT9M21S",
-    "viewCount": 36962,
+    "viewCount": 36966,
     "likeCount": 1329,
     "tags": [
       "40k",
@@ -796,8 +794,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.5083091259002686,
-      "40k": 0.5481873154640198
+      "40k": 0.5481873750686646,
+      "salamanders": 0.5083091855049133
     }
   },
   {
@@ -808,7 +806,7 @@
     "thumbnail": "https://i.ytimg.com/vi/8PWECtOkbks/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8PWECtOkbks",
     "duration": "PT6M24S",
-    "viewCount": 25165,
+    "viewCount": 25168,
     "likeCount": 909,
     "tags": [
       "40k",
@@ -819,10 +817,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.5395164489746094,
-      "armour": 0.3833014667034149,
       "horus heresy": 0.5101925134658813,
-      "legions imperialis": 0.5017741322517395
+      "legions imperialis": 0.5017741322517395,
+      "salamanders": 0.5395163893699646,
+      "armour": 0.3833014667034149
     }
   },
   {
@@ -833,7 +831,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lQQs3VjkoQ8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lQQs3VjkoQ8",
     "duration": "PT4M34S",
-    "viewCount": 45150,
+    "viewCount": 45151,
     "likeCount": 1805,
     "tags": [
       "40k",
@@ -845,10 +843,10 @@
       "textures & materials"
     ],
     "tag_scores": {
+      "horus heresy": 0.5547574758529663,
       "citadel products": 0.5217873454093933,
       "iron warriors": 0.6584649682044983,
-      "horus heresy": 0.5547574758529663,
-      "textures & materials": 0.5468155145645142
+      "textures & materials": 0.5462308526039124
     }
   },
   {
@@ -868,8 +866,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.5536383986473083,
-      "horus heresy": 0.4080342948436737
+      "horus heresy": 0.4080342948436737,
+      "salamanders": 0.5536383390426636
     }
   },
   {
@@ -880,7 +878,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-7PLSmFk3yw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-7PLSmFk3yw",
     "duration": "PT55S",
-    "viewCount": 31435,
+    "viewCount": 31438,
     "likeCount": 1091,
     "tags": [
       "40k",
@@ -889,8 +887,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "horus heresy": 0.5556296110153198,
-      "iron hands": 0.6127504110336304
+      "iron hands": 0.6127504110336304,
+      "horus heresy": 0.5556296110153198
     }
   },
   {
@@ -910,7 +908,7 @@
       "emperor's children"
     ],
     "tag_scores": {
-      "40k": 0.6285641193389893,
+      "40k": 0.6285642385482788,
       "emperor's children": 0.6083227396011353
     }
   },
@@ -928,7 +926,7 @@
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.624431848526001
+      "metal": 0.602075457572937
     }
   },
   {
@@ -948,9 +946,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5655373334884644,
       "space marines": 0.6205037832260132,
-      "40k": 0.6157604455947876,
+      "40k": 0.6157605051994324,
+      "beginner": 0.5655373334884644,
       "horus heresy": 0.6546003818511963
     }
   },
@@ -962,7 +960,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7W9agSWLxZQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7W9agSWLxZQ",
     "duration": "PT23M29S",
-    "viewCount": 61496,
+    "viewCount": 61498,
     "likeCount": 2800,
     "tags": [
       "armour",
@@ -970,8 +968,8 @@
       "horus heresy"
     ],
     "tag_scores": {
-      "beginner": 0.6128474473953247,
       "horus heresy": 0.60490483045578,
+      "beginner": 0.6128474473953247,
       "armour": 0.5832235813140869
     }
   },
@@ -989,7 +987,7 @@
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5731935501098633
+      "40k": 0.5731936097145081
     }
   },
   {
@@ -1000,7 +998,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pOwsLCFFeLE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pOwsLCFFeLE",
     "duration": "PT6M14S",
-    "viewCount": 21679,
+    "viewCount": 21680,
     "likeCount": 820,
     "tags": [
       "untagged"
@@ -1049,7 +1047,7 @@
     "thumbnail": "https://i.ytimg.com/vi/JJk0_xIV-rw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JJk0_xIV-rw",
     "duration": "PT7M21S",
-    "viewCount": 34187,
+    "viewCount": 34189,
     "likeCount": 1003,
     "tags": [
       "40k",
@@ -1067,7 +1065,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pFaaTr-WBuU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pFaaTr-WBuU",
     "duration": "PT3M47S",
-    "viewCount": 24108,
+    "viewCount": 24109,
     "likeCount": 1091,
     "tags": [
       "untagged"
@@ -1082,7 +1080,7 @@
     "thumbnail": "https://i.ytimg.com/vi/qIP__jqk2Gs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=qIP__jqk2Gs",
     "duration": "PT1M2S",
-    "viewCount": 21646,
+    "viewCount": 21652,
     "likeCount": 746,
     "tags": [
       "40k",
@@ -1091,8 +1089,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.6114423274993896,
-      "horus heresy": 0.5862793326377869
+      "horus heresy": 0.5862793326377869,
+      "salamanders": 0.6114423274993896
     }
   },
   {
@@ -1112,8 +1110,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "blood angels": 0.5932418704032898,
-      "horus heresy": 0.5837178826332092
+      "horus heresy": 0.5837178826332092,
+      "blood angels": 0.59236741065979
     }
   },
   {
@@ -1124,7 +1122,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fBUqwBwODdE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fBUqwBwODdE",
     "duration": "PT48S",
-    "viewCount": 50533,
+    "viewCount": 50538,
     "likeCount": 1823,
     "tags": [
       "40k",
@@ -1133,8 +1131,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.5834985971450806,
-      "horus heresy": 0.5944910049438477
+      "horus heresy": 0.5944910049438477,
+      "dark angels": 0.5834985971450806
     }
   },
   {
@@ -1145,7 +1143,7 @@
     "thumbnail": "https://i.ytimg.com/vi/idxpUd9LMVQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=idxpUd9LMVQ",
     "duration": "PT51S",
-    "viewCount": 10969,
+    "viewCount": 10972,
     "likeCount": 352,
     "tags": [
       "40k",
@@ -1155,8 +1153,8 @@
       "thousand sons"
     ],
     "tag_scores": {
-      "thousand sons": 0.5046899914741516,
-      "horus heresy": 0.6458011269569397
+      "horus heresy": 0.6458011269569397,
+      "thousand sons": 0.5046899914741516
     }
   },
   {
@@ -1167,7 +1165,7 @@
     "thumbnail": "https://i.ytimg.com/vi/kkoXPHyVrus/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kkoXPHyVrus",
     "duration": "PT43S",
-    "viewCount": 35488,
+    "viewCount": 35493,
     "likeCount": 1444,
     "tags": [
       "horus heresy"
@@ -1184,8 +1182,8 @@
     "thumbnail": "https://i.ytimg.com/vi/mpTRu_0pUgM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=mpTRu_0pUgM",
     "duration": "PT1M11S",
-    "viewCount": 99918,
-    "likeCount": 4948,
+    "viewCount": 99942,
+    "likeCount": 4949,
     "tags": [
       "40k",
       "chaos",
@@ -1194,8 +1192,8 @@
       "iron warriors"
     ],
     "tag_scores": {
-      "iron warriors": 0.5876490473747253,
-      "horus heresy": 0.6262139678001404
+      "horus heresy": 0.6262139678001404,
+      "iron warriors": 0.5876490473747253
     }
   },
   {
@@ -1206,8 +1204,8 @@
     "thumbnail": "https://i.ytimg.com/vi/nUDT2ravD20/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nUDT2ravD20",
     "duration": "PT50S",
-    "viewCount": 22081,
-    "likeCount": 624,
+    "viewCount": 22087,
+    "likeCount": 625,
     "tags": [
       "horus heresy"
     ],
@@ -1232,8 +1230,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "raven guard": 0.5685068964958191,
-      "horus heresy": 0.6129509210586548
+      "horus heresy": 0.6129509210586548,
+      "raven guard": 0.5685068964958191
     }
   },
   {
@@ -1244,7 +1242,7 @@
     "thumbnail": "https://i.ytimg.com/vi/DXieGD_h8CI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DXieGD_h8CI",
     "duration": "PT44S",
-    "viewCount": 11126,
+    "viewCount": 11131,
     "likeCount": 295,
     "tags": [
       "40k",
@@ -1253,8 +1251,8 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.607373833656311,
       "ultramarines": 0.6351660490036011,
+      "space marines": 0.607373833656311,
       "horus heresy": 0.6341493129730225
     }
   },
@@ -1266,7 +1264,7 @@
     "thumbnail": "https://i.ytimg.com/vi/QqdZfzGPiEQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QqdZfzGPiEQ",
     "duration": "PT53S",
-    "viewCount": 17378,
+    "viewCount": 17380,
     "likeCount": 574,
     "tags": [
       "40k",
@@ -1276,8 +1274,8 @@
       "horus heresy"
     ],
     "tag_scores": {
-      "death guard": 0.5260024070739746,
-      "horus heresy": 0.6541377305984497
+      "horus heresy": 0.6541377305984497,
+      "death guard": 0.5260024070739746
     }
   },
   {
@@ -1288,7 +1286,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-ARH90AYy3A/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-ARH90AYy3A",
     "duration": "PT58S",
-    "viewCount": 21192,
+    "viewCount": 21196,
     "likeCount": 691,
     "tags": [
       "40k",
@@ -1297,8 +1295,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.6385208368301392,
-      "horus heresy": 0.6131715774536133
+      "horus heresy": 0.6131715774536133,
+      "imperial fists": 0.6343715786933899
     }
   },
   {
@@ -1309,7 +1307,7 @@
     "thumbnail": "https://i.ytimg.com/vi/1OSHoDM3fgo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1OSHoDM3fgo",
     "duration": "PT1M8S",
-    "viewCount": 15898,
+    "viewCount": 15899,
     "likeCount": 631,
     "tags": [
       "40k",
@@ -1319,8 +1317,8 @@
       "world eaters"
     ],
     "tag_scores": {
-      "world eaters": 0.5359618067741394,
-      "horus heresy": 0.5856181383132935
+      "horus heresy": 0.5856181383132935,
+      "world eaters": 0.5359618067741394
     }
   },
   {
@@ -1331,7 +1329,7 @@
     "thumbnail": "https://i.ytimg.com/vi/6WrOvtKa7ks/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6WrOvtKa7ks",
     "duration": "PT51S",
-    "viewCount": 24871,
+    "viewCount": 24879,
     "likeCount": 874,
     "tags": [
       "horus heresy"
@@ -1348,8 +1346,8 @@
     "thumbnail": "https://i.ytimg.com/vi/DVb79O0XLlQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DVb79O0XLlQ",
     "duration": "PT54S",
-    "viewCount": 32274,
-    "likeCount": 1386,
+    "viewCount": 32277,
+    "likeCount": 1387,
     "tags": [
       "40k",
       "horus heresy",
@@ -1357,8 +1355,8 @@
       "white scars"
     ],
     "tag_scores": {
-      "white scars": 0.5902852416038513,
-      "horus heresy": 0.6164733171463013
+      "horus heresy": 0.6164733171463013,
+      "white scars": 0.5902853012084961
     }
   },
   {
@@ -1378,8 +1376,8 @@
       "space wolves"
     ],
     "tag_scores": {
-      "space wolves": 0.6193523406982422,
-      "horus heresy": 0.6518816947937012
+      "horus heresy": 0.6518816947937012,
+      "space wolves": 0.6193523406982422
     }
   },
   {
@@ -1390,7 +1388,7 @@
     "thumbnail": "https://i.ytimg.com/vi/TwmiZ1y7DT0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TwmiZ1y7DT0",
     "duration": "PT1M",
-    "viewCount": 22949,
+    "viewCount": 22950,
     "likeCount": 862,
     "tags": [
       "40k",
@@ -1412,7 +1410,7 @@
     "thumbnail": "https://i.ytimg.com/vi/UGRMSrgmxeg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UGRMSrgmxeg",
     "duration": "PT53S",
-    "viewCount": 13973,
+    "viewCount": 13976,
     "likeCount": 428,
     "tags": [
       "horus heresy"
@@ -1437,8 +1435,8 @@
       "space wolves"
     ],
     "tag_scores": {
-      "space wolves": 0.5948421955108643,
-      "40k": 0.5153506398200989
+      "40k": 0.5153507590293884,
+      "space wolves": 0.5948421955108643
     }
   },
   {
@@ -1464,13 +1462,13 @@
     "thumbnail": "https://i.ytimg.com/vi/XjFq-fjZ8VQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XjFq-fjZ8VQ",
     "duration": "PT9M5S",
-    "viewCount": 16191,
+    "viewCount": 16192,
     "likeCount": 677,
     "tags": [
       "aos"
     ],
     "tag_scores": {
-      "aos": 0.5152026414871216
+      "aos": 0.5152025818824768
     }
   },
   {
@@ -1511,7 +1509,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lVlr1n6HJnU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lVlr1n6HJnU",
     "duration": "PT13M6S",
-    "viewCount": 38379,
+    "viewCount": 38380,
     "likeCount": 1168,
     "tags": [
       "aos"
@@ -1534,7 +1532,7 @@
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5327336192131042
+      "40k": 0.532733678817749
     }
   },
   {
@@ -1557,8 +1555,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.5211037397384644,
-      "iron warriors": 0.5479419231414795
+      "iron warriors": 0.5479419231414795,
+      "imperial fists": 0.512723445892334
     }
   },
   {
@@ -1575,7 +1573,7 @@
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5241023302078247
+      "40k": 0.5241024494171143
     }
   },
   {
@@ -1586,7 +1584,7 @@
     "thumbnail": "https://i.ytimg.com/vi/73h3qXvbAiI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=73h3qXvbAiI",
     "duration": "PT14M4S",
-    "viewCount": 62755,
+    "viewCount": 62756,
     "likeCount": 1907,
     "tags": [
       "40k",
@@ -1629,8 +1627,8 @@
       "skin"
     ],
     "tag_scores": {
-      "beginner": 0.5323206186294556,
-      "skin": 0.5406231880187988
+      "skin": 0.5248386859893799,
+      "beginner": 0.5323206186294556
     }
   },
   {
@@ -1641,7 +1639,7 @@
     "thumbnail": "https://i.ytimg.com/vi/r9ctO_1Sgkw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=r9ctO_1Sgkw",
     "duration": "PT7M36S",
-    "viewCount": 69350,
+    "viewCount": 69351,
     "likeCount": 4150,
     "tags": [
       "40k",
@@ -1649,9 +1647,9 @@
       "chaos"
     ],
     "tag_scores": {
-      "aos": 0.35805508494377136,
+      "40k": 0.5126421451568604,
       "chaos": 0.3341430425643921,
-      "40k": 0.5126420855522156
+      "aos": 0.3580550253391266
     }
   },
   {
@@ -1709,7 +1707,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IbmVCc2sqkM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IbmVCc2sqkM",
     "duration": "PT12M38S",
-    "viewCount": 130276,
+    "viewCount": 130278,
     "likeCount": 3817,
     "tags": [
       "40k",
@@ -1718,7 +1716,7 @@
       "emperor's children"
     ],
     "tag_scores": {
-      "40k": 0.5823585987091064,
+      "40k": 0.582358717918396,
       "emperor's children": 0.5306318998336792
     }
   },
@@ -1739,7 +1737,7 @@
       "emperor's children"
     ],
     "tag_scores": {
-      "40k": 0.6988632678985596,
+      "40k": 0.6988633871078491,
       "emperor's children": 0.5632821321487427
     }
   },
@@ -1751,13 +1749,13 @@
     "thumbnail": "https://i.ytimg.com/vi/8xOJWJgF1nU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=8xOJWJgF1nU",
     "duration": "PT6M15S",
-    "viewCount": 154251,
+    "viewCount": 154254,
     "likeCount": 6047,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5114132761955261
+      "40k": 0.5114133358001709
     }
   },
   {
@@ -1768,13 +1766,13 @@
     "thumbnail": "https://i.ytimg.com/vi/U8DmwtMD0oQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=U8DmwtMD0oQ",
     "duration": "PT6M35S",
-    "viewCount": 21904,
+    "viewCount": 21905,
     "likeCount": 697,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5087100267410278
+      "40k": 0.5087101459503174
     }
   },
   {
@@ -1785,7 +1783,7 @@
     "thumbnail": "https://i.ytimg.com/vi/I3TCC6blJ_8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I3TCC6blJ_8",
     "duration": "PT18S",
-    "viewCount": 57108,
+    "viewCount": 57109,
     "likeCount": 4425,
     "tags": [
       "untagged"
@@ -1800,13 +1798,13 @@
     "thumbnail": "https://i.ytimg.com/vi/RIPoiUP72Rk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RIPoiUP72Rk",
     "duration": "PT5M21S",
-    "viewCount": 31024,
+    "viewCount": 31025,
     "likeCount": 938,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5491536855697632
+      "40k": 0.5491538047790527
     }
   },
   {
@@ -1825,9 +1823,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5545128583908081,
+      "40k": 0.544198751449585,
       "citadel products": 0.5586979389190674,
-      "40k": 0.5441986918449402
+      "beginner": 0.5545128583908081
     }
   },
   {
@@ -1838,7 +1836,7 @@
     "thumbnail": "https://i.ytimg.com/vi/c0GGtJ72YUc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=c0GGtJ72YUc",
     "duration": "PT30S",
-    "viewCount": 79322,
+    "viewCount": 79327,
     "likeCount": 2931,
     "tags": [
       "40k",
@@ -1847,10 +1845,10 @@
       "skin"
     ],
     "tag_scores": {
+      "40k": 0.5958722233772278,
       "citadel products": 0.5843881368637085,
-      "contrast paints": 0.570019006729126,
-      "40k": 0.595872163772583,
-      "skin": 0.5078642964363098
+      "skin": 0.5017396807670593,
+      "contrast paints": 0.5696752667427063
     }
   },
   {
@@ -1861,7 +1859,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_hlGnkTKNDw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_hlGnkTKNDw",
     "duration": "PT8M48S",
-    "viewCount": 52982,
+    "viewCount": 52985,
     "likeCount": 1401,
     "tags": [
       "citadel products",
@@ -1869,9 +1867,9 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.5520832538604736,
+      "intermediate": 0.5520831942558289,
       "citadel products": 0.5805456042289734,
-      "contrast paints": 0.5923134684562683
+      "contrast paints": 0.5718409419059753
     }
   },
   {
@@ -1882,15 +1880,15 @@
     "thumbnail": "https://i.ytimg.com/vi/qm3xqLkTgn8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=qm3xqLkTgn8",
     "duration": "PT6M23S",
-    "viewCount": 25505,
+    "viewCount": 25507,
     "likeCount": 680,
     "tags": [
       "aos",
       "contrast paints"
     ],
     "tag_scores": {
-      "contrast paints": 0.4524329602718353,
-      "aos": 0.5423566102981567
+      "aos": 0.542356550693512,
+      "contrast paints": 0.41230320930480957
     }
   },
   {
@@ -1901,15 +1899,15 @@
     "thumbnail": "https://i.ytimg.com/vi/ZtEQmkldA6E/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZtEQmkldA6E",
     "duration": "PT9M48S",
-    "viewCount": 31816,
+    "viewCount": 31818,
     "likeCount": 1151,
     "tags": [
       "40k",
       "contrast paints"
     ],
     "tag_scores": {
-      "contrast paints": 0.4195038676261902,
-      "40k": 0.5470627546310425
+      "40k": 0.5470628142356873,
+      "contrast paints": 0.3947492241859436
     }
   },
   {
@@ -1932,7 +1930,7 @@
     "tag_scores": {
       "beginner": 0.5255851745605469,
       "aos": 0.5660035610198975,
-      "blood angels": 0.5243354439735413
+      "blood angels": 0.5361244082450867
     }
   },
   {
@@ -1949,7 +1947,7 @@
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5523471832275391
+      "40k": 0.5523473024368286
     }
   },
   {
@@ -1985,8 +1983,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.31021636724472046,
-      "40k": 0.5346206426620483,
+      "40k": 0.5346207022666931,
+      "intermediate": 0.31021633744239807,
       "bases": 0.41466665267944336
     }
   },
@@ -2005,8 +2003,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.42085909843444824,
-      "40k": 0.5990736484527588
+      "40k": 0.5990737676620483,
+      "intermediate": 0.42085909843444824
     }
   },
   {
@@ -2025,7 +2023,7 @@
     ],
     "tag_scores": {
       "intermediate": 0.4297897517681122,
-      "aos": 0.55351722240448
+      "aos": 0.5535171627998352
     }
   },
   {
@@ -2043,8 +2041,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.39224717020988464,
-      "40k": 0.5397084951400757
+      "40k": 0.5397086143493652,
+      "intermediate": 0.39224714040756226
     }
   },
   {
@@ -2062,8 +2060,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.37442532181739807,
-      "aos": 0.6008166074752808
+      "intermediate": 0.3744252920150757,
+      "aos": 0.600816547870636
     }
   },
   {
@@ -2081,8 +2079,8 @@
       "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.3893669545650482,
-      "old world": 0.6026207208633423
+      "old world": 0.6026207208633423,
+      "intermediate": 0.38936692476272583
     }
   },
   {
@@ -2093,18 +2091,15 @@
     "thumbnail": "https://i.ytimg.com/vi/vG4BZ4MjMEc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=vG4BZ4MjMEc",
     "duration": "PT10M16S",
-    "viewCount": 26688,
+    "viewCount": 26690,
     "likeCount": 790,
     "tags": [
-      "40k",
       "intermediate",
-      "kill team",
-      "orcs"
+      "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.3622015118598938,
-      "kill team": 0.5854666233062744,
-      "orcs": 0.5038120746612549
+      "intermediate": 0.3622014820575714,
+      "kill team": 0.5854666233062744
     }
   },
   {
@@ -2122,7 +2117,7 @@
       "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.36912527680397034,
+      "intermediate": 0.3691253066062927,
       "kill team": 0.6049990653991699
     }
   },
@@ -2134,7 +2129,7 @@
     "thumbnail": "https://i.ytimg.com/vi/1OT1e8ovG6k/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1OT1e8ovG6k",
     "duration": "PT22S",
-    "viewCount": 70006,
+    "viewCount": 70011,
     "likeCount": 2446,
     "tags": [
       "bases"
@@ -2151,15 +2146,15 @@
     "thumbnail": "https://i.ytimg.com/vi/5ORe3OwU2NM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5ORe3OwU2NM",
     "duration": "PT27M44S",
-    "viewCount": 23590,
+    "viewCount": 23591,
     "likeCount": 706,
     "tags": [
       "beginner",
       "middle earth"
     ],
     "tag_scores": {
-      "beginner": 0.41808822751045227,
-      "middle earth": 0.5771689414978027
+      "middle earth": 0.5771689414978027,
+      "beginner": 0.41808822751045227
     }
   },
   {
@@ -2202,14 +2197,14 @@
     "thumbnail": "https://i.ytimg.com/vi/iVis1LiaG1M/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iVis1LiaG1M",
     "duration": "PT6M17S",
-    "viewCount": 24753,
+    "viewCount": 24754,
     "likeCount": 737,
     "tags": [
       "aos",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.488902747631073,
+      "intermediate": 0.4889027774333954,
       "aos": 0.5877829790115356
     }
   },
@@ -2228,7 +2223,7 @@
       "underworlds"
     ],
     "tag_scores": {
-      "intermediate": 0.4444323778152466,
+      "intermediate": 0.4444323182106018,
       "underworlds": 0.6793549060821533
     }
   },
@@ -2247,8 +2242,8 @@
       "skin"
     ],
     "tag_scores": {
-      "intermediate": 0.4034751355648041,
-      "skin": 0.34650591015815735
+      "skin": 0.35881364345550537,
+      "intermediate": 0.4034751355648041
     }
   },
   {
@@ -2266,8 +2261,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4232146441936493,
-      "40k": 0.5018455982208252
+      "40k": 0.5018457174301147,
+      "intermediate": 0.42321470379829407
     }
   },
   {
@@ -2286,7 +2281,7 @@
     ],
     "tag_scores": {
       "space marines": 0.5714901685714722,
-      "40k": 0.6554177403450012
+      "40k": 0.655417799949646
     }
   },
   {
@@ -2323,10 +2318,10 @@
       "underworlds"
     ],
     "tag_scores": {
-      "beginner": 0.5088251829147339,
-      "aos": 0.5310171842575073,
-      "metal": 0.5104005336761475,
-      "underworlds": 0.6720589995384216
+      "metal": 0.5076632499694824,
+      "aos": 0.5310171246528625,
+      "underworlds": 0.6720589995384216,
+      "beginner": 0.5088251829147339
     }
   },
   {
@@ -2346,10 +2341,10 @@
       "warcry"
     ],
     "tag_scores": {
+      "aos": 0.5765546560287476,
       "warcry": 0.5709856152534485,
-      "stormcast eternals": 0.6982860565185547,
       "beginner": 0.44199201464653015,
-      "aos": 0.5765547752380371
+      "stormcast eternals": 0.6982860565185547
     }
   },
   {
@@ -2375,7 +2370,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7-olHO1xMfU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7-olHO1xMfU",
     "duration": "PT10M32S",
-    "viewCount": 23804,
+    "viewCount": 23805,
     "likeCount": 674,
     "tags": [
       "40k",
@@ -2383,9 +2378,9 @@
       "kill team"
     ],
     "tag_scores": {
-      "beginner": 0.533699631690979,
-      "40k": 0.6467465162277222,
-      "kill team": 0.6781649589538574
+      "40k": 0.6467466950416565,
+      "kill team": 0.6781649589538574,
+      "beginner": 0.533699631690979
     }
   },
   {
@@ -2396,8 +2391,8 @@
     "thumbnail": "https://i.ytimg.com/vi/-FPzl53Kg60/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-FPzl53Kg60",
     "duration": "PT15M25S",
-    "viewCount": 124289,
-    "likeCount": 2992,
+    "viewCount": 124302,
+    "likeCount": 2993,
     "tags": [
       "40k",
       "beginner",
@@ -2405,10 +2400,10 @@
       "weapons"
     ],
     "tag_scores": {
-      "beginner": 0.5045863389968872,
-      "40k": 0.59867262840271,
+      "40k": 0.5986727476119995,
+      "weapons": 0.5399054288864136,
       "kill team": 0.6711893081665039,
-      "weapons": 0.5399054288864136
+      "beginner": 0.5045863389968872
     }
   },
   {
@@ -2446,9 +2441,9 @@
       "skin"
     ],
     "tag_scores": {
+      "skin": 0.4483172297477722,
       "intermediate": 0.41468560695648193,
-      "aos": 0.5459772944450378,
-      "skin": 0.4447837173938751
+      "aos": 0.5459772348403931
     }
   },
   {
@@ -2459,15 +2454,15 @@
     "thumbnail": "https://i.ytimg.com/vi/OlnXFMCQWpI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=OlnXFMCQWpI",
     "duration": "PT5M49S",
-    "viewCount": 38624,
+    "viewCount": 38625,
     "likeCount": 1405,
     "tags": [
       "intermediate",
       "metal"
     ],
     "tag_scores": {
-      "intermediate": 0.44447779655456543,
-      "metal": 0.6986168026924133
+      "metal": 0.6806136965751648,
+      "intermediate": 0.44447773694992065
     }
   },
   {
@@ -2486,7 +2481,7 @@
     ],
     "tag_scores": {
       "intermediate": 0.39738965034484863,
-      "aos": 0.5255990028381348
+      "aos": 0.5255988836288452
     }
   },
   {
@@ -2523,12 +2518,12 @@
       "metal"
     ],
     "tag_scores": {
-      "intermediate": 0.3781660795211792,
-      "aos": 0.5171041488647461,
+      "40k": 0.5316500067710876,
+      "metal": 0.5348509550094604,
+      "intermediate": 0.3781660199165344,
+      "armour": 0.5065053701400757,
       "chaos": 0.5079770088195801,
-      "metal": 0.5587565898895264,
-      "40k": 0.5316498875617981,
-      "armour": 0.5065053701400757
+      "aos": 0.5171041488647461
     }
   },
   {
@@ -2550,11 +2545,11 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.4545844495296478,
-      "citadel products": 0.5582524538040161,
-      "space marines": 0.6677486896514893,
+      "intermediate": 0.45458441972732544,
+      "advanced": 0.44847923517227173,
       "beginner": 0.5177967548370361,
-      "advanced": 0.44847923517227173
+      "space marines": 0.6677486896514893,
+      "citadel products": 0.5582524538040161
     }
   },
   {
@@ -2565,7 +2560,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hGpklyoQ3XU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=hGpklyoQ3XU",
     "duration": "PT9M15S",
-    "viewCount": 32987,
+    "viewCount": 32988,
     "likeCount": 812,
     "tags": [
       "40k",
@@ -2574,10 +2569,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.6351782083511353,
-      "citadel products": 0.6139162182807922,
       "space marines": 0.753722071647644,
-      "40k": 0.5906113386154175
+      "40k": 0.590611457824707,
+      "citadel products": 0.6139162182807922,
+      "beginner": 0.6351782083511353
     }
   },
   {
@@ -2588,7 +2583,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HLUKGiQc37s/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HLUKGiQc37s",
     "duration": "PT5M38S",
-    "viewCount": 50440,
+    "viewCount": 50442,
     "likeCount": 1718,
     "tags": [
       "40k",
@@ -2599,11 +2594,11 @@
       "weapons"
     ],
     "tag_scores": {
-      "intermediate": 0.3532085418701172,
-      "weapons": 0.5710431933403015,
+      "40k": 0.5363596677780151,
       "grey knights": 0.5254565477371216,
-      "metal": 0.6629229784011841,
-      "40k": 0.5363595485687256
+      "metal": 0.6463950872421265,
+      "intermediate": 0.3532085418701172,
+      "weapons": 0.5710432529449463
     }
   },
   {
@@ -2614,7 +2609,7 @@
     "thumbnail": "https://i.ytimg.com/vi/wE_R0bX_4fg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wE_R0bX_4fg",
     "duration": "PT10M4S",
-    "viewCount": 57675,
+    "viewCount": 57679,
     "likeCount": 1953,
     "tags": [
       "armour",
@@ -2622,8 +2617,8 @@
       "metal"
     ],
     "tag_scores": {
+      "metal": 0.5105395317077637,
       "intermediate": 0.30695641040802,
-      "metal": 0.5181609392166138,
       "armour": 0.42446309328079224
     }
   },
@@ -2644,9 +2639,9 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.31300538778305054,
-      "aos": 0.45086899399757385,
       "chaos": 0.5459169149398804,
+      "intermediate": 0.31300538778305054,
+      "aos": 0.45086896419525146,
       "armour": 0.41431039571762085
     }
   },
@@ -2658,7 +2653,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Fg5bbIPnVSs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Fg5bbIPnVSs",
     "duration": "PT4M55S",
-    "viewCount": 33547,
+    "viewCount": 33549,
     "likeCount": 1196,
     "tags": [
       "40k",
@@ -2669,12 +2664,12 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.36945855617523193,
-      "space marines": 0.5408909320831299,
-      "aos": 0.46932509541511536,
+      "40k": 0.5296576619148254,
+      "intermediate": 0.36945849657058716,
       "chaos": 0.6144839525222778,
-      "chaos space marines": 0.5706803798675537,
-      "40k": 0.5296576023101807
+      "chaos space marines": 0.5706804394721985,
+      "aos": 0.4693250060081482,
+      "space marines": 0.5408909320831299
     }
   },
   {
@@ -2692,7 +2687,7 @@
       "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.3821938633918762,
+      "intermediate": 0.382193922996521,
       "kill team": 0.5260231494903564
     }
   },
@@ -2713,9 +2708,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "black templars": 0.5662449598312378,
       "space marines": 0.6042881011962891,
-      "40k": 0.5823177695274353,
+      "40k": 0.5823178291320801,
+      "black templars": 0.5662449598312378,
       "armour": 0.5382431745529175
     }
   },
@@ -2737,11 +2732,11 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "citadel products": 0.5760220289230347,
       "stormcast eternals": 0.6934331655502319,
+      "armour": 0.5011306405067444,
+      "aos": 0.6539424061775208,
       "beginner": 0.6310281753540039,
-      "aos": 0.6539424657821655,
-      "armour": 0.5011306405067444
+      "citadel products": 0.5760220289230347
     }
   },
   {
@@ -2777,8 +2772,8 @@
       "kill team"
     ],
     "tag_scores": {
+      "40k": 0.5312065482139587,
       "intermediate": 0.35495299100875854,
-      "40k": 0.5312064290046692,
       "kill team": 0.6745752096176147
     }
   },
@@ -2790,15 +2785,15 @@
     "thumbnail": "https://i.ytimg.com/vi/SvWZspTdYI0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SvWZspTdYI0",
     "duration": "PT8M12S",
-    "viewCount": 60663,
+    "viewCount": 60666,
     "likeCount": 1429,
     "tags": [
       "40k",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4637618362903595,
-      "40k": 0.6151716709136963
+      "40k": 0.6151717901229858,
+      "intermediate": 0.4637618064880371
     }
   },
   {
@@ -2816,8 +2811,8 @@
       "weapons"
     ],
     "tag_scores": {
-      "intermediate": 0.3918777406215668,
-      "weapons": 0.5021443367004395
+      "intermediate": 0.3918777108192444,
+      "weapons": 0.502144455909729
     }
   },
   {
@@ -2836,7 +2831,7 @@
     ],
     "tag_scores": {
       "intermediate": 0.44185909628868103,
-      "aos": 0.5984073281288147
+      "aos": 0.5984072685241699
     }
   },
   {
@@ -2847,15 +2842,15 @@
     "thumbnail": "https://i.ytimg.com/vi/H8xAOlLiLVk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=H8xAOlLiLVk",
     "duration": "PT10M10S",
-    "viewCount": 38330,
+    "viewCount": 38331,
     "likeCount": 972,
     "tags": [
       "40k",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4561716914176941,
-      "40k": 0.5509628653526306
+      "40k": 0.5509629249572754,
+      "intermediate": 0.4561716914176941
     }
   },
   {
@@ -2874,9 +2869,9 @@
       "weapons"
     ],
     "tag_scores": {
-      "intermediate": 0.4418133497238159,
-      "kill team": 0.5122842192649841,
-      "weapons": 0.5038647651672363
+      "intermediate": 0.44181331992149353,
+      "weapons": 0.5038647651672363,
+      "kill team": 0.5122842192649841
     }
   },
   {
@@ -2898,11 +2893,11 @@
       "space marines"
     ],
     "tag_scores": {
+      "40k": 0.5022870898246765,
       "intermediate": 0.4444776177406311,
-      "citadel products": 0.5159972310066223,
-      "blood angels": 0.5009742379188538,
-      "40k": 0.5022870302200317,
-      "kill team": 0.5951923727989197
+      "kill team": 0.5951923727989197,
+      "blood angels": 0.5115017294883728,
+      "citadel products": 0.5159972310066223
     }
   },
   {
@@ -2913,7 +2908,7 @@
     "thumbnail": "https://i.ytimg.com/vi/u8XC3iKDVtM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=u8XC3iKDVtM",
     "duration": "PT7M24S",
-    "viewCount": 41584,
+    "viewCount": 41585,
     "likeCount": 930,
     "tags": [
       "40k",
@@ -2921,8 +2916,8 @@
       "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.41543054580688477,
-      "40k": 0.5310853123664856,
+      "40k": 0.5310853719711304,
+      "intermediate": 0.41543060541152954,
       "kill team": 0.5830376148223877
     }
   },
@@ -2934,15 +2929,15 @@
     "thumbnail": "https://i.ytimg.com/vi/BtYN3PDaH3M/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=BtYN3PDaH3M",
     "duration": "PT3M57S",
-    "viewCount": 40645,
+    "viewCount": 40647,
     "likeCount": 1259,
     "tags": [
       "intermediate",
       "metal"
     ],
     "tag_scores": {
-      "intermediate": 0.3292315900325775,
-      "metal": 0.6213803291320801
+      "metal": 0.590326726436615,
+      "intermediate": 0.3292316198348999
     }
   },
   {
@@ -2960,8 +2955,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3970092833042145,
-      "40k": 0.5513043999671936
+      "40k": 0.5513045191764832,
+      "intermediate": 0.3970092535018921
     }
   },
   {
@@ -2972,7 +2967,7 @@
     "thumbnail": "https://i.ytimg.com/vi/QSgiG9uT8Vw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QSgiG9uT8Vw",
     "duration": "PT9M",
-    "viewCount": 44591,
+    "viewCount": 44593,
     "likeCount": 1472,
     "tags": [
       "40k",
@@ -2981,9 +2976,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.3902217149734497,
-      "40k": 0.6527941226959229,
-      "blood angels": 0.5110135078430176
+      "40k": 0.6527942419052124,
+      "intermediate": 0.3902217745780945,
+      "blood angels": 0.5054067969322205
     }
   },
   {
@@ -3011,8 +3006,8 @@
     "thumbnail": "https://i.ytimg.com/vi/ayhDzgFjcWs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ayhDzgFjcWs",
     "duration": "PT3M23S",
-    "viewCount": 50686,
-    "likeCount": 1946,
+    "viewCount": 50687,
+    "likeCount": 1947,
     "tags": [
       "40k"
     ],
@@ -3040,13 +3035,13 @@
       "weapons"
     ],
     "tag_scores": {
-      "intermediate": 0.4933127164840698,
-      "citadel products": 0.5327636003494263,
+      "40k": 0.5526803731918335,
+      "intermediate": 0.49331268668174744,
+      "kill team": 0.6082611083984375,
+      "textures & materials": 0.5334312319755554,
       "weapons": 0.576426088809967,
       "beginner": 0.6070318818092346,
-      "40k": 0.5526803135871887,
-      "textures & materials": 0.5527679324150085,
-      "kill team": 0.6082611083984375
+      "citadel products": 0.5327636003494263
     }
   },
   {
@@ -3064,8 +3059,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3582516610622406,
-      "40k": 0.5621030926704407
+      "40k": 0.5621031522750854,
+      "intermediate": 0.3582516312599182
     }
   },
   {
@@ -3076,13 +3071,13 @@
     "thumbnail": "https://i.ytimg.com/vi/NDLIpP5rIs4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NDLIpP5rIs4",
     "duration": "PT8M46S",
-    "viewCount": 65826,
+    "viewCount": 65828,
     "likeCount": 1831,
     "tags": [
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3495312035083771
+      "intermediate": 0.34953123331069946
     }
   },
   {
@@ -3104,12 +3099,12 @@
       "space marines"
     ],
     "tag_scores": {
+      "40k": 0.5596178770065308,
       "intermediate": 0.37824130058288574,
-      "space marines": 0.5587393045425415,
+      "armour": 0.5138266086578369,
       "chaos": 0.5011875033378601,
-      "chaos space marines": 0.5631237030029297,
-      "40k": 0.5596177577972412,
-      "armour": 0.5138266086578369
+      "chaos space marines": 0.5631238222122192,
+      "space marines": 0.5587393045425415
     }
   },
   {
@@ -3120,13 +3115,13 @@
     "thumbnail": "https://i.ytimg.com/vi/xgu8V71SxHQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xgu8V71SxHQ",
     "duration": "PT4M7S",
-    "viewCount": 14311,
+    "viewCount": 14312,
     "likeCount": 521,
     "tags": [
       "aos"
     ],
     "tag_scores": {
-      "aos": 0.5490666627883911
+      "aos": 0.5490666031837463
     }
   },
   {
@@ -3137,13 +3132,15 @@
     "thumbnail": "https://i.ytimg.com/vi/Gm0KeCdIdJs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Gm0KeCdIdJs",
     "duration": "PT5M4S",
-    "viewCount": 35433,
+    "viewCount": 35434,
     "likeCount": 1240,
     "tags": [
-      "intermediate"
+      "intermediate",
+      "textures & materials"
     ],
     "tag_scores": {
-      "intermediate": 0.34245389699935913
+      "intermediate": 0.34245383739471436,
+      "textures & materials": 0.5004786252975464
     }
   },
   {
@@ -3165,10 +3162,10 @@
       "skin"
     ],
     "tag_scores": {
-      "intermediate": 0.37584513425827026,
-      "skin": 0.5072680711746216,
+      "40k": 0.5103690028190613,
+      "skin": 0.507545530796051,
+      "intermediate": 0.3758451044559479,
       "cloth": 0.5394145250320435,
-      "40k": 0.5103689432144165,
       "flesh-eater courts": 0.5059232115745544
     }
   },
@@ -3180,15 +3177,15 @@
     "thumbnail": "https://i.ytimg.com/vi/eHNewhWuOyM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eHNewhWuOyM",
     "duration": "PT5M57S",
-    "viewCount": 10110,
+    "viewCount": 10111,
     "likeCount": 376,
     "tags": [
       "horus heresy",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3593062162399292,
-      "horus heresy": 0.5907740592956543
+      "horus heresy": 0.5907740592956543,
+      "intermediate": 0.3593061864376068
     }
   },
   {
@@ -3206,8 +3203,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3582826852798462,
-      "40k": 0.5577006340026855
+      "40k": 0.5577007532119751,
+      "intermediate": 0.3582826852798462
     }
   },
   {
@@ -3225,8 +3222,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3891642391681671,
-      "40k": 0.5298500061035156
+      "40k": 0.5298501253128052,
+      "intermediate": 0.3891642689704895
     }
   },
   {
@@ -3237,14 +3234,14 @@
     "thumbnail": "https://i.ytimg.com/vi/tFW_iXCJS5E/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tFW_iXCJS5E",
     "duration": "PT6M6S",
-    "viewCount": 97805,
+    "viewCount": 97810,
     "likeCount": 2577,
     "tags": [
       "intermediate",
       "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.36031728982925415,
+      "intermediate": 0.36031726002693176,
       "kill team": 0.562537431716919
     }
   },
@@ -3256,7 +3253,7 @@
     "thumbnail": "https://i.ytimg.com/vi/XWkYH4fCOeY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XWkYH4fCOeY",
     "duration": "PT6M19S",
-    "viewCount": 54407,
+    "viewCount": 54412,
     "likeCount": 1845,
     "tags": [
       "40k",
@@ -3264,9 +3261,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.42845824360847473,
       "space marines": 0.5500617027282715,
-      "40k": 0.537781298160553
+      "intermediate": 0.42845818400382996,
+      "40k": 0.5377814173698425
     }
   },
   {
@@ -3284,8 +3281,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.573638916015625,
-      "aos": 0.61244797706604
+      "aos": 0.6124479174613953,
+      "beginner": 0.573638916015625
     }
   },
   {
@@ -3305,10 +3302,10 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "beginner": 0.5629028081893921,
       "citadel products": 0.5536338090896606,
-      "stormcast eternals": 0.7239354848861694,
-      "aos": 0.5972687005996704
+      "aos": 0.5972687005996704,
+      "beginner": 0.5629028081893921,
+      "stormcast eternals": 0.7239354848861694
     }
   },
   {
@@ -3328,10 +3325,10 @@
       "metal"
     ],
     "tag_scores": {
+      "metal": 0.575494647026062,
       "intermediate": 0.5029866695404053,
       "citadel products": 0.5562073588371277,
-      "beginner": 0.5914807319641113,
-      "metal": 0.5901978015899658
+      "beginner": 0.5914807319641113
     }
   },
   {
@@ -3349,8 +3346,8 @@
       "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.3902294635772705,
-      "old world": 0.5461040735244751
+      "old world": 0.5461040735244751,
+      "intermediate": 0.3902294337749481
     }
   },
   {
@@ -3361,15 +3358,15 @@
     "thumbnail": "https://i.ytimg.com/vi/GbxaG9VYTuk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GbxaG9VYTuk",
     "duration": "PT7M2S",
-    "viewCount": 25130,
+    "viewCount": 25132,
     "likeCount": 721,
     "tags": [
       "intermediate",
       "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.35384100675582886,
-      "old world": 0.5757540464401245
+      "old world": 0.5757540464401245,
+      "intermediate": 0.3538409471511841
     }
   },
   {
@@ -3410,9 +3407,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.6126911640167236,
       "citadel products": 0.5504608154296875,
-      "aos": 0.6194618344306946
+      "aos": 0.6194618344306946,
+      "beginner": 0.6126911640167236
     }
   },
   {
@@ -3423,7 +3420,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4OyG_jFE0bY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4OyG_jFE0bY",
     "duration": "PT12M32S",
-    "viewCount": 59062,
+    "viewCount": 59067,
     "likeCount": 1255,
     "tags": [
       "aos",
@@ -3432,10 +3429,10 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "beginner": 0.5681024193763733,
       "citadel products": 0.553545355796814,
-      "stormcast eternals": 0.7545892000198364,
-      "aos": 0.6188048124313354
+      "aos": 0.6188048124313354,
+      "beginner": 0.5681024193763733,
+      "stormcast eternals": 0.7545892000198364
     }
   },
   {
@@ -3454,9 +3451,9 @@
       "stormcast eternals"
     ],
     "tag_scores": {
+      "aos": 0.6161476969718933,
       "beginner": 0.5127321481704712,
-      "stormcast eternals": 0.6500043869018555,
-      "aos": 0.6161478161811829
+      "stormcast eternals": 0.6500043869018555
     }
   },
   {
@@ -3475,9 +3472,9 @@
       "stormcast eternals"
     ],
     "tag_scores": {
+      "aos": 0.6175839304924011,
       "beginner": 0.5413280129432678,
-      "stormcast eternals": 0.62312912940979,
-      "aos": 0.6175839900970459
+      "stormcast eternals": 0.62312912940979
     }
   },
   {
@@ -3496,9 +3493,9 @@
       "stormcast eternals"
     ],
     "tag_scores": {
+      "aos": 0.6107907295227051,
       "beginner": 0.4455624222755432,
-      "stormcast eternals": 0.6349455118179321,
-      "aos": 0.6107908487319946
+      "stormcast eternals": 0.6349455118179321
     }
   },
   {
@@ -3509,7 +3506,7 @@
     "thumbnail": "https://i.ytimg.com/vi/QvQyD8Pm55g/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=QvQyD8Pm55g",
     "duration": "PT9M55S",
-    "viewCount": 61572,
+    "viewCount": 61578,
     "likeCount": 2834,
     "tags": [
       "40k",
@@ -3517,8 +3514,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3559582233428955,
       "40k": 0.5109868049621582,
+      "intermediate": 0.3559582233428955,
       "armour": 0.4874272048473358
     }
   },
@@ -3564,7 +3561,7 @@
     "thumbnail": "https://i.ytimg.com/vi/B32cpnG7L6s/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=B32cpnG7L6s",
     "duration": "PT28M19S",
-    "viewCount": 74539,
+    "viewCount": 74542,
     "likeCount": 1509,
     "tags": [
       "advanced"
@@ -3581,15 +3578,15 @@
     "thumbnail": "https://i.ytimg.com/vi/IUwmagx3mnc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IUwmagx3mnc",
     "duration": "PT9M45S",
-    "viewCount": 41738,
+    "viewCount": 41741,
     "likeCount": 1084,
     "tags": [
       "aos",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4268498718738556,
-      "aos": 0.5378302931785583
+      "intermediate": 0.4268498420715332,
+      "aos": 0.5378302335739136
     }
   },
   {
@@ -3608,7 +3605,7 @@
     ],
     "tag_scores": {
       "intermediate": 0.3601986765861511,
-      "aos": 0.5227910876274109
+      "aos": 0.5227910280227661
     }
   },
   {
@@ -3628,10 +3625,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5228283405303955,
-      "citadel products": 0.585089921951294,
       "space marines": 0.7445294857025146,
-      "40k": 0.5577922463417053
+      "40k": 0.5577923655509949,
+      "citadel products": 0.585089921951294,
+      "beginner": 0.5228283405303955
     }
   },
   {
@@ -3648,7 +3645,7 @@
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.5188010334968567
+      "40k": 0.5188009738922119
     }
   },
   {
@@ -3659,7 +3656,7 @@
     "thumbnail": "https://i.ytimg.com/vi/yRVCKZqF11o/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=yRVCKZqF11o",
     "duration": "PT28M24S",
-    "viewCount": 85989,
+    "viewCount": 85990,
     "likeCount": 1877,
     "tags": [
       "advanced",
@@ -3667,8 +3664,8 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "stormcast eternals": 0.6063737869262695,
-      "advanced": 0.31111642718315125
+      "advanced": 0.31111642718315125,
+      "stormcast eternals": 0.6063737869262695
     }
   },
   {
@@ -3679,15 +3676,15 @@
     "thumbnail": "https://i.ytimg.com/vi/DyY434AzdC4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DyY434AzdC4",
     "duration": "PT13M48S",
-    "viewCount": 105959,
+    "viewCount": 105963,
     "likeCount": 2246,
     "tags": [
       "aos",
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4346405863761902,
-      "aos": 0.5077987313270569
+      "intermediate": 0.4346405565738678,
+      "aos": 0.5077986717224121
     }
   },
   {
@@ -3712,10 +3709,10 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "intermediate": 0.40481454133987427,
-      "stormcast eternals": 0.6465910077095032,
-      "black legion": 0.5047421455383301,
-      "blood angels": 0.5134371519088745
+      "intermediate": 0.4048144817352295,
+      "black legion": 0.5047422051429749,
+      "blood angels": 0.5268489122390747,
+      "stormcast eternals": 0.6465910077095032
     }
   },
   {
@@ -3747,7 +3744,7 @@
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.6624977588653564
+      "metal": 0.635299801826477
     }
   },
   {
@@ -3765,8 +3762,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3654780983924866,
-      "40k": 0.5919551253318787
+      "40k": 0.5919551849365234,
+      "intermediate": 0.3654780983924866
     }
   },
   {
@@ -3799,8 +3796,8 @@
       "skin"
     ],
     "tag_scores": {
-      "intermediate": 0.40318045020103455,
-      "skin": 0.4018802344799042
+      "skin": 0.39376187324523926,
+      "intermediate": 0.40318039059638977
     }
   },
   {
@@ -3818,8 +3815,8 @@
       "aos"
     ],
     "tag_scores": {
-      "aos": 0.5485491752624512,
-      "advanced": 0.3660692572593689
+      "advanced": 0.3660692572593689,
+      "aos": 0.5485491752624512
     }
   },
   {
@@ -3830,7 +3827,7 @@
     "thumbnail": "https://i.ytimg.com/vi/bfemjyYmtBo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bfemjyYmtBo",
     "duration": "PT5M37S",
-    "viewCount": 16158,
+    "viewCount": 16159,
     "likeCount": 726,
     "tags": [
       "40k",
@@ -3839,10 +3836,10 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4697822332382202,
+      "40k": 0.6216287612915039,
+      "intermediate": 0.46978217363357544,
       "citadel products": 0.5006402134895325,
-      "beginner": 0.516550600528717,
-      "40k": 0.6216286420822144
+      "beginner": 0.516550600528717
     }
   },
   {
@@ -3853,13 +3850,13 @@
     "thumbnail": "https://i.ytimg.com/vi/wTnjGXUjCjI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wTnjGXUjCjI",
     "duration": "PT7M18S",
-    "viewCount": 29929,
+    "viewCount": 29931,
     "likeCount": 1150,
     "tags": [
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3994308412075043
+      "intermediate": 0.39943087100982666
     }
   },
   {
@@ -3880,9 +3877,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.4332926273345947,
-      "citadel products": 0.601446270942688,
       "space marines": 0.6007978916168213,
+      "intermediate": 0.43329256772994995,
+      "citadel products": 0.601446270942688,
       "beginner": 0.5118218660354614
     }
   },
@@ -3900,7 +3897,7 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.17638349533081055
+      "intermediate": 0.17638355493545532
     }
   },
   {
@@ -3918,19 +3915,15 @@
       "black templars",
       "blood angels",
       "intermediate",
-      "metal",
-      "orcs",
       "space marines",
       "white scars"
     ],
     "tag_scores": {
-      "intermediate": 0.40839725732803345,
+      "40k": 0.5401092767715454,
       "black templars": 0.5569918155670166,
-      "blood angels": 0.553756594657898,
-      "white scars": 0.5210247039794922,
-      "40k": 0.5401091575622559,
-      "metal": 0.5106788277626038,
-      "orcs": 0.5211557149887085
+      "intermediate": 0.40839725732803345,
+      "blood angels": 0.5554087162017822,
+      "white scars": 0.5210247039794922
     }
   },
   {
@@ -3951,19 +3944,17 @@
       "citadel products",
       "custodes",
       "intermediate",
-      "metal",
-      "textures & materials"
+      "metal"
     ],
     "tag_scores": {
-      "intermediate": 0.4742477238178253,
-      "citadel products": 0.5381148457527161,
-      "beginner": 0.5251314640045166,
-      "custodes": 0.6418384909629822,
+      "40k": 0.5475425720214844,
       "astra militarum": 0.5566357374191284,
-      "40k": 0.5475424528121948,
-      "metal": 0.5644872784614563,
-      "textures & materials": 0.5209603309631348,
-      "armour": 0.5433946847915649
+      "metal": 0.5546373128890991,
+      "intermediate": 0.4742477238178253,
+      "armour": 0.5433946847915649,
+      "custodes": 0.6418384909629822,
+      "beginner": 0.5251314640045166,
+      "citadel products": 0.5381148457527161
     }
   },
   {
@@ -3983,10 +3974,10 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.5420439839363098,
+      "40k": 0.6065597534179688,
+      "intermediate": 0.542043924331665,
       "citadel products": 0.5398954153060913,
-      "contrast paints": 0.5850362181663513,
-      "40k": 0.6065596342086792
+      "contrast paints": 0.5654786825180054
     }
   },
   {
@@ -4003,7 +3994,7 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.23219844698905945
+      "intermediate": 0.23219847679138184
     }
   },
   {
@@ -4021,8 +4012,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4063446521759033,
-      "40k": 0.587070643901825
+      "40k": 0.5870707035064697,
+      "intermediate": 0.4063446521759033
     }
   },
   {
@@ -4033,7 +4024,7 @@
     "thumbnail": "https://i.ytimg.com/vi/3v9mjbeuuSo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3v9mjbeuuSo",
     "duration": "PT5M57S",
-    "viewCount": 99478,
+    "viewCount": 99485,
     "likeCount": 2411,
     "tags": [
       "40k",
@@ -4042,10 +4033,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.6212723255157471,
       "space marines": 0.534675121307373,
+      "40k": 0.6053037047386169,
       "intermediate": 0.45715606212615967,
-      "40k": 0.6053036451339722
+      "dark angels": 0.6212723255157471
     }
   },
   {
@@ -4061,14 +4052,12 @@
     "tags": [
       "40k",
       "intermediate",
-      "metal",
-      "textures & materials"
+      "metal"
     ],
     "tag_scores": {
+      "40k": 0.5349910855293274,
       "intermediate": 0.4515852928161621,
-      "textures & materials": 0.5001603960990906,
-      "metal": 0.6607949733734131,
-      "40k": 0.5349909067153931
+      "metal": 0.6491854190826416
     }
   },
   {
@@ -4088,10 +4077,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.434961199760437,
-      "citadel products": 0.5303592681884766,
       "space marines": 0.5410233736038208,
-      "40k": 0.5557775497436523
+      "40k": 0.5557776689529419,
+      "intermediate": 0.434961199760437,
+      "citadel products": 0.5303592681884766
     }
   },
   {
@@ -4102,7 +4091,7 @@
     "thumbnail": "https://i.ytimg.com/vi/xQgdqctxsRw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xQgdqctxsRw",
     "duration": "PT9M10S",
-    "viewCount": 19598,
+    "viewCount": 19599,
     "likeCount": 625,
     "tags": [
       "40k",
@@ -4111,10 +4100,10 @@
       "tau"
     ],
     "tag_scores": {
-      "intermediate": 0.4418155252933502,
       "tau": 0.6689985990524292,
-      "beginner": 0.5262100696563721,
-      "40k": 0.5944380760192871
+      "40k": 0.5944380760192871,
+      "intermediate": 0.44181549549102783,
+      "beginner": 0.5262100696563721
     }
   },
   {
@@ -4132,7 +4121,7 @@
       "underworlds"
     ],
     "tag_scores": {
-      "intermediate": 0.41470593214035034,
+      "intermediate": 0.41470587253570557,
       "underworlds": 0.5792983770370483
     }
   },
@@ -4153,7 +4142,7 @@
     ],
     "tag_scores": {
       "old world": 0.6827601194381714,
-      "orcs": 0.5245786905288696
+      "orcs": 0.0
     }
   },
   {
@@ -4164,21 +4153,19 @@
     "thumbnail": "https://i.ytimg.com/vi/0rc-NzhOI7A/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0rc-NzhOI7A",
     "duration": "PT6M49S",
-    "viewCount": 26984,
+    "viewCount": 26985,
     "likeCount": 772,
     "tags": [
       "40k",
       "intermediate",
       "old world",
-      "orcs",
       "skin"
     ],
     "tag_scores": {
-      "intermediate": 0.4480765461921692,
-      "skin": 0.5119093656539917,
       "old world": 0.5569252967834473,
-      "40k": 0.5131025314331055,
-      "orcs": 0.5242958068847656
+      "intermediate": 0.4480765163898468,
+      "skin": 0.4989367723464966,
+      "40k": 0.513102650642395
     }
   },
   {
@@ -4202,12 +4189,12 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.42467033863067627,
-      "citadel products": 0.5226179361343384,
-      "horus heresy": 0.6218833923339844,
-      "beginner": 0.512688159942627,
+      "astra militarum": 0.5249319672584534,
+      "intermediate": 0.4246702492237091,
       "chaos space marines": 0.5584109425544739,
-      "astra militarum": 0.5249319672584534
+      "beginner": 0.512688159942627,
+      "horus heresy": 0.6218833923339844,
+      "citadel products": 0.5226179361343384
     }
   },
   {
@@ -4252,8 +4239,8 @@
     "thumbnail": "https://i.ytimg.com/vi/JK29CBQfeBo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JK29CBQfeBo",
     "duration": "PT8M43S",
-    "viewCount": 98907,
-    "likeCount": 2264,
+    "viewCount": 98918,
+    "likeCount": 2265,
     "tags": [
       "40k",
       "dark angels",
@@ -4261,10 +4248,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.6980739831924438,
       "space marines": 0.571609377861023,
-      "intermediate": 0.39444929361343384,
-      "40k": 0.529717743396759
+      "40k": 0.5297178030014038,
+      "intermediate": 0.39444923400878906,
+      "dark angels": 0.6980739831924438
     }
   },
   {
@@ -4275,7 +4262,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_41g6lcN-Yc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_41g6lcN-Yc",
     "duration": "PT7M49S",
-    "viewCount": 24313,
+    "viewCount": 24315,
     "likeCount": 800,
     "tags": [
       "beginner",
@@ -4284,10 +4271,10 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.42871350049972534,
+      "horus heresy": 0.5896121859550476,
+      "intermediate": 0.42871344089508057,
       "citadel products": 0.5116516947746277,
-      "beginner": 0.5127991437911987,
-      "horus heresy": 0.5896121859550476
+      "beginner": 0.5127991437911987
     }
   },
   {
@@ -4298,7 +4285,7 @@
     "thumbnail": "https://i.ytimg.com/vi/eF4v5OSLGQc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eF4v5OSLGQc",
     "duration": "PT8M6S",
-    "viewCount": 26423,
+    "viewCount": 26424,
     "likeCount": 906,
     "tags": [
       "40k",
@@ -4307,9 +4294,9 @@
       "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.3850501775741577,
       "old world": 0.4623536169528961,
-      "imperial knights": 0.5363697409629822
+      "intermediate": 0.3850501775741577,
+      "imperial knights": 0.536369800567627
     }
   },
   {
@@ -4330,9 +4317,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.6100414395332336,
+      "advanced": 0.45289501547813416,
       "citadel products": 0.5067274570465088,
-      "advanced": 0.45289501547813416
+      "dark angels": 0.6100414395332336
     }
   },
   {
@@ -4352,9 +4339,9 @@
       "textures & materials"
     ],
     "tag_scores": {
+      "space marines": 0.5712379217147827,
       "dark angels": 0.6496180891990662,
-      "textures & materials": 0.5039395093917847,
-      "space marines": 0.5712379217147827
+      "textures & materials": 0.5194878578186035
     }
   },
   {
@@ -4365,7 +4352,7 @@
     "thumbnail": "https://i.ytimg.com/vi/0p2hstGHCG4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0p2hstGHCG4",
     "duration": "PT12M11S",
-    "viewCount": 43996,
+    "viewCount": 43999,
     "likeCount": 1304,
     "tags": [
       "40k",
@@ -4376,12 +4363,12 @@
       "textures & materials"
     ],
     "tag_scores": {
+      "40k": 0.5247717499732971,
       "dark angels": 0.6293736696243286,
-      "citadel products": 0.5166771411895752,
+      "textures & materials": 0.527751088142395,
+      "advanced": 0.4478066861629486,
       "space marines": 0.5892552137374878,
-      "40k": 0.5247716903686523,
-      "textures & materials": 0.5105175971984863,
-      "advanced": 0.4478066861629486
+      "citadel products": 0.5166771411895752
     }
   },
   {
@@ -4407,7 +4394,7 @@
     "thumbnail": "https://i.ytimg.com/vi/1s5kiDmvemI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1s5kiDmvemI",
     "duration": "PT18M23S",
-    "viewCount": 72969,
+    "viewCount": 72971,
     "likeCount": 2794,
     "tags": [
       "40k",
@@ -4419,13 +4406,13 @@
       "space marines"
     ],
     "tag_scores": {
+      "40k": 0.593674898147583,
       "intermediate": 0.5538206100463867,
-      "citadel products": 0.5864850282669067,
-      "space marines": 0.7104239463806152,
+      "advanced": 0.5164862871170044,
       "beginner": 0.5974007844924927,
-      "40k": 0.5936747789382935,
       "raven guard": 0.5550891160964966,
-      "advanced": 0.5164862871170044
+      "space marines": 0.7104239463806152,
+      "citadel products": 0.5864850282669067
     }
   },
   {
@@ -4436,7 +4423,7 @@
     "thumbnail": "https://i.ytimg.com/vi/wwiOZz9YqTI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=wwiOZz9YqTI",
     "duration": "PT12M20S",
-    "viewCount": 15938,
+    "viewCount": 15941,
     "likeCount": 419,
     "tags": [
       "intermediate"
@@ -4453,19 +4440,17 @@
     "thumbnail": "https://i.ytimg.com/vi/zctQl7yPZwM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zctQl7yPZwM",
     "duration": "PT10M13S",
-    "viewCount": 30281,
+    "viewCount": 30284,
     "likeCount": 947,
     "tags": [
       "40k",
       "beginner",
-      "intermediate",
-      "orcs"
+      "intermediate"
     ],
     "tag_scores": {
+      "40k": 0.5772552490234375,
       "intermediate": 0.502165675163269,
-      "beginner": 0.533470094203949,
-      "40k": 0.577255129814148,
-      "orcs": 0.522324800491333
+      "beginner": 0.533470094203949
     }
   },
   {
@@ -4482,7 +4467,7 @@
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.571808397769928
+      "metal": 0.5738955736160278
     }
   },
   {
@@ -4493,7 +4478,7 @@
     "thumbnail": "https://i.ytimg.com/vi/cNWJKFWGusA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=cNWJKFWGusA",
     "duration": "PT31M28S",
-    "viewCount": 52119,
+    "viewCount": 52120,
     "likeCount": 1432,
     "tags": [
       "advanced"
@@ -4518,9 +4503,9 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "intermediate": 0.44600242376327515,
-      "textures & materials": 0.5604816675186157,
-      "skin": 0.4512031078338623
+      "skin": 0.4686410129070282,
+      "intermediate": 0.44600236415863037,
+      "textures & materials": 0.5774922370910645
     }
   },
   {
@@ -4540,7 +4525,7 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.38319915533065796,
+      "intermediate": 0.38319912552833557,
       "citadel products": 0.5013574361801147,
       "flesh-eater courts": 0.6641716361045837
     }
@@ -4561,9 +4546,9 @@
       "skin"
     ],
     "tag_scores": {
-      "aos": 0.609720766544342,
-      "40k": 0.6202265024185181,
-      "skin": 0.6152918338775635
+      "40k": 0.6202265620231628,
+      "aos": 0.6097207069396973,
+      "skin": 0.5982609987258911
     }
   },
   {
@@ -4574,15 +4559,15 @@
     "thumbnail": "https://i.ytimg.com/vi/tGwihhNkfGY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tGwihhNkfGY",
     "duration": "PT22M31S",
-    "viewCount": 32110,
+    "viewCount": 32111,
     "likeCount": 686,
     "tags": [
       "advanced",
       "old world"
     ],
     "tag_scores": {
-      "old world": 0.48973679542541504,
-      "advanced": 0.3838425278663635
+      "advanced": 0.3838425278663635,
+      "old world": 0.48973679542541504
     }
   },
   {
@@ -4601,9 +4586,9 @@
       "skin"
     ],
     "tag_scores": {
-      "aos": 0.609720766544342,
-      "40k": 0.6202265024185181,
-      "skin": 0.6152918338775635
+      "40k": 0.6202265620231628,
+      "aos": 0.6097207069396973,
+      "skin": 0.5982609987258911
     }
   },
   {
@@ -4621,8 +4606,8 @@
       "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.36986225843429565,
-      "old world": 0.58870530128479
+      "old world": 0.58870530128479,
+      "intermediate": 0.36986225843429565
     }
   },
   {
@@ -4633,21 +4618,19 @@
     "thumbnail": "https://i.ytimg.com/vi/jQtn_w-9u0Y/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=jQtn_w-9u0Y",
     "duration": "PT7M22S",
-    "viewCount": 39686,
+    "viewCount": 39687,
     "likeCount": 1204,
     "tags": [
       "beginner",
       "citadel products",
       "intermediate",
-      "old world",
-      "textures & materials"
+      "old world"
     ],
     "tag_scores": {
-      "intermediate": 0.5119602680206299,
-      "citadel products": 0.5729328393936157,
-      "beginner": 0.5625064969062805,
       "old world": 0.6367202401161194,
-      "textures & materials": 0.511750340461731
+      "intermediate": 0.5119602084159851,
+      "citadel products": 0.5729328393936157,
+      "beginner": 0.5625064969062805
     }
   },
   {
@@ -4667,9 +4650,9 @@
       "vehicles"
     ],
     "tag_scores": {
-      "intermediate": 0.44802242517471313,
       "citadel products": 0.5466834306716919,
-      "40k": 0.5422533750534058,
+      "40k": 0.5422535538673401,
+      "intermediate": 0.44802239537239075,
       "vehicles": 0.5687315464019775
     }
   },
@@ -4681,7 +4664,7 @@
     "thumbnail": "https://i.ytimg.com/vi/MDZSvLZYH9Y/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=MDZSvLZYH9Y",
     "duration": "PT4M27S",
-    "viewCount": 38118,
+    "viewCount": 38119,
     "likeCount": 860,
     "tags": [
       "40k",
@@ -4690,9 +4673,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.419083833694458,
-      "citadel products": 0.5194122791290283,
-      "space marines": 0.5316776633262634
+      "space marines": 0.5316776633262634,
+      "intermediate": 0.41908377408981323,
+      "citadel products": 0.5194122791290283
     }
   },
   {
@@ -4718,14 +4701,14 @@
     "thumbnail": "https://i.ytimg.com/vi/aqJMzsmEmjk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=aqJMzsmEmjk",
     "duration": "PT16M3S",
-    "viewCount": 27957,
+    "viewCount": 27958,
     "likeCount": 1270,
     "tags": [
       "intermediate",
       "kill team"
     ],
     "tag_scores": {
-      "intermediate": 0.4283008575439453,
+      "intermediate": 0.4283008873462677,
       "kill team": 0.6274147033691406
     }
   },
@@ -4746,10 +4729,10 @@
       "intermediate"
     ],
     "tag_scores": {
+      "40k": 0.5424912571907043,
       "intermediate": 0.4845953583717346,
-      "citadel products": 0.5120226144790649,
-      "40k": 0.5424911975860596,
-      "bases": 0.43778738379478455
+      "bases": 0.43778738379478455,
+      "citadel products": 0.5120226144790649
     }
   },
   {
@@ -4768,9 +4751,9 @@
       "intermediate"
     ],
     "tag_scores": {
+      "40k": 0.5399084091186523,
       "intermediate": 0.3929266929626465,
-      "citadel products": 0.5291924476623535,
-      "40k": 0.5399082899093628
+      "citadel products": 0.5291924476623535
     }
   },
   {
@@ -4781,8 +4764,8 @@
     "thumbnail": "https://i.ytimg.com/vi/F0TCUKLGVug/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=F0TCUKLGVug",
     "duration": "PT7M47S",
-    "viewCount": 36267,
-    "likeCount": 944,
+    "viewCount": 36268,
+    "likeCount": 943,
     "tags": [
       "40k",
       "beginner",
@@ -4792,8 +4775,8 @@
     ],
     "tag_scores": {
       "beginner": 0.5349063873291016,
-      "citadel products": 0.5543586611747742,
       "space marines": 0.6221410632133484,
+      "citadel products": 0.5543586611747742,
       "raven guard": 0.7214192152023315
     }
   },
@@ -4805,7 +4788,7 @@
     "thumbnail": "https://i.ytimg.com/vi/l_87_pkkCjo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=l_87_pkkCjo",
     "duration": "PT4M",
-    "viewCount": 35817,
+    "viewCount": 35818,
     "likeCount": 1272,
     "tags": [
       "citadel products",
@@ -4815,7 +4798,7 @@
     "tag_scores": {
       "intermediate": 0.4113810956478119,
       "citadel products": 0.5113130807876587,
-      "textures & materials": 0.5066324472427368
+      "textures & materials": 0.5092835426330566
     }
   },
   {
@@ -4839,7 +4822,7 @@
       "beginner": 0.6043912172317505,
       "citadel products": 0.5331227779388428,
       "gloomspite gitz": 0.6125261783599854,
-      "textures & materials": 0.5778188705444336
+      "textures & materials": 0.546674907207489
     }
   },
   {
@@ -4859,10 +4842,10 @@
       "textures & materials"
     ],
     "tag_scores": {
+      "skin": 0.5168414115905762,
       "intermediate": 0.4721367359161377,
       "citadel products": 0.5018013119697571,
-      "skin": 0.5103389620780945,
-      "textures & materials": 0.5537683963775635
+      "textures & materials": 0.5616375803947449
     }
   },
   {
@@ -4881,9 +4864,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5351072549819946,
       "citadel products": 0.5177261829376221,
-      "aos": 0.5594263076782227
+      "aos": 0.5594263076782227,
+      "beginner": 0.5351072549819946
     }
   },
   {
@@ -4894,19 +4877,17 @@
     "thumbnail": "https://i.ytimg.com/vi/-k17isXz5dE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-k17isXz5dE",
     "duration": "PT8M6S",
-    "viewCount": 18524,
+    "viewCount": 18525,
     "likeCount": 561,
     "tags": [
       "bases",
       "citadel products",
-      "intermediate",
-      "textures & materials"
+      "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4181349277496338,
-      "citadel products": 0.5032082200050354,
-      "textures & materials": 0.5143470764160156,
-      "bases": 0.37402796745300293
+      "intermediate": 0.418134868144989,
+      "bases": 0.37402796745300293,
+      "citadel products": 0.5032082200050354
     }
   },
   {
@@ -4933,14 +4914,14 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "citadel products": 0.5952980518341064,
-      "space marines": 0.7124270796775818,
-      "beginner": 0.5311843156814575,
+      "40k": 0.5249804258346558,
+      "textures & materials": 0.5409656763076782,
       "armour": 0.5012391805648804,
-      "40k": 0.5249803066253662,
-      "death guard": 0.6057600975036621,
-      "textures & materials": 0.5515682697296143,
-      "legions imperialis": 0.6011691093444824
+      "legions imperialis": 0.6011691093444824,
+      "beginner": 0.5311843156814575,
+      "space marines": 0.7124270796775818,
+      "citadel products": 0.5952980518341064,
+      "death guard": 0.6057600975036621
     }
   },
   {
@@ -4951,7 +4932,7 @@
     "thumbnail": "https://i.ytimg.com/vi/dS35U1H_6bc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dS35U1H_6bc",
     "duration": "PT13M23S",
-    "viewCount": 48987,
+    "viewCount": 48989,
     "likeCount": 1114,
     "tags": [
       "40k",
@@ -4959,8 +4940,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.41113442182540894,
-      "40k": 0.5460827350616455,
+      "40k": 0.5460828542709351,
+      "intermediate": 0.41113436222076416,
       "adeptus mechanicus": 0.6332072019577026
     }
   },
@@ -4972,7 +4953,7 @@
     "thumbnail": "https://i.ytimg.com/vi/RyeDXJiqlfM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RyeDXJiqlfM",
     "duration": "PT23M57S",
-    "viewCount": 200613,
+    "viewCount": 200624,
     "likeCount": 4164,
     "tags": [
       "40k",
@@ -4981,10 +4962,10 @@
       "necrons"
     ],
     "tag_scores": {
-      "intermediate": 0.43061918020248413,
-      "citadel products": 0.5059265494346619,
-      "40k": 0.6078155040740967,
-      "necrons": 0.6743743419647217
+      "40k": 0.6078156232833862,
+      "intermediate": 0.43061915040016174,
+      "necrons": 0.6743743419647217,
+      "citadel products": 0.5059265494346619
     }
   },
   {
@@ -5005,8 +4986,8 @@
     ],
     "tag_scores": {
       "legions imperialis": 0.6851048469543457,
-      "citadel products": 0.5843129754066467,
-      "astra militarum": 0.5548139810562134
+      "astra militarum": 0.5548139810562134,
+      "citadel products": 0.5843129754066467
     }
   },
   {
@@ -5022,14 +5003,12 @@
     "tags": [
       "bases",
       "citadel products",
-      "legions imperialis",
-      "textures & materials"
+      "legions imperialis"
     ],
     "tag_scores": {
-      "textures & materials": 0.5039606094360352,
-      "citadel products": 0.5908450484275818,
       "legions imperialis": 0.7191668748855591,
-      "bases": 0.43081027269363403
+      "bases": 0.43081027269363403,
+      "citadel products": 0.5908450484275818
     }
   },
   {
@@ -5063,20 +5042,20 @@
       "world eaters"
     ],
     "tag_scores": {
-      "world eaters": 0.5151927471160889,
-      "dark angels": 0.5567636489868164,
-      "citadel products": 0.5928115844726562,
-      "space marines": 0.6127992868423462,
-      "legions imperialis": 0.7010484933853149,
-      "imperial fists": 0.5831137895584106,
-      "blood angels": 0.5495335459709167,
-      "ultramarines": 0.5707964301109314,
-      "space wolves": 0.5256288051605225,
+      "imperial fists": 0.5947890281677246,
       "emperor's children": 0.5506582856178284,
-      "raven guard": 0.5213133096694946,
+      "space wolves": 0.5256288051605225,
+      "ultramarines": 0.5707964301109314,
+      "dark angels": 0.5567636489868164,
+      "blood angels": 0.5469251275062561,
+      "legions imperialis": 0.7010484933853149,
       "iron warriors": 0.614495038986206,
+      "raven guard": 0.5213133096694946,
       "thousand sons": 0.5169647932052612,
-      "iron hands": 0.5260538458824158
+      "iron hands": 0.5260538458824158,
+      "space marines": 0.6127992868423462,
+      "citadel products": 0.5928115844726562,
+      "world eaters": 0.5151927471160889
     }
   },
   {
@@ -5096,9 +5075,9 @@
       "cities of sigmar"
     ],
     "tag_scores": {
-      "beginner": 0.5609222650527954,
+      "cities of sigmar": 0.6078519225120544,
       "citadel products": 0.5159649848937988,
-      "cities of sigmar": 0.6078519225120544
+      "beginner": 0.5609222650527954
     }
   },
   {
@@ -5124,7 +5103,7 @@
     "thumbnail": "https://i.ytimg.com/vi/bkPjfWUJ4NU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bkPjfWUJ4NU",
     "duration": "PT5M11S",
-    "viewCount": 21287,
+    "viewCount": 21289,
     "likeCount": 463,
     "tags": [
       "aos",
@@ -5132,7 +5111,7 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "intermediate": 0.46326911449432373,
+      "intermediate": 0.46326905488967896,
       "stormcast eternals": 0.5137665271759033
     }
   },
@@ -5153,10 +5132,10 @@
       "intermediate"
     ],
     "tag_scores": {
+      "40k": 0.5352743864059448,
       "intermediate": 0.43534764647483826,
-      "citadel products": 0.5229493379592896,
-      "aos": 0.514956533908844,
-      "40k": 0.5352742671966553
+      "aos": 0.5149564743041992,
+      "citadel products": 0.5229493379592896
     }
   },
   {
@@ -5175,9 +5154,9 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "intermediate": 0.41837331652641296,
-      "textures & materials": 0.5250477194786072,
-      "skin": 0.4876686930656433
+      "skin": 0.481675386428833,
+      "intermediate": 0.4183732867240906,
+      "textures & materials": 0.5274818539619446
     }
   },
   {
@@ -5188,13 +5167,13 @@
     "thumbnail": "https://i.ytimg.com/vi/1ogDMeUtqgg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1ogDMeUtqgg",
     "duration": "PT6M26S",
-    "viewCount": 21391,
+    "viewCount": 21392,
     "likeCount": 718,
     "tags": [
       "textures & materials"
     ],
     "tag_scores": {
-      "textures & materials": 0.5117035508155823
+      "textures & materials": 0.5235180854797363
     }
   },
   {
@@ -5213,8 +5192,8 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.39283496141433716,
-      "40k": 0.5167974829673767,
+      "40k": 0.5167975425720215,
+      "intermediate": 0.3928349018096924,
       "armour": 0.5083841681480408
     }
   },
@@ -5226,7 +5205,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7uFmBLsGndI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7uFmBLsGndI",
     "duration": "PT12M32S",
-    "viewCount": 38535,
+    "viewCount": 38536,
     "likeCount": 1304,
     "tags": [
       "40k",
@@ -5237,7 +5216,7 @@
     "tag_scores": {
       "old world": 0.6611506342887878,
       "citadel products": 0.5384901762008667,
-      "orcs": 0.5262362957000732
+      "orcs": 0.0
     }
   },
   {
@@ -5258,11 +5237,11 @@
       "space marines"
     ],
     "tag_scores": {
-      "citadel products": 0.556125283241272,
+      "40k": 0.5601819157600403,
+      "armour": 0.5766379237174988,
+      "salamanders": 0.6659317016601562,
       "space marines": 0.6713141202926636,
-      "salamanders": 0.665931761264801,
-      "40k": 0.5601818561553955,
-      "armour": 0.5766379237174988
+      "citadel products": 0.556125283241272
     }
   },
   {
@@ -5282,10 +5261,10 @@
       "underworlds"
     ],
     "tag_scores": {
+      "skin": 0.545628011226654,
       "citadel products": 0.5490443706512451,
       "underworlds": 0.5858231782913208,
-      "skin": 0.5423999428749084,
-      "textures & materials": 0.6055618524551392
+      "textures & materials": 0.6211844682693481
     }
   },
   {
@@ -5296,7 +5275,7 @@
     "thumbnail": "https://i.ytimg.com/vi/NLNhzpx785M/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NLNhzpx785M",
     "duration": "PT19M29S",
-    "viewCount": 88237,
+    "viewCount": 88245,
     "likeCount": 1852,
     "tags": [
       "40k",
@@ -5305,10 +5284,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "intermediate": 0.42637699842453003,
-      "citadel products": 0.518295168876648,
       "space marines": 0.6705276966094971,
-      "40k": 0.5224781632423401
+      "40k": 0.5224782228469849,
+      "intermediate": 0.42637699842453003,
+      "citadel products": 0.518295168876648
     }
   },
   {
@@ -5338,15 +5317,17 @@
     "thumbnail": "https://i.ytimg.com/vi/nkW4R1Rvae0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nkW4R1Rvae0",
     "duration": "PT3M33S",
-    "viewCount": 41396,
+    "viewCount": 41397,
     "likeCount": 1066,
     "tags": [
       "intermediate",
-      "skin"
+      "skin",
+      "textures & materials"
     ],
     "tag_scores": {
+      "skin": 0.4800083637237549,
       "intermediate": 0.44603151082992554,
-      "skin": 0.4782159924507141
+      "textures & materials": 0.513564944267273
     }
   },
   {
@@ -5357,7 +5338,7 @@
     "thumbnail": "https://i.ytimg.com/vi/934P4V3qjdU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=934P4V3qjdU",
     "duration": "PT4M53S",
-    "viewCount": 28889,
+    "viewCount": 28891,
     "likeCount": 733,
     "tags": [
       "armour",
@@ -5385,8 +5366,8 @@
       "skin"
     ],
     "tag_scores": {
-      "citadel products": 0.5778293609619141,
-      "skin": 0.46902990341186523
+      "skin": 0.4543212950229645,
+      "citadel products": 0.5778293609619141
     }
   },
   {
@@ -5407,11 +5388,11 @@
       "metal"
     ],
     "tag_scores": {
-      "intermediate": 0.4253648519515991,
-      "citadel products": 0.5010290145874023,
-      "aos": 0.5189395546913147,
-      "metal": 0.5181438326835632,
-      "40k": 0.52510666847229
+      "40k": 0.5251067280769348,
+      "metal": 0.5231071710586548,
+      "intermediate": 0.42536479234695435,
+      "aos": 0.5189393758773804,
+      "citadel products": 0.5010290145874023
     }
   },
   {
@@ -5422,15 +5403,15 @@
     "thumbnail": "https://i.ytimg.com/vi/09ze5pUrY7w/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=09ze5pUrY7w",
     "duration": "PT12M12S",
-    "viewCount": 29219,
+    "viewCount": 29223,
     "likeCount": 431,
     "tags": [
       "beginner",
       "weapons"
     ],
     "tag_scores": {
-      "beginner": 0.5768243670463562,
-      "weapons": 0.5905146598815918
+      "weapons": 0.5905146598815918,
+      "beginner": 0.5768243670463562
     }
   },
   {
@@ -5448,7 +5429,7 @@
       "tyranids"
     ],
     "tag_scores": {
-      "40k": 0.6266952753067017,
+      "40k": 0.6266953349113464,
       "tyranids": 0.4925430417060852
     }
   },
@@ -5468,8 +5449,8 @@
       "gloomspite gitz"
     ],
     "tag_scores": {
-      "beginner": 0.5752836465835571,
-      "gloomspite gitz": 0.6394913792610168
+      "gloomspite gitz": 0.6394913792610168,
+      "beginner": 0.5752836465835571
     }
   },
   {
@@ -5480,14 +5461,14 @@
     "thumbnail": "https://i.ytimg.com/vi/G5A-PWJQLFw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=G5A-PWJQLFw",
     "duration": "PT2M58S",
-    "viewCount": 138437,
+    "viewCount": 138447,
     "likeCount": 6378,
     "tags": [
       "40k",
       "tyranids"
     ],
     "tag_scores": {
-      "40k": 0.5259280204772949,
+      "40k": 0.5259281396865845,
       "tyranids": 0.3984081447124481
     }
   },
@@ -5499,7 +5480,7 @@
     "thumbnail": "https://i.ytimg.com/vi/kiQUYlzD92o/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kiQUYlzD92o",
     "duration": "PT21M54S",
-    "viewCount": 188747,
+    "viewCount": 188758,
     "likeCount": 3432,
     "tags": [
       "40k",
@@ -5508,9 +5489,9 @@
       "tyranids"
     ],
     "tag_scores": {
+      "40k": 0.568191409111023,
       "intermediate": 0.40120983123779297,
       "citadel products": 0.5094051361083984,
-      "40k": 0.568191409111023,
       "tyranids": 0.5045080780982971
     }
   },
@@ -5522,13 +5503,13 @@
     "thumbnail": "https://i.ytimg.com/vi/O8d74Caj_Tc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=O8d74Caj_Tc",
     "duration": "PT4M45S",
-    "viewCount": 30565,
+    "viewCount": 30566,
     "likeCount": 701,
     "tags": [
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.3765380382537842
+      "intermediate": 0.37653806805610657
     }
   },
   {
@@ -5558,7 +5539,7 @@
     "thumbnail": "https://i.ytimg.com/vi/RGuFuDCtoE0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RGuFuDCtoE0",
     "duration": "PT3M10S",
-    "viewCount": 32632,
+    "viewCount": 32639,
     "likeCount": 741,
     "tags": [
       "citadel products",
@@ -5585,9 +5566,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5532425045967102,
+      "40k": 0.7655907273292542,
       "citadel products": 0.5584383010864258,
-      "40k": 0.7655906677246094
+      "beginner": 0.5532425045967102
     }
   },
   {
@@ -5598,7 +5579,7 @@
     "thumbnail": "https://i.ytimg.com/vi/2w-WFgemGlw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=2w-WFgemGlw",
     "duration": "PT2M16S",
-    "viewCount": 28996,
+    "viewCount": 28998,
     "likeCount": 614,
     "tags": [
       "beginner",
@@ -5607,10 +5588,10 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5383056402206421,
-      "citadel products": 0.6002554893493652,
       "painting essentials": 0.4664188027381897,
-      "intermediate": 0.5151182413101196
+      "intermediate": 0.5151181817054749,
+      "citadel products": 0.6002554893493652,
+      "beginner": 0.5383056402206421
     }
   },
   {
@@ -5644,7 +5625,7 @@
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.5191351771354675
+      "metal": 0.5757845640182495
     }
   },
   {
@@ -5663,9 +5644,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5499768853187561,
+      "40k": 0.6145064830780029,
       "citadel products": 0.5251396298408508,
-      "40k": 0.6145063638687134
+      "beginner": 0.5499768853187561
     }
   },
   {
@@ -5676,7 +5657,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ghE8Qk_Wpkc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ghE8Qk_Wpkc",
     "duration": "PT4M30S",
-    "viewCount": 39709,
+    "viewCount": 39710,
     "likeCount": 963,
     "tags": [
       "40k",
@@ -5685,10 +5666,10 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4262726306915283,
-      "citadel products": 0.549720287322998,
-      "aos": 0.5187653303146362,
-      "40k": 0.5268481969833374
+      "40k": 0.526848316192627,
+      "intermediate": 0.42627257108688354,
+      "aos": 0.5187652707099915,
+      "citadel products": 0.549720287322998
     }
   },
   {
@@ -5708,9 +5689,9 @@
       "cloth"
     ],
     "tag_scores": {
+      "cities of sigmar": 0.6321520209312439,
       "citadel products": 0.5966373085975647,
-      "cloth": 0.4610918164253235,
-      "cities of sigmar": 0.6321520209312439
+      "cloth": 0.4610918164253235
     }
   },
   {
@@ -5727,14 +5708,12 @@
       "aos",
       "citadel products",
       "cities of sigmar",
-      "cloth",
-      "textures & materials"
+      "cloth"
     ],
     "tag_scores": {
-      "citadel products": 0.5835309028625488,
-      "cloth": 0.42370906472206116,
       "cities of sigmar": 0.6016836166381836,
-      "textures & materials": 0.5273247957229614
+      "citadel products": 0.5835309028625488,
+      "cloth": 0.42370903491973877
     }
   },
   {
@@ -5754,10 +5733,10 @@
       "cloth"
     ],
     "tag_scores": {
-      "cloth": 0.4482453465461731,
+      "cities of sigmar": 0.6492957472801208,
       "citadel products": 0.5822237133979797,
-      "aos": 0.5832198858261108,
-      "cities of sigmar": 0.6492957472801208
+      "aos": 0.5832198262214661,
+      "cloth": 0.4482453465461731
     }
   },
   {
@@ -5776,8 +5755,8 @@
       "cloth"
     ],
     "tag_scores": {
-      "cloth": 0.34877246618270874,
-      "cities of sigmar": 0.49576666951179504
+      "cities of sigmar": 0.49576666951179504,
+      "cloth": 0.34877249598503113
     }
   },
   {
@@ -5799,10 +5778,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5633969902992249,
-      "citadel products": 0.5187087059020996,
+      "cities of sigmar": 0.5680233836174011,
       "space marines": 0.5316200256347656,
-      "cities of sigmar": 0.5680233836174011
+      "citadel products": 0.5187087059020996,
+      "beginner": 0.5633969902992249
     }
   },
   {
@@ -5821,9 +5800,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.44287100434303284,
       "space marines": 0.5009483098983765,
-      "40k": 0.5040901899337769
+      "40k": 0.5040903091430664,
+      "beginner": 0.44287100434303284
     }
   },
   {
@@ -5841,8 +5820,8 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.4849024713039398,
-      "painting essentials": 0.4126327335834503
+      "painting essentials": 0.4126327335834503,
+      "beginner": 0.4849024713039398
     }
   },
   {
@@ -5860,8 +5839,8 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5359128713607788,
-      "painting essentials": 0.4866522252559662
+      "painting essentials": 0.4866522252559662,
+      "beginner": 0.5359128713607788
     }
   },
   {
@@ -5880,9 +5859,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.4292694628238678,
+      "painting essentials": 0.4208058714866638,
       "citadel products": 0.5058810710906982,
-      "painting essentials": 0.4208058714866638
+      "beginner": 0.4292694628238678
     }
   },
   {
@@ -5893,15 +5872,15 @@
     "thumbnail": "https://i.ytimg.com/vi/P_oYMKB-QqA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=P_oYMKB-QqA",
     "duration": "PT2M38S",
-    "viewCount": 30263,
+    "viewCount": 30265,
     "likeCount": 505,
     "tags": [
       "beginner",
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5012906193733215,
-      "painting essentials": 0.441092312335968
+      "painting essentials": 0.441092312335968,
+      "beginner": 0.5012906193733215
     }
   },
   {
@@ -5912,8 +5891,8 @@
     "thumbnail": "https://i.ytimg.com/vi/TnJmtAT6TXY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TnJmtAT6TXY",
     "duration": "PT4M58S",
-    "viewCount": 133666,
-    "likeCount": 2004,
+    "viewCount": 133672,
+    "likeCount": 2005,
     "tags": [
       "beginner",
       "citadel products",
@@ -5921,10 +5900,10 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5510903596878052,
-      "citadel products": 0.5452955961227417,
       "painting essentials": 0.4547126293182373,
-      "contrast paints": 0.5906888246536255
+      "citadel products": 0.5452955961227417,
+      "beginner": 0.5510903596878052,
+      "contrast paints": 0.5620610117912292
     }
   },
   {
@@ -5942,8 +5921,8 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.48131614923477173,
-      "painting essentials": 0.37015074491500854
+      "painting essentials": 0.37015074491500854,
+      "beginner": 0.48131614923477173
     }
   },
   {
@@ -5961,8 +5940,8 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5435482263565063,
-      "painting essentials": 0.45625895261764526
+      "painting essentials": 0.45625895261764526,
+      "beginner": 0.5435482263565063
     }
   },
   {
@@ -5973,7 +5952,7 @@
     "thumbnail": "https://i.ytimg.com/vi/0oR727YVMkg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0oR727YVMkg",
     "duration": "PT10M52S",
-    "viewCount": 81150,
+    "viewCount": 81152,
     "likeCount": 1553,
     "tags": [
       "40k",
@@ -5983,8 +5962,8 @@
     ],
     "tag_scores": {
       "beginner": 0.49604707956314087,
+      "40k": 0.5150881409645081,
       "citadel products": 0.5218675136566162,
-      "40k": 0.5150880217552185,
       "tyranids": 0.5848405361175537
     }
   },
@@ -6006,10 +5985,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.4777643382549286,
-      "citadel products": 0.5617290735244751,
+      "ultramarines": 0.5993947982788086,
       "space marines": 0.6598066091537476,
-      "ultramarines": 0.5993947982788086
+      "citadel products": 0.5617290735244751,
+      "beginner": 0.4777643382549286
     }
   },
   {
@@ -6020,8 +5999,8 @@
     "thumbnail": "https://i.ytimg.com/vi/5C0cYpX3fD4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5C0cYpX3fD4",
     "duration": "PT13M4S",
-    "viewCount": 172841,
-    "likeCount": 3537,
+    "viewCount": 172847,
+    "likeCount": 3538,
     "tags": [
       "40k",
       "beginner",
@@ -6029,10 +6008,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.543665885925293,
-      "citadel products": 0.5619587302207947,
       "space marines": 0.614337682723999,
-      "40k": 0.6772164702415466
+      "40k": 0.6772165298461914,
+      "citadel products": 0.5619587302207947,
+      "beginner": 0.543665885925293
     }
   },
   {
@@ -6052,10 +6031,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5127501487731934,
-      "citadel products": 0.5165261030197144,
       "space marines": 0.574737548828125,
-      "40k": 0.68695068359375
+      "40k": 0.6869507431983948,
+      "citadel products": 0.5165261030197144,
+      "beginner": 0.5127501487731934
     }
   },
   {
@@ -6066,7 +6045,7 @@
     "thumbnail": "https://i.ytimg.com/vi/5iCoeh6Xz9Y/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=5iCoeh6Xz9Y",
     "duration": "PT5M59S",
-    "viewCount": 41330,
+    "viewCount": 41333,
     "likeCount": 1082,
     "tags": [
       "40k",
@@ -6075,9 +6054,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5837969779968262,
+      "space marines": 0.5624819993972778,
       "citadel products": 0.5929366946220398,
-      "space marines": 0.5624819993972778
+      "beginner": 0.5837969779968262
     }
   },
   {
@@ -6088,7 +6067,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lKRqhT6CTKc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lKRqhT6CTKc",
     "duration": "PT7M43S",
-    "viewCount": 53352,
+    "viewCount": 53353,
     "likeCount": 1230,
     "tags": [
       "40k",
@@ -6098,10 +6077,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5606672167778015,
-      "citadel products": 0.5974896550178528,
       "space marines": 0.6200079917907715,
-      "black templars": 0.6842999458312988
+      "black templars": 0.6842999458312988,
+      "citadel products": 0.5974896550178528,
+      "beginner": 0.5606672167778015
     }
   },
   {
@@ -6122,10 +6101,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5759381055831909,
-      "citadel products": 0.6154199838638306,
+      "ultramarines": 0.6717066764831543,
       "space marines": 0.681884765625,
-      "ultramarines": 0.6717066764831543
+      "citadel products": 0.6154199838638306,
+      "beginner": 0.5759381055831909
     }
   },
   {
@@ -6136,7 +6115,7 @@
     "thumbnail": "https://i.ytimg.com/vi/W9NGcO9Bc00/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=W9NGcO9Bc00",
     "duration": "PT5M38S",
-    "viewCount": 30576,
+    "viewCount": 30578,
     "likeCount": 724,
     "tags": [
       "40k",
@@ -6147,11 +6126,11 @@
       "white scars"
     ],
     "tag_scores": {
-      "citadel products": 0.5494316816329956,
-      "space marines": 0.5239065885543823,
+      "skin": 0.5551578998565674,
       "beginner": 0.5482720732688904,
-      "skin": 0.5275000333786011,
-      "white scars": 0.649411678314209
+      "white scars": 0.649411678314209,
+      "space marines": 0.5239065885543823,
+      "citadel products": 0.5494316816329956
     }
   },
   {
@@ -6162,7 +6141,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Cs5AnVHPNgU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Cs5AnVHPNgU",
     "duration": "PT7M2S",
-    "viewCount": 111261,
+    "viewCount": 111264,
     "likeCount": 2985,
     "tags": [
       "40k",
@@ -6171,9 +6150,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.6541195511817932,
+      "space marines": 0.5452464818954468,
       "citadel products": 0.5285071134567261,
-      "space marines": 0.5452464818954468
+      "salamanders": 0.6541195511817932
     }
   },
   {
@@ -6184,7 +6163,7 @@
     "thumbnail": "https://i.ytimg.com/vi/RzFsuwhKXt4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RzFsuwhKXt4",
     "duration": "PT4M55S",
-    "viewCount": 45181,
+    "viewCount": 45184,
     "likeCount": 1153,
     "tags": [
       "40k",
@@ -6195,11 +6174,11 @@
       "space marines"
     ],
     "tag_scores": {
-      "citadel products": 0.529918909072876,
-      "space marines": 0.507931649684906,
+      "metal": 0.5619862079620361,
       "beginner": 0.5295214653015137,
-      "metal": 0.5792244672775269,
-      "iron hands": 0.6601669788360596
+      "iron hands": 0.6601669788360596,
+      "space marines": 0.507931649684906,
+      "citadel products": 0.529918909072876
     }
   },
   {
@@ -6228,7 +6207,7 @@
     "thumbnail": "https://i.ytimg.com/vi/TcWdy_Csuqo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TcWdy_Csuqo",
     "duration": "PT5M49S",
-    "viewCount": 51865,
+    "viewCount": 51869,
     "likeCount": 1361,
     "tags": [
       "40k",
@@ -6239,8 +6218,8 @@
     ],
     "tag_scores": {
       "beginner": 0.5060414671897888,
-      "citadel products": 0.5180169343948364,
       "space marines": 0.5822217464447021,
+      "citadel products": 0.5180169343948364,
       "raven guard": 0.6392207145690918
     }
   },
@@ -6261,8 +6240,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.701018214225769,
       "space marines": 0.5130400657653809,
+      "imperial fists": 0.7238656878471375,
       "beginner": 0.5211999416351318
     }
   },
@@ -6274,7 +6253,7 @@
     "thumbnail": "https://i.ytimg.com/vi/0I79IGIYKqM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0I79IGIYKqM",
     "duration": "PT9M52S",
-    "viewCount": 65899,
+    "viewCount": 65902,
     "likeCount": 1295,
     "tags": [
       "40k",
@@ -6283,9 +6262,9 @@
       "space wolves"
     ],
     "tag_scores": {
-      "beginner": 0.5305761098861694,
+      "space marines": 0.5795121788978577,
       "space wolves": 0.7242189645767212,
-      "space marines": 0.5795121788978577
+      "beginner": 0.5305761098861694
     }
   },
   {
@@ -6332,7 +6311,7 @@
     "thumbnail": "https://i.ytimg.com/vi/sGy13fiJAs8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=sGy13fiJAs8",
     "duration": "PT20M4S",
-    "viewCount": 134500,
+    "viewCount": 134501,
     "likeCount": 2681,
     "tags": [
       "40k",
@@ -6341,8 +6320,8 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.616165041923523,
       "ultramarines": 0.5072646737098694,
+      "space marines": 0.616165041923523,
       "tyranids": 0.5878393054008484
     }
   },
@@ -6372,7 +6351,7 @@
     "thumbnail": "https://i.ytimg.com/vi/CJ8LDV_xVmg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=CJ8LDV_xVmg",
     "duration": "PT8M24S",
-    "viewCount": 115572,
+    "viewCount": 115577,
     "likeCount": 2170,
     "tags": [
       "40k",
@@ -6384,10 +6363,10 @@
     ],
     "tag_scores": {
       "dark angels": 0.6322118043899536,
-      "citadel products": 0.5315054655075073,
-      "space marines": 0.567672073841095,
+      "textures & materials": 0.5171439051628113,
       "beginner": 0.613392174243927,
-      "textures & materials": 0.5445893406867981
+      "space marines": 0.567672073841095,
+      "citadel products": 0.5315054655075073
     }
   },
   {
@@ -6398,7 +6377,7 @@
     "thumbnail": "https://i.ytimg.com/vi/iXh2wTQdrxU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iXh2wTQdrxU",
     "duration": "PT7M58S",
-    "viewCount": 56968,
+    "viewCount": 56970,
     "likeCount": 1308,
     "tags": [
       "40k",
@@ -6409,9 +6388,9 @@
     ],
     "tag_scores": {
       "beginner": 0.54938805103302,
-      "citadel products": 0.5509322285652161,
       "space marines": 0.6242822408676147,
-      "blood angels": 0.7372903823852539
+      "citadel products": 0.5509322285652161,
+      "blood angels": 0.7416026592254639
     }
   },
   {
@@ -6422,7 +6401,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Z2R9IywN-VQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Z2R9IywN-VQ",
     "duration": "PT10M6S",
-    "viewCount": 67843,
+    "viewCount": 67848,
     "likeCount": 1315,
     "tags": [
       "40k",
@@ -6432,10 +6411,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5166769027709961,
-      "citadel products": 0.5385162830352783,
+      "ultramarines": 0.640068769454956,
       "space marines": 0.6398496031761169,
-      "ultramarines": 0.640068769454956
+      "citadel products": 0.5385162830352783,
+      "beginner": 0.5166769027709961
     }
   },
   {
@@ -6466,7 +6445,7 @@
     "thumbnail": "https://i.ytimg.com/vi/6ZWPudgk2uc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6ZWPudgk2uc",
     "duration": "PT9M23S",
-    "viewCount": 63092,
+    "viewCount": 63093,
     "likeCount": 1117,
     "tags": [
       "40k",
@@ -6475,9 +6454,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.565888524055481,
+      "ultramarines": 0.6157069206237793,
       "space marines": 0.6145093441009521,
-      "ultramarines": 0.6157069206237793
+      "citadel products": 0.565888524055481
     }
   },
   {
@@ -6488,7 +6467,7 @@
     "thumbnail": "https://i.ytimg.com/vi/MDSaciYVItU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=MDSaciYVItU",
     "duration": "PT6M48S",
-    "viewCount": 39702,
+    "viewCount": 39703,
     "likeCount": 698,
     "tags": [
       "40k",
@@ -6518,11 +6497,11 @@
       "tyranids"
     ],
     "tag_scores": {
-      "citadel products": 0.5697460770606995,
+      "40k": 0.539595365524292,
+      "tyranids": 0.5845576524734497,
+      "textures & materials": 0.5525428056716919,
       "beginner": 0.5494331121444702,
-      "40k": 0.5395953059196472,
-      "textures & materials": 0.5830312967300415,
-      "tyranids": 0.5845576524734497
+      "citadel products": 0.5697460770606995
     }
   },
   {
@@ -6533,7 +6512,7 @@
     "thumbnail": "https://i.ytimg.com/vi/nWl45NhQ9y0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nWl45NhQ9y0",
     "duration": "PT8M56S",
-    "viewCount": 54014,
+    "viewCount": 54015,
     "likeCount": 1074,
     "tags": [
       "40k",
@@ -6542,9 +6521,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.5495496988296509,
+      "ultramarines": 0.6117470264434814,
       "space marines": 0.6043069362640381,
-      "ultramarines": 0.6117470264434814
+      "citadel products": 0.5495496988296509
     }
   },
   {
@@ -6575,7 +6554,7 @@
     "thumbnail": "https://i.ytimg.com/vi/cjC7Rp_pYdI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=cjC7Rp_pYdI",
     "duration": "PT10M29S",
-    "viewCount": 96625,
+    "viewCount": 96627,
     "likeCount": 1530,
     "tags": [
       "40k",
@@ -6587,12 +6566,12 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.6236026287078857,
-      "space marines": 0.6609808206558228,
-      "beginner": 0.5332309603691101,
       "ultramarines": 0.7114642858505249,
-      "textures & materials": 0.5709897875785828,
-      "armour": 0.5396275520324707
+      "textures & materials": 0.5473150014877319,
+      "armour": 0.5396275520324707,
+      "beginner": 0.5332309603691101,
+      "space marines": 0.6609808206558228,
+      "citadel products": 0.6236026287078857
     }
   },
   {
@@ -6614,11 +6593,11 @@
       "weapons"
     ],
     "tag_scores": {
-      "citadel products": 0.5197360515594482,
+      "tyranids": 0.5633857846260071,
+      "textures & materials": 0.5174508094787598,
       "weapons": 0.5468868017196655,
       "beginner": 0.5254332423210144,
-      "textures & materials": 0.5515834093093872,
-      "tyranids": 0.5633857846260071
+      "citadel products": 0.5197360515594482
     }
   },
   {
@@ -6639,8 +6618,8 @@
     ],
     "tag_scores": {
       "beginner": 0.5725462436676025,
-      "citadel products": 0.5935883522033691,
       "40k": 0.5574371814727783,
+      "citadel products": 0.5935883522033691,
       "tyranids": 0.6658608913421631
     }
   },
@@ -6652,7 +6631,7 @@
     "thumbnail": "https://i.ytimg.com/vi/L8eiXudwEkE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=L8eiXudwEkE",
     "duration": "PT6M30S",
-    "viewCount": 54127,
+    "viewCount": 54128,
     "likeCount": 964,
     "tags": [
       "40k",
@@ -6670,7 +6649,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ofvf454Ws_w/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ofvf454Ws_w",
     "duration": "PT14M15S",
-    "viewCount": 121886,
+    "viewCount": 121888,
     "likeCount": 1913,
     "tags": [
       "40k",
@@ -6682,12 +6661,12 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.5877327919006348,
-      "space marines": 0.6575483679771423,
-      "beginner": 0.532696008682251,
       "ultramarines": 0.6965939998626709,
-      "textures & materials": 0.532660722732544,
-      "armour": 0.5794672966003418
+      "textures & materials": 0.5183670520782471,
+      "armour": 0.5794672966003418,
+      "beginner": 0.532696008682251,
+      "space marines": 0.6575483679771423,
+      "citadel products": 0.5877327919006348
     }
   },
   {
@@ -6709,12 +6688,12 @@
       "weapons"
     ],
     "tag_scores": {
-      "citadel products": 0.5586375594139099,
-      "space marines": 0.6168649196624756,
-      "weapons": 0.5179433822631836,
-      "beginner": 0.568562388420105,
+      "40k": 0.5181233882904053,
       "ultramarines": 0.6499195098876953,
-      "40k": 0.5181233286857605
+      "weapons": 0.5179434418678284,
+      "beginner": 0.568562388420105,
+      "space marines": 0.6168649196624756,
+      "citadel products": 0.5586375594139099
     }
   },
   {
@@ -6735,11 +6714,11 @@
       "tyranids"
     ],
     "tag_scores": {
-      "citadel products": 0.5384544134140015,
+      "40k": 0.5429213047027588,
+      "tyranids": 0.520474910736084,
+      "textures & materials": 0.5435528755187988,
       "beginner": 0.5859755277633667,
-      "40k": 0.5429211854934692,
-      "textures & materials": 0.562393307685852,
-      "tyranids": 0.520474910736084
+      "citadel products": 0.5384544134140015
     }
   },
   {
@@ -6750,8 +6729,8 @@
     "thumbnail": "https://i.ytimg.com/vi/-GmSO_okQzk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-GmSO_okQzk",
     "duration": "PT7M11S",
-    "viewCount": 99651,
-    "likeCount": 1508,
+    "viewCount": 99658,
+    "likeCount": 1509,
     "tags": [
       "40k",
       "beginner",
@@ -6760,11 +6739,11 @@
       "tyranids"
     ],
     "tag_scores": {
-      "citadel products": 0.5815467834472656,
+      "40k": 0.569287896156311,
+      "tyranids": 0.5713178515434265,
+      "textures & materials": 0.5277462601661682,
       "beginner": 0.5993691086769104,
-      "40k": 0.5692877769470215,
-      "textures & materials": 0.5616621375083923,
-      "tyranids": 0.5713178515434265
+      "citadel products": 0.5815467834472656
     }
   },
   {
@@ -6775,7 +6754,7 @@
     "thumbnail": "https://i.ytimg.com/vi/XbbFnt9sV9M/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XbbFnt9sV9M",
     "duration": "PT7M1S",
-    "viewCount": 41990,
+    "viewCount": 41991,
     "likeCount": 738,
     "tags": [
       "40k",
@@ -6795,7 +6774,7 @@
     "thumbnail": "https://i.ytimg.com/vi/v07WWAyJ3Z4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=v07WWAyJ3Z4",
     "duration": "PT10M49S",
-    "viewCount": 127422,
+    "viewCount": 127423,
     "likeCount": 2055,
     "tags": [
       "40k",
@@ -6806,11 +6785,11 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.6190284490585327,
-      "space marines": 0.663293719291687,
-      "beginner": 0.6189212799072266,
       "ultramarines": 0.7205113172531128,
-      "metal": 0.5771362781524658
+      "metal": 0.5665616393089294,
+      "beginner": 0.6189212799072266,
+      "space marines": 0.663293719291687,
+      "citadel products": 0.6190284490585327
     }
   },
   {
@@ -6841,7 +6820,7 @@
     "thumbnail": "https://i.ytimg.com/vi/pBA92IuiPRU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=pBA92IuiPRU",
     "duration": "PT10M9S",
-    "viewCount": 151039,
+    "viewCount": 151047,
     "likeCount": 2161,
     "tags": [
       "40k",
@@ -6851,10 +6830,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5694891214370728,
-      "citadel products": 0.6120351552963257,
+      "ultramarines": 0.7007676362991333,
       "space marines": 0.6896726489067078,
-      "ultramarines": 0.7007676362991333
+      "citadel products": 0.6120351552963257,
+      "beginner": 0.5694891214370728
     }
   },
   {
@@ -6875,7 +6854,7 @@
     ],
     "tag_scores": {
       "beginner": 0.51226806640625,
-      "textures & materials": 0.570466935634613,
+      "textures & materials": 0.5604335069656372,
       "tyranids": 0.5644690990447998
     }
   },
@@ -6887,15 +6866,13 @@
     "thumbnail": "https://i.ytimg.com/vi/lHk5QQ8PVmU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lHk5QQ8PVmU",
     "duration": "PT10M36S",
-    "viewCount": 66652,
+    "viewCount": 66660,
     "likeCount": 1163,
     "tags": [
-      "beginner",
-      "textures & materials"
+      "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.6244144439697266,
-      "textures & materials": 0.5038321614265442
+      "beginner": 0.6244144439697266
     }
   },
   {
@@ -6913,8 +6890,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.4915878176689148,
-      "aos": 0.6784201264381409
+      "aos": 0.6784200668334961,
+      "beginner": 0.4915878176689148
     }
   },
   {
@@ -6925,7 +6902,7 @@
     "thumbnail": "https://i.ytimg.com/vi/9H2pNkQY84E/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=9H2pNkQY84E",
     "duration": "PT9M5S",
-    "viewCount": 31889,
+    "viewCount": 31891,
     "likeCount": 851,
     "tags": [
       "beginner"
@@ -6949,8 +6926,8 @@
       "underworlds"
     ],
     "tag_scores": {
-      "beginner": 0.4610738456249237,
-      "underworlds": 0.5897678136825562
+      "underworlds": 0.5897678136825562,
+      "beginner": 0.4610738456249237
     }
   },
   {
@@ -6968,8 +6945,8 @@
       "underworlds"
     ],
     "tag_scores": {
-      "beginner": 0.5094267129898071,
-      "underworlds": 0.6016638875007629
+      "underworlds": 0.6016638875007629,
+      "beginner": 0.5094267129898071
     }
   },
   {
@@ -6997,7 +6974,7 @@
     "thumbnail": "https://i.ytimg.com/vi/CE4EPtgIdwE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=CE4EPtgIdwE",
     "duration": "PT5M25S",
-    "viewCount": 46041,
+    "viewCount": 46045,
     "likeCount": 1343,
     "tags": [
       "untagged"
@@ -7037,7 +7014,7 @@
       "space marines"
     ],
     "tag_scores": {
-      "blood angels": 0.5527528524398804
+      "blood angels": 0.5626746416091919
     }
   },
   {
@@ -7099,7 +7076,7 @@
     "thumbnail": "https://i.ytimg.com/vi/UBNN_QZth-I/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UBNN_QZth-I",
     "duration": "PT1M",
-    "viewCount": 39075,
+    "viewCount": 39076,
     "likeCount": 1977,
     "tags": [
       "untagged"
@@ -7114,7 +7091,7 @@
     "thumbnail": "https://i.ytimg.com/vi/D1Ni5A9p-Ng/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=D1Ni5A9p-Ng",
     "duration": "PT16M31S",
-    "viewCount": 215230,
+    "viewCount": 215233,
     "likeCount": 4538,
     "tags": [
       "40k",
@@ -7126,10 +7103,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.6013233661651611,
       "citadel products": 0.5148245096206665,
-      "beginner": 0.5657945275306702,
-      "chaos space marines": 0.5240654945373535
+      "chaos space marines": 0.5240654945373535,
+      "dark angels": 0.6013233661651611,
+      "beginner": 0.5657945275306702
     }
   },
   {
@@ -7164,10 +7141,10 @@
       "vehicles"
     ],
     "tag_scores": {
-      "beginner": 0.5180786848068237,
-      "citadel products": 0.5013787150382996,
       "necromunda": 0.5349181890487671,
-      "vehicles": 0.5136198401451111
+      "citadel products": 0.5013787150382996,
+      "vehicles": 0.5136198401451111,
+      "beginner": 0.5180786848068237
     }
   },
   {
@@ -7178,18 +7155,16 @@
     "thumbnail": "https://i.ytimg.com/vi/DD166ICwB8M/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DD166ICwB8M",
     "duration": "PT9M29S",
-    "viewCount": 78106,
+    "viewCount": 78109,
     "likeCount": 2123,
     "tags": [
       "40k",
       "citadel products",
-      "tau",
-      "textures & materials"
+      "tau"
     ],
     "tag_scores": {
       "tau": 0.6147841811180115,
-      "citadel products": 0.5332241654396057,
-      "textures & materials": 0.5063645839691162
+      "citadel products": 0.5332241654396057
     }
   },
   {
@@ -7209,10 +7184,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5232250094413757,
-      "citadel products": 0.5996801257133484,
       "space marines": 0.6631311178207397,
-      "40k": 0.618661642074585
+      "40k": 0.6186617016792297,
+      "citadel products": 0.5996801257133484,
+      "beginner": 0.5232250094413757
     }
   },
   {
@@ -7223,15 +7198,15 @@
     "thumbnail": "https://i.ytimg.com/vi/1EIzqWzIEZs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=1EIzqWzIEZs",
     "duration": "PT9M24S",
-    "viewCount": 31791,
+    "viewCount": 31792,
     "likeCount": 537,
     "tags": [
       "aos",
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5111777782440186,
-      "aos": 0.5764117240905762
+      "aos": 0.5764116048812866,
+      "beginner": 0.5111777782440186
     }
   },
   {
@@ -7249,7 +7224,7 @@
       "intermediate"
     ],
     "tag_scores": {
-      "intermediate": 0.4132821261882782,
+      "intermediate": 0.4132820963859558,
       "bases": 0.4402373433113098
     }
   },
@@ -7271,9 +7246,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.5890291929244995,
+      "iron hands": 0.5461616516113281,
       "citadel products": 0.5504672527313232,
-      "iron hands": 0.5461616516113281
+      "dark angels": 0.5890291929244995
     }
   },
   {
@@ -7324,9 +7299,9 @@
       "stormcast eternals"
     ],
     "tag_scores": {
+      "aos": 0.602777898311615,
       "beginner": 0.47107115387916565,
-      "stormcast eternals": 0.7243215441703796,
-      "aos": 0.6027779579162598
+      "stormcast eternals": 0.7243215441703796
     }
   },
   {
@@ -7341,13 +7316,11 @@
     "likeCount": 238,
     "tags": [
       "beginner",
-      "citadel products",
-      "textures & materials"
+      "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5976255536079407,
       "citadel products": 0.5789997577667236,
-      "textures & materials": 0.5099648833274841
+      "beginner": 0.5976255536079407
     }
   },
   {
@@ -7367,9 +7340,9 @@
       "weapons"
     ],
     "tag_scores": {
-      "citadel products": 0.5327772498130798,
       "space marines": 0.6910222768783569,
-      "weapons": 0.5670065879821777
+      "weapons": 0.5670065879821777,
+      "citadel products": 0.5327772498130798
     }
   },
   {
@@ -7380,7 +7353,7 @@
     "thumbnail": "https://i.ytimg.com/vi/2itWbVxMQPY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=2itWbVxMQPY",
     "duration": "PT8M26S",
-    "viewCount": 30016,
+    "viewCount": 30018,
     "likeCount": 705,
     "tags": [
       "40k",
@@ -7389,8 +7362,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.5975136756896973,
       "space marines": 0.5823784470558167,
+      "dark angels": 0.5975136756896973,
       "beginner": 0.5572372078895569
     }
   },
@@ -7403,7 +7376,7 @@
     "url": "https://www.youtube.com/watch?v=QXPc1Hr84Lk",
     "duration": "PT7M56S",
     "viewCount": 40972,
-    "likeCount": 1021,
+    "likeCount": 1022,
     "tags": [
       "40k",
       "beginner",
@@ -7412,10 +7385,10 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5708664655685425,
-      "citadel products": 0.5496247410774231,
+      "ultramarines": 0.6287214756011963,
       "space marines": 0.6120104789733887,
-      "ultramarines": 0.6287214756011963
+      "citadel products": 0.5496247410774231,
+      "beginner": 0.5708664655685425
     }
   },
   {
@@ -7433,8 +7406,8 @@
       "underworlds"
     ],
     "tag_scores": {
-      "beginner": 0.543222188949585,
-      "underworlds": 0.5147708654403687
+      "underworlds": 0.5147708654403687,
+      "beginner": 0.543222188949585
     }
   },
   {
@@ -7458,11 +7431,11 @@
       "white scars"
     ],
     "tag_scores": {
-      "space marines": 0.5909229516983032,
       "beginner": 0.5350790023803711,
-      "white scars": 0.5121995210647583,
       "thousand sons": 0.5735152959823608,
-      "iron hands": 0.5569730997085571
+      "iron hands": 0.5569730997085571,
+      "space marines": 0.5909229516983032,
+      "white scars": 0.5121994018554688
     }
   },
   {
@@ -7473,7 +7446,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7rdbC7JNGo0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7rdbC7JNGo0",
     "duration": "PT6M22S",
-    "viewCount": 16254,
+    "viewCount": 16255,
     "likeCount": 416,
     "tags": [
       "40k",
@@ -7482,9 +7455,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5332860946655273,
       "citadel products": 0.5059431791305542,
-      "astra militarum": 0.6254415512084961
+      "astra militarum": 0.6254415512084961,
+      "beginner": 0.5332860946655273
     }
   },
   {
@@ -7504,9 +7477,9 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.564077615737915,
       "citadel products": 0.5669353008270264,
-      "astra militarum": 0.6232948303222656
+      "astra militarum": 0.6232948303222656,
+      "beginner": 0.564077615737915
     }
   },
   {
@@ -7526,9 +7499,9 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5291749238967896,
       "space marines": 0.5714457631111145,
-      "astra militarum": 0.6509162187576294
+      "astra militarum": 0.6509162187576294,
+      "beginner": 0.5291749238967896
     }
   },
   {
@@ -7539,7 +7512,7 @@
     "thumbnail": "https://i.ytimg.com/vi/eVYHnKZYkxg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eVYHnKZYkxg",
     "duration": "PT19M14S",
-    "viewCount": 136761,
+    "viewCount": 136772,
     "likeCount": 2952,
     "tags": [
       "40k",
@@ -7559,15 +7532,15 @@
     "thumbnail": "https://i.ytimg.com/vi/nHisCEBvd1o/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nHisCEBvd1o",
     "duration": "PT5M2S",
-    "viewCount": 35091,
+    "viewCount": 35093,
     "likeCount": 1016,
     "tags": [
       "beginner",
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.47105836868286133,
-      "painting essentials": 0.39650362730026245
+      "painting essentials": 0.39650362730026245,
+      "beginner": 0.47105836868286133
     }
   },
   {
@@ -7586,8 +7559,8 @@
       "warcry"
     ],
     "tag_scores": {
-      "warcry": 0.48620420694351196,
       "citadel products": 0.5029388666152954,
+      "warcry": 0.48620420694351196,
       "beginner": 0.5743821859359741
     }
   },
@@ -7599,7 +7572,7 @@
     "thumbnail": "https://i.ytimg.com/vi/SiYkdjv_GKI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SiYkdjv_GKI",
     "duration": "PT7M55S",
-    "viewCount": 28291,
+    "viewCount": 28292,
     "likeCount": 725,
     "tags": [
       "kill team"
@@ -7621,14 +7594,12 @@
     "tags": [
       "beginner",
       "citadel products",
-      "textures & materials",
       "warcry"
     ],
     "tag_scores": {
-      "warcry": 0.5381084680557251,
       "citadel products": 0.5228471755981445,
-      "beginner": 0.5521496534347534,
-      "textures & materials": 0.504402756690979
+      "warcry": 0.5381084680557251,
+      "beginner": 0.5521496534347534
     }
   },
   {
@@ -7646,8 +7617,8 @@
       "kill team"
     ],
     "tag_scores": {
-      "kill team": 0.6030562520027161,
-      "advanced": 0.5207207202911377
+      "advanced": 0.5207207202911377,
+      "kill team": 0.6030562520027161
     }
   },
   {
@@ -7666,8 +7637,8 @@
       "warcry"
     ],
     "tag_scores": {
-      "warcry": 0.5372841954231262,
       "citadel products": 0.5328879952430725,
+      "warcry": 0.5372841954231262,
       "beginner": 0.5314233899116516
     }
   },
@@ -7687,8 +7658,8 @@
       "warcry"
     ],
     "tag_scores": {
-      "warcry": 0.530442476272583,
       "citadel products": 0.5092940330505371,
+      "warcry": 0.530442476272583,
       "beginner": 0.5338596105575562
     }
   },
@@ -7700,21 +7671,19 @@
     "thumbnail": "https://i.ytimg.com/vi/Jv5Ndu3vtNY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Jv5Ndu3vtNY",
     "duration": "PT5M19S",
-    "viewCount": 50202,
+    "viewCount": 50205,
     "likeCount": 1160,
     "tags": [
       "40k",
       "beginner",
       "blood angels",
       "citadel products",
-      "space marines",
-      "textures & materials"
+      "space marines"
     ],
     "tag_scores": {
       "beginner": 0.6293154358863831,
       "citadel products": 0.5672308206558228,
-      "blood angels": 0.5266874432563782,
-      "textures & materials": 0.5302405953407288
+      "blood angels": 0.5333442687988281
     }
   },
   {
@@ -7725,7 +7694,7 @@
     "thumbnail": "https://i.ytimg.com/vi/DZk53eos4UM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=DZk53eos4UM",
     "duration": "PT6M44S",
-    "viewCount": 59688,
+    "viewCount": 59690,
     "likeCount": 1705,
     "tags": [
       "40k",
@@ -7735,8 +7704,8 @@
       "world eaters"
     ],
     "tag_scores": {
-      "world eaters": 0.588333785533905,
-      "citadel products": 0.5135459899902344
+      "citadel products": 0.5135459899902344,
+      "world eaters": 0.588333785533905
     }
   },
   {
@@ -7747,7 +7716,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Cs0ubfKJJBY/hqdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Cs0ubfKJJBY",
     "duration": "PT6M3S",
-    "viewCount": 161240,
+    "viewCount": 161251,
     "likeCount": 3853,
     "tags": [
       "40k",
@@ -7759,11 +7728,11 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "citadel products": 0.5566728115081787,
+      "metal": 0.5094927549362183,
+      "textures & materials": 0.5056532025337219,
       "beginner": 0.6038223505020142,
-      "metal": 0.5013564825057983,
-      "textures & materials": 0.5440595746040344,
-      "iron hands": 0.5524768829345703
+      "iron hands": 0.5524768829345703,
+      "citadel products": 0.5566728115081787
     }
   },
   {
@@ -7779,14 +7748,12 @@
     "tags": [
       "aos",
       "beginner",
-      "chaos",
-      "textures & materials"
+      "chaos"
     ],
     "tag_scores": {
-      "beginner": 0.5837403535842896,
-      "textures & materials": 0.5159033536911011,
-      "aos": 0.4710969030857086,
-      "chaos": 0.6016546487808228
+      "chaos": 0.6016546487808228,
+      "aos": 0.47109687328338623,
+      "beginner": 0.5837403535842896
     }
   },
   {
@@ -7813,11 +7780,11 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "citadel products": 0.5050134062767029,
+      "blood angels": 0.5152010321617126,
+      "textures & materials": 0.5108870267868042,
       "beginner": 0.5562341809272766,
-      "blood angels": 0.5121608972549438,
       "black legion": 0.5257957577705383,
-      "textures & materials": 0.5311529636383057,
+      "citadel products": 0.5050134062767029,
       "gloomspite gitz": 0.6940836906433105
     }
   },
@@ -7839,9 +7806,9 @@
     ],
     "tag_scores": {
       "beginner": 0.5971739888191223,
-      "textures & materials": 0.5545879602432251,
-      "aos": 0.4219264090061188,
-      "chaos": 0.5117812752723694
+      "chaos": 0.5117812752723694,
+      "aos": 0.4219263792037964,
+      "textures & materials": 0.523857593536377
     }
   },
   {
@@ -7858,14 +7825,12 @@
       "aos",
       "beginner",
       "citadel products",
-      "gloomspite gitz",
-      "textures & materials"
+      "gloomspite gitz"
     ],
     "tag_scores": {
-      "beginner": 0.5757006406784058,
       "citadel products": 0.5033006072044373,
       "gloomspite gitz": 0.6419601440429688,
-      "textures & materials": 0.5166399478912354
+      "beginner": 0.5757006406784058
     }
   },
   {
@@ -7876,7 +7841,7 @@
     "thumbnail": "https://i.ytimg.com/vi/9WttSKFklEw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=9WttSKFklEw",
     "duration": "PT5M13S",
-    "viewCount": 45098,
+    "viewCount": 45100,
     "likeCount": 925,
     "tags": [
       "aos",
@@ -7885,10 +7850,10 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.6090271472930908,
+      "chaos": 0.5493160486221313,
       "citadel products": 0.5254369378089905,
-      "aos": 0.4797627627849579,
-      "chaos": 0.5493160486221313
+      "aos": 0.4797627329826355,
+      "beginner": 0.6090271472930908
     }
   },
   {
@@ -7907,9 +7872,9 @@
       "chaos"
     ],
     "tag_scores": {
-      "beginner": 0.5505320429801941,
+      "chaos": 0.5079224109649658,
       "aos": 0.45064109563827515,
-      "chaos": 0.5079224109649658
+      "beginner": 0.5505320429801941
     }
   },
   {
@@ -7929,9 +7894,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "citadel products": 0.5131756663322449,
+      "ultramarines": 0.5739655494689941,
       "space marines": 0.6322923898696899,
-      "ultramarines": 0.5739655494689941
+      "citadel products": 0.5131756663322449
     }
   },
   {
@@ -7950,9 +7915,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.4893595576286316,
+      "painting essentials": 0.39285266399383545,
       "citadel products": 0.6815075874328613,
-      "painting essentials": 0.39285266399383545
+      "beginner": 0.4893595576286316
     }
   },
   {
@@ -7963,17 +7928,17 @@
     "thumbnail": "https://i.ytimg.com/vi/ZzvbNViZZao/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZzvbNViZZao",
     "duration": "PT1M33S",
-    "viewCount": 117913,
-    "likeCount": 1402,
+    "viewCount": 117919,
+    "likeCount": 1403,
     "tags": [
       "beginner",
       "citadel products",
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.46968644857406616,
+      "painting essentials": 0.3912118077278137,
       "citadel products": 0.6809258460998535,
-      "painting essentials": 0.3912118077278137
+      "beginner": 0.46968644857406616
     }
   },
   {
@@ -7992,9 +7957,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5034313201904297,
+      "painting essentials": 0.4495684802532196,
       "citadel products": 0.6647961735725403,
-      "painting essentials": 0.4495684802532196
+      "beginner": 0.5034313201904297
     }
   },
   {
@@ -8005,15 +7970,15 @@
     "thumbnail": "https://i.ytimg.com/vi/ecLescF9CGY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ecLescF9CGY",
     "duration": "PT3M10S",
-    "viewCount": 35286,
+    "viewCount": 35287,
     "likeCount": 703,
     "tags": [
       "beginner",
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.4042842388153076,
-      "painting essentials": 0.29601025581359863
+      "painting essentials": 0.29601025581359863,
+      "beginner": 0.4042842388153076
     }
   },
   {
@@ -8024,7 +7989,7 @@
     "thumbnail": "https://i.ytimg.com/vi/j4dwq5Nt6d8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=j4dwq5Nt6d8",
     "duration": "PT2M26S",
-    "viewCount": 112225,
+    "viewCount": 112229,
     "likeCount": 1352,
     "tags": [
       "beginner",
@@ -8032,9 +7997,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5055858492851257,
+      "painting essentials": 0.4486502408981323,
       "citadel products": 0.7049053907394409,
-      "painting essentials": 0.4486502408981323
+      "beginner": 0.5055858492851257
     }
   },
   {
@@ -8045,7 +8010,7 @@
     "thumbnail": "https://i.ytimg.com/vi/P4XaOQKaBpI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=P4XaOQKaBpI",
     "duration": "PT1M47S",
-    "viewCount": 50273,
+    "viewCount": 50275,
     "likeCount": 688,
     "tags": [
       "beginner",
@@ -8053,9 +8018,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5139173269271851,
+      "painting essentials": 0.3735264539718628,
       "citadel products": 0.5115593671798706,
-      "painting essentials": 0.3735264539718628
+      "beginner": 0.5139173269271851
     }
   },
   {
@@ -8066,7 +8031,7 @@
     "thumbnail": "https://i.ytimg.com/vi/n4V9qe5B24w/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=n4V9qe5B24w",
     "duration": "PT1M49S",
-    "viewCount": 38169,
+    "viewCount": 38171,
     "likeCount": 685,
     "tags": [
       "beginner",
@@ -8074,9 +8039,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.4126816987991333,
+      "painting essentials": 0.41215771436691284,
       "citadel products": 0.574285089969635,
-      "painting essentials": 0.41215771436691284
+      "beginner": 0.4126816987991333
     }
   },
   {
@@ -8095,9 +8060,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5013734698295593,
+      "painting essentials": 0.4387790560722351,
       "citadel products": 0.6640978455543518,
-      "painting essentials": 0.4387790560722351
+      "beginner": 0.5013734698295593
     }
   },
   {
@@ -8116,9 +8081,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.5049991607666016,
+      "painting essentials": 0.4226186275482178,
       "citadel products": 0.6788098812103271,
-      "painting essentials": 0.4226186275482178
+      "beginner": 0.5049991607666016
     }
   },
   {
@@ -8129,7 +8094,7 @@
     "thumbnail": "https://i.ytimg.com/vi/FW5Rlt-W7Yo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=FW5Rlt-W7Yo",
     "duration": "PT1M28S",
-    "viewCount": 36422,
+    "viewCount": 36423,
     "likeCount": 585,
     "tags": [
       "beginner",
@@ -8137,9 +8102,9 @@
       "painting essentials"
     ],
     "tag_scores": {
-      "beginner": 0.46312978863716125,
+      "painting essentials": 0.4194415509700775,
       "citadel products": 0.6545031070709229,
-      "painting essentials": 0.4194415509700775
+      "beginner": 0.46312978863716125
     }
   },
   {
@@ -8150,7 +8115,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hKWxCYaQqQY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=hKWxCYaQqQY",
     "duration": "PT6M1S",
-    "viewCount": 47794,
+    "viewCount": 47797,
     "likeCount": 1150,
     "tags": [
       "40k",
@@ -8168,7 +8133,7 @@
     "thumbnail": "https://i.ytimg.com/vi/eZxsIKpcK5g/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=eZxsIKpcK5g",
     "duration": "PT7M47S",
-    "viewCount": 33245,
+    "viewCount": 33246,
     "likeCount": 793,
     "tags": [
       "aos",
@@ -8176,9 +8141,9 @@
       "chaos"
     ],
     "tag_scores": {
-      "beginner": 0.5328174829483032,
+      "chaos": 0.6040976047515869,
       "aos": 0.4042052626609802,
-      "chaos": 0.6040976047515869
+      "beginner": 0.5328174829483032
     }
   },
   {
@@ -8189,15 +8154,15 @@
     "thumbnail": "https://i.ytimg.com/vi/14RFOCzWNWk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=14RFOCzWNWk",
     "duration": "PT3M57S",
-    "viewCount": 30600,
+    "viewCount": 30602,
     "likeCount": 738,
     "tags": [
       "beginner",
       "kill team"
     ],
     "tag_scores": {
-      "beginner": 0.5388129353523254,
-      "kill team": 0.6411875486373901
+      "kill team": 0.6411875486373901,
+      "beginner": 0.5388129353523254
     }
   },
   {
@@ -8208,7 +8173,7 @@
     "thumbnail": "https://i.ytimg.com/vi/I-M5kOLJiL4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=I-M5kOLJiL4",
     "duration": "PT11M7S",
-    "viewCount": 30481,
+    "viewCount": 30482,
     "likeCount": 1132,
     "tags": [
       "40k",
@@ -8230,12 +8195,10 @@
     "viewCount": 51686,
     "likeCount": 1623,
     "tags": [
-      "40k",
-      "orcs"
+      "40k"
     ],
     "tag_scores": {
-      "40k": 0.6212291121482849,
-      "orcs": 0.6660394072532654
+      "40k": 0.6212291717529297
     }
   },
   {
@@ -8263,7 +8226,7 @@
     "thumbnail": "https://i.ytimg.com/vi/_jHbeojCOXQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=_jHbeojCOXQ",
     "duration": "PT6M3S",
-    "viewCount": 44789,
+    "viewCount": 44791,
     "likeCount": 1079,
     "tags": [
       "untagged"
@@ -8321,9 +8284,9 @@
       "kill team"
     ],
     "tag_scores": {
+      "kill team": 0.6238950490951538,
       "beginner": 0.5812479257583618,
-      "black legion": 0.5623127222061157,
-      "kill team": 0.6238950490951538
+      "black legion": 0.5623127818107605
     }
   },
   {
@@ -8342,8 +8305,8 @@
       "tau"
     ],
     "tag_scores": {
-      "beginner": 0.5350772738456726,
-      "tau": 0.5231661796569824
+      "tau": 0.5231661796569824,
+      "beginner": 0.5350772738456726
     }
   },
   {
@@ -8391,7 +8354,7 @@
     "thumbnail": "https://i.ytimg.com/vi/y0ZmOafGDpk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=y0ZmOafGDpk",
     "duration": "PT5M44S",
-    "viewCount": 35387,
+    "viewCount": 35388,
     "likeCount": 975,
     "tags": [
       "aos",
@@ -8400,10 +8363,10 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5696810483932495,
+      "chaos": 0.5870233774185181,
       "citadel products": 0.5191000699996948,
-      "aos": 0.4752657413482666,
-      "chaos": 0.5870233774185181
+      "aos": 0.47526565194129944,
+      "beginner": 0.5696810483932495
     }
   },
   {
@@ -8448,7 +8411,7 @@
     "thumbnail": "https://i.ytimg.com/vi/GhTozreH9iY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GhTozreH9iY",
     "duration": "PT1M34S",
-    "viewCount": 71800,
+    "viewCount": 71802,
     "likeCount": 1115,
     "tags": [
       "citadel products"
@@ -8465,7 +8428,7 @@
     "thumbnail": "https://i.ytimg.com/vi/blP7UX5zB40/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=blP7UX5zB40",
     "duration": "PT11M50S",
-    "viewCount": 114636,
+    "viewCount": 114638,
     "likeCount": 2700,
     "tags": [
       "horus heresy"
@@ -8482,7 +8445,7 @@
     "thumbnail": "https://i.ytimg.com/vi/R_7t4FRFqIE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=R_7t4FRFqIE",
     "duration": "PT5M36S",
-    "viewCount": 35276,
+    "viewCount": 35280,
     "likeCount": 1026,
     "tags": [
       "40k",
@@ -8491,8 +8454,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "raven guard": 0.6448742151260376,
-      "horus heresy": 0.5961827039718628
+      "horus heresy": 0.5961827039718628,
+      "raven guard": 0.6448742151260376
     }
   },
   {
@@ -8512,8 +8475,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "salamanders": 0.5969727635383606,
-      "horus heresy": 0.614682137966156
+      "horus heresy": 0.614682137966156,
+      "salamanders": 0.5969728231430054
     }
   },
   {
@@ -8541,7 +8504,7 @@
     "thumbnail": "https://i.ytimg.com/vi/xhyOYSjpSFA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=xhyOYSjpSFA",
     "duration": "PT9M1S",
-    "viewCount": 106392,
+    "viewCount": 106394,
     "likeCount": 2513,
     "tags": [
       "horus heresy"
@@ -8568,8 +8531,8 @@
       "thousand sons"
     ],
     "tag_scores": {
-      "thousand sons": 0.5143353343009949,
-      "horus heresy": 0.6455014944076538
+      "horus heresy": 0.6455014944076538,
+      "thousand sons": 0.5143353343009949
     }
   },
   {
@@ -8580,7 +8543,7 @@
     "thumbnail": "https://i.ytimg.com/vi/iUpUQThpzYQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=iUpUQThpzYQ",
     "duration": "PT12M16S",
-    "viewCount": 73357,
+    "viewCount": 73359,
     "likeCount": 1798,
     "tags": [
       "40k",
@@ -8590,8 +8553,8 @@
       "horus heresy"
     ],
     "tag_scores": {
-      "death guard": 0.5668982267379761,
-      "horus heresy": 0.7284936904907227
+      "horus heresy": 0.7284936904907227,
+      "death guard": 0.5668982267379761
     }
   },
   {
@@ -8611,8 +8574,8 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.639329731464386,
       "ultramarines": 0.6298550367355347,
+      "space marines": 0.639329731464386,
       "horus heresy": 0.6842577457427979
     }
   },
@@ -8624,7 +8587,7 @@
     "thumbnail": "https://i.ytimg.com/vi/x9b6VydfCpw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=x9b6VydfCpw",
     "duration": "PT13M59S",
-    "viewCount": 69984,
+    "viewCount": 69987,
     "likeCount": 1837,
     "tags": [
       "40k",
@@ -8634,8 +8597,8 @@
       "world eaters"
     ],
     "tag_scores": {
-      "world eaters": 0.6069632768630981,
-      "horus heresy": 0.6771661043167114
+      "horus heresy": 0.6771661043167114,
+      "world eaters": 0.6069632768630981
     }
   },
   {
@@ -8655,8 +8618,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "horus heresy": 0.6130584478378296,
-      "iron hands": 0.5972288250923157
+      "iron hands": 0.5972288250923157,
+      "horus heresy": 0.6130584478378296
     }
   },
   {
@@ -8676,8 +8639,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "blood angels": 0.641493022441864,
-      "horus heresy": 0.6610310077667236
+      "horus heresy": 0.6610310077667236,
+      "blood angels": 0.6463717818260193
     }
   },
   {
@@ -8705,7 +8668,7 @@
     "thumbnail": "https://i.ytimg.com/vi/0El2kgQk0SA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=0El2kgQk0SA",
     "duration": "PT9M27S",
-    "viewCount": 59648,
+    "viewCount": 59649,
     "likeCount": 1437,
     "tags": [
       "40k",
@@ -8714,8 +8677,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.6478966474533081,
-      "horus heresy": 0.6698989868164062
+      "horus heresy": 0.6698989868164062,
+      "imperial fists": 0.6469811201095581
     }
   },
   {
@@ -8735,8 +8698,8 @@
       "space wolves"
     ],
     "tag_scores": {
-      "space wolves": 0.666164755821228,
-      "horus heresy": 0.6547935605049133
+      "horus heresy": 0.6547935605049133,
+      "space wolves": 0.666164755821228
     }
   },
   {
@@ -8747,7 +8710,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fwPmoVB-WZo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fwPmoVB-WZo",
     "duration": "PT16M10S",
-    "viewCount": 49533,
+    "viewCount": 49534,
     "likeCount": 1315,
     "tags": [
       "40k",
@@ -8756,8 +8719,8 @@
       "white scars"
     ],
     "tag_scores": {
-      "white scars": 0.6139259934425354,
-      "horus heresy": 0.6191803216934204
+      "horus heresy": 0.6191803216934204,
+      "white scars": 0.6139260530471802
     }
   },
   {
@@ -8778,8 +8741,8 @@
       "iron warriors"
     ],
     "tag_scores": {
-      "iron warriors": 0.64152991771698,
-      "horus heresy": 0.6659719944000244
+      "horus heresy": 0.6659719944000244,
+      "iron warriors": 0.64152991771698
     }
   },
   {
@@ -8790,7 +8753,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-hCnul0yoVU/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-hCnul0yoVU",
     "duration": "PT6M57S",
-    "viewCount": 79580,
+    "viewCount": 79581,
     "likeCount": 1998,
     "tags": [
       "40k",
@@ -8812,7 +8775,7 @@
     "thumbnail": "https://i.ytimg.com/vi/XdR94i6SEwg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=XdR94i6SEwg",
     "duration": "PT10M43S",
-    "viewCount": 67492,
+    "viewCount": 67493,
     "likeCount": 1706,
     "tags": [
       "40k",
@@ -8821,8 +8784,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "dark angels": 0.5710945129394531,
-      "horus heresy": 0.6744536757469177
+      "horus heresy": 0.6744536757469177,
+      "dark angels": 0.5710945129394531
     }
   },
   {
@@ -8866,12 +8829,9 @@
     "viewCount": 10735,
     "likeCount": 339,
     "tags": [
-      "40k",
-      "orcs"
+      "untagged"
     ],
-    "tag_scores": {
-      "orcs": 0.6021022796630859
-    }
+    "tag_scores": {}
   },
   {
     "videoId": "9SxdIGJHIaU",
@@ -8954,8 +8914,8 @@
       "space marines"
     ],
     "tag_scores": {
-      "beginner": 0.5912929773330688,
-      "iron hands": 0.51499342918396
+      "iron hands": 0.51499342918396,
+      "beginner": 0.5912929773330688
     }
   },
   {
@@ -9011,7 +8971,7 @@
       "space marines"
     ],
     "tag_scores": {
-      "blood angels": 0.5380393266677856
+      "blood angels": 0.5364986658096313
     }
   },
   {
@@ -9030,7 +8990,7 @@
       "space marines"
     ],
     "tag_scores": {
-      "imperial fists": 0.5637916922569275
+      "imperial fists": 0.5691040754318237
     }
   },
   {
@@ -9041,7 +9001,7 @@
     "thumbnail": "https://i.ytimg.com/vi/dN2wGB11j6s/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dN2wGB11j6s",
     "duration": "PT4M20S",
-    "viewCount": 37163,
+    "viewCount": 37165,
     "likeCount": 927,
     "tags": [
       "40k",
@@ -9060,15 +9020,15 @@
     "url": "https://www.youtube.com/watch?v=39nz6YsYKiw",
     "duration": "PT5M18S",
     "viewCount": 42080,
-    "likeCount": 910,
+    "likeCount": 909,
     "tags": [
       "40k",
       "beginner",
       "eldar"
     ],
     "tag_scores": {
-      "beginner": 0.5837940573692322,
-      "eldar": 0.5574740171432495
+      "eldar": 0.5574740171432495,
+      "beginner": 0.5837940573692322
     }
   },
   {
@@ -9079,7 +9039,7 @@
     "thumbnail": "https://i.ytimg.com/vi/41B8TUz4iq0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=41B8TUz4iq0",
     "duration": "PT4M12S",
-    "viewCount": 26705,
+    "viewCount": 26706,
     "likeCount": 753,
     "tags": [
       "untagged"
@@ -9094,7 +9054,7 @@
     "thumbnail": "https://i.ytimg.com/vi/SFTUVpleGF0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SFTUVpleGF0",
     "duration": "PT6M49S",
-    "viewCount": 40358,
+    "viewCount": 40359,
     "likeCount": 972,
     "tags": [
       "bases"
@@ -9121,8 +9081,8 @@
       "weapons"
     ],
     "tag_scores": {
-      "black templars": 0.5776827335357666,
       "aeronautica imperialis": 0.6927655935287476,
+      "black templars": 0.5776827335357666,
       "weapons": 0.5387406349182129
     }
   },
@@ -9144,8 +9104,8 @@
       "weapons"
     ],
     "tag_scores": {
-      "black templars": 0.6162546277046204,
       "aeronautica imperialis": 0.6379590034484863,
+      "black templars": 0.6162546277046204,
       "weapons": 0.522727370262146
     }
   },
@@ -9157,7 +9117,7 @@
     "thumbnail": "https://i.ytimg.com/vi/LXokq_yemsM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=LXokq_yemsM",
     "duration": "PT4M58S",
-    "viewCount": 33922,
+    "viewCount": 33923,
     "likeCount": 509,
     "tags": [
       "40k",
@@ -9166,9 +9126,9 @@
       "sororitas"
     ],
     "tag_scores": {
-      "sororitas": 0.5671653747558594,
-      "cloth": 0.3839759826660156,
-      "kill team": 0.4406423270702362
+      "kill team": 0.4406423270702362,
+      "cloth": 0.3839761018753052,
+      "sororitas": 0.5671653747558594
     }
   },
   {
@@ -9179,7 +9139,7 @@
     "thumbnail": "https://i.ytimg.com/vi/3dP_5PCHkUo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3dP_5PCHkUo",
     "duration": "PT3M33S",
-    "viewCount": 44016,
+    "viewCount": 44017,
     "likeCount": 742,
     "tags": [
       "armour",
@@ -9187,8 +9147,8 @@
       "kill team"
     ],
     "tag_scores": {
-      "cloth": 0.3534342646598816,
       "kill team": 0.5612848997116089,
+      "cloth": 0.353434294462204,
       "armour": 0.4501657485961914
     }
   },
@@ -9215,7 +9175,7 @@
     "thumbnail": "https://i.ytimg.com/vi/nnGwJo3Thlc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=nnGwJo3Thlc",
     "duration": "PT2M52S",
-    "viewCount": 39841,
+    "viewCount": 39845,
     "likeCount": 825,
     "tags": [
       "40k",
@@ -9254,15 +9214,12 @@
     "viewCount": 56919,
     "likeCount": 1561,
     "tags": [
-      "40k",
       "bases",
-      "kill team",
-      "orcs"
+      "kill team"
     ],
     "tag_scores": {
       "bases": 0.5157840251922607,
-      "kill team": 0.623435378074646,
-      "orcs": 0.5236425995826721
+      "kill team": 0.623435378074646
     }
   },
   {
@@ -9276,12 +9233,9 @@
     "viewCount": 29130,
     "likeCount": 590,
     "tags": [
-      "40k",
-      "orcs"
+      "untagged"
     ],
-    "tag_scores": {
-      "orcs": 0.5593031048774719
-    }
+    "tag_scores": {}
   },
   {
     "videoId": "kBm1e4PJAIQ",
@@ -9294,12 +9248,9 @@
     "viewCount": 58408,
     "likeCount": 1138,
     "tags": [
-      "40k",
-      "orcs"
+      "untagged"
     ],
-    "tag_scores": {
-      "orcs": 0.569983184337616
-    }
+    "tag_scores": {}
   },
   {
     "videoId": "TVKkbzofKQM",
@@ -9309,16 +9260,13 @@
     "thumbnail": "https://i.ytimg.com/vi/TVKkbzofKQM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=TVKkbzofKQM",
     "duration": "PT11M2S",
-    "viewCount": 135176,
+    "viewCount": 135178,
     "likeCount": 2523,
     "tags": [
-      "40k",
-      "beginner",
-      "orcs"
+      "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5458935499191284,
-      "orcs": 0.5808151960372925
+      "beginner": 0.5458935499191284
     }
   },
   {
@@ -9386,8 +9334,8 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "stormcast eternals": 0.6285936832427979,
-      "armour": 0.4421972632408142
+      "armour": 0.4421972632408142,
+      "stormcast eternals": 0.6285936832427979
     }
   },
   {
@@ -9413,7 +9361,7 @@
     "thumbnail": "https://i.ytimg.com/vi/UpEOdXdSuVE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=UpEOdXdSuVE",
     "duration": "PT27M36S",
-    "viewCount": 33488,
+    "viewCount": 33490,
     "likeCount": 669,
     "tags": [
       "untagged"
@@ -9428,7 +9376,7 @@
     "thumbnail": "https://i.ytimg.com/vi/uHkGLbDBQCY/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=uHkGLbDBQCY",
     "duration": "PT7M20S",
-    "viewCount": 45093,
+    "viewCount": 45094,
     "likeCount": 809,
     "tags": [
       "untagged"
@@ -9443,7 +9391,7 @@
     "thumbnail": "https://i.ytimg.com/vi/lDQZ9V9_kYc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=lDQZ9V9_kYc",
     "duration": "PT11M44S",
-    "viewCount": 117092,
+    "viewCount": 117093,
     "likeCount": 1828,
     "tags": [
       "untagged"
@@ -9458,7 +9406,7 @@
     "thumbnail": "https://i.ytimg.com/vi/PlKEgQfFxcM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=PlKEgQfFxcM",
     "duration": "PT4M23S",
-    "viewCount": 47561,
+    "viewCount": 47562,
     "likeCount": 1154,
     "tags": [
       "armour"
@@ -9575,7 +9523,7 @@
     "thumbnail": "https://i.ytimg.com/vi/4qD9DvWsmqw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4qD9DvWsmqw",
     "duration": "PT17M20S",
-    "viewCount": 35742,
+    "viewCount": 35744,
     "likeCount": 638,
     "tags": [
       "blood bowl"
@@ -9612,11 +9560,9 @@
     "viewCount": 40481,
     "likeCount": 757,
     "tags": [
-      "textures & materials"
+      "untagged"
     ],
-    "tag_scores": {
-      "textures & materials": 0.5051749348640442
-    }
+    "tag_scores": {}
   },
   {
     "videoId": "fjBo8aKJOa0",
@@ -9626,7 +9572,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fjBo8aKJOa0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fjBo8aKJOa0",
     "duration": "PT11M2S",
-    "viewCount": 43058,
+    "viewCount": 43063,
     "likeCount": 679,
     "tags": [
       "untagged"
@@ -9712,8 +9658,8 @@
       "skin"
     ],
     "tag_scores": {
-      "necrons": 0.533691942691803,
-      "skin": 0.4737624526023865
+      "skin": 0.4992232322692871,
+      "necrons": 0.533691942691803
     }
   },
   {
@@ -9775,7 +9721,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-ux7Hb_H6LM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-ux7Hb_H6LM",
     "duration": "PT19M38S",
-    "viewCount": 40486,
+    "viewCount": 40487,
     "likeCount": 1156,
     "tags": [
       "40k",
@@ -9794,7 +9740,7 @@
     "thumbnail": "https://i.ytimg.com/vi/bPnTvjLgU_k/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=bPnTvjLgU_k",
     "duration": "PT16M39S",
-    "viewCount": 144053,
+    "viewCount": 144057,
     "likeCount": 2823,
     "tags": [
       "40k",
@@ -9805,7 +9751,7 @@
     ],
     "tag_scores": {
       "dark angels": 0.7312721014022827,
-      "textures & materials": 0.5528125762939453,
+      "textures & materials": 0.5312860012054443,
       "beginner": 0.5618336200714111
     }
   },
@@ -9849,8 +9795,8 @@
       "vehicles"
     ],
     "tag_scores": {
-      "death guard": 0.5582741498947144,
-      "vehicles": 0.5175330638885498
+      "vehicles": 0.5175330638885498,
+      "death guard": 0.5582741498947144
     }
   },
   {
@@ -9861,7 +9807,7 @@
     "thumbnail": "https://i.ytimg.com/vi/7AR3K6pfJ60/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=7AR3K6pfJ60",
     "duration": "PT16M56S",
-    "viewCount": 329876,
+    "viewCount": 329885,
     "likeCount": 6677,
     "tags": [
       "40k",
@@ -9873,10 +9819,10 @@
       "space marines"
     ],
     "tag_scores": {
-      "death guard": 0.6297476291656494,
+      "beginner": 0.591917872428894,
       "space marines": 0.610413670539856,
-      "chaos space marines": 0.5778804421424866,
-      "beginner": 0.591917872428894
+      "chaos space marines": 0.5778805017471313,
+      "death guard": 0.6297476291656494
     }
   },
   {
@@ -10020,8 +9966,8 @@
     ],
     "tag_scores": {
       "space marines": 0.6708755493164062,
-      "40k": 0.574611485004425,
-      "bases": 0.49677279591560364
+      "bases": 0.49677279591560364,
+      "40k": 0.5746116042137146
     }
   },
   {
@@ -10032,7 +9978,7 @@
     "thumbnail": "https://i.ytimg.com/vi/GHShSi8oiOk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GHShSi8oiOk",
     "duration": "PT17M59S",
-    "viewCount": 33763,
+    "viewCount": 33764,
     "likeCount": 550,
     "tags": [
       "underworlds"
@@ -10049,7 +9995,7 @@
     "thumbnail": "https://i.ytimg.com/vi/JVaADmN4fLE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=JVaADmN4fLE",
     "duration": "PT8M",
-    "viewCount": 51001,
+    "viewCount": 51002,
     "likeCount": 1412,
     "tags": [
       "40k",
@@ -10058,7 +10004,7 @@
     ],
     "tag_scores": {
       "space marines": 0.615575909614563,
-      "blood angels": 0.7570446729660034
+      "blood angels": 0.7653411030769348
     }
   },
   {
@@ -10069,7 +10015,7 @@
     "thumbnail": "https://i.ytimg.com/vi/80z7u-j0Gc4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=80z7u-j0Gc4",
     "duration": "PT32M6S",
-    "viewCount": 198865,
+    "viewCount": 198871,
     "likeCount": 3580,
     "tags": [
       "40k",
@@ -10080,9 +10026,9 @@
     ],
     "tag_scores": {
       "beginner": 0.5597822666168213,
-      "textures & materials": 0.5346149802207947,
       "space marines": 0.6939260959625244,
-      "blood angels": 0.7756927013397217
+      "blood angels": 0.777945876121521,
+      "textures & materials": 0.5259691476821899
     }
   },
   {
@@ -10108,7 +10054,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Xywp3WQS6Wk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Xywp3WQS6Wk",
     "duration": "PT11M5S",
-    "viewCount": 25491,
+    "viewCount": 25494,
     "likeCount": 399,
     "tags": [
       "blood bowl",
@@ -10116,7 +10062,7 @@
     ],
     "tag_scores": {
       "blood bowl": 0.6071432828903198,
-      "skin": 0.35807403922080994
+      "skin": 0.3537710905075073
     }
   },
   {
@@ -10144,7 +10090,7 @@
     "thumbnail": "https://i.ytimg.com/vi/SJVG3BuZNYA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=SJVG3BuZNYA",
     "duration": "PT10M3S",
-    "viewCount": 67067,
+    "viewCount": 67069,
     "likeCount": 1047,
     "tags": [
       "blood bowl"
@@ -10161,7 +10107,7 @@
     "thumbnail": "https://i.ytimg.com/vi/oaYDN7zFsG8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=oaYDN7zFsG8",
     "duration": "PT11M29S",
-    "viewCount": 51534,
+    "viewCount": 51535,
     "likeCount": 760,
     "tags": [
       "blood bowl"
@@ -10184,7 +10130,7 @@
       "skin"
     ],
     "tag_scores": {
-      "skin": 0.5064935088157654
+      "skin": 0.5058866739273071
     }
   },
   {
@@ -10210,7 +10156,7 @@
     "thumbnail": "https://i.ytimg.com/vi/6y2Y9vrsr6w/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=6y2Y9vrsr6w",
     "duration": "PT5M41S",
-    "viewCount": 42813,
+    "viewCount": 42814,
     "likeCount": 894,
     "tags": [
       "40k",
@@ -10231,7 +10177,7 @@
     "thumbnail": "https://i.ytimg.com/vi/RS9QVbg7wV0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=RS9QVbg7wV0",
     "duration": "PT27M33S",
-    "viewCount": 170506,
+    "viewCount": 170510,
     "likeCount": 3092,
     "tags": [
       "40k",
@@ -10240,8 +10186,8 @@
       "space wolves"
     ],
     "tag_scores": {
-      "beginner": 0.5381839275360107,
-      "space wolves": 0.6662341356277466
+      "space wolves": 0.6662341356277466,
+      "beginner": 0.5381839275360107
     }
   },
   {
@@ -10334,7 +10280,7 @@
     "thumbnail": "https://i.ytimg.com/vi/zo_8NUfljkw/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=zo_8NUfljkw",
     "duration": "PT29M32S",
-    "viewCount": 166268,
+    "viewCount": 166269,
     "likeCount": 3069,
     "tags": [
       "40k",
@@ -10346,12 +10292,12 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "dark angels": 0.5366032123565674,
-      "space marines": 0.6017762422561646,
-      "beginner": 0.5178785920143127,
-      "black templars": 0.5269625186920166,
       "ultramarines": 0.663663923740387,
-      "iron hands": 0.564643919467926
+      "black templars": 0.5269625186920166,
+      "dark angels": 0.5366032123565674,
+      "beginner": 0.5178785920143127,
+      "iron hands": 0.564643919467926,
+      "space marines": 0.6017762422561646
     }
   },
   {
@@ -10380,7 +10326,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Q2t4ZRyZhWk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Q2t4ZRyZhWk",
     "duration": "PT9M51S",
-    "viewCount": 215250,
+    "viewCount": 215251,
     "likeCount": 4871,
     "tags": [
       "40k",
@@ -10388,8 +10334,8 @@
       "weapons"
     ],
     "tag_scores": {
-      "necrons": 0.5619086027145386,
-      "weapons": 0.5638754367828369
+      "weapons": 0.5638754367828369,
+      "necrons": 0.5619086027145386
     }
   },
   {
@@ -10439,8 +10385,8 @@
       "vehicles"
     ],
     "tag_scores": {
-      "contrast paints": 0.6572521328926086,
-      "vehicles": 0.5557394027709961
+      "vehicles": 0.5557394027709961,
+      "contrast paints": 0.6287031173706055
     }
   },
   {
@@ -10468,7 +10414,7 @@
     "thumbnail": "https://i.ytimg.com/vi/IARqio00oRg/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=IARqio00oRg",
     "duration": "PT4M38S",
-    "viewCount": 65960,
+    "viewCount": 65962,
     "likeCount": 2200,
     "tags": [
       "untagged"
@@ -10562,7 +10508,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Vgir4IzndmA/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Vgir4IzndmA",
     "duration": "PT5M42S",
-    "viewCount": 65707,
+    "viewCount": 65708,
     "likeCount": 1675,
     "tags": [
       "armour"
@@ -10654,8 +10600,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5384957194328308,
-      "aeronautica imperialis": 0.7937828302383423
+      "aeronautica imperialis": 0.7937828302383423,
+      "beginner": 0.5384957194328308
     }
   },
   {
@@ -10676,7 +10622,7 @@
     ],
     "tag_scores": {
       "space marines": 0.5404312610626221,
-      "grey knights": 0.6996313333511353,
+      "grey knights": 0.6996312141418457,
       "armour": 0.4884464144706726
     }
   },
@@ -10688,7 +10634,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HvLTEzts8-Y/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HvLTEzts8-Y",
     "duration": "PT11M44S",
-    "viewCount": 130481,
+    "viewCount": 130483,
     "likeCount": 2335,
     "tags": [
       "40k",
@@ -10697,9 +10643,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5513014197349548,
+      "ultramarines": 0.7445425987243652,
       "space marines": 0.7192879915237427,
-      "ultramarines": 0.7445425987243652
+      "beginner": 0.5513014197349548
     }
   },
   {
@@ -10725,13 +10671,13 @@
     "thumbnail": "https://i.ytimg.com/vi/odEvEhbMxN4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=odEvEhbMxN4",
     "duration": "PT16M4S",
-    "viewCount": 156645,
+    "viewCount": 156650,
     "likeCount": 3072,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.6389642953872681
+      "40k": 0.6389644145965576
     }
   },
   {
@@ -10798,7 +10744,7 @@
     "thumbnail": "https://i.ytimg.com/vi/tspAUHR4CsI/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=tspAUHR4CsI",
     "duration": "PT19M42S",
-    "viewCount": 386083,
+    "viewCount": 386084,
     "likeCount": 5344,
     "tags": [
       "40k",
@@ -10825,9 +10771,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "beginner": 0.5341670513153076,
+      "ultramarines": 0.6051633954048157,
       "space marines": 0.6616021394729614,
-      "ultramarines": 0.6051633954048157
+      "beginner": 0.5341670513153076
     }
   },
   {
@@ -10841,11 +10787,9 @@
     "viewCount": 34426,
     "likeCount": 752,
     "tags": [
-      "armour",
-      "metal"
+      "armour"
     ],
     "tag_scores": {
-      "metal": 0.5395511388778687,
       "armour": 0.4732186198234558
     }
   },
@@ -10868,9 +10812,9 @@
     ],
     "tag_scores": {
       "beginner": 0.5269332528114319,
-      "contrast paints": 0.5651515126228333,
       "sororitas": 0.5141521692276001,
-      "textures & materials": 0.6038728952407837
+      "textures & materials": 0.5842278003692627,
+      "contrast paints": 0.5311894416809082
     }
   },
   {
@@ -10896,7 +10840,7 @@
     "thumbnail": "https://i.ytimg.com/vi/hDLNaI0oBvk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=hDLNaI0oBvk",
     "duration": "PT15M38S",
-    "viewCount": 97188,
+    "viewCount": 97194,
     "likeCount": 2059,
     "tags": [
       "untagged"
@@ -10918,8 +10862,8 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "textures & materials": 0.6153591871261597,
-      "contrast paints": 0.5824544429779053
+      "textures & materials": 0.6180654764175415,
+      "contrast paints": 0.5265750885009766
     }
   },
   {
@@ -10930,15 +10874,15 @@
     "thumbnail": "https://i.ytimg.com/vi/NqY9Ydrt2xs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=NqY9Ydrt2xs",
     "duration": "PT4M34S",
-    "viewCount": 51276,
+    "viewCount": 51277,
     "likeCount": 932,
     "tags": [
       "contrast paints",
       "kill team"
     ],
     "tag_scores": {
-      "contrast paints": 0.5524133443832397,
-      "kill team": 0.5862987041473389
+      "kill team": 0.5862987041473389,
+      "contrast paints": 0.5457035303115845
     }
   },
   {
@@ -10973,9 +10917,9 @@
       "necrons"
     ],
     "tag_scores": {
-      "beginner": 0.5181002616882324,
+      "citadel products": 0.5295061469078064,
       "necrons": 0.6100292205810547,
-      "citadel products": 0.5295061469078064
+      "beginner": 0.5181002616882324
     }
   },
   {
@@ -10986,7 +10930,7 @@
     "thumbnail": "https://i.ytimg.com/vi/3cmqP3-DlY8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=3cmqP3-DlY8",
     "duration": "PT9M32S",
-    "viewCount": 145745,
+    "viewCount": 145747,
     "likeCount": 2381,
     "tags": [
       "40k",
@@ -11009,15 +10953,12 @@
     "viewCount": 33741,
     "likeCount": 650,
     "tags": [
-      "40k",
       "citadel products",
-      "contrast paints",
-      "orcs"
+      "contrast paints"
     ],
     "tag_scores": {
       "citadel products": 0.6320463418960571,
-      "contrast paints": 0.5740032196044922,
-      "orcs": 0.540749192237854
+      "contrast paints": 0.5484352111816406
     }
   },
   {
@@ -11060,7 +11001,7 @@
     "thumbnail": "https://i.ytimg.com/vi/buYS_Zvvzr0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=buYS_Zvvzr0",
     "duration": "PT8M12S",
-    "viewCount": 101320,
+    "viewCount": 101321,
     "likeCount": 1891,
     "tags": [
       "armour"
@@ -11154,8 +11095,8 @@
       "citadel products"
     ],
     "tag_scores": {
-      "beginner": 0.5534932017326355,
       "citadel products": 0.515304446220398,
+      "beginner": 0.5534932017326355,
       "airbrush": 0.7855066657066345
     }
   },
@@ -11170,12 +11111,10 @@
     "viewCount": 43538,
     "likeCount": 1454,
     "tags": [
-      "skin",
       "textures & materials"
     ],
     "tag_scores": {
-      "textures & materials": 0.5183489322662354,
-      "skin": 0.5033450126647949
+      "textures & materials": 0.5356850624084473
     }
   },
   {
@@ -11197,9 +11136,9 @@
       "contrast paints"
     ],
     "tag_scores": {
+      "contrast paints": 0.5105420351028442,
       "beginner": 0.5357781648635864,
-      "contrast paints": 0.5616675019264221,
-      "black legion": 0.6045289635658264
+      "black legion": 0.6045290231704712
     }
   },
   {
@@ -11210,7 +11149,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Als82sZ1XaE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Als82sZ1XaE",
     "duration": "PT3M35S",
-    "viewCount": 39402,
+    "viewCount": 39404,
     "likeCount": 840,
     "tags": [
       "40k",
@@ -11219,7 +11158,7 @@
       "chaos space marines"
     ],
     "tag_scores": {
-      "black legion": 0.601076602935791
+      "black legion": 0.6010767221450806
     }
   },
   {
@@ -11238,8 +11177,8 @@
       "contrast paints"
     ],
     "tag_scores": {
-      "contrast paints": 0.5791218280792236,
-      "astra militarum": 0.5436546802520752
+      "astra militarum": 0.5436546802520752,
+      "contrast paints": 0.526892900466919
     }
   },
   {
@@ -11250,7 +11189,7 @@
     "thumbnail": "https://i.ytimg.com/vi/HmG2pwu5ZZ0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=HmG2pwu5ZZ0",
     "duration": "PT4M39S",
-    "viewCount": 35376,
+    "viewCount": 35378,
     "likeCount": 864,
     "tags": [
       "40k",
@@ -11258,8 +11197,8 @@
       "beginner"
     ],
     "tag_scores": {
-      "beginner": 0.5627306699752808,
-      "astra militarum": 0.5245798826217651
+      "astra militarum": 0.5245798826217651,
+      "beginner": 0.5627306699752808
     }
   },
   {
@@ -11287,7 +11226,7 @@
     "thumbnail": "https://i.ytimg.com/vi/W2JxDSXXjGk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=W2JxDSXXjGk",
     "duration": "PT8M53S",
-    "viewCount": 37986,
+    "viewCount": 37987,
     "likeCount": 958,
     "tags": [
       "untagged"
@@ -11302,7 +11241,7 @@
     "thumbnail": "https://i.ytimg.com/vi/G5NjILq-IsE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=G5NjILq-IsE",
     "duration": "PT4M7S",
-    "viewCount": 117427,
+    "viewCount": 117430,
     "likeCount": 2364,
     "tags": [
       "40k",
@@ -11314,9 +11253,9 @@
       "thousand sons"
     ],
     "tag_scores": {
-      "beginner": 0.5028514266014099,
-      "citadel products": 0.5696556568145752,
       "space marines": 0.6449898481369019,
+      "citadel products": 0.5696556568145752,
+      "beginner": 0.5028514266014099,
       "thousand sons": 0.7877973318099976
     }
   },
@@ -11335,7 +11274,7 @@
       "metal"
     ],
     "tag_scores": {
-      "metal": 0.566387951374054,
+      "metal": 0.5368764400482178,
       "armour": 0.5263760089874268
     }
   },
@@ -11347,20 +11286,17 @@
     "thumbnail": "https://i.ytimg.com/vi/dbLXbYQqqh8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=dbLXbYQqqh8",
     "duration": "PT4M7S",
-    "viewCount": 106631,
+    "viewCount": 106633,
     "likeCount": 2002,
     "tags": [
-      "40k",
       "beginner",
       "citadel products",
-      "contrast paints",
-      "orcs"
+      "contrast paints"
     ],
     "tag_scores": {
-      "beginner": 0.5990897417068481,
       "citadel products": 0.6154482960700989,
-      "contrast paints": 0.5922920107841492,
-      "orcs": 0.5925467014312744
+      "beginner": 0.5990897417068481,
+      "contrast paints": 0.5777615308761597
     }
   },
   {
@@ -11371,7 +11307,7 @@
     "thumbnail": "https://i.ytimg.com/vi/M1K2NFrmQK4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=M1K2NFrmQK4",
     "duration": "PT3M20S",
-    "viewCount": 96495,
+    "viewCount": 96496,
     "likeCount": 2043,
     "tags": [
       "citadel products",
@@ -11379,7 +11315,7 @@
     ],
     "tag_scores": {
       "citadel products": 0.6117726564407349,
-      "contrast paints": 0.5614517331123352
+      "contrast paints": 0.5286110639572144
     }
   },
   {
@@ -11397,8 +11333,8 @@
       "citadel products"
     ],
     "tag_scores": {
-      "citadel products": 0.6395624876022339,
-      "40k": 0.5216527581214905
+      "40k": 0.5216528177261353,
+      "citadel products": 0.6395624876022339
     }
   },
   {
@@ -11409,15 +11345,15 @@
     "thumbnail": "https://i.ytimg.com/vi/Zbe4y3jpUcE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Zbe4y3jpUcE",
     "duration": "PT2M30S",
-    "viewCount": 108528,
+    "viewCount": 108530,
     "likeCount": 2618,
     "tags": [
       "aos",
       "chaos"
     ],
     "tag_scores": {
-      "aos": 0.40571558475494385,
-      "chaos": 0.5599804520606995
+      "chaos": 0.5599804520606995,
+      "aos": 0.4057155251502991
     }
   },
   {
@@ -11428,7 +11364,7 @@
     "thumbnail": "https://i.ytimg.com/vi/kz2Tol62mHQ/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=kz2Tol62mHQ",
     "duration": "PT2M33S",
-    "viewCount": 40722,
+    "viewCount": 40723,
     "likeCount": 1456,
     "tags": [
       "40k",
@@ -11473,7 +11409,7 @@
       "imperial knights"
     ],
     "tag_scores": {
-      "imperial knights": 0.521293580532074
+      "imperial knights": 0.5212935209274292
     }
   },
   {
@@ -11484,7 +11420,7 @@
     "thumbnail": "https://i.ytimg.com/vi/Jl9NszJDxt4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=Jl9NszJDxt4",
     "duration": "PT26M52S",
-    "viewCount": 271285,
+    "viewCount": 271287,
     "likeCount": 4152,
     "tags": [
       "aos",
@@ -11492,8 +11428,8 @@
       "stormcast eternals"
     ],
     "tag_scores": {
-      "stormcast eternals": 0.511164128780365,
-      "horus heresy": 0.6514877080917358
+      "horus heresy": 0.6514877080917358,
+      "stormcast eternals": 0.511164128780365
     }
   },
   {
@@ -11507,13 +11443,10 @@
     "viewCount": 28098,
     "likeCount": 628,
     "tags": [
-      "40k",
-      "kill team",
-      "orcs"
+      "kill team"
     ],
     "tag_scores": {
-      "kill team": 0.5719091296195984,
-      "orcs": 0.6182137727737427
+      "kill team": 0.5719091296195984
     }
   },
   {
@@ -11532,8 +11465,8 @@
       "kill team"
     ],
     "tag_scores": {
-      "kill team": 0.6081105470657349,
-      "astra militarum": 0.5319640636444092
+      "astra militarum": 0.5319640636444092,
+      "kill team": 0.6081105470657349
     }
   },
   {
@@ -11547,9 +11480,11 @@
     "viewCount": 26458,
     "likeCount": 487,
     "tags": [
-      "aos"
+      "aos",
+      "skin"
     ],
     "tag_scores": {
+      "skin": 0.507864236831665,
       "aos": 0.509274959564209
     }
   },
@@ -11561,7 +11496,7 @@
     "thumbnail": "https://i.ytimg.com/vi/ZBI77q35hHk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ZBI77q35hHk",
     "duration": "PT34M50S",
-    "viewCount": 676622,
+    "viewCount": 676626,
     "likeCount": 9016,
     "tags": [
       "untagged"
@@ -11576,13 +11511,13 @@
     "thumbnail": "https://i.ytimg.com/vi/fJQLyBpT4n8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fJQLyBpT4n8",
     "duration": "PT49M33S",
-    "viewCount": 806868,
+    "viewCount": 806871,
     "likeCount": 10666,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.609199047088623
+      "40k": 0.6091991662979126
     }
   },
   {
@@ -11593,7 +11528,7 @@
     "thumbnail": "https://i.ytimg.com/vi/fCybi5r71RE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=fCybi5r71RE",
     "duration": "PT19M8S",
-    "viewCount": 496370,
+    "viewCount": 496372,
     "likeCount": 7635,
     "tags": [
       "40k",
@@ -11601,9 +11536,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.588896632194519,
       "ultramarines": 0.6261596083641052,
-      "40k": 0.5619481801986694
+      "space marines": 0.588896632194519,
+      "40k": 0.561948299407959
     }
   },
   {
@@ -11614,7 +11549,7 @@
     "thumbnail": "https://i.ytimg.com/vi/29Yg2ukwpTo/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=29Yg2ukwpTo",
     "duration": "PT17M58S",
-    "viewCount": 631321,
+    "viewCount": 631322,
     "likeCount": 6783,
     "tags": [
       "40k",
@@ -11626,10 +11561,10 @@
       "skin"
     ],
     "tag_scores": {
-      "death guard": 0.5458440780639648,
-      "citadel products": 0.5928460359573364,
       "40k": 0.6852562427520752,
-      "skin": 0.5243193507194519
+      "citadel products": 0.5928460359573364,
+      "skin": 0.5349675416946411,
+      "death guard": 0.5458440780639648
     }
   },
   {
@@ -11640,15 +11575,15 @@
     "thumbnail": "https://i.ytimg.com/vi/ThM1HTZgsN8/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=ThM1HTZgsN8",
     "duration": "PT22M45S",
-    "viewCount": 510403,
+    "viewCount": 510405,
     "likeCount": 6713,
     "tags": [
       "40k",
       "aos"
     ],
     "tag_scores": {
-      "aos": 0.6049572229385376,
-      "40k": 0.6454440951347351
+      "40k": 0.6454441547393799,
+      "aos": 0.6049572229385376
     }
   },
   {
@@ -11659,13 +11594,13 @@
     "thumbnail": "https://i.ytimg.com/vi/4Hzls-ZU3sc/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=4Hzls-ZU3sc",
     "duration": "PT32M27S",
-    "viewCount": 732682,
+    "viewCount": 732686,
     "likeCount": 8617,
     "tags": [
       "40k"
     ],
     "tag_scores": {
-      "40k": 0.6056220531463623
+      "40k": 0.6056221127510071
     }
   },
   {
@@ -11676,7 +11611,7 @@
     "thumbnail": "https://i.ytimg.com/vi/-HOLM7dXiyk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=-HOLM7dXiyk",
     "duration": "PT13M27S",
-    "viewCount": 811697,
+    "viewCount": 811700,
     "likeCount": 12144,
     "tags": [
       "40k",
@@ -11688,7 +11623,7 @@
     "tag_scores": {
       "space marines": 0.6274076700210571,
       "thousand sons": 0.8035442233085632,
-      "40k": 0.6145846843719482
+      "40k": 0.6145848035812378
     }
   },
   {
@@ -11714,7 +11649,7 @@
     "thumbnail": "https://i.ytimg.com/vi/34L2g_b3oY0/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=34L2g_b3oY0",
     "duration": "PT1H30M26S",
-    "viewCount": 1083960,
+    "viewCount": 1083962,
     "likeCount": 10601,
     "tags": [
       "untagged"
@@ -11747,14 +11682,14 @@
     "thumbnail": "https://i.ytimg.com/vi/vLsteSBHEcM/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=vLsteSBHEcM",
     "duration": "PT19M27S",
-    "viewCount": 689765,
+    "viewCount": 689766,
     "likeCount": 8778,
     "tags": [
       "40k",
       "adeptus mechanicus"
     ],
     "tag_scores": {
-      "40k": 0.6800379753112793,
+      "40k": 0.6800380945205688,
       "adeptus mechanicus": 0.515505313873291
     }
   },
@@ -11774,9 +11709,9 @@
       "ultramarines"
     ],
     "tag_scores": {
-      "space marines": 0.6582180261611938,
       "ultramarines": 0.6978386640548706,
-      "40k": 0.6732261776924133
+      "space marines": 0.6582180261611938,
+      "40k": 0.6732263565063477
     }
   },
   {
@@ -11794,8 +11729,8 @@
       "necrons"
     ],
     "tag_scores": {
-      "necrons": 0.7127575278282166,
-      "40k": 0.6963778138160706
+      "40k": 0.6963778734207153,
+      "necrons": 0.7127575278282166
     }
   },
   {
@@ -11806,7 +11741,7 @@
     "thumbnail": "https://i.ytimg.com/vi/g9HzqHVg1uE/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=g9HzqHVg1uE",
     "duration": "PT16M9S",
-    "viewCount": 534315,
+    "viewCount": 534316,
     "likeCount": 5611,
     "tags": [
       "40k",
@@ -11816,11 +11751,11 @@
       "textures & materials"
     ],
     "tag_scores": {
-      "space marines": 0.6850012540817261,
-      "blood angels": 0.7180232405662537,
-      "40k": 0.6663851141929626,
-      "textures & materials": 0.543410062789917,
-      "armour": 0.5964537858963013
+      "40k": 0.6663851737976074,
+      "textures & materials": 0.5481548309326172,
+      "blood angels": 0.7161429524421692,
+      "armour": 0.5964537858963013,
+      "space marines": 0.6850012540817261
     }
   },
   {
@@ -11831,7 +11766,7 @@
     "thumbnail": "https://i.ytimg.com/vi/oKdzNh1JGE4/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=oKdzNh1JGE4",
     "duration": "PT20M39S",
-    "viewCount": 625682,
+    "viewCount": 625683,
     "likeCount": 6120,
     "tags": [
       "40k",
@@ -11839,8 +11774,8 @@
       "space wolves"
     ],
     "tag_scores": {
-      "space wolves": 0.6779229640960693,
-      "40k": 0.6552649736404419
+      "40k": 0.6552651524543762,
+      "space wolves": 0.6779229640960693
     }
   },
   {
@@ -11851,17 +11786,15 @@
     "thumbnail": "https://i.ytimg.com/vi/GFpqxHFMZXs/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=GFpqxHFMZXs",
     "duration": "PT9M4S",
-    "viewCount": 486208,
+    "viewCount": 486211,
     "likeCount": 6076,
     "tags": [
       "40k",
-      "orcs",
       "skin"
     ],
     "tag_scores": {
-      "40k": 0.6021811366081238,
-      "skin": 0.5555987358093262,
-      "orcs": 0.5497463941574097
+      "40k": 0.6021812558174133,
+      "skin": 0.5504041910171509
     }
   },
   {
@@ -11872,7 +11805,7 @@
     "thumbnail": "https://i.ytimg.com/vi/S9bDoIMCSfk/maxresdefault.jpg",
     "url": "https://www.youtube.com/watch?v=S9bDoIMCSfk",
     "duration": "PT7M42S",
-    "viewCount": 555467,
+    "viewCount": 555468,
     "likeCount": 4192,
     "tags": [
       "citadel products"
