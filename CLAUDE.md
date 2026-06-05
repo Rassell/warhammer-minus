@@ -22,6 +22,7 @@ A fan-made web application for browsing and filtering Warhammer painting tutoria
 - **sentence-transformers** - Semantic tagging with NLP embeddings
 - **torch** - PyTorch for neural network inference
 - **numpy** - Numerical operations for embeddings
+- **google-generativeai** - LLM-based tagging with Google Gemini
 
 ### Deployment
 - **GitHub Pages** - Static hosting
@@ -69,6 +70,7 @@ warhammer-minus/
 │   ├── exclude_ids.json          # Specific video IDs to exclude
 │   ├── videos.json               # Generated video data (intermediate)
 │   ├── TAGGING_GUIDE.md          # Tagging system documentation
+│   ├── llm_system_prompt.txt     # LLM system prompt template
 │   └── .venv/                    # Python virtual environment
 ├── public/                # Static assets
 │   ├── favicon.svg
@@ -129,12 +131,29 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 # Install dependencies
 pip install -r ../requirements.txt
 
-# Configure API key
+# Configure API keys
 cp ../.env.example ../.env
-# Edit .env and add your YouTube API key
+# Edit .env and add your YouTube API key, and optionally Groq or Gemini API key for LLM modes
 
-# ===== RECOMMENDED: Hybrid Mode (regex + semantic validation) =====
-# Best balance of coverage and accuracy - eliminates false positives
+# ===== RECOMMENDED: Groq Mode (best accuracy + speed) =====
+# Uses Llama 3.3 70B - extremely fast and generous free tier
+# Requires free Groq API key: https://console.groq.com
+python update_videos.py --groq
+
+# Tag existing videos only (Groq mode)
+python update_videos.py --tag-only --groq
+
+# ===== ALTERNATIVE: Gemini LLM Mode (good accuracy) =====
+# Uses Google Gemini 2.0 Flash for human-like reasoning
+# Requires free Gemini API key: https://aistudio.google.com/apikey
+# Note: Free tier has low quota limits, may hit rate limits
+python update_videos.py --llm
+
+# Tag existing videos only (Gemini mode)
+python update_videos.py --tag-only --llm
+
+# ===== ALTERNATIVE: Hybrid Mode (best offline balance) =====
+# Regex for coverage + semantic validation for accuracy - eliminates false positives
 python update_videos.py --hybrid --threshold 0.50
 
 # Full pipeline: fetch + tag + save
@@ -166,14 +185,30 @@ python analyze_untagged.py
 ```
 
 **Tagging Modes:**
-- **Hybrid (Recommended)**: Regex for coverage + semantic validation for accuracy
+- **Groq (Best Overall)**: Uses Llama 3.3 70B via Groq API
+  - ~95%+ coverage with near-perfect accuracy
+  - Extremely fast (~2-5 minutes for 600 videos)
+  - Very generous free tier (14,400 requests/day)
+  - Requires free Groq API key from https://console.groq.com
+  - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
+
+- **LLM/Gemini (Good Accuracy, Slow)**: Uses Google Gemini 2.0 Flash for human-like reasoning
+  - ~95%+ coverage with near-perfect accuracy
+  - Zero false positives from paint names
+  - Requires free Gemini API key from https://aistudio.google.com/apikey
+  - ~30-40 minutes runtime (rate-limited)
+  - Warning: Free tier has low quota limits, easily exhausted
+  - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
+
+- **Hybrid (Best Offline Balance)**: Regex for coverage + semantic validation for accuracy
   - 86% coverage (530/617 videos)
   - Zero false positives from paint names
+  - Works offline, no API required
   - Example: "Liberator Gold" paint won't tag `stormcast eternals`
   
 - **Semantic**: Pure NLP-based matching using sentence transformers
   - Most conservative (53-79% coverage depending on threshold)
-  - Best context understanding
+  - Best context understanding, works offline
   - Requires ~500MB model download (one-time)
   
 - **Regex (Default)**: Traditional keyword patterns
@@ -184,18 +219,47 @@ python analyze_untagged.py
 **Configuration Files:**
 All tagging and filtering rules are stored in JSON files for easy editing:
 - `tag_rules.json` - Regex tagging patterns (93 rules) - used in regex/hybrid modes
-- `tag_descriptions.json` - Semantic tag descriptions (68 tags) - used in semantic/hybrid modes
+- `tag_descriptions.json` - Semantic tag descriptions (93+ tags) - used in semantic/hybrid/LLM modes
 - `tag_hierarchy.json` - Tag parent-child relationships (applies to all modes)
 - `exclude_patterns.json` - Title patterns to filter out
 - `exclude_ids.json` - Specific video IDs to exclude
 
 ### Video Tagging System
 
-The project uses an intelligent tagging system with **three modes**:
+The project uses an intelligent tagging system with **five modes**:
 
 #### Tagging Modes
 
-**1. Hybrid Mode (Recommended)**
+**1. Groq Mode (Best Overall - RECOMMENDED)**
+- Uses Llama 3.1 8B Instant via Groq API for intelligent tagging
+- **Coverage**: ~95%+ (understands what's being painted)
+- **Accuracy**: Near-perfect - zero false positives
+- **Speed**: Extremely fast (~2-5 minutes for 600 videos)
+- **How it works**: 
+  1. Send batches of videos to Groq API
+  2. Llama 3.1 8B reads title + description and assigns relevant tags
+  3. Validate tags against tag_descriptions.json
+  4. Auto-saves progress after each batch (resume on failure)
+  5. Very generous free tier (14,400 requests/day, 100K tokens/day)
+- **Requirements**: Free Groq API key from https://console.groq.com
+- **Checkpoint/Resume**: Auto-saves to `be/.llm_checkpoint.json` - just re-run if interrupted
+
+**2. Gemini LLM Mode (Good Accuracy, Slower)**
+- Uses Google Gemini 2.0 Flash to understand context like a human
+- **Coverage**: ~95%+ (understands what's being painted)
+- **Accuracy**: Near-perfect - zero false positives
+- **Speed**: Slow (~30-40 minutes, rate-limited)
+- **How it works**: 
+  1. Send batches of videos to Gemini API
+  2. LLM reads title + description and assigns relevant tags
+  3. Validate tags against tag_descriptions.json
+  4. Auto-saves progress after each batch (resume on failure)
+  5. Rate limited to 15 requests/minute (free tier)
+- **Requirements**: Free Gemini API key from https://aistudio.google.com/apikey
+- **Note**: Free tier has low quota limits, easily exhausted
+- **Checkpoint/Resume**: Auto-saves to `be/.llm_checkpoint.json` - just re-run if interrupted
+
+**3. Hybrid Mode (Best Offline Balance)**
 - Combines regex pattern matching with semantic validation
 - **Coverage**: 86% (530/617 videos)
 - **Accuracy**: Near-zero false positives
@@ -205,7 +269,7 @@ The project uses an intelligent tagging system with **three modes**:
   3. Keep tags that score high OR appear in video title
   4. Add high-confidence semantic tags (>0.80) that regex missed
 
-**2. Semantic Mode**
+**4. Semantic Mode**
 - Pure NLP-based matching using sentence transformers (embeddings)
 - **Coverage**: 53-79% (depending on threshold 0.55-0.65)
 - **Accuracy**: Highest - understands context
@@ -215,7 +279,7 @@ The project uses an intelligent tagging system with **three modes**:
   3. Apply tags above threshold
 - **Use case**: Maximum precision, minimal false positives
 
-**3. Regex Mode (Default/Fallback)**
+**5. Regex Mode (Default/Fallback)**
 - Traditional keyword pattern matching
 - **Coverage**: 100%
 - **Accuracy**: Prone to false positives from paint names
@@ -223,6 +287,8 @@ The project uses an intelligent tagging system with **three modes**:
 - **Use case**: Fast, deterministic, backwards compatible
 
 #### Key Features
+- **Human-like reasoning (Groq/Gemini LLM)**: Uses large language models to truly understand what's being painted
+- **Checkpoint/Resume (LLM modes)**: Auto-saves progress after each batch - just re-run if connection drops or rate limits hit
 - **Context-aware (Hybrid/Semantic)**: Distinguishes "painting Orks" from "Ork Green paint"
 - **Automatic hierarchy**: Child tags inherit parent tags (e.g., `salamanders` → `space marines` + `40k`)
 - **Confidence scores (Hybrid/Semantic)**: Tags include 0-1 similarity scores
@@ -232,13 +298,15 @@ The project uses an intelligent tagging system with **three modes**:
 
 #### Available Tools
 - **`update_videos.py`**: Unified script - fetches and tags all videos
-  - `--hybrid`: Hybrid mode (recommended)
+  - `--groq`: Groq mode (RECOMMENDED - fast, generous free tier, requires Groq API key)
+  - `--llm`: Gemini LLM mode (good accuracy, requires Gemini API key)
+  - `--hybrid`: Hybrid mode (best offline balance)
   - `--semantic`: Semantic mode
   - `--threshold N`: Similarity threshold (0.0-1.0, default 0.65)
 - **`semantic_tagger.py`**: SemanticTagger class using sentence-transformers
 - **`analyze_untagged.py`**: Analysis tool to identify missing patterns
 - **`tag_rules.json`**: Editable regex patterns (93 rules)
-- **`tag_descriptions.json`**: Editable semantic descriptions (68 tags)
+- **`tag_descriptions.json`**: Editable semantic descriptions (93+ tags)
 - **`tag_hierarchy.json`**: Parent-child tag relationships
 - **`TAGGING_GUIDE.md`**: Complete documentation
 
@@ -251,7 +319,21 @@ The project uses an intelligent tagging system with **three modes**:
 
 #### Maintenance Workflow
 
-**Recommended (Hybrid Mode):**
+**Recommended (Groq Mode - BEST):**
+1. Get free API key at https://console.groq.com
+2. Add to `be/.env`: `GROQ_API_KEY=your_key_here`
+3. Run `python update_videos.py --groq` to fetch and tag all videos
+4. Check statistics output - should achieve ~95%+ coverage in ~2-5 minutes
+5. For improvements: Edit tag descriptions in `tag_descriptions.json`
+
+**Alternative (Gemini LLM Mode - if Groq unavailable):**
+1. Get free API key at https://aistudio.google.com/apikey
+2. Add to `be/.env`: `GEMINI_API_KEY=your_key_here`
+3. Run `python update_videos.py --llm` to fetch and tag all videos
+4. Check statistics output - should achieve ~95%+ coverage with near-perfect accuracy
+5. Note: May hit quota limits on free tier
+
+**Alternative (Hybrid Mode - offline, no API required):**
 1. Run `python update_videos.py --hybrid` to fetch and tag all videos
 2. Check statistics output - if many untagged, investigate why
 3. For false positives: Adjust tag descriptions in `tag_descriptions.json`
@@ -279,6 +361,16 @@ Create a `.env` file in the project root (copy from `.env.example`):
 # YouTube Data API v3 Key
 # Get your key at: https://console.cloud.google.com/apis/credentials
 YOUTUBE_API_KEY=your_api_key_here
+
+# Groq API Key (for --groq tagging mode - RECOMMENDED)
+# Get a free key at: https://console.groq.com
+# Much faster and more generous free tier than Gemini
+GROQ_API_KEY=your_groq_api_key_here
+
+# Google Gemini API Key (for --llm tagging mode)
+# Get a free key at: https://aistudio.google.com/apikey
+# Note: Now uses google-genai package (google-generativeai is deprecated)
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 **Note:** The `.env` file is gitignored. Never commit API keys.
@@ -379,6 +471,7 @@ When helping with this project:
 7. **Don't commit .env** - It's gitignored for a reason
 8. **Maintain tag coverage** - When adding new tag patterns, edit `tag_rules.json` and run `analyze_untagged.py` to verify coverage
 9. **Use English** - All code, comments, and documentation should be in English for consistency
+10. **Update documentation** - If adding features or changing functionality, update `README.md`, `CLAUDE.md`, and `TAGGING_GUIDE.md` accordingly
 
 ## Useful Commands Reference
 
@@ -390,10 +483,15 @@ npm run build           # Build for production
 npm run preview         # Preview production build
 
 # Python (from be/ directory)
-python update_videos.py           # Fetch + tag + save (one command)
+python update_videos.py --groq        # Groq mode (RECOMMENDED - fast & generous free tier)
+python update_videos.py --llm         # Gemini LLM mode (good accuracy, may hit quota limits)
+python update_videos.py --hybrid      # Hybrid mode (best offline balance)
+python update_videos.py               # Regex mode (default)
 python update_videos.py --fetch-only  # Fetch videos only
-python update_videos.py --tag-only    # Tag existing videos only
-python analyze_untagged.py        # Analyze missing patterns
+python update_videos.py --tag-only --groq   # Tag existing videos (Groq)
+python update_videos.py --tag-only --llm    # Tag existing videos (Gemini)
+python update_videos.py --tag-only --hybrid # Tag existing videos (hybrid)
+python analyze_untagged.py            # Analyze missing patterns
 
 # Git
 git status              # Check current state

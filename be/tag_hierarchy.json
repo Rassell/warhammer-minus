@@ -23,7 +23,7 @@
   "eldar": ["40k"],
   "drukhari": ["eldar", "40k"],
   "harlequins": ["eldar", "40k"],
-  "orcs": ["40k"],
+  "orks & orruks": ["40k", "aos"],
   "genestealer cults": ["40k"],
   "astra militarum": ["40k"],
   "sororitas": ["40k"],
@@ -37,5 +37,11 @@
   "sylvaneth": ["aos"],
   "idoneth deepkin": ["aos"],
   "space marines": ["40k"],
-  "chaos space marines": ["chaos", "40k"]
+  "chaos space marines": ["chaos", "40k"],
+  "votann": ["40k"],
+  "skaven": ["aos"],
+  "chaos knights": ["chaos", "40k"],
+  "seraphon": ["aos"],
+  "nighthaunt": ["aos"],
+  "soulblight gravelords": ["aos"]
 }

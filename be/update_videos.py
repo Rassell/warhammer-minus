@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 import argparse
 from typing import List, Dict, Any, Optional
 from googleapiclient.discovery import build
@@ -10,6 +11,49 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 API_KEY = os.getenv('YOUTUBE_API_KEY', '')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
+GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
+
+# Checkpoint file for LLM resume functionality
+CHECKPOINT_FILE = '.llm_checkpoint.json'
+
+# ============================================================================
+# CHECKPOINT HELPERS
+# ============================================================================
+
+def save_checkpoint(videos: List[Dict], batch_num: int, mode: str) -> None:
+    """Save progress checkpoint for LLM tagging."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    checkpoint_path = os.path.join(script_dir, CHECKPOINT_FILE)
+
+    checkpoint = {
+        'mode': mode,
+        'batch_num': batch_num,
+        'timestamp': time.time(),
+        'total_videos': len(videos),
+        'videos': videos
+    }
+
+    with open(checkpoint_path, 'w') as f:
+        json.dump(checkpoint, f)
+
+def load_checkpoint() -> Optional[Dict]:
+    """Load existing checkpoint if it exists."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    checkpoint_path = os.path.join(script_dir, CHECKPOINT_FILE)
+
+    if os.path.exists(checkpoint_path):
+        with open(checkpoint_path, 'r') as f:
+            return json.load(f)
+    return None
+
+def clear_checkpoint() -> None:
+    """Remove checkpoint file after successful completion."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    checkpoint_path = os.path.join(script_dir, CHECKPOINT_FILE)
+
+    if os.path.exists(checkpoint_path):
+        os.remove(checkpoint_path)
 
 # ============================================================================
 # CONFIGURATION LOADING
@@ -393,6 +437,307 @@ def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70,
 
     return videos_with_regex
 
+def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2) -> List[Dict]:
+    """
+    Apply tags using Google Gemini LLM for intelligent context-aware tagging.
+
+    Sends batches of videos to Gemini 2.0 Flash for classification.
+    Rate limited to 15 requests/minute (free tier).
+    Using 2 videos per batch and 8-second delays = ~7.5 RPM (very conservative).
+    """
+    from google import genai
+    from google.genai.types import GenerateContentConfig
+
+    if not GEMINI_API_KEY:
+        print("❌ Error: GEMINI_API_KEY not set in .env file.")
+        print("   Get a free key at: https://aistudio.google.com/apikey")
+        exit(1)
+
+    client = genai.Client(api_key=GEMINI_API_KEY)
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(script_dir, 'tag_descriptions.json'), 'r') as f:
+        tag_descriptions = json.load(f)
+
+    # Check for existing checkpoint
+    checkpoint = load_checkpoint()
+    start_batch = 0
+
+    if checkpoint and checkpoint.get('mode') == 'gemini':
+        if not quiet:
+            completed = checkpoint.get('batch_num', 0)
+            total = (len(videos) + batch_size - 1) // batch_size
+            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+            print(f"   Resuming from batch {completed + 1}...")
+
+        # Restore previously tagged videos
+        videos = checkpoint['videos']
+        start_batch = checkpoint['batch_num'] + 1
+    elif checkpoint and checkpoint.get('mode') != 'gemini':
+        if not quiet:
+            print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
+        clear_checkpoint()
+
+    tag_list_text = "\n".join(
+        f"- {tag}: {desc}" for tag, desc in tag_descriptions.items()
+    )
+
+    # Load system prompt from file
+    with open(os.path.join(script_dir, 'llm_system_prompt.txt'), 'r') as f:
+        system_prompt_template = f.read()
+
+    system_prompt = system_prompt_template.replace('{TAG_LIST}', tag_list_text)
+
+    tagged_count = 0
+    total_batches = (len(videos) + batch_size - 1) // batch_size
+
+    if not quiet:
+        if start_batch > 0:
+            print(f"🤖 Resuming Gemini LLM tagging (batch {start_batch + 1}/{total_batches})...")
+        else:
+            print(f"🤖 Starting Gemini LLM tagging ({len(videos)} videos in {total_batches} batches)...")
+        print(f"   Rate limit safety: 8s delays = ~7.5 RPM (very conservative)")
+        print(f"   Estimated time: ~{(total_batches * 8) // 60} minutes")
+        print(f"   💾 Auto-saving progress after each batch (resume on failure)")
+
+    # Initial delay to avoid hitting any leftover rate limits or burst limits
+    if start_batch == 0 and not quiet:
+        print(f"   Waiting 10s to clear any burst limits...")
+        time.sleep(10)
+
+    for batch_start in range(start_batch * batch_size, len(videos), batch_size):
+        batch = videos[batch_start:batch_start + batch_size]
+        batch_num = batch_start // batch_size
+
+        videos_text = ""
+        for j, video in enumerate(batch):
+            title = video.get('title', '')
+            desc = video.get('description', '')[:300]
+            videos_text += f"\nVideo {j + 1}:\nTitle: {title}\nDescription: {desc}\n"
+
+        user_prompt = (
+            f"{videos_text}\n\nReturn a JSON object mapping video numbers "
+            f"(as strings) to arrays of matching tag names. "
+            f'Example: {{"1": ["40k", "space marines"], "2": ["aos", "beginner"]}}'
+        )
+
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = client.models.generate_content(
+                    model='gemini-2.0-flash',
+                    contents=f"{system_prompt}\n\n{user_prompt}",
+                    config=GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0.1,
+                    )
+                )
+
+                results = json.loads(response.text)
+
+                for j, video in enumerate(batch):
+                    video_tags = results.get(str(j + 1), [])
+                    valid_tags = [t for t in video_tags if t in tag_descriptions]
+                    video['tags'] = valid_tags
+                    if valid_tags:
+                        tagged_count += 1
+                break
+
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    # Check if it's a rate limit error (429)
+                    if "429" in str(e) or "Resource has been exhausted" in str(e):
+                        wait_time = 10 * (attempt + 1)  # Longer backoff for rate limits
+                        if not quiet:
+                            print(f"  ⚠️  Rate limit hit, waiting {wait_time}s before retry {attempt + 1}/{max_retries}...")
+                    else:
+                        wait_time = 5 * (attempt + 1)  # Normal retry backoff
+                        if not quiet:
+                            print(f"  ⚠️  Retry {attempt + 1}/{max_retries} for batch {batch_num}: {e}")
+                    time.sleep(wait_time)
+                else:
+                    if not quiet:
+                        print(f"  ❌ Failed batch {batch_num} after {max_retries} retries: {e}")
+                    for video in batch:
+                        if 'tags' not in video:
+                            video['tags'] = []
+
+        # Save checkpoint after each batch
+        save_checkpoint(videos, batch_num, 'gemini')
+
+        if batch_start + batch_size < len(videos):
+            time.sleep(8)  # 8 seconds = ~7.5 RPM (very conservative, well under 15 RPM limit)
+
+        if not quiet and batch_num % 5 == 0:
+            processed = min(batch_start + batch_size, len(videos))
+            print(f"  Tagged {processed}/{len(videos)} videos (batch {batch_num + 1}/{total_batches})...")
+
+    # Clear checkpoint on successful completion
+    clear_checkpoint()
+
+    if not quiet:
+        print(f"✓ LLM tagged {tagged_count}/{len(videos)} videos")
+        print(f"  💾 Checkpoint cleared")
+
+    return videos
+
+def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int = 5) -> List[Dict]:
+    """
+    Apply tags using Groq LLM (Llama 3.1 8B) for intelligent context-aware tagging.
+
+    Groq offers very fast inference and generous free tier (14,400 requests/day).
+    Using smaller 8B model to stay well within token limits (100K tokens/day).
+    Using 5 videos per batch with 1-second delays = safe for free tier.
+    Supports checkpoint/resume in case of connection loss.
+    """
+    from groq import Groq
+
+    if not GROQ_API_KEY:
+        print("❌ Error: GROQ_API_KEY not set in .env file.")
+        print("   Get a free key at: https://console.groq.com")
+        exit(1)
+
+    client = Groq(api_key=GROQ_API_KEY)
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(script_dir, 'tag_descriptions.json'), 'r') as f:
+        tag_descriptions = json.load(f)
+
+    # Check for existing checkpoint
+    checkpoint = load_checkpoint()
+    start_batch = 0
+
+    if checkpoint and checkpoint.get('mode') == 'groq':
+        if not quiet:
+            completed = checkpoint.get('batch_num', 0)
+            total = (len(videos) + batch_size - 1) // batch_size
+            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+            print(f"   Resuming from batch {completed + 1}...")
+
+        # Restore previously tagged videos
+        videos = checkpoint['videos']
+        start_batch = checkpoint['batch_num'] + 1
+    elif checkpoint and checkpoint.get('mode') != 'groq':
+        if not quiet:
+            print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
+        clear_checkpoint()
+
+
+    tag_list_text = "\n".join(
+        f"- {tag}: {desc}" for tag, desc in tag_descriptions.items()
+    )
+
+    # Load system prompt from file
+    with open(os.path.join(script_dir, 'llm_system_prompt.txt'), 'r') as f:
+        system_prompt_template = f.read()
+
+    system_prompt = system_prompt_template.replace('{TAG_LIST}', tag_list_text)
+
+    tagged_count = 0
+    total_batches = (len(videos) + batch_size - 1) // batch_size
+
+    if not quiet:
+        if start_batch > 0:
+            print(f"🚀 Resuming Groq LLM tagging (batch {start_batch + 1}/{total_batches})...")
+        else:
+            print(f"🚀 Starting Groq LLM tagging ({len(videos)} videos in {total_batches} batches)...")
+        print(f"   Using Llama 3.1 8B Instant - fast & efficient (low token usage)")
+        print(f"   Estimated time: ~{(total_batches * 2) // 60} minutes")
+        print(f"   💾 Auto-saving progress after each batch (resume on failure)")
+
+    for batch_start in range(start_batch * batch_size, len(videos), batch_size):
+        batch = videos[batch_start:batch_start + batch_size]
+        batch_num = batch_start // batch_size
+
+        videos_text = ""
+        for j, video in enumerate(batch):
+            title = video.get('title', '')
+            desc = video.get('description', '')[:300]
+            videos_text += f"\nVideo {j + 1}:\nTitle: {title}\nDescription: {desc}\n"
+
+        user_prompt = (
+            f"{videos_text}\n\nReturn a JSON object mapping video numbers "
+            f"(as strings) to arrays of matching tag names. "
+            f'Example: {{"1": ["40k", "space marines"], "2": ["aos", "beginner"]}}'
+        )
+
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = client.chat.completions.create(
+                    model="llama-3.1-8b-instant",
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=0.1,
+                    max_tokens=1000
+                )
+
+                results = json.loads(response.choices[0].message.content)
+
+                for j, video in enumerate(batch):
+                    video_tags = results.get(str(j + 1), [])
+                    valid_tags = [t for t in video_tags if t in tag_descriptions]
+                    video['tags'] = valid_tags
+                    if valid_tags:
+                        tagged_count += 1
+                break
+
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    error_str = str(e)
+                    # Check if it's a rate limit error (429)
+                    if "429" in error_str or "rate_limit" in error_str.lower():
+                        # Try to parse the retry time from the error message
+                        # Format: "Please try again in 23m55.967999999s"
+                        import re
+                        retry_match = re.search(r'try again in (\d+)m([\d.]+)s', error_str)
+                        if retry_match:
+                            minutes = int(retry_match.group(1))
+                            seconds = float(retry_match.group(2))
+                            wait_time = (minutes * 60) + seconds + 5  # Add 5s buffer
+
+                            if not quiet:
+                                print(f"  ⏳ Rate limit hit. Waiting {int(wait_time // 60)}m {int(wait_time % 60)}s for quota to reset...")
+                                print(f"     (Groq free tier: 100K tokens/day - you're close to the limit)")
+                        else:
+                            wait_time = 10 * (attempt + 1)
+                            if not quiet:
+                                print(f"  ⚠️  Rate limit hit, waiting {wait_time}s before retry {attempt + 1}/{max_retries}...")
+                    else:
+                        wait_time = 3 * (attempt + 1)
+                        if not quiet:
+                            print(f"  ⚠️  Retry {attempt + 1}/{max_retries} for batch {batch_num}: {e}")
+                    time.sleep(wait_time)
+                else:
+                    if not quiet:
+                        print(f"  ❌ Failed batch {batch_num} after {max_retries} retries: {e}")
+                    for video in batch:
+                        if 'tags' not in video:
+                            video['tags'] = []
+
+        # Save checkpoint after each batch
+        save_checkpoint(videos, batch_num, 'groq')
+
+        # Groq is very fast and has generous rate limits, but still add small delay
+        if batch_start + batch_size < len(videos):
+            time.sleep(1)  # 1 second between batches (very fast)
+
+        if not quiet and batch_num % 10 == 0:
+            processed = min(batch_start + batch_size, len(videos))
+            print(f"  Tagged {processed}/{len(videos)} videos (batch {batch_num + 1}/{total_batches})...")
+
+    # Clear checkpoint on successful completion
+    clear_checkpoint()
+
+    if not quiet:
+        print(f"✓ Groq LLM tagged {tagged_count}/{len(videos)} videos")
+        print(f"  💾 Checkpoint cleared")
+
+    return videos
+
 def apply_tag_hierarchy(videos: List[Dict]) -> List[Dict]:
     """
     Add parent tags based on TAG_HIERARCHY.
@@ -473,7 +818,8 @@ def print_tag_statistics(videos: List[Dict]) -> None:
         print(f"\nConsider adding patterns for these videos to TAG_RULES")
 
 def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False,
-                       semantic: bool = False, hybrid: bool = False, threshold: float = 0.65,
+                       semantic: bool = False, hybrid: bool = False, llm: bool = False,
+                       groq: bool = False, threshold: float = 0.65,
                        model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
     """
     Orchestrate all tagging steps.
@@ -484,6 +830,8 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         no_stats: Skip tag statistics
         semantic: Use semantic tagging instead of regex
         hybrid: Use hybrid (regex + semantic validation)
+        llm: Use Google Gemini LLM tagging
+        groq: Use Groq LLM tagging (fast, generous free tier)
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
 
@@ -491,11 +839,15 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         Tagged and deduplicated videos
     """
     if not quiet:
-        mode = "semantic" if semantic else ("hybrid" if hybrid else "regex")
+        mode = "groq" if groq else ("llm" if llm else ("semantic" if semantic else ("hybrid" if hybrid else "regex")))
         print(f"🏷️  Tagging videos ({mode} mode)...")
 
     # Apply tagging based on mode
-    if semantic:
+    if groq:
+        videos = apply_tags_llm_groq(videos, quiet=quiet)
+    elif llm:
+        videos = apply_tags_llm(videos, quiet=quiet)
+    elif semantic:
         videos = apply_tags_semantic(videos, threshold, model_name)
     elif hybrid:
         videos = apply_tags_hybrid(videos, threshold, model_name)
@@ -582,6 +934,8 @@ def run_full_pipeline(
     no_stats: bool = False,
     semantic: bool = False,
     hybrid: bool = False,
+    llm: bool = False,
+    groq: bool = False,
     threshold: float = 0.65,
     model_name: str = 'all-MiniLM-L6-v2'
 ) -> List[Dict[str, Any]]:
@@ -596,6 +950,8 @@ def run_full_pipeline(
         no_stats: Skip tag statistics
         semantic: Use semantic tagging
         hybrid: Use hybrid tagging
+        llm: Use Google Gemini LLM tagging
+        groq: Use Groq LLM tagging
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
 
@@ -615,8 +971,8 @@ def run_full_pipeline(
 
     # Step 2: Tag videos
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
-                                       semantic=semantic, hybrid=hybrid, threshold=threshold,
-                                       model_name=model_name)
+                                       semantic=semantic, hybrid=hybrid, llm=llm,
+                                       groq=groq, threshold=threshold, model_name=model_name)
 
     # Step 3: Optionally save intermediate file
     if save_intermediate:
@@ -649,7 +1005,8 @@ def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = F
     save_videos(videos, './videos.json', 'videos')
 
 def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False,
-                semantic: bool = False, hybrid: bool = False, threshold: float = 0.65,
+                semantic: bool = False, hybrid: bool = False, llm: bool = False,
+                groq: bool = False, threshold: float = 0.65,
                 model_name: str = 'all-MiniLM-L6-v2') -> None:
     """
     Load videos, tag them, save to output.
@@ -661,13 +1018,15 @@ def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stat
         no_stats: Skip tag statistics
         semantic: Use semantic tagging
         hybrid: Use hybrid tagging
+        llm: Use Google Gemini LLM tagging
+        groq: Use Groq LLM tagging
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
     """
     videos = load_videos(input_path)
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
-                                       semantic=semantic, hybrid=hybrid, threshold=threshold,
-                                       model_name=model_name)
+                                       semantic=semantic, hybrid=hybrid, llm=llm,
+                                       groq=groq, threshold=threshold, model_name=model_name)
     save_videos(tagged_videos, output_path, 'tagged videos')
 
 # ============================================================================
@@ -732,6 +1091,10 @@ Examples:
                               help='Use semantic tagging instead of regex (slower but more accurate)')
     tagging_mode.add_argument('--hybrid', action='store_true',
                               help='Use hybrid: regex for obvious matches, semantic for validation')
+    tagging_mode.add_argument('--llm', action='store_true',
+                              help='Use Google Gemini LLM for intelligent tagging (requires GEMINI_API_KEY)')
+    tagging_mode.add_argument('--groq', action='store_true',
+                              help='Use Groq LLM (Llama 3.1 8B Instant) - FAST & stays within free tier token limits (requires GROQ_API_KEY)')
     parser.add_argument('--threshold', type=float, default=0.65,
                        help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
     parser.add_argument('--model', type=str, default='all-distilroberta-v1',
@@ -749,8 +1112,8 @@ Examples:
         run_fetch_only(args.channel, search_query, args.quiet)
     elif args.tag_only:
         run_tag_only(args.input, args.output, args.quiet, args.no_stats,
-                    semantic=args.semantic, hybrid=args.hybrid, threshold=args.threshold,
-                    model_name=args.model)
+                    semantic=args.semantic, hybrid=args.hybrid, llm=args.llm,
+                    groq=args.groq, threshold=args.threshold, model_name=args.model)
     else:
         # Full pipeline (default)
         run_full_pipeline(
@@ -761,6 +1124,8 @@ Examples:
             no_stats=args.no_stats,
             semantic=args.semantic,
             hybrid=args.hybrid,
+            llm=args.llm,
+            groq=args.groq,
             threshold=args.threshold,
             model_name=args.model
         )
