@@ -24,18 +24,8 @@ export default function Sidebar({
       });
     });
 
-    return Array.from(uniqueTags).sort((a, b) => {
-      const aSelected = selectedTags.includes(a);
-      const bSelected = selectedTags.includes(b);
-
-      // Selected tags come first
-      if (aSelected && !bSelected) return -1;
-      if (!aSelected && bSelected) return 1;
-
-      // Within each group, sort alphabetically
-      return a.localeCompare(b);
-    });
-  }, [selectedTags]);
+    return Array.from(uniqueTags).sort((a, b) => a.localeCompare(b));
+  }, []);
 
   const toggleTag = (tag: string) => {
     if (selectedTags.includes(tag)) {

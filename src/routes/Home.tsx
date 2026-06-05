@@ -30,7 +30,7 @@ export default function Home() {
 
         const matchesTags =
           selectedTags.length === 0 ||
-          selectedTags.every((tag) => video.tags.includes(tag));
+          selectedTags.some((tag) => video.tags.includes(tag));
 
         return matchesSearch && matchesTags;
       })
