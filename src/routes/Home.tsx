@@ -23,10 +23,9 @@ export default function Home() {
   const filteredVideos = useMemo(() => {
     return videos
       .filter((video) => {
-        const matchesSearch =
-          video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (video.description &&
-            video.description.toLowerCase().includes(searchTerm.toLowerCase()));
+        const matchesSearch = video.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
 
         const matchesTags =
           selectedTags.length === 0 ||
@@ -36,7 +35,7 @@ export default function Home() {
       })
       .sort(
         (a, b) =>
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
       );
   }, [searchTerm, selectedTags]);
 
@@ -46,7 +45,7 @@ export default function Home() {
   const loadMore = useCallback(() => {
     if (hasMore) {
       setVisibleCount((prev) =>
-        Math.min(prev + VIDEOS_PER_PAGE, filteredVideos.length),
+        Math.min(prev + VIDEOS_PER_PAGE, filteredVideos.length)
       );
     }
   }, [hasMore, filteredVideos.length]);
@@ -58,7 +57,7 @@ export default function Home() {
           loadMore();
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.5 }
     );
 
     const currentTarget = observerTarget.current;
@@ -78,7 +77,8 @@ export default function Home() {
     <>
       <Helmet>
         <title>
-          Warhammer Minus - Tutoriales de Pintura Warhammer 40k y Age of Sigmar publicados en su canal de youtube
+          Warhammer Minus - Tutoriales de Pintura Warhammer 40k y Age of Sigmar
+          publicados en su canal de youtube
         </title>
         <meta
           name="description"
@@ -103,7 +103,7 @@ export default function Home() {
       {/* Mobile backdrop */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
           onClick={toggleSidebar}
         />
       )}
@@ -123,20 +123,20 @@ export default function Home() {
         {hasMore && (
           <div
             ref={observerTarget}
-            className="h-20 flex items-center justify-center mt-8"
+            className="mt-8 flex h-20 items-center justify-center"
           >
-            <div className="animate-spin w-6 h-6 border-4 border-zinc-700 border-t-blue-500 rounded-full"></div>
+            <div className="h-6 w-6 animate-spin rounded-full border-4 border-zinc-700 border-t-blue-500"></div>
           </div>
         )}
 
         {!hasMore && filteredVideos.length > 0 && (
-          <p className="text-center text-zinc-500 py-12">
+          <p className="py-12 text-center text-zinc-500">
             Has visto todos los videos 🎨
           </p>
         )}
 
         {filteredVideos.length === 0 && (
-          <p className="text-center text-zinc-500 py-20 text-xl">
+          <p className="py-20 text-center text-xl text-zinc-500">
             No se encontraron videos con esos filtros
           </p>
         )}
