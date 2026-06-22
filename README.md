@@ -2,7 +2,7 @@
 
 A fan-made web app to browse and filter Warhammer painting tutorial videos from the official Warhammer YouTube channel. Search by title, filter by tags like `#40k`, `#aos`, `#beginner`, `#skin`, and more.
 
-🔗 **Live:** [https://gonzalosorianodesoto.github.io/warhammer-minus/](https://gonzalosorianodesoto.github.io/warhammer-minus/)
+🔗 **Live:** [https://rassell.github.io/warhammer-minus/](https://rassell.github.io/warhammer-minus/)
 
 ## Tech Stack
 
