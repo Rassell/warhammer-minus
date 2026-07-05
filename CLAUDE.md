@@ -129,7 +129,7 @@ python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r ../requirements.txt
+pip install -r requirements.txt
 
 # Configure API keys
 cp ../.env.example ../.env
@@ -144,13 +144,21 @@ python update_videos.py --groq
 python update_videos.py --tag-only --groq
 
 # ===== ALTERNATIVE: Gemini LLM Mode (good accuracy) =====
-# Uses Google Gemini 2.0 Flash for human-like reasoning
+# Uses Google Gemini 2.5 Flash for human-like reasoning
 # Requires free Gemini API key: https://aistudio.google.com/apikey
 # Note: Free tier has low quota limits, may hit rate limits
 python update_videos.py --llm
 
 # Tag existing videos only (Gemini mode)
 python update_videos.py --tag-only --llm
+
+# ===== ALTERNATIVE: Local LLM Mode (offline, no API key) =====
+# Uses a locally-hosted model via Ollama (recommended: qwen2.5:14b)
+# Setup: brew install ollama && brew services start ollama && ollama pull qwen2.5:14b
+python update_videos.py --local
+
+# Tag existing videos only (Local mode)
+python update_videos.py --tag-only --local
 
 # ===== ALTERNATIVE: Hybrid Mode (best offline balance) =====
 # Regex for coverage + semantic validation for accuracy - eliminates false positives
@@ -192,13 +200,18 @@ python analyze_untagged.py
   - Requires free Groq API key from https://console.groq.com
   - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
 
-- **LLM/Gemini (Good Accuracy, Slow)**: Uses Google Gemini 2.0 Flash for human-like reasoning
+- **LLM/Gemini (Good Accuracy, Slow)**: Uses Google Gemini 2.5 Flash for human-like reasoning
   - ~95%+ coverage with near-perfect accuracy
   - Zero false positives from paint names
   - Requires free Gemini API key from https://aistudio.google.com/apikey
   - ~30-40 minutes runtime (rate-limited)
   - Warning: Free tier has low quota limits, easily exhausted
   - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
+
+- **Local (Offline LLM via Ollama)**: Uses a locally-hosted model (recommended: `qwen2.5:14b`) through Ollama's OpenAI-compatible API
+  - No API key, no rate limits, fully offline
+  - Coverage/accuracy is a step below Groq/Gemini but a solid free fallback
+  - Requires Ollama running locally (`brew services start ollama` / `ollama serve`) and the model pulled (`ollama pull qwen2.5:14b`)
 
 - **Hybrid (Best Offline Balance)**: Regex for coverage + semantic validation for accuracy
   - 86% coverage (530/617 videos)
@@ -231,21 +244,22 @@ The project uses an intelligent tagging system with **five modes**:
 #### Tagging Modes
 
 **1. Groq Mode (Best Overall - RECOMMENDED)**
-- Uses Llama 3.1 8B Instant via Groq API for intelligent tagging
+- Uses Llama 3.3 70B Versatile via Groq API for intelligent tagging
 - **Coverage**: ~95%+ (understands what's being painted)
-- **Accuracy**: Near-perfect - zero false positives
+- **Accuracy**: Near-perfect - zero false positives, stronger reasoning than the older 8B model
 - **Speed**: Extremely fast (~2-5 minutes for 600 videos)
 - **How it works**: 
   1. Send batches of videos to Groq API
-  2. Llama 3.1 8B reads title + description and assigns relevant tags
+  2. Llama 3.3 70B reads title + description and assigns relevant tags using a
+     few-shot system prompt (`llm_system_prompt.txt`) with worked examples
   3. Validate tags against tag_descriptions.json
   4. Auto-saves progress after each batch (resume on failure)
-  5. Very generous free tier (14,400 requests/day, 100K tokens/day)
+  5. Very generous free tier (14,400 requests/day)
 - **Requirements**: Free Groq API key from https://console.groq.com
 - **Checkpoint/Resume**: Auto-saves to `be/.llm_checkpoint.json` - just re-run if interrupted
 
 **2. Gemini LLM Mode (Good Accuracy, Slower)**
-- Uses Google Gemini 2.0 Flash to understand context like a human
+- Uses Google Gemini 2.5 Flash to understand context like a human
 - **Coverage**: ~95%+ (understands what's being painted)
 - **Accuracy**: Near-perfect - zero false positives
 - **Speed**: Slow (~30-40 minutes, rate-limited)
@@ -287,19 +301,21 @@ The project uses an intelligent tagging system with **five modes**:
 - **Use case**: Fast, deterministic, backwards compatible
 
 #### Key Features
-- **Human-like reasoning (Groq/Gemini LLM)**: Uses large language models to truly understand what's being painted
+- **Human-like reasoning (Groq/Gemini/Local LLM)**: Uses large language models to truly understand what's being painted
 - **Checkpoint/Resume (LLM modes)**: Auto-saves progress after each batch - just re-run if connection drops or rate limits hit
 - **Context-aware (Hybrid/Semantic)**: Distinguishes "painting Orks" from "Ork Green paint"
 - **Automatic hierarchy**: Child tags inherit parent tags (e.g., `salamanders` → `space marines` + `40k`)
 - **Confidence scores (Hybrid/Semantic)**: Tags include 0-1 similarity scores
+- **Manual review flag (all modes)**: Every video gets a `needs_review` boolean - `true` for untagged videos or edge cases an LLM mode flagged as ambiguous, so these can be triaged by a human instead of trusted blindly
 - **Comprehensive patterns**: Covers all Warhammer systems, factions, techniques, and difficulty levels
-- **Statistics tracking**: Shows tag distribution and identifies untagged videos
+- **Statistics tracking**: Shows tag distribution, untagged videos, and videos flagged for review
 - **Paint list cleaning**: Removes paint names from descriptions before matching
 
 #### Available Tools
 - **`update_videos.py`**: Unified script - fetches and tags all videos
   - `--groq`: Groq mode (RECOMMENDED - fast, generous free tier, requires Groq API key)
   - `--llm`: Gemini LLM mode (good accuracy, requires Gemini API key)
+  - `--local`: Local LLM mode via Ollama (no API key, offline, requires `ollama serve` + a pulled model like `qwen2.5:14b`)
   - `--hybrid`: Hybrid mode (best offline balance)
   - `--semantic`: Semantic mode
   - `--threshold N`: Similarity threshold (0.0-1.0, default 0.65)
@@ -485,10 +501,12 @@ npm run preview         # Preview production build
 # Python (from be/ directory)
 python update_videos.py --groq        # Groq mode (RECOMMENDED - fast & generous free tier)
 python update_videos.py --llm         # Gemini LLM mode (good accuracy, may hit quota limits)
+python update_videos.py --local       # Local LLM mode via Ollama (offline, no API key)
 python update_videos.py --hybrid      # Hybrid mode (best offline balance)
 python update_videos.py               # Regex mode (default)
 python update_videos.py --fetch-only  # Fetch videos only
 python update_videos.py --tag-only --groq   # Tag existing videos (Groq)
+python update_videos.py --tag-only --local  # Tag existing videos (Local/Ollama)
 python update_videos.py --tag-only --llm    # Tag existing videos (Gemini)
 python update_videos.py --tag-only --hybrid # Tag existing videos (hybrid)
 python analyze_untagged.py            # Analyze missing patterns
