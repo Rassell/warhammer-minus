@@ -6,7 +6,7 @@ python-dotenv==1.2.2
 
 # Semantic tagging with sentence transformers
 sentence-transformers==2.7.0
-torch>=2.9.0
+torch>=2.12.1
 numpy>=1.24.0
 
 # LLM-based tagging with Google Gemini (new package)
@@ -14,3 +14,6 @@ google-genai>=0.2.0
 
 # LLM-based tagging with Groq (fast, generous free tier)
 groq>=0.9.0
+
+# LLM-based tagging with a local model via Ollama's OpenAI-compatible API
+openai>=1.0.0
