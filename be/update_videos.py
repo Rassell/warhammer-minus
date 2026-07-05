@@ -13,6 +13,8 @@ load_dotenv()
 API_KEY = os.getenv('YOUTUBE_API_KEY', '')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
 GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
+OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434/v1')
+OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'qwen2.5:14b')
 
 # Checkpoint file for LLM resume functionality
 CHECKPOINT_FILE = '.llm_checkpoint.json'
@@ -437,6 +439,23 @@ def apply_tags_hybrid(videos: List[Dict], threshold: float = 0.70,
 
     return videos_with_regex
 
+def parse_llm_video_result(raw_result: Any, tag_descriptions: Dict[str, str]) -> tuple:
+    """
+    Parse a single video's LLM result into (valid_tags, needs_review).
+
+    Accepts either the current {"tags": [...], "review": bool} shape or a
+    bare list of tags (older prompt format / model that ignored the shape).
+    """
+    if isinstance(raw_result, dict):
+        video_tags = raw_result.get('tags', [])
+        needs_review = bool(raw_result.get('review', False))
+    else:
+        video_tags = raw_result or []
+        needs_review = False
+
+    valid_tags = [t for t in video_tags if t in tag_descriptions]
+    return valid_tags, needs_review
+
 def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2) -> List[Dict]:
     """
     Apply tags using Google Gemini LLM for intelligent context-aware tagging.
@@ -512,20 +531,21 @@ def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2)
         videos_text = ""
         for j, video in enumerate(batch):
             title = video.get('title', '')
-            desc = video.get('description', '')[:300]
+            desc = video.get('description', '')[:500]
             videos_text += f"\nVideo {j + 1}:\nTitle: {title}\nDescription: {desc}\n"
 
         user_prompt = (
             f"{videos_text}\n\nReturn a JSON object mapping video numbers "
-            f"(as strings) to arrays of matching tag names. "
-            f'Example: {{"1": ["40k", "space marines"], "2": ["aos", "beginner"]}}'
+            f'(as strings) to {{"tags": [...], "review": bool}} objects. '
+            f'Example: {{"1": {{"tags": ["40k", "space marines"], "review": false}}, '
+            f'"2": {{"tags": ["aos", "beginner"], "review": false}}}}'
         )
 
         max_retries = 3
         for attempt in range(max_retries):
             try:
                 response = client.models.generate_content(
-                    model='gemini-2.0-flash',
+                    model='gemini-2.5-flash',
                     contents=f"{system_prompt}\n\n{user_prompt}",
                     config=GenerateContentConfig(
                         response_mime_type="application/json",
@@ -536,9 +556,10 @@ def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2)
                 results = json.loads(response.text)
 
                 for j, video in enumerate(batch):
-                    video_tags = results.get(str(j + 1), [])
-                    valid_tags = [t for t in video_tags if t in tag_descriptions]
+                    valid_tags, needs_review = parse_llm_video_result(
+                        results.get(str(j + 1), {}), tag_descriptions)
                     video['tags'] = valid_tags
+                    video['needs_review'] = needs_review or not valid_tags
                     if valid_tags:
                         tagged_count += 1
                 break
@@ -581,13 +602,14 @@ def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2)
 
     return videos
 
-def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int = 5) -> List[Dict]:
+def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int = 8) -> List[Dict]:
     """
-    Apply tags using Groq LLM (Llama 3.1 8B) for intelligent context-aware tagging.
+    Apply tags using Groq LLM (Llama 3.3 70B Versatile) for intelligent context-aware tagging.
 
-    Groq offers very fast inference and generous free tier (14,400 requests/day).
-    Using smaller 8B model to stay well within token limits (100K tokens/day).
-    Using 5 videos per batch with 1-second delays = safe for free tier.
+    Llama 3.3 70B reasons about content far more reliably than the old 8B model
+    (fewer missed factions/techniques, fewer paint-name false positives), while
+    Groq's inference speed keeps this fast even at the larger model size.
+    Using 8 videos per batch with 1-second delays = safe for free tier.
     Supports checkpoint/resume in case of connection loss.
     """
     from groq import Groq
@@ -641,7 +663,7 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
             print(f"🚀 Resuming Groq LLM tagging (batch {start_batch + 1}/{total_batches})...")
         else:
             print(f"🚀 Starting Groq LLM tagging ({len(videos)} videos in {total_batches} batches)...")
-        print(f"   Using Llama 3.1 8B Instant - fast & efficient (low token usage)")
+        print(f"   Using Llama 3.3 70B Versatile - stronger reasoning, still very fast")
         print(f"   Estimated time: ~{(total_batches * 2) // 60} minutes")
         print(f"   💾 Auto-saving progress after each batch (resume on failure)")
 
@@ -652,35 +674,37 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
         videos_text = ""
         for j, video in enumerate(batch):
             title = video.get('title', '')
-            desc = video.get('description', '')[:300]
+            desc = video.get('description', '')[:500]
             videos_text += f"\nVideo {j + 1}:\nTitle: {title}\nDescription: {desc}\n"
 
         user_prompt = (
             f"{videos_text}\n\nReturn a JSON object mapping video numbers "
-            f"(as strings) to arrays of matching tag names. "
-            f'Example: {{"1": ["40k", "space marines"], "2": ["aos", "beginner"]}}'
+            f'(as strings) to {{"tags": [...], "review": bool}} objects. '
+            f'Example: {{"1": {{"tags": ["40k", "space marines"], "review": false}}, '
+            f'"2": {{"tags": ["aos", "beginner"], "review": false}}}}'
         )
 
         max_retries = 3
         for attempt in range(max_retries):
             try:
                 response = client.chat.completions.create(
-                    model="llama-3.1-8b-instant",
+                    model="llama-3.3-70b-versatile",
                     messages=[
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt}
                     ],
                     response_format={"type": "json_object"},
                     temperature=0.1,
-                    max_tokens=1000
+                    max_tokens=1500
                 )
 
                 results = json.loads(response.choices[0].message.content)
 
                 for j, video in enumerate(batch):
-                    video_tags = results.get(str(j + 1), [])
-                    valid_tags = [t for t in video_tags if t in tag_descriptions]
+                    valid_tags, needs_review = parse_llm_video_result(
+                        results.get(str(j + 1), {}), tag_descriptions)
                     video['tags'] = valid_tags
+                    video['needs_review'] = needs_review or not valid_tags
                     if valid_tags:
                         tagged_count += 1
                 break
@@ -738,6 +762,134 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
 
     return videos
 
+def apply_tags_llm_local(videos: List[Dict], quiet: bool = False, batch_size: int = 8,
+                         base_url: str = OLLAMA_BASE_URL, model: str = OLLAMA_MODEL) -> List[Dict]:
+    """
+    Apply tags using a locally-hosted LLM served through Ollama's
+    OpenAI-compatible API (no API key, no rate limits, runs offline).
+
+    Recommended model: qwen2.5:14b (pull via `ollama pull qwen2.5:14b`).
+    Requires Ollama running locally (`brew services start ollama` or
+    `ollama serve`) and the `openai` Python package installed.
+    """
+    from openai import OpenAI
+
+    client = OpenAI(base_url=base_url, api_key="ollama")
+
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(script_dir, 'tag_descriptions.json'), 'r') as f:
+        tag_descriptions = json.load(f)
+
+    # Check for existing checkpoint
+    checkpoint = load_checkpoint()
+    start_batch = 0
+
+    if checkpoint and checkpoint.get('mode') == 'local':
+        if not quiet:
+            completed = checkpoint.get('batch_num', 0)
+            total = (len(videos) + batch_size - 1) // batch_size
+            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+            print(f"   Resuming from batch {completed + 1}...")
+
+        videos = checkpoint['videos']
+        start_batch = checkpoint['batch_num'] + 1
+    elif checkpoint and checkpoint.get('mode') != 'local':
+        if not quiet:
+            print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
+        clear_checkpoint()
+
+    tag_list_text = "\n".join(
+        f"- {tag}: {desc}" for tag, desc in tag_descriptions.items()
+    )
+
+    with open(os.path.join(script_dir, 'llm_system_prompt.txt'), 'r') as f:
+        system_prompt_template = f.read()
+
+    system_prompt = system_prompt_template.replace('{TAG_LIST}', tag_list_text)
+
+    tagged_count = 0
+    total_batches = (len(videos) + batch_size - 1) // batch_size
+
+    if not quiet:
+        if start_batch > 0:
+            print(f"🖥️  Resuming local LLM tagging (batch {start_batch + 1}/{total_batches})...")
+        else:
+            print(f"🖥️  Starting local LLM tagging via Ollama ({len(videos)} videos in {total_batches} batches)...")
+        print(f"   Model: {model} at {base_url}")
+        print(f"   💾 Auto-saving progress after each batch (resume on failure)")
+
+    for batch_start in range(start_batch * batch_size, len(videos), batch_size):
+        batch = videos[batch_start:batch_start + batch_size]
+        batch_num = batch_start // batch_size
+
+        videos_text = ""
+        for j, video in enumerate(batch):
+            title = video.get('title', '')
+            desc = video.get('description', '')[:500]
+            videos_text += f"\nVideo {j + 1}:\nTitle: {title}\nDescription: {desc}\n"
+
+        user_prompt = (
+            f"{videos_text}\n\nReturn a JSON object mapping video numbers "
+            f'(as strings) to {{"tags": [...], "review": bool}} objects. '
+            f'Example: {{"1": {{"tags": ["40k", "space marines"], "review": false}}, '
+            f'"2": {{"tags": ["aos", "beginner"], "review": false}}}}'
+        )
+
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    response_format={"type": "json_object"},
+                    temperature=0.1,
+                )
+
+                results = json.loads(response.choices[0].message.content)
+
+                for j, video in enumerate(batch):
+                    valid_tags, needs_review = parse_llm_video_result(
+                        results.get(str(j + 1), {}), tag_descriptions)
+                    video['tags'] = valid_tags
+                    video['needs_review'] = needs_review or not valid_tags
+                    if valid_tags:
+                        tagged_count += 1
+                break
+
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    wait_time = 3 * (attempt + 1)
+                    if not quiet:
+                        print(f"  ⚠️  Retry {attempt + 1}/{max_retries} for batch {batch_num}: {e}")
+                    time.sleep(wait_time)
+                else:
+                    if not quiet:
+                        print(f"  ❌ Failed batch {batch_num} after {max_retries} retries: {e}")
+                        print(f"     Is Ollama running? Try: ollama serve")
+                    for video in batch:
+                        if 'tags' not in video:
+                            video['tags'] = []
+                            video['needs_review'] = True
+
+        # Save checkpoint after each batch
+        save_checkpoint(videos, batch_num, 'local')
+
+        if not quiet and batch_num % 10 == 0:
+            processed = min(batch_start + batch_size, len(videos))
+            print(f"  Tagged {processed}/{len(videos)} videos (batch {batch_num + 1}/{total_batches})...")
+
+    # Clear checkpoint on successful completion
+    clear_checkpoint()
+
+    if not quiet:
+        print(f"✓ Local LLM tagged {tagged_count}/{len(videos)} videos")
+        print(f"  💾 Checkpoint cleared")
+
+    return videos
+
 def apply_tag_hierarchy(videos: List[Dict]) -> List[Dict]:
     """
     Add parent tags based on TAG_HIERARCHY.
@@ -789,6 +941,7 @@ def print_tag_statistics(videos: List[Dict]) -> None:
     """
     tag_stats = {}
     videos_without_tags = []
+    videos_needing_review = []
 
     for video in videos:
         tags = video.get('tags', [])
@@ -797,6 +950,13 @@ def print_tag_statistics(videos: List[Dict]) -> None:
 
         if not tags or tags == ['untagged']:
             videos_without_tags.append({
+                'title': title,
+                'videoId': video_id,
+                'url': video.get('url', '')
+            })
+
+        if video.get('needs_review'):
+            videos_needing_review.append({
                 'title': title,
                 'videoId': video_id,
                 'url': video.get('url', '')
@@ -817,9 +977,16 @@ def print_tag_statistics(videos: List[Dict]) -> None:
             print(f"  ... and {len(videos_without_tags) - 10} more")
         print(f"\nConsider adding patterns for these videos to TAG_RULES")
 
+    if videos_needing_review:
+        print(f"\n🔎 {len(videos_needing_review)} videos flagged as edge cases for manual review:")
+        for video in videos_needing_review[:10]:  # Show first 10
+            print(f"  - {video['title'][:80]}...")
+        if len(videos_needing_review) > 10:
+            print(f"  ... and {len(videos_needing_review) - 10} more")
+
 def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False,
                        semantic: bool = False, hybrid: bool = False, llm: bool = False,
-                       groq: bool = False, threshold: float = 0.65,
+                       groq: bool = False, local: bool = False, threshold: float = 0.65,
                        model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
     """
     Orchestrate all tagging steps.
@@ -832,6 +999,7 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         hybrid: Use hybrid (regex + semantic validation)
         llm: Use Google Gemini LLM tagging
         groq: Use Groq LLM tagging (fast, generous free tier)
+        local: Use a locally-hosted LLM via Ollama (no API key, offline)
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
 
@@ -839,12 +1007,15 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         Tagged and deduplicated videos
     """
     if not quiet:
-        mode = "groq" if groq else ("llm" if llm else ("semantic" if semantic else ("hybrid" if hybrid else "regex")))
+        mode = ("local" if local else "groq") if (local or groq) else (
+            "llm" if llm else ("semantic" if semantic else ("hybrid" if hybrid else "regex")))
         print(f"🏷️  Tagging videos ({mode} mode)...")
 
     # Apply tagging based on mode
     if groq:
         videos = apply_tags_llm_groq(videos, quiet=quiet)
+    elif local:
+        videos = apply_tags_llm_local(videos, quiet=quiet)
     elif llm:
         videos = apply_tags_llm(videos, quiet=quiet)
     elif semantic:
@@ -857,13 +1028,15 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
     # Apply hierarchy (works with any tagging mode)
     videos = apply_tag_hierarchy(videos)
 
-    # Mark untagged videos
+    # Mark untagged videos as needing review; keep any review flag an LLM mode already set
     for video in videos:
         if not video.get('tags'):
             video['tags'] = ['untagged']
+            video['needs_review'] = True
         else:
             # Sort tags for consistency
             video['tags'] = sorted(video['tags'])
+            video.setdefault('needs_review', False)
 
     # Deduplicate
     videos = deduplicate_videos(videos)
@@ -936,6 +1109,7 @@ def run_full_pipeline(
     hybrid: bool = False,
     llm: bool = False,
     groq: bool = False,
+    local: bool = False,
     threshold: float = 0.65,
     model_name: str = 'all-MiniLM-L6-v2'
 ) -> List[Dict[str, Any]]:
@@ -952,6 +1126,7 @@ def run_full_pipeline(
         hybrid: Use hybrid tagging
         llm: Use Google Gemini LLM tagging
         groq: Use Groq LLM tagging
+        local: Use a locally-hosted LLM via Ollama
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
 
@@ -972,7 +1147,8 @@ def run_full_pipeline(
     # Step 2: Tag videos
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
                                        semantic=semantic, hybrid=hybrid, llm=llm,
-                                       groq=groq, threshold=threshold, model_name=model_name)
+                                       groq=groq, local=local, threshold=threshold,
+                                       model_name=model_name)
 
     # Step 3: Optionally save intermediate file
     if save_intermediate:
@@ -1006,7 +1182,7 @@ def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = F
 
 def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False,
                 semantic: bool = False, hybrid: bool = False, llm: bool = False,
-                groq: bool = False, threshold: float = 0.65,
+                groq: bool = False, local: bool = False, threshold: float = 0.65,
                 model_name: str = 'all-MiniLM-L6-v2') -> None:
     """
     Load videos, tag them, save to output.
@@ -1020,13 +1196,15 @@ def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stat
         hybrid: Use hybrid tagging
         llm: Use Google Gemini LLM tagging
         groq: Use Groq LLM tagging
+        local: Use a locally-hosted LLM via Ollama
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
     """
     videos = load_videos(input_path)
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
                                        semantic=semantic, hybrid=hybrid, llm=llm,
-                                       groq=groq, threshold=threshold, model_name=model_name)
+                                       groq=groq, local=local, threshold=threshold,
+                                       model_name=model_name)
     save_videos(tagged_videos, output_path, 'tagged videos')
 
 # ============================================================================
@@ -1094,7 +1272,9 @@ Examples:
     tagging_mode.add_argument('--llm', action='store_true',
                               help='Use Google Gemini LLM for intelligent tagging (requires GEMINI_API_KEY)')
     tagging_mode.add_argument('--groq', action='store_true',
-                              help='Use Groq LLM (Llama 3.1 8B Instant) - FAST & stays within free tier token limits (requires GROQ_API_KEY)')
+                              help='Use Groq LLM (Llama 3.3 70B Versatile) - strong reasoning, still very fast, generous free tier (requires GROQ_API_KEY)')
+    tagging_mode.add_argument('--local', action='store_true',
+                              help='Use a locally-hosted LLM via Ollama - no API key, no rate limits, runs offline (requires `ollama serve` and a pulled model, e.g. `ollama pull qwen2.5:14b`)')
     parser.add_argument('--threshold', type=float, default=0.65,
                        help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
     parser.add_argument('--model', type=str, default='all-distilroberta-v1',
@@ -1113,7 +1293,8 @@ Examples:
     elif args.tag_only:
         run_tag_only(args.input, args.output, args.quiet, args.no_stats,
                     semantic=args.semantic, hybrid=args.hybrid, llm=args.llm,
-                    groq=args.groq, threshold=args.threshold, model_name=args.model)
+                    groq=args.groq, local=args.local, threshold=args.threshold,
+                    model_name=args.model)
     else:
         # Full pipeline (default)
         run_full_pipeline(
@@ -1126,6 +1307,7 @@ Examples:
             hybrid=args.hybrid,
             llm=args.llm,
             groq=args.groq,
+            local=args.local,
             threshold=args.threshold,
             model_name=args.model
         )

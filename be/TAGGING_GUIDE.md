@@ -14,7 +14,7 @@ The video tagging system automatically categorizes Warhammer painting tutorial v
 - Requires free Groq API key
 
 **2. Gemini LLM Mode (Good Accuracy, Slower)**
-- Uses Google Gemini 2.0 Flash to understand context like a human
+- Uses Google Gemini 2.5 Flash to understand context like a human
 - ~95%+ coverage with near-perfect accuracy
 - Zero false positives from paint names
 - Requires free Gemini API key
@@ -58,7 +58,7 @@ All tagging rules and filters are stored in editable JSON files:
 ### 1. Five Tagging Modes
 
 #### Groq Mode (Best Overall - RECOMMENDED)
-- **How it works**: Uses Llama 3.1 8B Instant via Groq API to read title + description and intelligently assign tags
+- **How it works**: Uses Llama 3.3 70B Versatile via Groq API to read title + description and intelligently assign tags
 - **Coverage**: ~95%+ (understands context like a human)
 - **Accuracy**: Near-perfect - truly understands what's being painted
 - **Speed**: Extremely fast (~2-5 minutes for 600 videos)
@@ -72,7 +72,7 @@ All tagging rules and filters are stored in editable JSON files:
 **Example intelligence**: "Liberator Gold" in paint list → Groq knows this is a paint, not a Stormcast unit
 
 #### Gemini LLM Mode (Good Accuracy, Slower)
-- **How it works**: Uses Google Gemini 2.0 Flash to read title + description and intelligently assign tags
+- **How it works**: Uses Google Gemini 2.5 Flash to read title + description and intelligently assign tags
 - **Coverage**: ~95%+ (understands context like a human)
 - **Accuracy**: Near-perfect - truly understands what's being painted
 - **Speed**: Slow (~30-40 minutes for 600 videos, heavily rate-limited)
@@ -734,7 +734,7 @@ All patterns are applied with `re.IGNORECASE`, no need to cover upper/lowercase.
 ### LLM Mode (best accuracy)
 
 ```
-✓ Uses Google Gemini 2.0 Flash for intelligent tagging
+✓ Uses Google Gemini 2.5 Flash for intelligent tagging
 ✓ Expected Coverage: ~95%+ (near-perfect understanding)
 ✓ Accuracy: Near-perfect - understands context like a human
 ✓ Runtime: ~8 minutes for 617 videos (batched, rate-limited)
