@@ -77,23 +77,34 @@ You will receive a JSON array of videos, each with `videoId`, `title` and
 Game systems:
 `40k`, `aos`, `horus heresy`, `kill team`, `necromunda`, `old world`,
 `underworlds`, `warcry`, `legions imperialis`, `aeronautica imperialis`,
-`blood bowl`
+`titanicus`, `blood bowl`, `middle earth`
 
 Imperium:
 `space marines`, `ultramarines`, `blood angels`, `dark angels`, `space wolves`,
 `imperial fists`, `salamanders`, `raven guard`, `black templars`,
-`astra militarum`, `sororitas`
+`white scars`, `iron hands`, `grey knights`, `custodes`,
+`adeptus mechanicus`, `imperial knights`, `astra militarum`, `sororitas`,
+`votann`
 
 Chaos:
 `chaos`, `chaos space marines`, `world eaters`, `death guard`, `thousand sons`,
-`emperor's children`
+`emperor's children`, `red corsairs`, `night lords`, `iron warriors`,
+`black legion`, `alpha legion`, `word bearers`, `sons of horus`,
+`chaos knights`
 
 Xenos:
-`tyranids`, `necrons`, `tau`, `eldar`
+`tyranids`, `necrons`, `tau`, `eldar`, `drukhari`, `harlequins`
 
 Age of Sigmar:
 `stormcast eternals`, `cities of sigmar`, `sylvaneth`, `seraphon`,
-`soulblight gravelords`, `skaven`
+`soulblight gravelords`, `skaven`, `lumineth realm-lords`,
+`daughters of khaine`, `slaves to darkness`, `blades of khorne`,
+`disciples of tzeentch`, `hedonites of slaanesh`, `maggotkin of nurgle`,
+`gloomspite gitz`, `flesh-eater courts`, `kharadron overlords`, `nighthaunt`,
+`idoneth deepkin`, `ogors`, `helsmiths of hashut`
+
+Old World:
+`grand cathay`
 
 Cross-system:
 `orks & orruks`
@@ -108,7 +119,8 @@ Effects and style:
 `nmm`, `weathering`
 
 Subject matter:
-`bases`, `metal`, `skin`, `cloth`, `textures & materials`, `vehicles`, `scenery`
+`bases`, `metal`, `skin`, `cloth`, `textures & materials`, `vehicles`,
+`scenery`, `weapons`
 
 ### Parent tags
 
@@ -117,13 +129,16 @@ Add the parent tags whenever you use the specific tag.
 | Tag | Also add |
 | --- | --- |
 | `space marines` | `40k` |
-| `ultramarines`, `blood angels`, `dark angels`, `space wolves`, `imperial fists`, `salamanders`, `raven guard`, `black templars` | `space marines`, `40k` |
+| `ultramarines`, `blood angels`, `dark angels`, `space wolves`, `imperial fists`, `salamanders`, `raven guard`, `black templars`, `white scars`, `iron hands`, `grey knights` | `space marines`, `40k` |
+| `custodes`, `adeptus mechanicus`, `imperial knights`, `votann`, `astra militarum`, `sororitas`, `tyranids`, `necrons`, `tau`, `eldar` | `40k` |
+| `drukhari`, `harlequins` | `eldar`, `40k` |
 | `chaos space marines` | `chaos`, `40k` |
-| `world eaters`, `death guard`, `thousand sons`, `emperor's children` | `chaos space marines`, `chaos`, `40k` |
-| `tyranids`, `necrons`, `tau`, `eldar`, `astra militarum`, `sororitas` | `40k` |
+| `world eaters`, `death guard`, `thousand sons`, `emperor's children`, `red corsairs`, `night lords`, `iron warriors`, `black legion`, `alpha legion`, `word bearers`, `sons of horus` | `chaos space marines`, `chaos`, `40k` |
+| `chaos knights` | `chaos`, `40k` |
 | `orks & orruks` | `40k`, `aos` |
-| `stormcast eternals`, `cities of sigmar`, `sylvaneth`, `seraphon`, `soulblight gravelords`, `skaven` | `aos` |
-| `kill team`, `necromunda`, `horus heresy`, `legions imperialis`, `aeronautica imperialis`, `old world`, `underworlds`, `warcry`, `blood bowl` | *(no parent — they are their own system)* |
+| `stormcast eternals`, `cities of sigmar`, `sylvaneth`, `seraphon`, `soulblight gravelords`, `skaven`, `lumineth realm-lords`, `daughters of khaine`, `slaves to darkness`, `blades of khorne`, `disciples of tzeentch`, `hedonites of slaanesh`, `maggotkin of nurgle`, `gloomspite gitz`, `flesh-eater courts`, `kharadron overlords`, `nighthaunt`, `idoneth deepkin`, `ogors`, `helsmiths of hashut` | `aos` |
+| `grand cathay` | `old world` |
+| `kill team`, `necromunda`, `horus heresy`, `legions imperialis`, `aeronautica imperialis`, `old world`, `underworlds`, `warcry`, `titanicus`, `blood bowl`, `middle earth` | *(no parent — they are their own system)* |
 
 Chaos legions painted for the Horus Heresy era also get `horus heresy` in
 addition to the 40k parents.
@@ -184,12 +199,7 @@ These existed in the old automatic taxonomy but were dropped because they were
 never used (or used fewer than 5 times). Re-add them to the prompt if you start
 painting them:
 
-`adeptus mechanicus`, `airbrush`, `alpha legion`, `armour`, `black legion`,
-`blending & glazing`, `chaos knights`, `custodes`, `drukhari`, `drybrushing`,
-`flesh-eater courts`, `genestealer cults`, `gloomspite gitz`, `grey knights`,
-`grimdark`, `harlequins`, `idoneth deepkin`, `imperial knights`, `iron hands`,
-`iron warriors`, `kitbashing`, `middle earth`, `nighthaunt`, `night lords`,
-`osl`, `red corsairs`, `slapchop`, `sons of horus`, `special projects`, `votann`,
-`weapons`, `white scars`, `word bearers`
+`airbrush`, `armour`, `blending & glazing`, `drybrushing`, `genestealer cults`,
+`grimdark`, `kitbashing`, `osl`, `slapchop`, `special projects`
 
 `untagged` is not a tag: untagged videos simply have `"tags": []`.

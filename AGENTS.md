@@ -178,8 +178,8 @@ tagging code, no tagging API key and no taxonomy file in the repo.
 4. Re-run `python update_videos.py` when convenient - it keeps your tags by `videoId`
    and recomputes `needs_review`
 
-`be/TAGGING_PROMPT.md` holds the canonical vocabulary (~54 tags), the parent-tag
-rules (e.g. `salamanders` → `space marines` + `40k`) and the output format.
+`be/TAGGING_PROMPT.md` holds the canonical vocabulary, the parent-tag rules
+(e.g. `salamanders` → `space marines` + `40k`) and the output format.
 `needs_review` is `true` whenever `tags` is empty; `untagged` is no longer a tag value.
 
 ## Environment Variables
