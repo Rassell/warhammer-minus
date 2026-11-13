@@ -113,22 +113,26 @@ export default function Sidebar({
         </>
       )}
 
-      <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <button
-            key={tag}
-            onClick={() => toggleTag(tag)}
-            className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
-              selectedTags.includes(tag)
-                ? "border-blue-600 bg-blue-600 text-white"
-                : "border-zinc-700 hover:border-zinc-500"
-            }`}
-          >
-            #{tag}
-          </button>
-        ))}
-      </div>
+      {tags.length > 0 && (
+        <>
+          <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                  selectedTags.includes(tag)
+                    ? "border-blue-600 bg-blue-600 text-white"
+                    : "border-zinc-700 hover:border-zinc-500"
+                }`}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </aside>
   );
 }

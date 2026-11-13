@@ -5,7 +5,8 @@ import reactRefresh from "eslint-plugin-react-refresh";
 
 export default tseslint.config(
   {
-    ignores: ["dist", "node_modules", ".venv", "be/**/*.py"],
+    // be/ is the Python pipeline (and its venv ships .js files that are not ours)
+    ignores: ["dist", "node_modules", "**/.venv", "be/**"],
   },
   {
     files: ["**/*.{js,mjs,cjs}"],

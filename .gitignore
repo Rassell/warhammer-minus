@@ -6,4 +6,3 @@
 /.vscode/
 **/__pycache__/
 /be/videos.json
-/be/.llm_checkpoint.json

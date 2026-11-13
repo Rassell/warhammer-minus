@@ -15,14 +15,11 @@ A fan-made web application for browsing and filtering Warhammer painting tutoria
 - **React Helmet Async** - SEO and meta tag management
 
 ### Backend / Data Pipeline
-- **Python 3** - Data fetching and tagging scripts
+- **Python 3** - Data fetching and filtering scripts
 - **YouTube Data API v3** - Video data source
 - **google-api-python-client** - YouTube API client library
 - **python-dotenv** - Environment variable management
-- **sentence-transformers** - Semantic tagging with NLP embeddings
-- **torch** - PyTorch for neural network inference
-- **numpy** - Numerical operations for embeddings
-- **google-generativeai** - LLM-based tagging with Google Gemini
+- Tagging is manual: tags are produced with a generic AI assistant (`be/TAGGING_PROMPT.md`)
 
 ### Deployment
 - **GitHub Pages** - Static hosting
@@ -60,18 +57,12 @@ warhammer-minus/
 │   ├── main.tsx           # React entry point
 │   └── app.css            # Global styles
 ├── be/                    # Python backend scripts
-│   ├── update_videos.py          # Unified script: fetch + tag videos
-│   ├── semantic_tagger.py        # NLP-based semantic tagging module
-│   ├── analyze_untagged.py       # Analyze untagged videos
-│   ├── tag_rules.json            # Regex tagging patterns (93 rules)
-│   ├── tag_descriptions.json     # Semantic tag descriptions (68 tags)
-│   ├── tag_hierarchy.json        # Tag parent-child relationships
+│   ├── update_videos.py          # Unified script: fetch + filter + merge tags
 │   ├── exclude_patterns.json     # Title patterns to exclude (global + per-channel)
 │   ├── exclude_ids.json          # Specific video IDs to exclude
 │   ├── channels.json             # Source channels (ID or @handle, per-channel query)
 │   ├── videos.json               # Generated video data (intermediate)
-│   ├── TAGGING_GUIDE.md          # Tagging system documentation
-│   ├── llm_system_prompt.txt     # LLM system prompt template
+│   ├── TAGGING_PROMPT.md         # Prompt + vocabulary used to tag videos manually
 │   └── .venv/                    # Python virtual environment
 ├── public/                # Static assets
 │   ├── favicon.svg
@@ -134,242 +125,59 @@ pip install -r requirements.txt
 
 # Configure API keys
 cp ../.env.example ../.env
-# Edit .env and add your YouTube API key, and optionally Groq or Gemini API key for LLM modes
+# Edit .env and add your YouTube API key
 
-# ===== RECOMMENDED: Groq Mode (best accuracy + speed) =====
-# Uses the Groq-hosted model in GROQ_MODEL (default openai/gpt-oss-120b) - extremely fast and generous free tier
-# Requires free Groq API key: https://console.groq.com
-python update_videos.py --groq
-
-# Tag existing videos only (Groq mode)
-python update_videos.py --tag-only --groq
-
-# ===== ALTERNATIVE: Gemini LLM Mode (good accuracy) =====
-# Uses Google Gemini 2.5 Flash for human-like reasoning
-# Requires free Gemini API key: https://aistudio.google.com/apikey
-# Note: Free tier has low quota limits, may hit rate limits
-python update_videos.py --llm
-
-# Tag existing videos only (Gemini mode)
-python update_videos.py --tag-only --llm
-
-# ===== ALTERNATIVE: Local LLM Mode (offline, no API key) =====
-# Uses a locally-hosted model via Ollama (recommended: qwen2.5:14b)
-# Setup: brew install ollama && brew services start ollama && ollama pull qwen2.5:14b
-python update_videos.py --local
-
-# Tag existing videos only (Local mode)
-python update_videos.py --tag-only --local
-
-# ===== ALTERNATIVE: Hybrid Mode (best offline balance) =====
-# Regex for coverage + semantic validation for accuracy - eliminates false positives
-python update_videos.py --hybrid --threshold 0.50
-
-# Full pipeline: fetch + tag + save
-python update_videos.py --hybrid
-
-# Tag existing videos only
-python update_videos.py --tag-only --hybrid
-
-# ===== Alternative: Semantic Mode (pure NLP) =====
-# More conservative, context-aware matching
-python update_videos.py --semantic --threshold 0.60
-
-# ===== Fallback: Regex Mode (default) =====
-# Traditional pattern matching - fast but prone to false positives
+# Fetch videos, keep the tags already in src/videos.json, save
 python update_videos.py
 
-# ===== Other Options =====
-# With intermediate file saved (for debugging)
+# Resolve and print the configured channels, then exit
+python update_videos.py --list-channels
+
+# One-off channel override (repeatable)
+python update_videos.py --channel @SomePainter
+
+# Also dump the raw fetch to be/videos.json (debugging)
 python update_videos.py --save-intermediate
 
-# Quiet mode (minimal output)
-python update_videos.py --quiet
-
-# Fetch videos only
-python update_videos.py --fetch-only
-
-# Analyze untagged videos (optional)
-python analyze_untagged.py
+# Fetch everything, ignoring each channel's query filter
+python update_videos.py --no-query
 ```
 
-**Tagging Modes:**
-- **Groq (Best Overall)**: Uses a Groq-hosted model (default `openai/gpt-oss-120b`) via the Groq API
-  - ~95%+ coverage with near-perfect accuracy
-  - Extremely fast (~2-5 minutes for 600 videos)
-  - Very generous free tier (14,400 requests/day)
-  - Requires free Groq API key from https://console.groq.com
-  - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
+**How the pipeline works:**
 
-- **LLM/Gemini (Good Accuracy, Slow)**: Uses Google Gemini 2.5 Flash for human-like reasoning
-  - ~95%+ coverage with near-perfect accuracy
-  - Zero false positives from paint names
-  - Requires free Gemini API key from https://aistudio.google.com/apikey
-  - ~30-40 minutes runtime (rate-limited)
-  - Warning: Free tier has low quota limits, easily exhausted
-  - Example: Knows "Liberator Gold" is a paint, not a Stormcast unit
+1. Resolve every channel in `be/channels.json` (channel `id` or `@handle`)
+2. Fetch all uploads and their metadata from the YouTube Data API
+3. Filter by each channel's `query`, the global/per-channel `exclude_patterns.json` and `exclude_ids.json`
+4. Deduplicate across channels
+5. Copy the tags already present in the output file, matched by `videoId`
+6. Save to `src/videos.json`
 
-- **Local (Offline LLM via Ollama)**: Uses a locally-hosted model (recommended: `qwen2.5:14b`) through Ollama's OpenAI-compatible API
-  - No API key, no rate limits, fully offline
-  - Coverage/accuracy is a step below Groq/Gemini but a solid free fallback
-  - Requires Ollama running locally (`brew services start ollama` / `ollama serve`) and the model pulled (`ollama pull qwen2.5:14b`)
-
-- **Hybrid (Best Offline Balance)**: Regex for coverage + semantic validation for accuracy
-  - 86% coverage (530/617 videos)
-  - Zero false positives from paint names
-  - Works offline, no API required
-  - Example: "Liberator Gold" paint won't tag `stormcast eternals`
-  
-- **Semantic**: Pure NLP-based matching using sentence transformers
-  - Most conservative (53-79% coverage depending on threshold)
-  - Best context understanding, works offline
-  - Requires ~500MB model download (one-time)
-  
-- **Regex (Default)**: Traditional keyword patterns
-  - 100% coverage
-  - Fast and deterministic
-  - Prone to false positives from paint names
+The script **never generates tags**. Videos it has no tags for get `"tags": []` and
+`"needs_review": true`.
 
 **Configuration Files:**
-All tagging and filtering rules are stored in JSON files for easy editing:
-- `tag_rules.json` - Regex tagging patterns (93 rules) - used in regex/hybrid modes
-- `tag_descriptions.json` - Semantic tag descriptions (93+ tags) - used in semantic/hybrid/LLM modes
-- `tag_hierarchy.json` - Tag parent-child relationships (applies to all modes)
-- `exclude_patterns.json` - Title patterns to filter out (`global` + per-channel `channels` map)
 - `channels.json` - Source channels: `id` or `handle`, optional `query`, `enabled` flag
+- `exclude_patterns.json` - Title patterns to filter out (`global` + per-channel `channels` map)
 - `exclude_ids.json` - Specific video IDs to exclude
 
-### Video Tagging System
+**CLI flags:** `--channel`, `--channels`, `--list-channels`, `--query`, `--no-query`,
+`--save-intermediate`, `--output`, `--tags-from`, `--quiet`, `--no-stats`.
 
-The project uses an intelligent tagging system with **five modes**:
+### Tagging
 
-#### Tagging Modes
+Tags are assigned **manually** with the help of a generic AI assistant. There is no
+tagging code, no tagging API key and no taxonomy file in the repo.
 
-**1. Groq Mode (Best Overall - RECOMMENDED)**
-- Uses the Groq-hosted model configured in `GROQ_MODEL` (default `openai/gpt-oss-120b`) for intelligent tagging
-- **Coverage**: ~95%+ (understands what's being painted)
-- **Accuracy**: Near-perfect - zero false positives, stronger reasoning than the older 8B model
-- **Speed**: Extremely fast (~2-5 minutes for 600 videos)
-- **How it works**: 
-  1. Send batches of videos to Groq API
-  2. The Groq-hosted model reads title + description and assigns relevant tags using a
-     few-shot system prompt (`llm_system_prompt.txt`) with worked examples
-  3. Validate tags against tag_descriptions.json
-  4. Auto-saves progress after each batch (resume on failure)
-  5. Very generous free tier (14,400 requests/day)
-- **Requirements**: Free Groq API key from https://console.groq.com
-- **Checkpoint/Resume**: Auto-saves to `be/.llm_checkpoint.json` - just re-run if interrupted
+1. Copy the prompt from `be/TAGGING_PROMPT.md` into any AI chat
+2. Paste a batch of videos (`videoId`, `title`, `description`)
+3. Paste the returned JSON back into `src/videos.json`, replacing the `"tags": []`
+   array of the matching `videoId`
+4. Re-run `python update_videos.py` when convenient - it keeps your tags by `videoId`
+   and recomputes `needs_review`
 
-**2. Gemini LLM Mode (Good Accuracy, Slower)**
-- Uses Google Gemini 2.5 Flash to understand context like a human
-- **Coverage**: ~95%+ (understands what's being painted)
-- **Accuracy**: Near-perfect - zero false positives
-- **Speed**: Slow (~30-40 minutes, rate-limited)
-- **How it works**: 
-  1. Send batches of videos to Gemini API
-  2. LLM reads title + description and assigns relevant tags
-  3. Validate tags against tag_descriptions.json
-  4. Auto-saves progress after each batch (resume on failure)
-  5. Rate limited to 15 requests/minute (free tier)
-- **Requirements**: Free Gemini API key from https://aistudio.google.com/apikey
-- **Note**: Free tier has low quota limits, easily exhausted
-- **Checkpoint/Resume**: Auto-saves to `be/.llm_checkpoint.json` - just re-run if interrupted
-
-**3. Hybrid Mode (Best Offline Balance)**
-- Combines regex pattern matching with semantic validation
-- **Coverage**: 86% (530/617 videos)
-- **Accuracy**: Near-zero false positives
-- **How it works**: 
-  1. Apply regex tags for broad matching
-  2. Validate each tag with semantic similarity (threshold 0.50)
-  3. Keep tags that score high OR appear in video title
-  4. Add high-confidence semantic tags (>0.80) that regex missed
-
-**4. Semantic Mode**
-- Pure NLP-based matching using sentence transformers (embeddings)
-- **Coverage**: 53-79% (depending on threshold 0.55-0.65)
-- **Accuracy**: Highest - understands context
-- **How it works**:
-  1. Embed video title + description
-  2. Compare with tag descriptions via cosine similarity
-  3. Apply tags above threshold
-- **Use case**: Maximum precision, minimal false positives
-
-**5. Regex Mode (Default/Fallback)**
-- Traditional keyword pattern matching
-- **Coverage**: 100%
-- **Accuracy**: Prone to false positives from paint names
-- **How it works**: Match regex patterns against title + cleaned description
-- **Use case**: Fast, deterministic, backwards compatible
-
-#### Key Features
-- **Human-like reasoning (Groq/Gemini/Local LLM)**: Uses large language models to truly understand what's being painted
-- **Checkpoint/Resume (LLM modes)**: Auto-saves progress after each batch - just re-run if connection drops or rate limits hit
-- **Context-aware (Hybrid/Semantic)**: Distinguishes "painting Orks" from "Ork Green paint"
-- **Automatic hierarchy**: Child tags inherit parent tags (e.g., `salamanders` → `space marines` + `40k`)
-- **Confidence scores (Hybrid/Semantic)**: Tags include 0-1 similarity scores
-- **Manual review flag (all modes)**: Every video gets a `needs_review` boolean - `true` for untagged videos or edge cases an LLM mode flagged as ambiguous, so these can be triaged by a human instead of trusted blindly
-- **Comprehensive patterns**: Covers all Warhammer systems, factions, techniques, and difficulty levels
-- **Statistics tracking**: Shows tag distribution, untagged videos, and videos flagged for review
-- **Paint list cleaning**: Removes paint names from descriptions before matching
-
-#### Available Tools
-- **`update_videos.py`**: Unified script - fetches and tags all videos
-  - `--groq`: Groq mode (RECOMMENDED - fast, generous free tier, requires Groq API key)
-  - `--llm`: Gemini LLM mode (good accuracy, requires Gemini API key)
-  - `--local`: Local LLM mode via Ollama (no API key, offline, requires `ollama serve` + a pulled model like `qwen2.5:14b`)
-  - `--hybrid`: Hybrid mode (best offline balance)
-  - `--semantic`: Semantic mode
-  - `--threshold N`: Similarity threshold (0.0-1.0, default 0.65)
-- **`semantic_tagger.py`**: SemanticTagger class using sentence-transformers
-- **`analyze_untagged.py`**: Analysis tool to identify missing patterns
-- **`tag_rules.json`**: Editable regex patterns (93 rules)
-- **`tag_descriptions.json`**: Editable semantic descriptions (93+ tags)
-- **`tag_hierarchy.json`**: Parent-child tag relationships
-- **`TAGGING_GUIDE.md`**: Complete documentation
-
-#### Tag Categories
-- **Game Systems**: 40k, AoS, Horus Heresy, Underworlds, Middle Earth, etc.
-- **Factions**: Space Marines (all chapters), Chaos, Xenos, AoS factions
-- **Difficulty**: Beginner, Intermediate, Advanced
-- **Techniques**: Skin, Metal, Cloth, Bases, Textures & Materials
-- **Special**: Painting Essentials, Citadel Products, Special Projects
-
-#### Maintenance Workflow
-
-**Recommended (Groq Mode - BEST):**
-1. Get free API key at https://console.groq.com
-2. Add to `be/.env`: `GROQ_API_KEY=your_key_here`
-3. Run `python update_videos.py --groq` to fetch and tag all videos
-4. Check statistics output - should achieve ~95%+ coverage in ~2-5 minutes
-5. For improvements: Edit tag descriptions in `tag_descriptions.json`
-
-**Alternative (Gemini LLM Mode - if Groq unavailable):**
-1. Get free API key at https://aistudio.google.com/apikey
-2. Add to `be/.env`: `GEMINI_API_KEY=your_key_here`
-3. Run `python update_videos.py --llm` to fetch and tag all videos
-4. Check statistics output - should achieve ~95%+ coverage with near-perfect accuracy
-5. Note: May hit quota limits on free tier
-
-**Alternative (Hybrid Mode - offline, no API required):**
-1. Run `python update_videos.py --hybrid` to fetch and tag all videos
-2. Check statistics output - if many untagged, investigate why
-3. For false positives: Adjust tag descriptions in `tag_descriptions.json`
-4. For missing tags: Add patterns to `tag_rules.json` or descriptions to `tag_descriptions.json`
-5. Re-run until satisfied with coverage and accuracy
-
-**Alternative (Regex Mode):**
-1. Run `python update_videos.py` to fetch and tag all videos
-2. If untagged videos appear, run `python analyze_untagged.py`
-3. Add missing patterns to `tag_rules.json`
-4. Re-run until 100% coverage achieved
-
-**Threshold Tuning (Semantic/Hybrid):**
-- Lower threshold (0.50-0.55): More tags, potential false positives
-- Medium threshold (0.60-0.65): Balanced
-- Higher threshold (0.70-0.80): Fewer tags, high precision
-
-See `be/TAGGING_GUIDE.md` for detailed documentation.
+`be/TAGGING_PROMPT.md` holds the canonical vocabulary (~54 tags), the parent-tag
+rules (e.g. `salamanders` → `space marines` + `40k`) and the output format.
+`needs_review` is `true` whenever `tags` is empty; `untagged` is no longer a tag value.
 
 ## Environment Variables
 
@@ -379,16 +187,6 @@ Create a `.env` file in the project root (copy from `.env.example`):
 # YouTube Data API v3 Key
 # Get your key at: https://console.cloud.google.com/apis/credentials
 YOUTUBE_API_KEY=your_api_key_here
-
-# Groq API Key (for --groq tagging mode - RECOMMENDED)
-# Get a free key at: https://console.groq.com
-# Much faster and more generous free tier than Gemini
-GROQ_API_KEY=your_groq_api_key_here
-
-# Google Gemini API Key (for --llm tagging mode)
-# Get a free key at: https://aistudio.google.com/apikey
-# Note: Now uses google-genai package (google-generativeai is deprecated)
-GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 **Note:** The `.env` file is gitignored. Never commit API keys.
@@ -485,11 +283,11 @@ When helping with this project:
 3. **Maintain TypeScript strictness** - Always provide explicit types
 4. **Follow existing patterns** - Look at similar components for style guidance
 5. **Consider mobile** - All changes should work on mobile screens
-6. **Update both JSON files** - If modifying video data structure, update both `be/videos.json` and `src/videos.json` (note: `update_videos.py` does this automatically)
+6. **Keep the video schema stable** - `src/videos.json` is generated; change the fields in `public_video()` inside `update_videos.py`, not by hand
 7. **Don't commit .env** - It's gitignored for a reason
-8. **Maintain tag coverage** - When adding new tag patterns, edit `tag_rules.json` and run `analyze_untagged.py` to verify coverage
+8. **Never generate tags in code** - Tags are assigned manually; keep the vocabulary in `TAGGING_PROMPT.md` as the single source of truth
 9. **Use English** - All code, comments, and documentation should be in English for consistency
-10. **Update documentation** - If adding features or changing functionality, update `README.md`, `CLAUDE.md`, and `TAGGING_GUIDE.md` accordingly
+10. **Update documentation** - If adding features or changing functionality, update `README.md`, `AGENTS.md` and `TAGGING_PROMPT.md` accordingly
 
 ## Useful Commands Reference
 
@@ -501,18 +299,11 @@ npm run build           # Build for production
 npm run preview         # Preview production build
 
 # Python (from be/ directory)
-python update_videos.py --groq        # Groq mode (RECOMMENDED - fast & generous free tier)
-python update_videos.py --llm         # Gemini LLM mode (good accuracy, may hit quota limits)
-python update_videos.py --local       # Local LLM mode via Ollama (offline, no API key)
-python update_videos.py --hybrid      # Hybrid mode (best offline balance)
-python update_videos.py               # Regex mode (default)
-python update_videos.py --fetch-only  # Fetch videos only
-python update_videos.py --list-channels  # Resolve and print configured channels
-python update_videos.py --tag-only --groq   # Tag existing videos (Groq)
-python update_videos.py --tag-only --local  # Tag existing videos (Local/Ollama)
-python update_videos.py --tag-only --llm    # Tag existing videos (Gemini)
-python update_videos.py --tag-only --hybrid # Tag existing videos (hybrid)
-python analyze_untagged.py            # Analyze missing patterns
+python update_videos.py                    # Fetch + keep existing tags + save
+python update_videos.py --list-channels    # Resolve and print configured channels
+python update_videos.py --channel @SomePainter  # One-off channel override
+python update_videos.py --save-intermediate     # Also dump the raw fetch to be/videos.json
+python update_videos.py --no-query         # Ignore per-channel query filters
 
 # Git
 git status              # Check current state
