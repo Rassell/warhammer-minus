@@ -148,9 +148,11 @@ python update_videos.py --no-query
 1. Resolve every channel in `be/channels.json` (channel `id` or `@handle`)
 2. Fetch all uploads and their metadata from the YouTube Data API
 3. Filter by each channel's `query`, the global/per-channel `exclude_patterns.json` and `exclude_ids.json`
-4. Deduplicate across channels
-5. Copy the tags already present in the output file, matched by `videoId`
-6. Save to `src/videos.json`
+4. Drop shorts/clips: any video whose duration is at or below `short_video_max_seconds`
+   (`exclude_patterns.json`, default `60`) is discarded, as are titles matching `#shorts?`
+5. Deduplicate across channels
+6. Copy the tags already present in the output file, matched by `videoId`
+7. Save to `src/videos.json`
 
 The script **never generates tags**. Videos it has no tags for get `"tags": []` and
 `"needs_review": true`.
@@ -158,10 +160,11 @@ The script **never generates tags**. Videos it has no tags for get `"tags": []` 
 **Configuration Files:**
 - `channels.json` - Source channels: `id` or `handle`, optional `query`, `enabled` flag
 - `exclude_patterns.json` - Title patterns to filter out (`global` + per-channel `channels` map)
+  and `short_video_max_seconds` (default `60`: videos this long or shorter are dropped as shorts)
 - `exclude_ids.json` - Specific video IDs to exclude
 
 **CLI flags:** `--channel`, `--channels`, `--list-channels`, `--query`, `--no-query`,
-`--save-intermediate`, `--output`, `--tags-from`, `--quiet`, `--no-stats`.
+`--shorts-max-seconds`, `--save-intermediate`, `--output`, `--tags-from`, `--quiet`, `--no-stats`.
 
 ### Tagging
 
@@ -304,6 +307,7 @@ python update_videos.py --list-channels    # Resolve and print configured channe
 python update_videos.py --channel @SomePainter  # One-off channel override
 python update_videos.py --save-intermediate     # Also dump the raw fetch to be/videos.json
 python update_videos.py --no-query         # Ignore per-channel query filters
+python update_videos.py --shorts-max-seconds 0  # Keep shorts (disable duration filter)
 
 # Git
 git status              # Check current state

@@ -63,6 +63,18 @@ The source channels are configured in `be/channels.json`. Each entry accepts eit
 
 Channel-specific exclusion patterns live under `channels` in `be/exclude_patterns.json`; patterns in `global` apply to every channel.
 
+### Short videos
+
+YouTube Shorts and other clips are not tutorials, so any video whose duration is
+at or below `short_video_max_seconds` (in `be/exclude_patterns.json`, default `60`)
+is dropped while filtering. Titles containing `#short`/`#shorts` are excluded too.
+Unknown durations are always kept, and `0` disables the duration filter:
+
+```bash
+python update_videos.py --shorts-max-seconds 0    # keep shorts
+python update_videos.py --shorts-max-seconds 90   # stricter one-off filter
+```
+
 ```bash
 python update_videos.py --list-channels        # resolve IDs/handles and print them
 python update_videos.py --channel @SomePainter # one-off override (repeatable)

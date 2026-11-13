@@ -2,8 +2,10 @@
   "global": [
     "Trailer",
     "Coming Soon",
-    "^What is "
+    "^What is ",
+    "#shorts?\\b"
   ],
+  "short_video_max_seconds": 60,
   "channels": {
     "UCwdh3MTrFq3sXlB4ct8B-Fg": [
       "This Week on Warhammer\\+",

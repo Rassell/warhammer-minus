@@ -31,12 +31,19 @@ API_KEY = os.getenv('YOUTUBE_API_KEY', '')
 # CONFIGURATION LOADING
 # ============================================================================
 
-def load_config() -> tuple[List[str], Dict[str, List[str]], List[str]]:
+# A video this long (or shorter) is considered a short / clip and dropped.
+# YouTube Shorts are capped at 60 seconds, so anything at or below that is not a
+# tutorial. Set "short_video_max_seconds" in exclude_patterns.json to tune it
+# (0 disables the filter).
+DEFAULT_SHORT_VIDEO_MAX_SECONDS = 60
+
+def load_config() -> tuple[List[str], Dict[str, List[str]], List[str], int]:
     """
     Load exclusion configuration from JSON files.
 
     Returns:
-        Tuple of (EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS)
+        Tuple of (EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS,
+        SHORT_VIDEO_MAX_SECONDS)
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,18 +55,22 @@ def load_config() -> tuple[List[str], Dict[str, List[str]], List[str]]:
     if isinstance(exclude_config, dict):
         exclude_patterns = exclude_config.get('global', [])
         channel_exclude_patterns = exclude_config.get('channels', {})
+        short_video_max_seconds = int(exclude_config.get(
+            'short_video_max_seconds', DEFAULT_SHORT_VIDEO_MAX_SECONDS
+        ))
     else:
         exclude_patterns = exclude_config
         channel_exclude_patterns = {}
+        short_video_max_seconds = DEFAULT_SHORT_VIDEO_MAX_SECONDS
 
     # Load exclude IDs
     with open(os.path.join(script_dir, 'exclude_ids.json'), 'r', encoding='utf-8') as f:
         exclude_ids = json.load(f)
 
-    return exclude_patterns, channel_exclude_patterns, exclude_ids
+    return exclude_patterns, channel_exclude_patterns, exclude_ids, short_video_max_seconds
 
 # Load configuration at module level
-EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS = load_config()
+EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS, SHORT_VIDEO_MAX_SECONDS = load_config()
 
 # Default channel list file (next to this script)
 CHANNELS_FILE = 'channels.json'
@@ -292,8 +303,49 @@ def get_video_details(video_ids: List[str], quiet: bool = False) -> List[Dict[st
 
     return all_videos
 
+def parse_iso8601_duration(duration: str) -> Optional[int]:
+    """
+    Convert a YouTube ISO 8601 duration (e.g. "PT1M30S") into seconds.
+
+    Args:
+        duration: ISO 8601 duration string as returned by the YouTube API
+
+    Returns:
+        Duration in seconds, or None when the value cannot be parsed
+    """
+    if not duration:
+        return None
+
+    match = re.fullmatch(r'P(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', duration)
+    if not match:
+        return None
+
+    days, hours, minutes, seconds = (int(group) if group else 0 for group in match.groups())
+    return days * 86400 + hours * 3600 + minutes * 60 + seconds
+
+def is_short_video(duration: str, max_seconds: int) -> bool:
+    """
+    Whether a video is too short to be a tutorial (a short / clip).
+
+    Unknown or unparseable durations are never considered short, so a missing
+    value cannot silently drop a video.
+
+    Args:
+        duration: ISO 8601 duration string
+        max_seconds: Videos at or below this length are shorts (0 disables)
+
+    Returns:
+        True when the video should be dropped as a short
+    """
+    if max_seconds <= 0:
+        return False
+
+    total_seconds = parse_iso8601_duration(duration)
+    return total_seconds is not None and total_seconds <= max_seconds
+
 def filter_videos(videos: List[Dict], query: Optional[str],
-                  extra_exclude_patterns: Optional[List[str]] = None) -> List[Dict]:
+                  extra_exclude_patterns: Optional[List[str]] = None,
+                  short_video_max_seconds: Optional[int] = None) -> List[Dict]:
     """
     Filter videos by search query in title or description, excluding certain patterns and IDs.
 
@@ -301,12 +353,22 @@ def filter_videos(videos: List[Dict], query: Optional[str],
         videos: List of video dictionaries
         query: Search query to filter by (None = no query filter)
         extra_exclude_patterns: Additional regex patterns (e.g. per-channel rules)
+        short_video_max_seconds: Drop videos at or below this length
+            (None = use the configured value, 0 = keep shorts)
 
     Returns:
         Filtered list of videos
     """
+    max_seconds = SHORT_VIDEO_MAX_SECONDS if short_video_max_seconds is None else short_video_max_seconds
+
     # First, exclude videos by ID
     filtered = [video for video in videos if video['videoId'] not in EXCLUDE_IDS]
+
+    # Then drop shorts / clips, which are not tutorials
+    filtered = [
+        video for video in filtered
+        if not is_short_video(video.get('duration', ''), max_seconds)
+    ]
 
     # Then exclude by title patterns (global + per-channel)
     patterns = list(EXCLUDE_PATTERNS)
@@ -331,7 +393,8 @@ def filter_videos(videos: List[Dict], query: Optional[str],
     return filtered
 
 def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
-                 quiet: bool = False) -> List[Dict[str, Any]]:
+                 quiet: bool = False,
+                 short_video_max_seconds: Optional[int] = None) -> List[Dict[str, Any]]:
     """
     Orchestrates the full YouTube fetch pipeline across every configured channel.
 
@@ -339,10 +402,13 @@ def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
         channels: Resolved channels (channelId, channelTitle, uploadsPlaylistId, query)
         max_results: Max results per API page
         quiet: Suppress progress messages
+        short_video_max_seconds: Drop videos at or below this length
+            (None = use the configured value, 0 = keep shorts)
 
     Returns:
         Deduplicated list of filtered video dictionaries
     """
+    max_seconds = SHORT_VIDEO_MAX_SECONDS if short_video_max_seconds is None else short_video_max_seconds
     all_videos: List[Dict[str, Any]] = []
 
     for channel in channels:
@@ -365,7 +431,13 @@ def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
 
         # Step 3: Filter by this channel's query and exclusions
         channel_patterns = CHANNEL_EXCLUDE_PATTERNS.get(channel['channelId'], [])
-        kept_videos = filter_videos(channel_videos, channel.get('query'), channel_patterns)
+        shorts_count = sum(
+            1 for video in channel_videos
+            if is_short_video(video.get('duration', ''), max_seconds)
+        )
+        kept_videos = filter_videos(
+            channel_videos, channel.get('query'), channel_patterns, max_seconds
+        )
         excluded_count = len(channel_videos) - len(kept_videos)
 
         if not quiet:
@@ -375,6 +447,9 @@ def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
             else:
                 print(f"✓ Keeping {len(kept_videos)} videos "
                       f"(excluded {excluded_count} non-tutorial videos)")
+            if shorts_count:
+                print(f"  Dropped {shorts_count} short videos "
+                      f"(<= {max_seconds}s)")
 
         all_videos.extend(kept_videos)
 
@@ -543,7 +618,8 @@ def run_pipeline(
     tags_from: Optional[str] = None,
     save_intermediate: bool = False,
     quiet: bool = False,
-    no_stats: bool = False
+    no_stats: bool = False,
+    short_video_max_seconds: Optional[int] = None
 ) -> List[Dict[str, Any]]:
     """
     Execute the fetch -> filter -> merge tags -> save pipeline.
@@ -556,6 +632,8 @@ def run_pipeline(
         save_intermediate: Save the raw fetch to be/videos.json
         quiet: Suppress progress messages
         no_stats: Skip the end-of-run summary
+        short_video_max_seconds: Drop videos at or below this length
+            (None = use the configured value, 0 = keep shorts)
 
     Returns:
         The saved videos
@@ -566,7 +644,9 @@ def run_pipeline(
 
     # Step 1: Resolve channels and fetch videos from YouTube
     resolved_channels = resolve_channels(channels, default_query=search_query, quiet=quiet)
-    videos = fetch_videos(resolved_channels, quiet=quiet)
+    videos = fetch_videos(
+        resolved_channels, quiet=quiet, short_video_max_seconds=short_video_max_seconds
+    )
 
     if not videos:
         print("❌ No videos to process.")
@@ -608,6 +688,9 @@ Examples:
   # Fetch all videos (no query filter)
   python update_videos.py --no-query
 
+  # Keep shorts as well (disable the duration filter)
+  python update_videos.py --shorts-max-seconds 0
+
   # Show the configured channels (from channels.json)
   python update_videos.py --list-channels
 
@@ -639,6 +722,9 @@ Tags are added manually with the prompt in TAGGING_PROMPT.md, never by this scri
                        help='Suppress progress messages')
     parser.add_argument('--no-stats', action='store_true',
                        help='Skip the end-of-run summary')
+    parser.add_argument('--shorts-max-seconds', type=int, default=None, metavar='SECONDS',
+                       help='Drop videos this long or shorter as shorts '
+                            '(default: short_video_max_seconds from exclude_patterns.json; 0 keeps them)')
 
     args = parser.parse_args()
 
@@ -662,7 +748,8 @@ Tags are added manually with the prompt in TAGGING_PROMPT.md, never by this scri
         tags_from=args.tags_from,
         save_intermediate=args.save_intermediate,
         quiet=args.quiet,
-        no_stats=args.no_stats
+        no_stats=args.no_stats,
+        short_video_max_seconds=args.shorts_max_seconds
     )
 
 if __name__ == "__main__":
