@@ -1,11 +1,17 @@
 import { useParams, Link } from "react-router";
 
+import type { IVideo } from "~/types";
+
 import videos from "../videos.json";
+
+const videosById = new Map<string, IVideo>(
+  (videos as IVideo[]).map((video) => [video.videoId, video]),
+);
 
 export default function VideoDetail() {
   const { videoId } = useParams<{ videoId: string }>();
 
-  const video = videos.find((v) => v.videoId === videoId);
+  const video = videoId ? videosById.get(videoId) : undefined;
 
   if (!video) {
     return (
@@ -54,6 +60,23 @@ export default function VideoDetail() {
           </h1>
 
           <p className="text-zinc-500 mt-2">{publishedDate}</p>
+
+          {video.channelTitle && (
+            <p className="mt-1 text-sm text-zinc-400">
+              {video.channelId ? (
+                <a
+                  href={`https://www.youtube.com/channel/${video.channelId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 hover:underline"
+                >
+                  {video.channelTitle}
+                </a>
+              ) : (
+                video.channelTitle
+              )}
+            </p>
+          )}
         </div>
 
         {/* Sidebar de info */}

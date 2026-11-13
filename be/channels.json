@@ -1,0 +1,16 @@
+{
+  "channels": [
+    {
+      "id": "UCwdh3MTrFq3sXlB4ct8B-Fg",
+      "label": "Warhammer (official)",
+      "query": "paint",
+      "enabled": true
+    },
+    {
+      "handle": "@JOSEDAVINCI_",
+      "label": "Jose Davinci",
+      "query": null,
+      "enabled": true
+    }
+  ]
+}

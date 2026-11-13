@@ -7,7 +7,7 @@ The video tagging system automatically categorizes Warhammer painting tutorial v
 ### Tagging Modes
 
 **1. Groq Mode (Best Overall - RECOMMENDED)**
-- Uses Llama 3.3 70B via Groq API
+- Uses a Groq-hosted model (default `openai/gpt-oss-120b`, override with `GROQ_MODEL`) via Groq API
 - ~95%+ coverage with near-perfect accuracy
 - Extremely fast (~2-5 minutes for 600 videos)
 - Very generous free tier (14,400 requests/day)
@@ -58,7 +58,7 @@ All tagging rules and filters are stored in editable JSON files:
 ### 1. Five Tagging Modes
 
 #### Groq Mode (Best Overall - RECOMMENDED)
-- **How it works**: Uses Llama 3.3 70B Versatile via Groq API to read title + description and intelligently assign tags
+- **How it works**: Uses a Groq-hosted model (default `openai/gpt-oss-120b`) via Groq API to read title + description and intelligently assign tags
 - **Coverage**: ~95%+ (understands context like a human)
 - **Accuracy**: Near-perfect - truly understands what's being painted
 - **Speed**: Extremely fast (~2-5 minutes for 600 videos)

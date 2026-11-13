@@ -13,6 +13,7 @@ load_dotenv()
 API_KEY = os.getenv('YOUTUBE_API_KEY', '')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')
 GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
+GROQ_MODEL = os.getenv('GROQ_MODEL', 'openai/gpt-oss-120b')
 OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434/v1')
 OLLAMA_MODEL = os.getenv('OLLAMA_MODEL', 'qwen2.5:14b')
 
@@ -22,6 +23,14 @@ CHECKPOINT_FILE = '.llm_checkpoint.json'
 # ============================================================================
 # CHECKPOINT HELPERS
 # ============================================================================
+
+def get_channel_fingerprint(videos: List[Dict]) -> List[str]:
+    """Return the sorted set of channel IDs present in a video list.
+
+    Used to invalidate LLM checkpoints when the channel set changes, so a
+    resume can never silently drop videos from a newly added channel.
+    """
+    return sorted({video.get('channelId', '') for video in videos if video.get('channelId')})
 
 def save_checkpoint(videos: List[Dict], batch_num: int, mode: str) -> None:
     """Save progress checkpoint for LLM tagging."""
@@ -33,6 +42,7 @@ def save_checkpoint(videos: List[Dict], batch_num: int, mode: str) -> None:
         'batch_num': batch_num,
         'timestamp': time.time(),
         'total_videos': len(videos),
+        'channels': get_channel_fingerprint(videos),
         'videos': videos
     }
 
@@ -57,22 +67,37 @@ def clear_checkpoint() -> None:
     if os.path.exists(checkpoint_path):
         os.remove(checkpoint_path)
 
+def checkpoint_matches(checkpoint: Dict, mode: str, videos: List[Dict]) -> bool:
+    """Check whether a checkpoint is usable for this mode and channel set."""
+    if not checkpoint or checkpoint.get('mode') != mode:
+        return False
+
+    return checkpoint.get('channels') == get_channel_fingerprint(videos)
+
 # ============================================================================
 # CONFIGURATION LOADING
 # ============================================================================
 
-def load_config() -> tuple[List[str], List[str], List[tuple], Dict[str, List[str]]]:
+def load_config() -> tuple[List[str], Dict[str, List[str]], List[str], List[tuple], Dict[str, List[str]]]:
     """
     Load configuration from JSON files.
 
     Returns:
-        Tuple of (EXCLUDE_PATTERNS, EXCLUDE_IDS, TAG_RULES, TAG_HIERARCHY)
+        Tuple of (EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS, TAG_RULES, TAG_HIERARCHY)
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Load exclude patterns
+    # Load exclude patterns. Supports either the legacy flat list or
+    # {"global": [...], "channels": {"<channelId>": [...]}} for per-channel rules.
     with open(os.path.join(script_dir, 'exclude_patterns.json'), 'r', encoding='utf-8') as f:
-        exclude_patterns = json.load(f)
+        exclude_config = json.load(f)
+
+    if isinstance(exclude_config, dict):
+        exclude_patterns = exclude_config.get('global', [])
+        channel_exclude_patterns = exclude_config.get('channels', {})
+    else:
+        exclude_patterns = exclude_config
+        channel_exclude_patterns = {}
 
     # Load exclude IDs
     with open(os.path.join(script_dir, 'exclude_ids.json'), 'r', encoding='utf-8') as f:
@@ -87,27 +112,153 @@ def load_config() -> tuple[List[str], List[str], List[tuple], Dict[str, List[str
     with open(os.path.join(script_dir, 'tag_hierarchy.json'), 'r', encoding='utf-8') as f:
         tag_hierarchy = json.load(f)
 
-    return exclude_patterns, exclude_ids, tag_rules, tag_hierarchy
+    return exclude_patterns, channel_exclude_patterns, exclude_ids, tag_rules, tag_hierarchy
 
 # Load configuration at module level
-EXCLUDE_PATTERNS, EXCLUDE_IDS, TAG_RULES, TAG_HIERARCHY = load_config()
+EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS, TAG_RULES, TAG_HIERARCHY = load_config()
+
+# Default channel list file (next to this script)
+CHANNELS_FILE = 'channels.json'
+
+def load_channels(path: Optional[str] = None) -> List[Dict[str, Any]]:
+    """
+    Load the list of YouTube channels to ingest.
+
+    Args:
+        path: Path to channels.json (default: channels.json next to this script)
+
+    Returns:
+        List of enabled channel config entries
+    """
+    if path:
+        channels_path = path
+    else:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        channels_path = os.path.join(script_dir, CHANNELS_FILE)
+
+    try:
+        with open(channels_path, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+    except FileNotFoundError:
+        print(f"❌ Error: File not found: {channels_path}")
+        exit(1)
+    except json.JSONDecodeError as e:
+        print(f"❌ Error: Invalid JSON in {channels_path}: {e}")
+        exit(1)
+
+    entries = config.get('channels', []) if isinstance(config, dict) else config
+    channels = [entry for entry in entries if entry.get('enabled', True)]
+
+    if not channels:
+        print(f"❌ Error: No enabled channels in {channels_path}")
+        exit(1)
+
+    return channels
+
+def channel_entry_from_cli(ref: str) -> Dict[str, Any]:
+    """Build a channel entry from a CLI value (channel ID or @handle)."""
+    if ref.startswith('@') or not re.fullmatch(r'UC[\w-]{22}', ref):
+        return {'handle': ref}
+
+    return {'id': ref}
 
 # ============================================================================
 # YOUTUBE API FUNCTIONS
 # ============================================================================
 
-def get_uploads_playlist_id(channel_id: str) -> str:
-    """Convert channel ID to uploads playlist ID (UC -> UU)."""
-    if channel_id.startswith('UC'):
-        return 'UU' + channel_id[2:]
-    return channel_id
+def resolve_channel(channel_ref: Dict[str, Any], default_query: Optional[str] = None,
+                    quiet: bool = False) -> Optional[Dict[str, Any]]:
+    """
+    Resolve a channel config entry (ID or handle) to a concrete channel identity.
 
-def get_all_channel_videos(channel_id: str, max_results: int = 50, quiet: bool = False) -> List[str]:
+    Uses channels.list so @handles work and the uploads playlist comes from the
+    API (more reliable than the old UC -> UU string substitution).
+
+    Args:
+        channel_ref: Dict with either 'id' or 'handle', plus optional 'label'/'query'
+        default_query: Query used when the entry has no explicit 'query' key
+        quiet: Suppress progress messages
+
+    Returns:
+        Dict with channelId, channelTitle, uploadsPlaylistId and query, or None
+    """
+    youtube = build('youtube', 'v3', developerKey=API_KEY)
+    channel_id = channel_ref.get('id')
+    handle = channel_ref.get('handle')
+
+    params: Dict[str, Any] = {'part': 'snippet,contentDetails'}
+    if channel_id:
+        params['id'] = channel_id
+    elif handle:
+        params['forHandle'] = handle if handle.startswith('@') else f'@{handle}'
+    else:
+        print(f"❌ Error: Channel entry needs an 'id' or a 'handle': {channel_ref}")
+        return None
+
+    try:
+        response = youtube.channels().list(**params).execute()
+    except HttpError as e:
+        print(f"❌ Could not resolve channel {channel_id or handle}: {e}")
+        return None
+
+    items = response.get('items', [])
+    if not items:
+        print(f"❌ Channel not found: {channel_id or handle}")
+        return None
+
+    item = items[0]
+    title = item['snippet']['title']
+    resolved = {
+        'channelId': item['id'],
+        'channelTitle': title,
+        'uploadsPlaylistId': item['contentDetails']['relatedPlaylists']['uploads'],
+        # An explicit "query": null in channels.json disables the filter for that channel
+        'query': channel_ref['query'] if 'query' in channel_ref else default_query,
+    }
+
+    if not quiet:
+        label = channel_ref.get('label') or title
+        print(f"✓ {label}: {title} ({resolved['channelId']})")
+
+    return resolved
+
+def resolve_channels(channel_entries: List[Dict[str, Any]], default_query: Optional[str] = None,
+                     quiet: bool = False) -> List[Dict[str, Any]]:
+    """
+    Resolve every channel entry, skipping any that fail.
+
+    Args:
+        channel_entries: Raw entries from channels.json (or CLI overrides)
+        default_query: Query used when an entry has no explicit 'query' key
+        quiet: Suppress progress messages
+
+    Returns:
+        List of resolved channel dicts
+    """
+    if not API_KEY:
+        print("❌ Error: YOUTUBE_API_KEY not set. Please set it in .env file.")
+        exit(1)
+
+    resolved = []
+    for entry in channel_entries:
+        channel = resolve_channel(entry, default_query=default_query, quiet=quiet)
+        if channel:
+            resolved.append(channel)
+
+    if not resolved:
+        print("❌ Error: No channels could be resolved.")
+        exit(1)
+
+    return resolved
+
+def get_all_channel_videos(uploads_playlist_id: str, channel_title: str = '',
+                           max_results: int = 50, quiet: bool = False) -> List[str]:
     """
     Fetch all videos from a channel's uploads playlist.
 
     Args:
-        channel_id: YouTube channel ID
+        uploads_playlist_id: Uploads playlist ID (from channels.list)
+        channel_title: Channel name, used for progress messages
         max_results: Max results per API page
         quiet: Suppress progress messages
 
@@ -115,13 +266,13 @@ def get_all_channel_videos(channel_id: str, max_results: int = 50, quiet: bool =
         List of video IDs
     """
     youtube = build('youtube', 'v3', developerKey=API_KEY)
-    playlist_id = get_uploads_playlist_id(channel_id)
+    playlist_id = uploads_playlist_id
     video_ids = []
     next_page_token = None
 
     try:
         if not quiet:
-            print(f"📂 Fetching all videos from playlist {playlist_id}...")
+            print(f"📂 Fetching all videos from {channel_title or playlist_id}...")
         while True:
             playlist_response = youtube.playlistItems().list(
                 part='contentDetails',
@@ -184,6 +335,8 @@ def get_video_details(video_ids: List[str], quiet: bool = False) -> List[Dict[st
                     'duration': item['contentDetails'].get('duration', ''),
                     'viewCount': int(item['statistics'].get('viewCount', 0)),
                     'likeCount': int(item['statistics'].get('likeCount', 0)),
+                    'channelId': item['snippet']['channelId'],
+                    'channelTitle': item['snippet']['channelTitle'],
                 }
                 all_videos.append(video)
 
@@ -195,13 +348,15 @@ def get_video_details(video_ids: List[str], quiet: bool = False) -> List[Dict[st
 
     return all_videos
 
-def filter_videos(videos: List[Dict], query: Optional[str]) -> List[Dict]:
+def filter_videos(videos: List[Dict], query: Optional[str],
+                  extra_exclude_patterns: Optional[List[str]] = None) -> List[Dict]:
     """
     Filter videos by search query in title or description, excluding certain patterns and IDs.
 
     Args:
         videos: List of video dictionaries
         query: Search query to filter by (None = no query filter)
+        extra_exclude_patterns: Additional regex patterns (e.g. per-channel rules)
 
     Returns:
         Filtered list of videos
@@ -209,12 +364,17 @@ def filter_videos(videos: List[Dict], query: Optional[str]) -> List[Dict]:
     # First, exclude videos by ID
     filtered = [video for video in videos if video['videoId'] not in EXCLUDE_IDS]
 
-    # Then exclude by title patterns
-    exclude_regex = re.compile('|'.join(EXCLUDE_PATTERNS), re.IGNORECASE)
-    filtered = [
-        video for video in filtered
-        if not exclude_regex.search(video['title'])
-    ]
+    # Then exclude by title patterns (global + per-channel)
+    patterns = list(EXCLUDE_PATTERNS)
+    if extra_exclude_patterns:
+        patterns.extend(extra_exclude_patterns)
+
+    if patterns:
+        exclude_regex = re.compile('|'.join(patterns), re.IGNORECASE)
+        filtered = [
+            video for video in filtered
+            if not exclude_regex.search(video['title'])
+        ]
 
     # Finally apply search query filter if provided
     if query:
@@ -226,40 +386,64 @@ def filter_videos(videos: List[Dict], query: Optional[str]) -> List[Dict]:
 
     return filtered
 
-def fetch_videos(channel_id: str, search_query: Optional[str], max_results: int = 50, quiet: bool = False) -> List[Dict[str, Any]]:
+def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
+                 quiet: bool = False) -> List[Dict[str, Any]]:
     """
-    Orchestrates the full YouTube fetch pipeline.
+    Orchestrates the full YouTube fetch pipeline across every configured channel.
 
     Args:
-        channel_id: YouTube channel ID
-        search_query: Optional search query to filter videos
+        channels: Resolved channels (channelId, channelTitle, uploadsPlaylistId, query)
         max_results: Max results per API page
         quiet: Suppress progress messages
 
     Returns:
-        List of filtered video dictionaries
+        Deduplicated list of filtered video dictionaries
     """
-    # Step 1: Get all video IDs
-    video_ids = get_all_channel_videos(channel_id, max_results, quiet)
+    all_videos: List[Dict[str, Any]] = []
 
-    if not video_ids:
-        print("❌ No videos found.")
-        return []
+    for channel in channels:
+        channel_title = channel.get('channelTitle') or channel['channelId']
+        if not quiet:
+            print(f"\n📺 {channel_title}")
 
-    # Step 2: Get detailed video info
-    all_videos = get_video_details(video_ids, quiet)
+        # Step 1: Get all video IDs
+        video_ids = get_all_channel_videos(
+            channel['uploadsPlaylistId'], channel_title, max_results, quiet
+        )
 
-    # Step 3: Filter by query and exclusions
-    filtered_videos = filter_videos(all_videos, search_query)
-    excluded_count = len(all_videos) - len(filtered_videos)
+        if not video_ids:
+            if not quiet:
+                print(f"⚠️  No videos found for {channel_title}, skipping")
+            continue
+
+        # Step 2: Get detailed video info
+        channel_videos = get_video_details(video_ids, quiet)
+
+        # Step 3: Filter by this channel's query and exclusions
+        channel_patterns = CHANNEL_EXCLUDE_PATTERNS.get(channel['channelId'], [])
+        kept_videos = filter_videos(channel_videos, channel.get('query'), channel_patterns)
+        excluded_count = len(channel_videos) - len(kept_videos)
+
+        if not quiet:
+            if channel.get('query'):
+                print(f"✓ Filtered to {len(kept_videos)} videos matching "
+                      f"'{channel['query']}' (excluded {excluded_count})")
+            else:
+                print(f"✓ Keeping {len(kept_videos)} videos "
+                      f"(excluded {excluded_count} non-tutorial videos)")
+
+        all_videos.extend(kept_videos)
+
+    # Step 4: Merge channels, removing cross-channel duplicates
+    unique_videos = deduplicate_videos(all_videos)
 
     if not quiet:
-        if search_query:
-            print(f"✓ Filtered to {len(filtered_videos)} videos matching '{search_query}' (excluded {excluded_count})")
-        else:
-            print(f"✓ Keeping {len(filtered_videos)} videos (excluded {excluded_count} non-tutorial videos)")
+        duplicates = len(all_videos) - len(unique_videos)
+        print(f"\n✓ Total: {len(unique_videos)} unique videos from {len(channels)} channel(s)")
+        if duplicates:
+            print(f"  Removed {duplicates} duplicate videos")
 
-    return filtered_videos
+    return unique_videos
 
 # ============================================================================
 # TAGGING FUNCTIONS
@@ -483,15 +667,20 @@ def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2)
     start_batch = 0
 
     if checkpoint and checkpoint.get('mode') == 'gemini':
-        if not quiet:
-            completed = checkpoint.get('batch_num', 0)
-            total = (len(videos) + batch_size - 1) // batch_size
-            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
-            print(f"   Resuming from batch {completed + 1}...")
+        if not checkpoint_matches(checkpoint, 'gemini', videos):
+            if not quiet:
+                print("⚠️  Found checkpoint for a different channel set, restarting...")
+            clear_checkpoint()
+        else:
+            if not quiet:
+                completed = checkpoint.get('batch_num', 0)
+                total = (len(videos) + batch_size - 1) // batch_size
+                print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+                print(f"   Resuming from batch {completed + 1}...")
 
-        # Restore previously tagged videos
-        videos = checkpoint['videos']
-        start_batch = checkpoint['batch_num'] + 1
+            # Restore previously tagged videos
+            videos = checkpoint['videos']
+            start_batch = checkpoint['batch_num'] + 1
     elif checkpoint and checkpoint.get('mode') != 'gemini':
         if not quiet:
             print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
@@ -604,11 +793,13 @@ def apply_tags_llm(videos: List[Dict], quiet: bool = False, batch_size: int = 2)
 
 def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int = 8) -> List[Dict]:
     """
-    Apply tags using Groq LLM (Llama 3.3 70B Versatile) for intelligent context-aware tagging.
+    Apply tags using Groq LLM (model from GROQ_MODEL, default openai/gpt-oss-120b) for
+    intelligent context-aware tagging.
 
-    Llama 3.3 70B reasons about content far more reliably than the old 8B model
-    (fewer missed factions/techniques, fewer paint-name false positives), while
-    Groq's inference speed keeps this fast even at the larger model size.
+    A large Groq-hosted model reasons about content far more reliably than a
+    small model (fewer missed factions/techniques, fewer paint-name false
+    positives), while Groq's inference speed keeps this fast even at the larger
+    model size.
     Using 8 videos per batch with 1-second delays = safe for free tier.
     Supports checkpoint/resume in case of connection loss.
     """
@@ -630,15 +821,20 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
     start_batch = 0
 
     if checkpoint and checkpoint.get('mode') == 'groq':
-        if not quiet:
-            completed = checkpoint.get('batch_num', 0)
-            total = (len(videos) + batch_size - 1) // batch_size
-            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
-            print(f"   Resuming from batch {completed + 1}...")
+        if not checkpoint_matches(checkpoint, 'groq', videos):
+            if not quiet:
+                print("⚠️  Found checkpoint for a different channel set, restarting...")
+            clear_checkpoint()
+        else:
+            if not quiet:
+                completed = checkpoint.get('batch_num', 0)
+                total = (len(videos) + batch_size - 1) // batch_size
+                print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+                print(f"   Resuming from batch {completed + 1}...")
 
-        # Restore previously tagged videos
-        videos = checkpoint['videos']
-        start_batch = checkpoint['batch_num'] + 1
+            # Restore previously tagged videos
+            videos = checkpoint['videos']
+            start_batch = checkpoint['batch_num'] + 1
     elif checkpoint and checkpoint.get('mode') != 'groq':
         if not quiet:
             print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
@@ -663,7 +859,7 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
             print(f"🚀 Resuming Groq LLM tagging (batch {start_batch + 1}/{total_batches})...")
         else:
             print(f"🚀 Starting Groq LLM tagging ({len(videos)} videos in {total_batches} batches)...")
-        print(f"   Using Llama 3.3 70B Versatile - stronger reasoning, still very fast")
+        print(f"   Using {GROQ_MODEL} - strong reasoning, still very fast")
         print(f"   Estimated time: ~{(total_batches * 2) // 60} minutes")
         print(f"   💾 Auto-saving progress after each batch (resume on failure)")
 
@@ -687,16 +883,23 @@ def apply_tags_llm_groq(videos: List[Dict], quiet: bool = False, batch_size: int
         max_retries = 3
         for attempt in range(max_retries):
             try:
-                response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile",
-                    messages=[
+                request_kwargs: Dict[str, Any] = {
+                    'model': GROQ_MODEL,
+                    'messages': [
                         {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt}
                     ],
-                    response_format={"type": "json_object"},
-                    temperature=0.1,
-                    max_tokens=1500
-                )
+                    'response_format': {"type": "json_object"},
+                    'temperature': 0.1,
+                    'max_tokens': 4000,
+                }
+
+                # gpt-oss models spend most of their budget on reasoning by default;
+                # low effort keeps tagging fast without hurting tag quality.
+                if GROQ_MODEL.startswith('openai/gpt-oss'):
+                    request_kwargs['reasoning_effort'] = 'low'
+
+                response = client.chat.completions.create(**request_kwargs)
 
                 results = json.loads(response.choices[0].message.content)
 
@@ -785,14 +988,19 @@ def apply_tags_llm_local(videos: List[Dict], quiet: bool = False, batch_size: in
     start_batch = 0
 
     if checkpoint and checkpoint.get('mode') == 'local':
-        if not quiet:
-            completed = checkpoint.get('batch_num', 0)
-            total = (len(videos) + batch_size - 1) // batch_size
-            print(f"📂 Found checkpoint: {completed}/{total} batches completed")
-            print(f"   Resuming from batch {completed + 1}...")
+        if not checkpoint_matches(checkpoint, 'local', videos):
+            if not quiet:
+                print("⚠️  Found checkpoint for a different channel set, restarting...")
+            clear_checkpoint()
+        else:
+            if not quiet:
+                completed = checkpoint.get('batch_num', 0)
+                total = (len(videos) + batch_size - 1) // batch_size
+                print(f"📂 Found checkpoint: {completed}/{total} batches completed")
+                print(f"   Resuming from batch {completed + 1}...")
 
-        videos = checkpoint['videos']
-        start_batch = checkpoint['batch_num'] + 1
+            videos = checkpoint['videos']
+            start_batch = checkpoint['batch_num'] + 1
     elif checkpoint and checkpoint.get('mode') != 'local':
         if not quiet:
             print(f"⚠️  Found checkpoint for different mode ({checkpoint.get('mode')}), ignoring...")
@@ -940,6 +1148,7 @@ def print_tag_statistics(videos: List[Dict]) -> None:
         videos: List of tagged video dictionaries
     """
     tag_stats = {}
+    channel_stats = {}
     videos_without_tags = []
     videos_needing_review = []
 
@@ -947,6 +1156,9 @@ def print_tag_statistics(videos: List[Dict]) -> None:
         tags = video.get('tags', [])
         title = video.get('title', '')
         video_id = video.get('videoId', '')
+        channel = video.get('channelTitle') or 'Unknown channel'
+
+        channel_stats[channel] = channel_stats.get(channel, 0) + 1
 
         if not tags or tags == ['untagged']:
             videos_without_tags.append({
@@ -965,7 +1177,11 @@ def print_tag_statistics(videos: List[Dict]) -> None:
         for tag in tags:
             tag_stats[tag] = tag_stats.get(tag, 0) + 1
 
-    print(f"\n📊 Tag Statistics:")
+    print(f"\n� Videos per channel:")
+    for channel, count in sorted(channel_stats.items(), key=lambda x: x[1], reverse=True):
+        print(f"  {channel}: {count} videos")
+
+    print(f"\n�📊 Tag Statistics:")
     for tag, count in sorted(tag_stats.items(), key=lambda x: x[1], reverse=True)[:15]:
         print(f"  {tag}: {count} videos")
 
@@ -987,7 +1203,8 @@ def print_tag_statistics(videos: List[Dict]) -> None:
 def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool = False,
                        semantic: bool = False, hybrid: bool = False, llm: bool = False,
                        groq: bool = False, local: bool = False, threshold: float = 0.65,
-                       model_name: str = 'all-MiniLM-L6-v2') -> List[Dict]:
+                       model_name: str = 'all-MiniLM-L6-v2',
+                       batch_size: Optional[int] = None) -> List[Dict]:
     """
     Orchestrate all tagging steps.
 
@@ -1002,6 +1219,7 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         local: Use a locally-hosted LLM via Ollama (no API key, offline)
         threshold: Semantic similarity threshold
         model_name: Sentence transformer model to use
+        batch_size: Videos per LLM request (None = mode default)
 
     Returns:
         Tagged and deduplicated videos
@@ -1012,12 +1230,16 @@ def tag_videos_pipeline(videos: List[Dict], quiet: bool = False, no_stats: bool 
         print(f"🏷️  Tagging videos ({mode} mode)...")
 
     # Apply tagging based on mode
+    llm_kwargs: Dict[str, Any] = {'quiet': quiet}
+    if batch_size:
+        llm_kwargs['batch_size'] = batch_size
+
     if groq:
-        videos = apply_tags_llm_groq(videos, quiet=quiet)
+        videos = apply_tags_llm_groq(videos, **llm_kwargs)
     elif local:
-        videos = apply_tags_llm_local(videos, quiet=quiet)
+        videos = apply_tags_llm_local(videos, **llm_kwargs)
     elif llm:
-        videos = apply_tags_llm(videos, quiet=quiet)
+        videos = apply_tags_llm(videos, **llm_kwargs)
     elif semantic:
         videos = apply_tags_semantic(videos, threshold, model_name)
     elif hybrid:
@@ -1100,7 +1322,7 @@ def save_videos(videos: List[Dict], output_path: str, label: str = "videos") -> 
 # ============================================================================
 
 def run_full_pipeline(
-    channel_id: str,
+    channels: List[Dict[str, Any]],
     search_query: Optional[str],
     save_intermediate: bool = False,
     quiet: bool = False,
@@ -1111,14 +1333,15 @@ def run_full_pipeline(
     groq: bool = False,
     local: bool = False,
     threshold: float = 0.65,
-    model_name: str = 'all-MiniLM-L6-v2'
+    model_name: str = 'all-MiniLM-L6-v2',
+    batch_size: Optional[int] = None
 ) -> List[Dict[str, Any]]:
     """
     Execute full fetch + tag + save pipeline.
 
     Args:
-        channel_id: YouTube channel ID
-        search_query: Search query to filter videos
+        channels: Raw channel entries (channel ID or @handle, plus optional query)
+        search_query: Default search query for channels without an explicit one
         save_intermediate: Save intermediate be/videos.json
         quiet: Suppress progress messages
         no_stats: Skip tag statistics
@@ -1137,8 +1360,9 @@ def run_full_pipeline(
         print("❌ Error: YOUTUBE_API_KEY not set. Please set it in .env file.")
         exit(1)
 
-    # Step 1: Fetch videos from YouTube
-    videos = fetch_videos(channel_id, search_query, quiet=quiet)
+    # Step 1: Resolve channels and fetch videos from YouTube
+    resolved_channels = resolve_channels(channels, default_query=search_query, quiet=quiet)
+    videos = fetch_videos(resolved_channels, quiet=quiet)
 
     if not videos:
         print("❌ No videos to process.")
@@ -1148,7 +1372,7 @@ def run_full_pipeline(
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
                                        semantic=semantic, hybrid=hybrid, llm=llm,
                                        groq=groq, local=local, threshold=threshold,
-                                       model_name=model_name)
+                                       model_name=model_name, batch_size=batch_size)
 
     # Step 3: Optionally save intermediate file
     if save_intermediate:
@@ -1159,20 +1383,21 @@ def run_full_pipeline(
 
     return tagged_videos
 
-def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = False) -> None:
+def run_fetch_only(channels: List[Dict[str, Any]], search_query: Optional[str], quiet: bool = False) -> None:
     """
     Fetch videos and save to be/videos.json.
 
     Args:
-        channel_id: YouTube channel ID
-        search_query: Search query to filter videos
+        channels: Raw channel entries (channel ID or @handle, plus optional query)
+        search_query: Default search query for channels without an explicit one
         quiet: Suppress progress messages
     """
     if not API_KEY:
         print("❌ Error: YOUTUBE_API_KEY not set. Please set it in .env file.")
         exit(1)
 
-    videos = fetch_videos(channel_id, search_query, quiet=quiet)
+    resolved_channels = resolve_channels(channels, default_query=search_query, quiet=quiet)
+    videos = fetch_videos(resolved_channels, quiet=quiet)
 
     if not videos:
         print("❌ No videos to save.")
@@ -1183,7 +1408,8 @@ def run_fetch_only(channel_id: str, search_query: Optional[str], quiet: bool = F
 def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stats: bool = False,
                 semantic: bool = False, hybrid: bool = False, llm: bool = False,
                 groq: bool = False, local: bool = False, threshold: float = 0.65,
-                model_name: str = 'all-MiniLM-L6-v2') -> None:
+                model_name: str = 'all-MiniLM-L6-v2',
+                batch_size: Optional[int] = None) -> None:
     """
     Load videos, tag them, save to output.
 
@@ -1204,7 +1430,7 @@ def run_tag_only(input_path: str, output_path: str, quiet: bool = False, no_stat
     tagged_videos = tag_videos_pipeline(videos, quiet=quiet, no_stats=no_stats,
                                        semantic=semantic, hybrid=hybrid, llm=llm,
                                        groq=groq, local=local, threshold=threshold,
-                                       model_name=model_name)
+                                       model_name=model_name, batch_size=batch_size)
     save_videos(tagged_videos, output_path, 'tagged videos')
 
 # ============================================================================
@@ -1233,8 +1459,11 @@ Examples:
   # Fetch all videos (no query filter)
   python update_videos.py --no-query
 
-  # Custom channel and query
-  python update_videos.py --channel UC1234567890 --query "tutorial"
+  # Show the configured channels (from channels.json)
+  python update_videos.py --list-channels
+
+  # One-off channel override (repeatable)
+  python update_videos.py --channel @SomePainter --channel UC1234567890abcdefghijkl
         """
     )
 
@@ -1246,8 +1475,12 @@ Examples:
                            help='Only tag existing videos (read from --input)')
 
     # Configuration arguments
-    parser.add_argument('--channel', type=str, default='UCwdh3MTrFq3sXlB4ct8B-Fg',
-                       help='YouTube channel ID (default: Warhammer official)')
+    parser.add_argument('--channel', action='append', metavar='ID_OR_HANDLE',
+                       help='YouTube channel ID or @handle (repeatable, overrides --channels)')
+    parser.add_argument('--channels', type=str, default=None,
+                       help='Path to channels.json (default: channels.json next to this script)')
+    parser.add_argument('--list-channels', action='store_true',
+                       help='Resolve and print the configured channels, then exit')
     parser.add_argument('--query', type=str, default='paint',
                        help='Search query filter (default: "paint")')
     parser.add_argument('--no-query', action='store_true',
@@ -1272,11 +1505,13 @@ Examples:
     tagging_mode.add_argument('--llm', action='store_true',
                               help='Use Google Gemini LLM for intelligent tagging (requires GEMINI_API_KEY)')
     tagging_mode.add_argument('--groq', action='store_true',
-                              help='Use Groq LLM (Llama 3.3 70B Versatile) - strong reasoning, still very fast, generous free tier (requires GROQ_API_KEY)')
+                              help='Use Groq LLM (model from GROQ_MODEL, default openai/gpt-oss-120b) - strong reasoning, still very fast, generous free tier (requires GROQ_API_KEY)')
     tagging_mode.add_argument('--local', action='store_true',
                               help='Use a locally-hosted LLM via Ollama - no API key, no rate limits, runs offline (requires `ollama serve` and a pulled model, e.g. `ollama pull qwen2.5:14b`)')
     parser.add_argument('--threshold', type=float, default=0.65,
                        help='Semantic similarity threshold (0.0-1.0, default: 0.65)')
+    parser.add_argument('--batch-size', type=int, default=None,
+                       help='Videos per LLM request (default: 8 for Groq/local, 2 for Gemini)')
     parser.add_argument('--model', type=str, default='all-distilroberta-v1',
                        choices=['all-MiniLM-L6-v2', 'all-mpnet-base-v2',
                                'paraphrase-MiniLM-L6-v2', 'all-distilroberta-v1'],
@@ -1287,18 +1522,28 @@ Examples:
     # Handle --no-query flag
     search_query = None if args.no_query else args.query
 
+    # Channel source: --channel overrides take precedence over channels.json
+    if args.channel:
+        channel_entries = [channel_entry_from_cli(ref) for ref in args.channel]
+    else:
+        channel_entries = load_channels(args.channels)
+
+    if args.list_channels:
+        resolve_channels(channel_entries, default_query=search_query)
+        return
+
     # Execute based on mode
     if args.fetch_only:
-        run_fetch_only(args.channel, search_query, args.quiet)
+        run_fetch_only(channel_entries, search_query, args.quiet)
     elif args.tag_only:
         run_tag_only(args.input, args.output, args.quiet, args.no_stats,
                     semantic=args.semantic, hybrid=args.hybrid, llm=args.llm,
                     groq=args.groq, local=args.local, threshold=args.threshold,
-                    model_name=args.model)
+                    model_name=args.model, batch_size=args.batch_size)
     else:
         # Full pipeline (default)
         run_full_pipeline(
-            args.channel,
+            channel_entries,
             search_query,
             save_intermediate=args.save_intermediate,
             quiet=args.quiet,
@@ -1309,7 +1554,8 @@ Examples:
             groq=args.groq,
             local=args.local,
             threshold=args.threshold,
-            model_name=args.model
+            model_name=args.model,
+            batch_size=args.batch_size
         )
 
 if __name__ == "__main__":

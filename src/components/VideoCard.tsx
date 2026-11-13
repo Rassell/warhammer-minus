@@ -24,7 +24,15 @@ export default function VideoCard({ video }: { video: IVideo }) {
           {video.title}
         </h3>
 
-        <p className="mt-2 text-sm text-zinc-500">{date}</p>
+        <p className="mt-2 flex items-center gap-1.5 text-sm text-zinc-500">
+          <span>{date}</span>
+          {video.channelTitle && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span className="truncate">{video.channelTitle}</span>
+            </>
+          )}
+        </p>
 
         {video.tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">

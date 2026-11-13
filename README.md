@@ -1,6 +1,6 @@
 # Warhammer Minus
 
-A fan-made web app to browse and filter Warhammer painting tutorial videos from the official Warhammer YouTube channel. Search by title, filter by tags like `#40k`, `#aos`, `#beginner`, `#skin`, and more.
+A fan-made web app to browse and filter Warhammer painting tutorial videos from a curated set of Warhammer YouTube channels. Search by title, filter by channel or by tags like `#40k`, `#aos`, `#beginner`, `#skin`, and more.
 
 🔗 **Live:** [https://rassell.github.io/warhammer-minus/](https://rassell.github.io/warhammer-minus/)
 
@@ -41,6 +41,26 @@ The video catalog is generated with Python scripts in `be/`:
 3. **`analyze_untagged.py`** — (Optional) Analyzes untagged videos and suggests improvements
 
 The output is saved to `src/videos.json` and bundled with the frontend.
+
+### Channels
+
+The source channels are configured in `be/channels.json`. Each entry accepts either a channel `id` or a `handle`, an optional `query` (title/description keyword filter, `null` disables it) and an `enabled` flag:
+
+```json
+{
+  "channels": [
+    { "id": "UCwdh3MTrFq3sXlB4ct8B-Fg", "label": "Warhammer (official)", "query": "paint", "enabled": true },
+    { "handle": "@JOSEDAVINCI_", "label": "Jose Davinci", "query": null, "enabled": true }
+  ]
+}
+```
+
+Channel-specific exclusion patterns live under `channels` in `be/exclude_patterns.json`; patterns in `global` apply to every channel.
+
+```bash
+python update_videos.py --list-channels        # resolve IDs/handles and print them
+python update_videos.py --channel @SomePainter # one-off override (repeatable)
+```
 
 ### Intelligent Tagging System
 

@@ -7,6 +7,8 @@ import { useSidebar } from "~/hooks/useSidebar";
 import VideoGrid from "../components/VideoGrid";
 import Sidebar from "../components/Sidebar";
 
+import type { IVideo } from "~/types";
+
 import videos from "../videos.json";
 
 const VIDEOS_PER_PAGE = 16;
@@ -15,13 +17,14 @@ export default function Home() {
   const { searchTerm } = useSearch();
   const { isSidebarOpen, toggleSidebar } = useSidebar();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedChannels, setSelectedChannels] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(VIDEOS_PER_PAGE);
 
   const observerTarget = useRef<HTMLDivElement>(null);
 
   // Filtrado de videos
   const filteredVideos = useMemo(() => {
-    return videos
+    return (videos as IVideo[])
       .filter((video) => {
         const matchesSearch = video.title
           .toLowerCase()
@@ -31,13 +34,18 @@ export default function Home() {
           selectedTags.length === 0 ||
           selectedTags.some((tag) => video.tags.includes(tag));
 
-        return matchesSearch && matchesTags;
+        const matchesChannels =
+          selectedChannels.length === 0 ||
+          (!!video.channelTitle &&
+            selectedChannels.includes(video.channelTitle));
+
+        return matchesSearch && matchesTags && matchesChannels;
       })
       .sort(
         (a, b) =>
           new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
       );
-  }, [searchTerm, selectedTags]);
+  }, [searchTerm, selectedTags, selectedChannels]);
 
   const visibleVideos = filteredVideos.slice(0, visibleCount);
   const hasMore = visibleCount < filteredVideos.length;
@@ -71,18 +79,18 @@ export default function Home() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setVisibleCount(VIDEOS_PER_PAGE);
-  }, [searchTerm, selectedTags]);
+  }, [searchTerm, selectedTags, selectedChannels]);
 
   return (
     <>
       <Helmet>
         <title>
           Warhammer Minus - Tutoriales de Pintura Warhammer 40k y Age of Sigmar
-          publicados en su canal de youtube
+          recopilados de varios canales de YouTube
         </title>
         <meta
           name="description"
-          content="Colección completa de tutoriales oficiales de pintura Warhammer. Encuentra guías paso a paso para Space Marines, Tyranids, Chaos, Age of Sigmar y más."
+          content="Colección de tutoriales de pintura Warhammer recopilados de varios canales de YouTube. Encuentra guías paso a paso para Space Marines, Tyranids, Chaos, Age of Sigmar y más."
         />
         <meta
           name="keywords"
@@ -108,12 +116,18 @@ export default function Home() {
         />
       )}
 
-      <Sidebar selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+      <Sidebar
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
+        selectedChannels={selectedChannels}
+        setSelectedChannels={setSelectedChannels}
+      />
 
       <main className="flex-1 p-4 md:p-6 lg:ml-64">
         <div className="mb-6">
           <p className="text-zinc-400">
             {visibleVideos.length} / {filteredVideos.length} videos
+            {selectedChannels.length > 0 && ` · ${selectedChannels.join(", ")}`}
           </p>
         </div>
 
