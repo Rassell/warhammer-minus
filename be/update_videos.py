@@ -4,6 +4,10 @@ This script only ingests data. It fetches the videos of every channel listed in
 `channels.json`, filters them, and carries over the tags that were assigned
 manually to the previous `videos.json` (matched by `videoId`).
 
+Only videos that are not in the previous `videos.json` come out without tags;
+the end-of-run summary lists exactly those. The previous output file is copied
+to `<output>.bak` before it is rewritten.
+
 Tags are NOT generated here. They are produced by asking a generic AI assistant
 and pasting the result back into the JSON file - see `TAGGING_PROMPT.md`.
 
@@ -16,8 +20,9 @@ Usage:
 import os
 import json
 import re
+import shutil
 import argparse
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
@@ -487,12 +492,13 @@ def deduplicate_videos(videos: List[Dict]) -> List[Dict]:
     return list(unique_videos.values())
 
 def apply_saved_tags(videos: List[Dict], tags_path: Optional[str],
-                     quiet: bool = False) -> List[Dict]:
+                     quiet: bool = False) -> Tuple[List[Dict], List[Dict]]:
     """
     Carry over the tags that were assigned manually in a previous videos.json.
 
-    Tags are matched by videoId. Videos with no saved tags (new videos, or ones
-    that were never tagged) get an empty list and are flagged for review.
+    Tags are matched by videoId. Videos that do not appear in the previous file
+    are returned separately as "new", so the caller can report exactly which
+    videos still need tagging.
 
     Args:
         videos: Fetched video dictionaries
@@ -500,7 +506,7 @@ def apply_saved_tags(videos: List[Dict], tags_path: Optional[str],
         quiet: Suppress progress messages
 
     Returns:
-        Videos with 'tags' and 'needs_review' filled in
+        (videos with 'tags' filled in, videos absent from tags_path)
     """
     saved_tags: Dict[str, List[str]] = {}
 
@@ -514,23 +520,27 @@ def apply_saved_tags(videos: List[Dict], tags_path: Optional[str],
         except (json.JSONDecodeError, OSError) as e:
             print(f"⚠️  Could not read tags from {tags_path}: {e}")
     elif not quiet:
-        print(f"ℹ️  No previous tags found at {tags_path}, starting from scratch")
+        print(f"ℹ️  No previous videos found at {tags_path}, treating every video as new")
 
     tagged_count = 0
+    new_videos: List[Dict] = []
     for video in videos:
-        tags = saved_tags.get(video.get('videoId'), [])
+        video_id = video.get('videoId')
+        tags = saved_tags.get(video_id, [])
         # Normalise: drop empties, remove duplicates, keep the order stable
         tags = sorted({tag for tag in tags if isinstance(tag, str) and tag.strip()})
         video['tags'] = tags
-        video['needs_review'] = not tags
         if tags:
             tagged_count += 1
+        if video_id not in saved_tags:
+            new_videos.append(video)
 
     if not quiet:
         print(f"🏷️  Carried over tags for {tagged_count}/{len(videos)} videos "
               f"({len(videos) - tagged_count} still untagged)")
+        print(f"🆕 {len(new_videos)} new video(s) since the last run")
 
-    return videos
+    return videos, new_videos
 
 def public_video(video: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -552,15 +562,15 @@ def public_video(video: Dict[str, Any]) -> Dict[str, Any]:
         'channelId': video.get('channelId', ''),
         'channelTitle': video.get('channelTitle', ''),
         'tags': video.get('tags', []),
-        'needs_review': video.get('needs_review', True),
     }
 
-def print_pipeline_summary(videos: List[Dict]) -> None:
+def print_pipeline_summary(videos: List[Dict], new_videos: List[Dict]) -> None:
     """
-    Print per-channel counts and the videos that still have no tags.
+    Print per-channel counts and the videos that still need tagging.
 
     Args:
         videos: List of videos (after tags have been merged)
+        new_videos: Videos that were not present in the previous videos.json
     """
     channel_counts: Dict[str, int] = {}
     untagged = []
@@ -578,16 +588,49 @@ def print_pipeline_summary(videos: List[Dict]) -> None:
     tagged_count = len(videos) - len(untagged)
     print(f"\n🏷️  Tags: {tagged_count}/{len(videos)} videos tagged, {len(untagged)} pending")
 
-    if untagged:
-        print("\n📝 Still untagged (see TAGGING_PROMPT.md):")
-        for video in untagged[:10]:
-            print(f"  - {video['videoId']}  {video.get('title', '')[:70]}")
-        if len(untagged) > 10:
-            print(f"  ... and {len(untagged) - 10} more")
+    if new_videos:
+        print(f"\n🆕 {len(new_videos)} new video(s) without tags (see TAGGING_PROMPT.md):")
+        for video in new_videos[:20]:
+            published = (video.get('publishedAt') or '')[:10]
+            print(f"  - {video['videoId']}  {published}  {video.get('title', '')[:70]}")
+        if len(new_videos) > 20:
+            print(f"  ... and {len(new_videos) - 20} more")
+    else:
+        print("\n🆕 No new videos since the last run")
+
+    new_ids = {video['videoId'] for video in new_videos}
+    older_untagged = [video for video in untagged if video.get('videoId') not in new_ids]
+    if older_untagged:
+        print(f"\nℹ️  {len(older_untagged)} older video(s) are still untagged")
 
 # ============================================================================
 # FILE I/O FUNCTIONS
 # ============================================================================
+
+def backup_output(output_path: str, quiet: bool = False) -> Optional[str]:
+    """
+    Copy the current output file to '<output_path>.bak' before it is rewritten.
+
+    Args:
+        output_path: Path to the file that is about to be overwritten
+        quiet: Suppress the progress message
+
+    Returns:
+        The backup path, or None when there was nothing to back up
+    """
+    if not os.path.exists(output_path):
+        return None
+
+    backup_path = f'{output_path}.bak'
+    try:
+        shutil.copyfile(output_path, backup_path)
+    except OSError as e:
+        print(f"⚠️  Could not back up {output_path}: {e}")
+        return None
+
+    if not quiet:
+        print(f"🗂️  Backed up {output_path} -> {backup_path}")
+    return backup_path
 
 def save_videos(videos: List[Dict], output_path: str, label: str = "videos") -> None:
     """
@@ -657,14 +700,18 @@ def run_pipeline(
         save_videos(videos, './videos.json', 'raw videos')
 
     # Step 3: Carry over the tags that were assigned manually
-    videos = apply_saved_tags(videos, tags_from or output_path, quiet=quiet)
+    videos, new_videos = apply_saved_tags(videos, tags_from or output_path, quiet=quiet)
 
     # Step 4: Keep the public schema stable and save
     videos = [public_video(video) for video in videos]
+    backup_output(output_path, quiet=quiet)
     save_videos(videos, output_path, 'videos')
 
     if not no_stats:
-        print_pipeline_summary(videos)
+        print_pipeline_summary(videos, new_videos)
+
+    if not quiet:
+        print("\nℹ️  Review the changes with: git --no-pager diff --stat")
 
     return videos
 

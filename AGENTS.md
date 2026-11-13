@@ -114,6 +114,15 @@ npm run format
 
 ### Python Data Pipeline
 
+The one-liner, from the repo root (no venv activation needed):
+
+```bash
+npm run videos:update    # fetch + filter + keep existing tags + save
+```
+
+`src/videos.json` is copied to `src/videos.json.bak` before it is rewritten, and
+the run ends with the list of videos that are new since the last update.
+
 ```bash
 # Set up Python environment
 cd be
@@ -152,10 +161,12 @@ python update_videos.py --no-query
    (`exclude_patterns.json`, default `60`) is discarded, as are titles matching `#shorts?`
 5. Deduplicate across channels
 6. Copy the tags already present in the output file, matched by `videoId`
-7. Save to `src/videos.json`
+7. Back up the previous output to `src/videos.json.bak`
+8. Save to `src/videos.json`
 
-The script **never generates tags**. Videos it has no tags for get `"tags": []` and
-`"needs_review": true`.
+The script **never generates tags**. A video that is absent from the previous
+`src/videos.json` is reported as **new** in the end-of-run summary, and those new
+videos are the only ones left with `"tags": []`.
 
 **Configuration Files:**
 - `channels.json` - Source channels: `id` or `handle`, optional `query`, `enabled` flag
@@ -175,12 +186,13 @@ tagging code, no tagging API key and no taxonomy file in the repo.
 2. Paste a batch of videos (`videoId`, `title`, `description`)
 3. Paste the returned JSON back into `src/videos.json`, replacing the `"tags": []`
    array of the matching `videoId`
-4. Re-run `python update_videos.py` when convenient - it keeps your tags by `videoId`
-   and recomputes `needs_review`
+4. Re-run `npm run videos:update` when convenient - it keeps your tags by `videoId`
+   and reports the videos that are still new
 
 `be/TAGGING_PROMPT.md` holds the canonical vocabulary, the parent-tag rules
 (e.g. `salamanders` → `space marines` + `40k`) and the output format.
-`needs_review` is `true` whenever `tags` is empty; `untagged` is no longer a tag value.
+Videos without tags simply have `"tags": []`; the run summary lists which ones
+are new. `untagged` is not a tag value.
 
 ## Environment Variables
 
@@ -300,6 +312,9 @@ npm run dev              # Start dev server
 npm run typecheck        # Check TypeScript errors
 npm run build           # Build for production
 npm run preview         # Preview production build
+
+# Data pipeline
+npm run videos:update    # Fetch + filter + keep existing tags (from the repo root)
 
 # Python (from be/ directory)
 python update_videos.py                    # Fetch + keep existing tags + save

@@ -18,11 +18,12 @@ the JSON, matched by `videoId`.
 4. Copy the JSON array it returns.
 5. Apply the result to `src/videos.json` — for each returned object, replace the
    `"tags": []` array of the matching `videoId` with the returned `tags`.
-6. Run `python update_videos.py` once you are done: it re-fetches YouTube data,
-   keeps your tags by `videoId`, and recomputes `needs_review` for you.
+6. Run `npm run videos:update` (from the repo root) once you are done: it re-fetches
+   YouTube data, keeps your tags by `videoId`, and lists the videos that are still
+   new in the end-of-run summary.
 
-> `needs_review` is derived automatically (`true` when `tags` is empty). You do
-> not need to edit it by hand.
+> The summary tells you which videos are new since the last update. Those are the
+> ones with `"tags": []`; no extra field has to be edited by hand.
 
 To list the videos that still need tags:
 

@@ -40,8 +40,13 @@ which is bundled with the frontend.
 
 The script never invents tags. It only carries over the tags that are already in
 `src/videos.json` (matched by `videoId`), so re-running it never loses manual work.
+The previous file is backed up to `src/videos.json.bak`, and the run finishes by
+listing the videos that are new since the last update - those are the only ones
+left without tags.
 
 ```bash
+npm run videos:update              # from the repo root, no venv activation needed
+
 cd be
 source .venv/bin/activate
 python update_videos.py            # fetch + keep existing tags + save
@@ -89,7 +94,8 @@ no tagging code and no API key for it.
 2. Paste a batch of videos (`videoId`, `title`, `description`)
 3. Paste the returned JSON back into `src/videos.json`, replacing the `"tags": []`
    of the matching `videoId`
-4. Re-run `python update_videos.py` to keep those tags and recompute `needs_review`
+4. Re-run `npm run videos:update` to keep those tags; the summary lists any video
+   that is still new
 
 The prompt carries the canonical vocabulary, the parent-tag rules (e.g.
 `salamanders` → `space marines` + `40k`) and the expected output format. Videos

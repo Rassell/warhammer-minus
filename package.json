@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "videos:update": "cd be && .venv/bin/python update_videos.py"
   },
   "dependencies": {
     "lucide-react": "1.14.0",

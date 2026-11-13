@@ -9,7 +9,6 @@ export interface Video {
   viewCount: number;
   likeCount: number;
   tags: string[];
-  needs_review: boolean;
   /** YouTube channel ID. Present once the multi-channel pipeline has run. */
   channelId?: string;
   /** YouTube channel name. Present once the multi-channel pipeline has run. */
