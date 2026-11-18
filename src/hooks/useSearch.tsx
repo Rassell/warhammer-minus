@@ -1,29 +1,30 @@
-import { createContext, useContext, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useCallback } from "react";
+import { useNavigate, useSearchParams } from "react-router";
 
-const SearchContext = createContext({
-  searchTerm: "",
-  setSearchTerm: (_term: string) => {},
-});
-const Provider = SearchContext.Provider;
-
+/**
+ * URL-driven search.
+ *
+ * The query lives in `?q=` so results are shareable and the header input can be
+ * kept in sync with the address bar. No provider is needed anymore.
+ */
 export function useSearch() {
-  return useContext(SearchContext);
-}
-
-export function SearchProvider({ children }: { children: React.ReactNode }) {
   const [searchParams] = useSearchParams();
-  const initialSearchTerm = searchParams.get("q") || "";
-  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
+  const navigate = useNavigate();
 
-  return (
-    <Provider
-      value={{
-        searchTerm,
-        setSearchTerm,
-      }}
-    >
-      {children}
-    </Provider>
+  const query = searchParams.get("q")?.trim() ?? "";
+
+  const submitSearch = useCallback(
+    (term: string) => {
+      const trimmed = term.trim();
+      if (trimmed === "") {
+        void navigate("/search");
+        return;
+      }
+
+      void navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+    },
+    [navigate],
   );
+
+  return { query, submitSearch };
 }

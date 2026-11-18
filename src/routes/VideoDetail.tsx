@@ -1,103 +1,105 @@
-import { useParams, Link } from "react-router";
+import { Helmet } from "react-helmet-async";
+import { SearchX } from "lucide-react";
+import { Link, useParams } from "react-router";
 
-import { videosById } from "~/lib/catalog";
+import Breadcrumbs from "~/components/Breadcrumbs";
+import EmptyState from "~/components/EmptyState";
+import RelatedVideos from "~/components/RelatedVideos";
+import VideoMetadata from "~/components/VideoMetadata";
+import VideoPlayer from "~/components/VideoPlayer";
+import {
+  getRelatedVideos,
+  getVideoCollection,
+  videosById,
+} from "~/lib/catalog";
+import { pluralize } from "~/lib/format";
 
 export default function VideoDetail() {
   const { videoId } = useParams<{ videoId: string }>();
+  const video = videoId !== undefined ? videosById.get(videoId) : undefined;
 
-  const video = videoId ? videosById.get(videoId) : undefined;
-
-  if (!video) {
+  if (video === undefined) {
     return (
-      <div className="flex-1 p-8 text-center lg:ml-64">
-        <h2 className="text-2xl">Vídeo no encontrado</h2>
-        <Link
-          to="/"
-          className="text-blue-500 hover:underline mt-4 inline-block"
-        >
-          ← Volver al inicio
-        </Link>
-      </div>
+      <EmptyState
+        icon={<SearchX className="h-5 w-5" />}
+        title="Vídeo no encontrado"
+        description="El vídeo que buscas no está en el catálogo o su enlace ha cambiado."
+        action={
+          <Link
+            to="/videos"
+            className="rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-ink-950 transition-colors hover:bg-gold-400"
+          >
+            Ver todos los vídeos
+          </Link>
+        }
+      />
     );
   }
 
-  const publishedDate = new Date(video.publishedAt).toLocaleDateString(
-    "es-ES",
-    {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    },
-  );
+  const related = getRelatedVideos(video, 10);
+  const collection = getVideoCollection(video.videoId);
+  const metaDescription =
+    video.description.trim().slice(0, 155) ||
+    `Tutorial de pintura de Warhammer: ${video.title}`;
 
   return (
-    <main className="flex-1 p-4 md:p-6 lg:ml-64">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Video + Info */}
-        <div className="lg:col-span-2">
-          <div className="aspect-video bg-black rounded-xl overflow-hidden">
-            <iframe
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${video.videoId}`}
-              title={video.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
+    <>
+      <Helmet>
+        {/* Single string child: react-helmet-async blanks multi-child titles */}
+        <title>{`${video.title} - Warhammer Minus`}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={video.title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={video.thumbnail} />
+        <meta property="og:type" content="video.other" />
+      </Helmet>
 
-          <h1 className="text-2xl md:text-3xl font-bold mt-6 leading-tight">
-            {video.title}
-          </h1>
+      <Breadcrumbs
+        items={[
+          { label: "Inicio", to: "/" },
+          { label: "Vídeos", to: "/videos" },
+          { label: video.title },
+        ]}
+      />
 
-          <p className="text-zinc-500 mt-2">{publishedDate}</p>
-
-          {video.channelTitle && (
-            <p className="mt-1 text-sm text-zinc-400">
-              {video.channelId ? (
-                <a
-                  href={`https://www.youtube.com/channel/${video.channelId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-400 hover:underline"
-                >
-                  {video.channelTitle}
-                </a>
-              ) : (
-                video.channelTitle
-              )}
-            </p>
-          )}
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="min-w-0">
+          <VideoPlayer video={video} />
+          <VideoMetadata video={video} />
         </div>
 
-        {/* Sidebar de info */}
-        <div className="lg:col-span-1">
-          {/* Descripción */}
-          <div className="bg-zinc-900 rounded-xl p-6">
-            <h3 className="font-semibold mb-3 text-zinc-300">Descripción</h3>
-            <p className="text-zinc-300 whitespace-pre-wrap leading-relaxed">
-              {video.description || "Sin descripción disponible."}
-            </p>
-          </div>
-
-          {/* Tags */}
-          {video.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
-              {video.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-zinc-800 text-zinc-300 text-sm px-4 py-1.5 rounded-full"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
+        <aside className="space-y-6">
+          {collection !== undefined && (
+            <Link
+              to={`/collections/${collection.playlistId}`}
+              className="group block overflow-hidden rounded-xl border border-ink-800 bg-ink-900/60 transition-colors hover:border-ink-600"
+            >
+              <div className="flex gap-3 p-3">
+                <img
+                  src={collection.thumbnail}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-16 w-28 shrink-0 rounded-lg object-cover"
+                />
+                <div className="min-w-0">
+                  <p className="text-[10px] font-semibold tracking-widest text-gold-400 uppercase">
+                    Colección
+                  </p>
+                  <p className="line-clamp-2 text-sm font-medium text-mist-100 transition-colors group-hover:text-gold-300">
+                    {collection.title}
+                  </p>
+                  <p className="text-xs text-mist-500">
+                    {pluralize(collection.videoCount, "vídeo", "vídeos")}
+                  </p>
+                </div>
+              </div>
+            </Link>
           )}
-        </div>
+
+          <RelatedVideos videos={related} />
+        </aside>
       </div>
-    </main>
+    </>
   );
 }

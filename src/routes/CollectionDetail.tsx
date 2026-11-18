@@ -1,59 +1,64 @@
-import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { ListVideo } from "lucide-react";
 import { Link, useParams } from "react-router";
 
-import VideoGrid from "~/components/VideoGrid";
-import { useFilters } from "~/hooks/useFilters";
-import { collectionsById, getCollectionVideos } from "~/lib/catalog";
-import { matchesVideoFilters } from "~/lib/filters";
+import AuthorCard from "~/components/AuthorCard";
+import Breadcrumbs from "~/components/Breadcrumbs";
+import CollectionCard from "~/components/CollectionCard";
+import CollectionHeader from "~/components/CollectionHeader";
+import CollectionVideoList from "~/components/CollectionVideoList";
+import EmptyState from "~/components/EmptyState";
+import SectionHeader from "~/components/SectionHeader";
+import {
+  authorIdByChannelId,
+  authorsById,
+  collectionsById,
+  getAuthorCollections,
+  getCollectionVideos,
+} from "~/lib/catalog";
 
 export default function CollectionDetail() {
   const { playlistId } = useParams<{ playlistId: string }>();
-  const { selectedTags, selectedChannels } = useFilters();
+  const collection =
+    playlistId !== undefined ? collectionsById.get(playlistId) : undefined;
 
-  const collection = playlistId ? collectionsById.get(playlistId) : undefined;
-
-  // Playlist order is meaningful (it is the curated sequence), so it is kept.
-  const collectionVideos = useMemo(
-    () => (collection ? getCollectionVideos(collection) : []),
-    [collection],
-  );
-
-  const visibleVideos = useMemo(
-    () =>
-      collectionVideos.filter((video) =>
-        matchesVideoFilters(video, {
-          searchTerm: "",
-          selectedTags,
-          selectedChannels,
-        }),
-      ),
-    [collectionVideos, selectedTags, selectedChannels],
-  );
-
-  if (!collection) {
+  if (collection === undefined) {
     return (
-      <div className="flex-1 p-8 text-center lg:ml-64">
-        <h2 className="text-2xl">Colección no encontrada</h2>
-        <Link
-          to="/collections"
-          className="mt-4 inline-block text-blue-500 hover:underline"
-        >
-          ← Volver a las colecciones
-        </Link>
-      </div>
+      <EmptyState
+        icon={<ListVideo className="h-5 w-5" />}
+        title="Colección no encontrada"
+        description="Esta colección no está en el catálogo o su enlace ha cambiado."
+        action={
+          <Link
+            to="/collections"
+            className="rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-ink-950 transition-colors hover:bg-gold-400"
+          >
+            Ver todas las colecciones
+          </Link>
+        }
+      />
     );
   }
 
-  const isFiltered = visibleVideos.length !== collectionVideos.length;
+  const collectionVideos = getCollectionVideos(collection);
+  const authorId = authorIdByChannelId.get(collection.channelId);
+  const author = authorId !== undefined ? authorsById.get(authorId) : undefined;
+
+  const otherCollections =
+    author !== undefined
+      ? getAuthorCollections(author).filter(
+          (entry) => entry.playlistId !== collection.playlistId,
+        )
+      : [];
+
   const description =
-    collection.description ||
-    `Colección de tutoriales de pintura: ${collection.title}`;
+    collection.description.trim() !== ""
+      ? collection.description
+      : `Colección de tutoriales de pintura: ${collection.title}`;
 
   return (
     <>
       <Helmet>
-        {/* A single string child: react-helmet-async blanks the title otherwise */}
         <title>{`${collection.title} - Warhammer Minus`}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={collection.title} />
@@ -62,50 +67,59 @@ export default function CollectionDetail() {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="flex-1 p-4 md:p-6 lg:ml-64">
-        <Link
-          to="/collections"
-          className="text-sm text-zinc-400 hover:text-blue-400"
-        >
-          ← Todas las colecciones
-        </Link>
+      <Breadcrumbs
+        items={[
+          { label: "Inicio", to: "/" },
+          { label: "Colecciones", to: "/collections" },
+          { label: collection.title },
+        ]}
+      />
 
-        <header className="mt-4 mb-8 flex flex-col gap-4 md:flex-row md:items-center">
-          <img
-            src={collection.thumbnail}
-            alt={collection.title}
-            className="aspect-video w-full max-w-xs rounded-xl object-cover"
+      <CollectionHeader collection={collection} />
+
+      <div className="mt-8 grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+        <section aria-labelledby="collection-videos">
+          <SectionHeader
+            id="collection-videos"
+            title="Vídeos de la colección"
+            subtitle="En el orden de reproducción de la playlist"
           />
 
-          <div>
-            <h1 className="text-2xl leading-tight font-bold md:text-3xl">
-              {collection.title}
-            </h1>
+          {collectionVideos.length > 0 ? (
+            <CollectionVideoList videos={collectionVideos} />
+          ) : (
+            <EmptyState
+              icon={<ListVideo className="h-5 w-5" />}
+              title="Esta colección no tiene vídeos disponibles"
+              description="Los vídeos de la playlist no han superado los filtros del catálogo."
+            />
+          )}
+        </section>
 
-            <p className="mt-2 text-zinc-400">
-              {collection.channelTitle} ·{" "}
-              {isFiltered
-                ? `${visibleVideos.length} / ${collectionVideos.length}`
-                : collectionVideos.length}{" "}
-              videos
-            </p>
+        <aside className="space-y-6">
+          {author !== undefined && <AuthorCard author={author} />}
 
-            {collection.description && (
-              <p className="mt-3 max-w-3xl whitespace-pre-wrap text-sm text-zinc-400">
-                {collection.description}
-              </p>
-            )}
-          </div>
-        </header>
+          {otherCollections.length > 0 && (
+            <section aria-labelledby="more-collections">
+              <h2
+                id="more-collections"
+                className="mb-3 text-sm font-semibold text-mist-100"
+              >
+                Más de {author?.name ?? collection.channelTitle}
+              </h2>
 
-        {visibleVideos.length > 0 ? (
-          <VideoGrid videos={visibleVideos} />
-        ) : (
-          <p className="py-20 text-center text-xl text-zinc-500">
-            No se encontraron videos con esos filtros
-          </p>
-        )}
-      </main>
+              <div className="space-y-5">
+                {otherCollections.slice(0, 3).map((entry) => (
+                  <CollectionCard
+                    key={entry.playlistId}
+                    collection={entry}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+        </aside>
+      </div>
     </>
   );
 }

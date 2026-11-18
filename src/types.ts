@@ -37,3 +37,61 @@ export interface Collection {
   /** Video IDs in playlist order; only IDs present in src/videos.json */
   videoIds: string[];
 }
+
+/**
+ * A channel exposed as a browsable author.
+ *
+ * There is no author entity in the generated data: authors are derived from the
+ * `channelId` / `channelTitle` fields of the videos (see `src/lib/authors.ts`),
+ * so this type is a read-only view model, not a new backend entity.
+ */
+export interface Author {
+  /** URL-safe slug used as the route param (`/authors/:authorId`) */
+  id: string;
+  /** YouTube channel ID, when the pipeline has resolved one */
+  channelId?: string;
+  name: string;
+  /** Factual summary derived from the author's videos and tags */
+  description: string;
+  videoCount: number;
+  collectionCount: number;
+  totalDurationSeconds: number;
+  totalViewCount: number;
+  latestPublishedAt: string;
+  /** Most frequent tags of the author, used as topic chips */
+  topTags: string[];
+  /** Video IDs ordered from newest to oldest */
+  videoIds: string[];
+  collectionIds: string[];
+}
+
+export type CategoryIconKey =
+  | "sparkles"
+  | "brush"
+  | "shield"
+  | "flame"
+  | "bug"
+  | "crown"
+  | "mountain"
+  | "truck"
+  | "dice"
+  | "crosshair"
+  | "cog";
+
+/**
+ * A thematic grouping of the manual tags.
+ *
+ * Categories are a curated taxonomy over `Video.tags` (see
+ * `src/lib/categories.ts`); a video belongs to a category when it carries at
+ * least one of the category tags.
+ */
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  icon: CategoryIconKey;
+  tags: string[];
+  /** Number of videos that carry at least one of the category tags */
+  videoCount: number;
+}

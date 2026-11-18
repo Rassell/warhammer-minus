@@ -1,15 +1,87 @@
 @import "tailwindcss";
 
+/**
+ * Ibericon-style dark editorial palette for Warhammer Minus.
+ *
+ * The page is dark by design (no light theme): a near-black ink background,
+ * layered surfaces for cards and sidebars, a warm gold accent for actions and
+ * active states, and a cool grey text scale for readable long-form content.
+ */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-ink-950: #0a0e13;
+  --color-ink-900: #0f151c;
+  --color-ink-850: #131a22;
+  --color-ink-800: #18212b;
+  --color-ink-700: #202b37;
+  --color-ink-600: #2a3644;
+  --color-ink-500: #3a4858;
+
+  --color-mist-100: #e9ecf2;
+  --color-mist-200: #d3d8e1;
+  --color-mist-300: #b7bfcb;
+  --color-mist-400: #97a1af;
+  --color-mist-500: #737f8e;
+  --color-mist-600: #5a6573;
+
+  --color-gold-300: #f1d6a2;
+  --color-gold-400: #e7c177;
+  --color-gold-500: #d6a84b;
+  --color-gold-600: #b98d36;
+
+  --color-success-400: #6fcf97;
+  --color-warning-400: #e0b45c;
+  --color-danger-400: #e57a6b;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
+@layer base {
+  html {
     color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ink-950 text-mist-100 antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(
+      in srgb,
+      var(--color-gold-500) 35%,
+      transparent
+    );
+    color: var(--color-mist-100);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-400);
+    outline-offset: 2px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ink-600) transparent;
+  }
+}
+
+/** Horizontal chip rows hide their scrollbar but stay keyboard-scrollable. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

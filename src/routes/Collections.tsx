@@ -1,18 +1,23 @@
-import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 
-import CollectionCard from "~/components/CollectionCard";
-import { collections, getCollectionLatestDate } from "~/lib/catalog";
+import CollectionGrid from "~/components/CollectionGrid";
+import {
+  collections,
+  getCollectionLatestDate,
+  getCollectionTotalDuration,
+} from "~/lib/catalog";
+import { formatTotalDuration } from "~/lib/format";
 
 export default function Collections() {
-  // Newest collection first: the playlist itself carries no update timestamp,
-  // so order by the most recent video it contains.
-  const sortedCollections = useMemo(
-    () =>
-      [...collections].sort(
-        (a, b) => getCollectionLatestDate(b) - getCollectionLatestDate(a),
-      ),
-    [],
+  // The playlist itself carries no update timestamp, so order by the most
+  // recent video it contains.
+  const sortedCollections = [...collections].sort(
+    (a, b) => getCollectionLatestDate(b) - getCollectionLatestDate(a),
+  );
+
+  const totalDuration = collections.reduce(
+    (total, collection) => total + getCollectionTotalDuration(collection),
+    0,
   );
 
   return (
@@ -21,40 +26,36 @@ export default function Collections() {
         <title>Colecciones - Warhammer Minus</title>
         <meta
           name="description"
-          content="Colecciones de tutoriales de pintura Warhammer organizadas por tema: NMM, armaduras, pieles, peanas y más."
+          content="Playlists de tutoriales de pintura de Warhammer organizadas por tema: NMM, armaduras, pieles, peanas y más."
         />
         <meta property="og:title" content="Colecciones - Warhammer Minus" />
         <meta
           property="og:description"
-          content="Tutoriales de pintura Warhammer organizados en colecciones"
+          content="Playlists de tutoriales de pintura de Warhammer organizadas por tema."
         />
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <main className="flex-1 p-4 md:p-6 lg:ml-64">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold md:text-3xl">Colecciones</h1>
-          <p className="mt-2 text-zinc-400">
-            {sortedCollections.length} colecciones de tutoriales agrupadas por
-            tema
+      <div className="space-y-8">
+        <header>
+          <p className="text-[11px] font-semibold tracking-widest text-gold-400 uppercase">
+            Biblioteca
           </p>
-        </div>
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-mist-100 sm:text-3xl">
+            Colecciones
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-mist-400">
+            Secuencias de vídeos que siguen un orden de reproducción. Cada
+            colección reúne tutoriales de un mismo tema o de un mismo autor.
+          </p>
+          <p className="mt-2 text-sm text-mist-500">
+            {collections.length} colecciones ·{" "}
+            {formatTotalDuration(totalDuration)} de contenido
+          </p>
+        </header>
 
-        {sortedCollections.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-            {sortedCollections.map((collection) => (
-              <CollectionCard
-                key={collection.playlistId}
-                collection={collection}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="py-20 text-center text-xl text-zinc-500">
-            Todavía no hay colecciones disponibles
-          </p>
-        )}
-      </main>
+        <CollectionGrid collections={sortedCollections} />
+      </div>
     </>
   );
 }

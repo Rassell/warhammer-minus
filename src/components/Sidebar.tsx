@@ -1,176 +1,277 @@
-import { useMemo } from "react";
-import { NavLink } from "react-router";
+import { useEffect } from "react";
+import {
+  Compass,
+  Film,
+  Home,
+  ListVideo,
+  Play,
+  Tags,
+  Users,
+  X,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { Link, NavLink } from "react-router";
 
-import { useFilters } from "~/hooks/useFilters";
 import { useSidebar } from "~/hooks/useSidebar";
+import { collections, getCollectionLatestDate } from "~/lib/catalog";
+import { cn } from "~/lib/cn";
 
-import { collections, videos } from "~/lib/catalog";
+interface NavItem {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+  end?: boolean;
+}
+
+const PRIMARY_NAV: NavItem[] = [
+  { to: "/", label: "Inicio", icon: Home, end: true },
+  { to: "/explore", label: "Explorar", icon: Compass },
+  { to: "/videos", label: "Vídeos", icon: Film },
+];
+
+const LIBRARY_NAV: NavItem[] = [
+  { to: "/authors", label: "Autores", icon: Users },
+  { to: "/collections", label: "Colecciones", icon: ListVideo },
+  { to: "/categories", label: "Categorías", icon: Tags },
+];
+
+const FEATURED_COLLECTIONS = [...collections]
+  .sort((a, b) => getCollectionLatestDate(b) - getCollectionLatestDate(a))
+  .slice(0, 6);
+
+function SidebarLink({
+  item,
+  collapsed,
+  onNavigate,
+}: {
+  item: NavItem;
+  collapsed: boolean;
+  onNavigate?: () => void;
+}) {
+  const Icon = item.icon;
+
+  return (
+    <NavLink
+      to={item.to}
+      end={item.end}
+      onClick={onNavigate}
+      title={collapsed ? item.label : undefined}
+      className={({ isActive }) =>
+        cn(
+          "group relative flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium transition-colors",
+          collapsed && "justify-center px-0",
+          isActive
+            ? "bg-ink-800 text-gold-300"
+            : "text-mist-400 hover:bg-ink-900 hover:text-mist-100",
+        )
+      }
+    >
+      {({ isActive }) => (
+        <>
+          {isActive && !collapsed && (
+            <span
+              aria-hidden="true"
+              className="absolute top-1/2 left-0 h-5 w-0.5 -translate-y-1/2 rounded-full bg-gold-500"
+            />
+          )}
+          <Icon
+            className={cn(
+              "h-5 w-5 shrink-0",
+              isActive
+                ? "text-gold-400"
+                : "text-mist-500 group-hover:text-mist-300",
+            )}
+          />
+          {!collapsed && <span className="truncate">{item.label}</span>}
+        </>
+      )}
+    </NavLink>
+  );
+}
+
+function CollectionLinks({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <div className="space-y-0.5">
+      {FEATURED_COLLECTIONS.map((collection) => (
+        <NavLink
+          key={collection.playlistId}
+          to={`/collections/${collection.playlistId}`}
+          onClick={onNavigate}
+          title={collection.title}
+          className={({ isActive }) =>
+            cn(
+              "flex items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors",
+              isActive
+                ? "bg-ink-800 text-gold-300"
+                : "text-mist-400 hover:bg-ink-900 hover:text-mist-100",
+            )
+          }
+        >
+          <span className="truncate">{collection.title}</span>
+          <span className="shrink-0 text-[11px] tabular-nums text-mist-600">
+            {collection.videoCount}
+          </span>
+        </NavLink>
+      ))}
+    </div>
+  );
+}
+
+function SidebarBrand({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <Link
+      to="/"
+      onClick={onNavigate}
+      className="flex items-center gap-2 rounded-lg"
+    >
+      <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 text-ink-950">
+        <Play className="h-4 w-4 fill-current" aria-hidden="true" />
+      </span>
+      <span className="font-semibold tracking-tight text-mist-100">
+        Warhammer <span className="text-gold-500">Minus</span>
+      </span>
+    </Link>
+  );
+}
 
 export default function Sidebar() {
-  const { isSidebarOpen, setSidebarOpen } = useSidebar();
-  const {
-    selectedTags,
-    setSelectedTags,
-    selectedChannels,
-    setSelectedChannels,
-  } = useFilters();
+  const { isCollapsed, isMobileOpen, closeMobile } = useSidebar();
 
-  const tags = useMemo(() => {
-    // Get all unique tags from the videos
-    const uniqueTags = new Set<string>();
-    videos.forEach((video) => {
-      video.tags.forEach((tag) => {
-        uniqueTags.add(tag);
-      });
-    });
-
-    return Array.from(uniqueTags).sort((a, b) => a.localeCompare(b));
-  }, []);
-
-  const channels = useMemo(() => {
-    // Get unique channel names with their video counts
-    const counts = new Map<string, number>();
-    videos.forEach((video) => {
-      if (!video.channelTitle) return;
-      counts.set(video.channelTitle, (counts.get(video.channelTitle) ?? 0) + 1);
-    });
-
-    return Array.from(counts.entries())
-      .sort((a, b) => a[0].localeCompare(b[0]))
-      .map(([name, count]) => ({ name, count }));
-  }, []);
-
-  const closeSidebarOnMobile = () => {
-    if (window.innerWidth < 1024) {
-      setSidebarOpen(false);
-    }
-  };
-
-  const toggleTag = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter((t) => t !== tag));
-    } else {
-      setSelectedTags([...selectedTags, tag]);
+  // Lock the page behind the mobile drawer and allow closing it with Escape.
+  useEffect(() => {
+    if (!isMobileOpen) {
+      return;
     }
 
-    // Close sidebar on mobile after selecting a tag
-    closeSidebarOnMobile();
-  };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-  const toggleChannel = (channel: string) => {
-    if (selectedChannels.includes(channel)) {
-      setSelectedChannels(selectedChannels.filter((c) => c !== channel));
-    } else {
-      setSelectedChannels([...selectedChannels, channel]);
-    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMobile();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
 
-    // Close sidebar on mobile after selecting a channel
-    closeSidebarOnMobile();
-  };
-
-  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
-    `block rounded-lg px-3 py-2 text-sm transition-colors ${
-      isActive ? "bg-blue-600 text-white" : "text-zinc-300 hover:bg-zinc-900"
-    }`;
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMobileOpen, closeMobile]);
 
   return (
     <>
-      {/* Mobile backdrop */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
       <aside
-        className={`fixed top-14 z-40 h-[calc(100vh-56px)] w-64 overflow-y-auto border-r border-zinc-800 bg-zinc-950 p-4 transition-transform duration-300 ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0`}
+        aria-label="Navegación lateral"
+        className={cn(
+          "fixed top-14 left-0 z-40 hidden h-[calc(100vh-3.5rem)] flex-col border-r border-ink-800 bg-ink-950 lg:flex",
+          isCollapsed ? "w-[76px]" : "w-60",
+        )}
       >
-        {collections.length > 0 && (
-          <>
-            <h3 className="mb-3 text-sm font-semibold text-zinc-400">
-              COLECCIONES
-            </h3>
-            <nav className="mb-6 flex flex-col gap-1">
-              <NavLink to="/collections" end className={navLinkClassName}>
-                Todas las colecciones
-              </NavLink>
-              {collections.map((collection) => (
-                <NavLink
-                  key={collection.playlistId}
-                  to={`/collections/${collection.playlistId}`}
-                  className={navLinkClassName}
-                >
-                  <span className="flex items-center justify-between gap-2">
-                    <span className="truncate">{collection.title}</span>
-                    <span className="shrink-0 text-xs opacity-60">
-                      {collection.videoCount}
-                    </span>
-                  </span>
-                </NavLink>
-              ))}
-            </nav>
-          </>
-        )}
+        <nav className="flex-1 overflow-y-auto px-2 py-3">
+          <div className="space-y-0.5">
+            {PRIMARY_NAV.map((item) => (
+              <SidebarLink
+                key={item.to}
+                item={item}
+                collapsed={isCollapsed}
+              />
+            ))}
+          </div>
 
-        {channels.length > 1 && (
-          <>
-            <h3 className="mb-3 text-sm font-semibold text-zinc-400">
-              CANALES
-            </h3>
-            <div className="mb-6 flex flex-col gap-2">
-              {channels.map(({ name, count }) => {
-                const isSelected = selectedChannels.includes(name);
+          {isCollapsed ? (
+            <div className="my-3 border-t border-ink-800" />
+          ) : (
+            <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
+              Biblioteca
+            </p>
+          )}
 
-                return (
-                  <button
-                    key={name}
-                    onClick={() => toggleChannel(name)}
-                    aria-pressed={isSelected}
-                    className={`flex cursor-pointer items-center justify-between gap-2 rounded-lg border px-3 py-2 text-left text-sm transition-colors ${
-                      isSelected
-                        ? "border-blue-600 bg-blue-600 text-white"
-                        : "border-zinc-700 hover:border-zinc-500"
-                    }`}
-                  >
-                    <span className="truncate">{name}</span>
-                    <span
-                      className={`shrink-0 text-xs ${
-                        isSelected ? "text-blue-100" : "text-zinc-500"
-                      }`}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </>
-        )}
+          <div className="space-y-0.5">
+            {LIBRARY_NAV.map((item) => (
+              <SidebarLink
+                key={item.to}
+                item={item}
+                collapsed={isCollapsed}
+              />
+            ))}
+          </div>
 
-        {tags.length > 0 && (
-          <>
-            <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
-            <div className="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => toggleTag(tag)}
-                  className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                    selectedTags.includes(tag)
-                      ? "border-blue-600 bg-blue-600 text-white"
-                      : "border-zinc-700 hover:border-zinc-500"
-                  }`}
-                >
-                  #{tag}
-                </button>
-              ))}
-            </div>
-          </>
+          {!isCollapsed && (
+            <>
+              <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
+                Colecciones
+              </p>
+              <CollectionLinks />
+            </>
+          )}
+        </nav>
+
+        {!isCollapsed && (
+          <div className="border-t border-ink-800 px-4 py-3 text-[11px] leading-relaxed text-mist-600">
+            {collections.length} colecciones · Tutoriales recopilados de YouTube
+          </div>
         )}
       </aside>
+
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <div
+            className="absolute inset-0 bg-black/65 backdrop-blur-sm"
+            onClick={closeMobile}
+            aria-hidden="true"
+          />
+
+          <aside
+            aria-label="Menú de navegación"
+            className="absolute inset-y-0 left-0 flex w-72 max-w-[85vw] flex-col border-r border-ink-800 bg-ink-950 shadow-2xl"
+          >
+            <div className="flex h-14 items-center justify-between border-b border-ink-800 px-4">
+              <SidebarBrand onNavigate={closeMobile} />
+              <button
+                type="button"
+                onClick={closeMobile}
+                aria-label="Cerrar menú"
+                className="grid h-9 w-9 place-items-center rounded-full text-mist-400 transition-colors hover:bg-ink-800 hover:text-mist-100"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            <nav className="flex-1 overflow-y-auto px-2 py-3">
+              <div className="space-y-0.5">
+                {PRIMARY_NAV.map((item) => (
+                  <SidebarLink
+                    key={item.to}
+                    item={item}
+                    collapsed={false}
+                    onNavigate={closeMobile}
+                  />
+                ))}
+              </div>
+
+              <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
+                Biblioteca
+              </p>
+              <div className="space-y-0.5">
+                {LIBRARY_NAV.map((item) => (
+                  <SidebarLink
+                    key={item.to}
+                    item={item}
+                    collapsed={false}
+                    onNavigate={closeMobile}
+                  />
+                ))}
+              </div>
+
+              <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
+                Colecciones
+              </p>
+              <CollectionLinks onNavigate={closeMobile} />
+            </nav>
+          </aside>
+        </div>
+      )}
     </>
   );
 }

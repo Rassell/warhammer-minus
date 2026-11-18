@@ -13,6 +13,39 @@ A fan-made web app to browse and filter Warhammer painting tutorial videos from 
 - **Lucide React** (icons)
 - Deployed on **GitHub Pages**
 
+## Features
+
+- Dark, content-first interface built around video thumbnails and a collapsible
+  sidebar (Inicio, Explorar, Vídeos, Autores, Colecciones, Categorías).
+- **Vídeos:** responsive grid, global category chips, tag/author facets, sorting
+  (recent, popular, longest, oldest) and "load more".
+- **Reproducción:** YouTube player, author, publication date, expandable
+  description, tags, parent collection and related videos.
+- **Autores:** derived from the channel fields of the videos; each author page
+  groups its collections and full catalog.
+- **Colecciones:** playlist-style ordered video lists with cover, author, video
+  count and total duration.
+- **Categorías:** curated groups over the manual tags (no new taxonomy values).
+- **Búsqueda:** `/search?q=` returns grouped results for authors, collections and
+  videos.
+- No likes, comments, subscriptions, accounts or social sharing.
+
+## Routes
+
+| Route | View |
+| --- | --- |
+| `/` | Home / discovery feed |
+| `/explore` | Explore |
+| `/videos` | Full catalog with filters and sorting |
+| `/video/:videoId` | Player, metadata and related videos |
+| `/authors` | Author directory |
+| `/authors/:authorId` | Author profile, collections and catalog |
+| `/collections` | Collections index |
+| `/collections/:playlistId` | Ordered playlist-style video list |
+| `/categories` | Category taxonomy |
+| `/categories/:slug` | Videos in a category |
+| `/search?q=` | Grouped search results |
+
 ## Getting Started
 
 ```bash
@@ -140,8 +173,8 @@ no tagging code and no API key for it.
 
 The prompt carries the canonical vocabulary, the parent-tag rules (e.g.
 `salamanders` → `space marines` + `40k`) and the expected output format. Videos
-without tags simply have `"tags": []`; the tag filter in the sidebar is built from
-whatever tags the data contains.
+without tags simply have `"tags": []`; the tag facets in the Vídeos filter panel
+are built from whatever tags the data contains.
 
 See [`be/TAGGING_PROMPT.md`](be/TAGGING_PROMPT.md) for the prompt and workflow.
 

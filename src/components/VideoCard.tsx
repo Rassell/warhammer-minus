@@ -1,52 +1,65 @@
 import { Link } from "react-router";
 
+import { authorIdByChannelId } from "~/lib/catalog";
+import { formatRelativeDate, formatViews } from "~/lib/format";
 import type { IVideo } from "~/types";
 
-export default function VideoCard({ video }: { video: IVideo }) {
-  const date = new Date(video.publishedAt).toLocaleDateString("es-ES", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+import MediaThumb from "./MediaThumb";
+
+interface VideoCardProps {
+  video: IVideo;
+  priority?: boolean;
+}
+
+/**
+ * Grid card: large thumbnail, two-line title, author and recency. There are no
+ * social controls (likes, comments, subscriptions) by design.
+ */
+export default function VideoCard({
+  video,
+  priority = false,
+}: VideoCardProps) {
+  const authorId =
+    video.channelId !== undefined
+      ? authorIdByChannelId.get(video.channelId)
+      : undefined;
 
   return (
-    <Link to={`/video/${video.videoId}`} className="group block">
-      <div className="relative overflow-hidden rounded-xl">
-        <img
-          src={video.thumbnail}
-          alt={video.title}
-          className="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
+    <article className="group flex flex-col">
+      <Link
+        to={`/video/${video.videoId}`}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="block rounded-xl"
+      >
+        <MediaThumb video={video} priority={priority} />
+      </Link>
 
-      <div className="mt-3">
-        <h3 className="line-clamp-2 leading-tight font-medium group-hover:text-blue-400">
-          {video.title}
+      <div className="mt-2.5 flex-1">
+        <h3 className="line-clamp-2 text-sm leading-snug font-medium text-mist-100 transition-colors group-hover:text-gold-300 sm:text-[15px]">
+          <Link to={`/video/${video.videoId}`}>{video.title}</Link>
         </h3>
 
-        <p className="mt-2 flex items-center gap-1.5 text-sm text-zinc-500">
-          <span>{date}</span>
-          {video.channelTitle && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span className="truncate">{video.channelTitle}</span>
-            </>
-          )}
-        </p>
-
-        {video.tags.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1">
-            {video.tags.slice(0, 4).map((tag) => (
-              <span
-                key={tag}
-                className="rounded bg-zinc-900 px-2 py-0.5 text-[10px] text-zinc-400"
+        <div className="mt-1.5 space-y-0.5 text-xs text-mist-500">
+          {video.channelTitle !== undefined &&
+            (authorId !== undefined ? (
+              <Link
+                to={`/authors/${authorId}`}
+                className="block truncate transition-colors hover:text-mist-300"
               >
-                #{tag}
-              </span>
+                {video.channelTitle}
+              </Link>
+            ) : (
+              <span className="block truncate">{video.channelTitle}</span>
             ))}
-          </div>
-        )}
+
+          <p className="flex flex-wrap items-center gap-x-1.5">
+            <span>{formatViews(video.viewCount)}</span>
+            <span aria-hidden="true">·</span>
+            <span>{formatRelativeDate(video.publishedAt)}</span>
+          </p>
+        </div>
       </div>
-    </Link>
+    </article>
   );
 }
