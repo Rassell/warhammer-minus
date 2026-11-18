@@ -46,7 +46,7 @@ Single-page React application that:
 | `/videos` | Full catalog with filters and sorting |
 | `/video/:videoId` | Player, metadata and related videos |
 | `/authors` | Author directory |
-| `/authors/:authorId` | Author profile, collections and catalog |
+| `/authors/:authorId` | Author profile with `?tab=videos` / `?tab=colecciones` |
 | `/collections` | Collections index |
 | `/collections/:playlistId` | Playlist-style ordered video list |
 | `/categories` | Category taxonomy |

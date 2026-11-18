@@ -22,7 +22,8 @@ A fan-made web app to browse and filter Warhammer painting tutorial videos from 
 - **Reproducción:** YouTube player, author, publication date, expandable
   description, tags, parent collection and related videos.
 - **Autores:** derived from the channel fields of the videos; each author page
-  groups its collections and full catalog.
+  has a **Vídeos** and a **Colecciones** tab (`?tab=colecciones`) grouping its
+  content.
 - **Colecciones:** playlist-style ordered video lists with cover, author, video
   count and total duration.
 - **Categorías:** curated groups over the manual tags (no new taxonomy values).
@@ -39,7 +40,7 @@ A fan-made web app to browse and filter Warhammer painting tutorial videos from 
 | `/videos` | Full catalog with filters and sorting |
 | `/video/:videoId` | Player, metadata and related videos |
 | `/authors` | Author directory |
-| `/authors/:authorId` | Author profile, collections and catalog |
+| `/authors/:authorId` | Author profile with Vídeos / Colecciones tabs |
 | `/collections` | Collections index |
 | `/collections/:playlistId` | Ordered playlist-style video list |
 | `/categories` | Category taxonomy |
