@@ -1,8 +1,10 @@
-import { Code2, Play } from "lucide-react";
+import { Code2 } from "lucide-react";
 import { Link } from "react-router";
 
 import { collections, videos, videosNewestFirst } from "~/lib/catalog";
 import { formatDate } from "~/lib/format";
+
+import BrandMark from "./BrandMark";
 
 const EXPLORE_LINKS = [
   { to: "/", label: "Inicio" },
@@ -25,9 +27,7 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-2 rounded-lg">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 text-ink-950">
-                <Play className="h-4 w-4 fill-current" aria-hidden="true" />
-              </span>
+              <BrandMark />
               <span className="font-semibold tracking-tight text-mist-100">
                 Warhammer <span className="text-gold-500">Minus</span>
               </span>

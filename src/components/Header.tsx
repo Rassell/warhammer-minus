@@ -2,7 +2,6 @@ import {
   Menu,
   PanelLeftClose,
   PanelLeftOpen,
-  Play,
   Shuffle,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router";
@@ -10,6 +9,7 @@ import { Link, useNavigate } from "react-router";
 import { useSidebar } from "~/hooks/useSidebar";
 import { videos } from "~/lib/catalog";
 
+import BrandMark from "./BrandMark";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
@@ -56,9 +56,7 @@ export default function Header() {
           aria-label="Warhammer Minus, ir al inicio"
           className="flex shrink-0 items-center gap-2 rounded-lg"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 text-ink-950">
-            <Play className="h-4 w-4 fill-current" aria-hidden="true" />
-          </span>
+          <BrandMark />
           <span className="hidden text-lg font-semibold tracking-tight text-mist-100 sm:block">
             Warhammer <span className="text-gold-500">Minus</span>
           </span>

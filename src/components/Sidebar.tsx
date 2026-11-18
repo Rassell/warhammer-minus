@@ -4,7 +4,6 @@ import {
   Film,
   Home,
   ListVideo,
-  Play,
   Tags,
   Users,
   X,
@@ -15,6 +14,8 @@ import { Link, NavLink } from "react-router";
 import { useSidebar } from "~/hooks/useSidebar";
 import { collections } from "~/lib/catalog";
 import { cn } from "~/lib/cn";
+
+import BrandMark from "./BrandMark";
 
 interface NavItem {
   to: string;
@@ -92,9 +93,7 @@ function SidebarBrand({ onNavigate }: { onNavigate?: () => void }) {
       onClick={onNavigate}
       className="flex items-center gap-2 rounded-lg"
     >
-      <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold-500 text-ink-950">
-        <Play className="h-4 w-4 fill-current" aria-hidden="true" />
-      </span>
+      <BrandMark />
       <span className="font-semibold tracking-tight text-mist-100">
         Warhammer <span className="text-gold-500">Minus</span>
       </span>
