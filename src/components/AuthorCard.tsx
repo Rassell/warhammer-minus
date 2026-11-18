@@ -13,7 +13,7 @@ export default function AuthorCard({ author }: { author: Author }) {
   return (
     <Link
       to={`/authors/${author.id}`}
-      className="group flex h-full flex-col rounded-2xl border border-ink-700/60 bg-ink-900/60 p-5 transition-colors hover:border-ink-600 hover:bg-ink-900"
+      className="group flex flex-col rounded-2xl border border-ink-700/60 bg-ink-900/60 p-5 transition-colors hover:border-ink-600 hover:bg-ink-900"
     >
       <div className="flex items-center gap-3">
         <Avatar name={author.name} size="lg" />
