@@ -4,11 +4,26 @@
       "id": "UCwdh3MTrFq3sXlB4ct8B-Fg",
       "label": "Warhammer (official)",
       "query": "paint",
-      "enabled": true
+      "enabled": true,
+      "collections": false
     },
     {
       "handle": "@JOSEDAVINCI_",
       "label": "Jose Davinci",
+      "query": null,
+      "enabled": true,
+      "collections": true
+    },
+    {
+      "handle": "@vinceventurella",
+      "label": "Vince Venturella",
+      "query": null,
+      "enabled": true,
+      "collections": true
+    },
+    {
+      "handle": "@DuncanRhodesDRPA",
+      "label": "Duncan Rhodes",
       "query": null,
       "enabled": true,
       "collections": true
