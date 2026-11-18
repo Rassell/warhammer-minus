@@ -13,7 +13,7 @@ import type { LucideIcon } from "lucide-react";
 import { Link, NavLink } from "react-router";
 
 import { useSidebar } from "~/hooks/useSidebar";
-import { collections, getCollectionLatestDate } from "~/lib/catalog";
+import { collections } from "~/lib/catalog";
 import { cn } from "~/lib/cn";
 
 interface NavItem {
@@ -34,10 +34,6 @@ const LIBRARY_NAV: NavItem[] = [
   { to: "/collections", label: "Colecciones", icon: ListVideo },
   { to: "/categories", label: "Categorías", icon: Tags },
 ];
-
-const FEATURED_COLLECTIONS = [...collections]
-  .sort((a, b) => getCollectionLatestDate(b) - getCollectionLatestDate(a))
-  .slice(0, 6);
 
 function SidebarLink({
   item,
@@ -86,34 +82,6 @@ function SidebarLink({
         </>
       )}
     </NavLink>
-  );
-}
-
-function CollectionLinks({ onNavigate }: { onNavigate?: () => void }) {
-  return (
-    <div className="space-y-0.5">
-      {FEATURED_COLLECTIONS.map((collection) => (
-        <NavLink
-          key={collection.playlistId}
-          to={`/collections/${collection.playlistId}`}
-          onClick={onNavigate}
-          title={collection.title}
-          className={({ isActive }) =>
-            cn(
-              "flex items-center justify-between gap-2 rounded-lg px-3 py-1.5 text-sm transition-colors",
-              isActive
-                ? "bg-ink-800 text-gold-300"
-                : "text-mist-400 hover:bg-ink-900 hover:text-mist-100",
-            )
-          }
-        >
-          <span className="truncate">{collection.title}</span>
-          <span className="shrink-0 text-[11px] tabular-nums text-mist-600">
-            {collection.videoCount}
-          </span>
-        </NavLink>
-      ))}
-    </div>
   );
 }
 
@@ -196,15 +164,6 @@ export default function Sidebar() {
               />
             ))}
           </div>
-
-          {!isCollapsed && (
-            <>
-              <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
-                Colecciones
-              </p>
-              <CollectionLinks />
-            </>
-          )}
         </nav>
 
         {!isCollapsed && (
@@ -263,11 +222,6 @@ export default function Sidebar() {
                   />
                 ))}
               </div>
-
-              <p className="px-3 pt-5 pb-2 text-[11px] font-semibold tracking-widest text-mist-600 uppercase">
-                Colecciones
-              </p>
-              <CollectionLinks onNavigate={closeMobile} />
             </nav>
           </aside>
         </div>
