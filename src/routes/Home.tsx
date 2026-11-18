@@ -1,49 +1,35 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 
+import { useFilters } from "~/hooks/useFilters";
 import { useSearch } from "~/hooks/useSearch";
-import { useSidebar } from "~/hooks/useSidebar";
 
-import VideoGrid from "../components/VideoGrid";
-import Sidebar from "../components/Sidebar";
-
-import type { IVideo } from "~/types";
-
-import videos from "../videos.json";
+import VideoGrid from "~/components/VideoGrid";
+import { videos } from "~/lib/catalog";
+import { matchesVideoFilters } from "~/lib/filters";
 
 const VIDEOS_PER_PAGE = 16;
 
 export default function Home() {
   const { searchTerm } = useSearch();
-  const { isSidebarOpen, toggleSidebar } = useSidebar();
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [selectedChannels, setSelectedChannels] = useState<string[]>([]);
+  const { selectedTags, selectedChannels } = useFilters();
   const [visibleCount, setVisibleCount] = useState(VIDEOS_PER_PAGE);
 
   const observerTarget = useRef<HTMLDivElement>(null);
 
   // Filtrado de videos
   const filteredVideos = useMemo(() => {
-    return (videos as IVideo[])
-      .filter((video) => {
-        const matchesSearch = video.title
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase());
-
-        const matchesTags =
-          selectedTags.length === 0 ||
-          selectedTags.some((tag) => video.tags.includes(tag));
-
-        const matchesChannels =
-          selectedChannels.length === 0 ||
-          (!!video.channelTitle &&
-            selectedChannels.includes(video.channelTitle));
-
-        return matchesSearch && matchesTags && matchesChannels;
-      })
+    return videos
+      .filter((video) =>
+        matchesVideoFilters(video, {
+          searchTerm,
+          selectedTags,
+          selectedChannels,
+        }),
+      )
       .sort(
         (a, b) =>
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
       );
   }, [searchTerm, selectedTags, selectedChannels]);
 
@@ -107,21 +93,6 @@ export default function Home() {
         />
         <meta property="og:type" content="website" />
       </Helmet>
-
-      {/* Mobile backdrop */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
-          onClick={toggleSidebar}
-        />
-      )}
-
-      <Sidebar
-        selectedTags={selectedTags}
-        setSelectedTags={setSelectedTags}
-        selectedChannels={selectedChannels}
-        setSelectedChannels={setSelectedChannels}
-      />
 
       <main className="flex-1 p-4 md:p-6 lg:ml-64">
         <div className="mb-6">

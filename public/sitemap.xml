@@ -3,9 +3,17 @@
   <!-- Página principal -->
   <url>
     <loc>https://rassell.github.io/warhammer-minus/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Colecciones -->
+  <url>
+    <loc>https://rassell.github.io/warhammer-minus/collections</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

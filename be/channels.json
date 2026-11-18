@@ -10,7 +10,8 @@
       "handle": "@JOSEDAVINCI_",
       "label": "Jose Davinci",
       "query": null,
-      "enabled": true
+      "enabled": true,
+      "collections": true
     }
   ]
 }

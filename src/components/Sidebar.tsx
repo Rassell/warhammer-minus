@@ -1,25 +1,19 @@
 import { useMemo } from "react";
+import { NavLink } from "react-router";
 
+import { useFilters } from "~/hooks/useFilters";
 import { useSidebar } from "~/hooks/useSidebar";
 
-import type { IVideo } from "~/types";
+import { collections, videos } from "~/lib/catalog";
 
-import videos from "../videos.json";
-
-interface SidebarProps {
-  selectedTags: string[];
-  setSelectedTags: (tags: string[]) => void;
-  selectedChannels: string[];
-  setSelectedChannels: (channels: string[]) => void;
-}
-
-export default function Sidebar({
-  selectedTags,
-  setSelectedTags,
-  selectedChannels,
-  setSelectedChannels,
-}: SidebarProps) {
+export default function Sidebar() {
   const { isSidebarOpen, setSidebarOpen } = useSidebar();
+  const {
+    selectedTags,
+    setSelectedTags,
+    selectedChannels,
+    setSelectedChannels,
+  } = useFilters();
 
   const tags = useMemo(() => {
     // Get all unique tags from the videos
@@ -36,7 +30,7 @@ export default function Sidebar({
   const channels = useMemo(() => {
     // Get unique channel names with their video counts
     const counts = new Map<string, number>();
-    (videos as IVideo[]).forEach((video) => {
+    videos.forEach((video) => {
       if (!video.channelTitle) return;
       counts.set(video.channelTitle, (counts.get(video.channelTitle) ?? 0) + 1);
     });
@@ -74,65 +68,109 @@ export default function Sidebar({
     closeSidebarOnMobile();
   };
 
-  return (
-    <aside
-      className={`fixed top-14 z-40 h-[calc(100vh-56px)] w-64 overflow-y-auto border-r border-zinc-800 bg-zinc-950 p-4 transition-transform duration-300 ${
-        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-      } lg:translate-x-0`}
-    >
-      {channels.length > 1 && (
-        <>
-          <h3 className="mb-3 text-sm font-semibold text-zinc-400">CANALES</h3>
-          <div className="mb-6 flex flex-col gap-2">
-            {channels.map(({ name, count }) => {
-              const isSelected = selectedChannels.includes(name);
+  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
+    `block rounded-lg px-3 py-2 text-sm transition-colors ${
+      isActive ? "bg-blue-600 text-white" : "text-zinc-300 hover:bg-zinc-900"
+    }`;
 
-              return (
+  return (
+    <>
+      {/* Mobile backdrop */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      <aside
+        className={`fixed top-14 z-40 h-[calc(100vh-56px)] w-64 overflow-y-auto border-r border-zinc-800 bg-zinc-950 p-4 transition-transform duration-300 ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:translate-x-0`}
+      >
+        {collections.length > 0 && (
+          <>
+            <h3 className="mb-3 text-sm font-semibold text-zinc-400">
+              COLECCIONES
+            </h3>
+            <nav className="mb-6 flex flex-col gap-1">
+              <NavLink to="/collections" end className={navLinkClassName}>
+                Todas las colecciones
+              </NavLink>
+              {collections.map((collection) => (
+                <NavLink
+                  key={collection.playlistId}
+                  to={`/collections/${collection.playlistId}`}
+                  className={navLinkClassName}
+                >
+                  <span className="flex items-center justify-between gap-2">
+                    <span className="truncate">{collection.title}</span>
+                    <span className="shrink-0 text-xs opacity-60">
+                      {collection.videoCount}
+                    </span>
+                  </span>
+                </NavLink>
+              ))}
+            </nav>
+          </>
+        )}
+
+        {channels.length > 1 && (
+          <>
+            <h3 className="mb-3 text-sm font-semibold text-zinc-400">
+              CANALES
+            </h3>
+            <div className="mb-6 flex flex-col gap-2">
+              {channels.map(({ name, count }) => {
+                const isSelected = selectedChannels.includes(name);
+
+                return (
+                  <button
+                    key={name}
+                    onClick={() => toggleChannel(name)}
+                    aria-pressed={isSelected}
+                    className={`flex cursor-pointer items-center justify-between gap-2 rounded-lg border px-3 py-2 text-left text-sm transition-colors ${
+                      isSelected
+                        ? "border-blue-600 bg-blue-600 text-white"
+                        : "border-zinc-700 hover:border-zinc-500"
+                    }`}
+                  >
+                    <span className="truncate">{name}</span>
+                    <span
+                      className={`shrink-0 text-xs ${
+                        isSelected ? "text-blue-100" : "text-zinc-500"
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        )}
+
+        {tags.length > 0 && (
+          <>
+            <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag) => (
                 <button
-                  key={name}
-                  onClick={() => toggleChannel(name)}
-                  aria-pressed={isSelected}
-                  className={`flex cursor-pointer items-center justify-between gap-2 rounded-lg border px-3 py-2 text-left text-sm transition-colors ${
-                    isSelected
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                    selectedTags.includes(tag)
                       ? "border-blue-600 bg-blue-600 text-white"
                       : "border-zinc-700 hover:border-zinc-500"
                   }`}
                 >
-                  <span className="truncate">{name}</span>
-                  <span
-                    className={`shrink-0 text-xs ${
-                      isSelected ? "text-blue-100" : "text-zinc-500"
-                    }`}
-                  >
-                    {count}
-                  </span>
+                  #{tag}
                 </button>
-              );
-            })}
-          </div>
-        </>
-      )}
-
-      {tags.length > 0 && (
-        <>
-          <h3 className="mb-3 text-sm font-semibold text-zinc-400">TAGS</h3>
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
-                className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                  selectedTags.includes(tag)
-                    ? "border-blue-600 bg-blue-600 text-white"
-                    : "border-zinc-700 hover:border-zinc-500"
-                }`}
-              >
-                #{tag}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
-    </aside>
+              ))}
+            </div>
+          </>
+        )}
+      </aside>
+    </>
   );
 }

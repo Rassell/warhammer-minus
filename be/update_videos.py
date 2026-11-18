@@ -8,13 +8,20 @@ Only videos that are not in the previous `videos.json` come out without tags;
 the end-of-run summary lists exactly those. The previous output file is copied
 to `<output>.bak` before it is rewritten.
 
+Channels that set `"collections": true` in `channels.json` also get their
+public YouTube playlists exported to `collections.json`, so the website can
+browse them as curated collections. Collections only reference video IDs that
+survived the filters; playlist metadata is never duplicated into `videos.json`.
+
 Tags are NOT generated here. They are produced by asking a generic AI assistant
 and pasting the result back into the JSON file - see `TAGGING_PROMPT.md`.
 
 Usage:
     python update_videos.py
     python update_videos.py --list-channels
+    python update_videos.py --list-collections
     python update_videos.py --channel @SomePainter
+    python update_videos.py --no-collections
 """
 
 import os
@@ -42,13 +49,15 @@ API_KEY = os.getenv('YOUTUBE_API_KEY', '')
 # (0 disables the filter).
 DEFAULT_SHORT_VIDEO_MAX_SECONDS = 60
 
-def load_config() -> tuple[List[str], Dict[str, List[str]], List[str], int]:
+def load_config() -> tuple[List[str], Dict[str, List[str]], List[str], int,
+                           List[str], Dict[str, List[str]]]:
     """
     Load exclusion configuration from JSON files.
 
     Returns:
         Tuple of (EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS,
-        SHORT_VIDEO_MAX_SECONDS)
+        SHORT_VIDEO_MAX_SECONDS, COLLECTION_EXCLUDE_PATTERNS,
+        CHANNEL_COLLECTION_EXCLUDE_PATTERNS)
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -63,19 +72,33 @@ def load_config() -> tuple[List[str], Dict[str, List[str]], List[str], int]:
         short_video_max_seconds = int(exclude_config.get(
             'short_video_max_seconds', DEFAULT_SHORT_VIDEO_MAX_SECONDS
         ))
+        # Playlists that should never become a collection (titles are matched
+        # against these regexes). Same global + per-channel split as above.
+        collection_exclude_patterns = exclude_config.get('collection_exclude', [])
+        channel_collection_exclude_patterns = exclude_config.get('collection_channels', {})
     else:
         exclude_patterns = exclude_config
         channel_exclude_patterns = {}
         short_video_max_seconds = DEFAULT_SHORT_VIDEO_MAX_SECONDS
+        collection_exclude_patterns = []
+        channel_collection_exclude_patterns = {}
 
     # Load exclude IDs
     with open(os.path.join(script_dir, 'exclude_ids.json'), 'r', encoding='utf-8') as f:
         exclude_ids = json.load(f)
 
-    return exclude_patterns, channel_exclude_patterns, exclude_ids, short_video_max_seconds
+    return (
+        exclude_patterns,
+        channel_exclude_patterns,
+        exclude_ids,
+        short_video_max_seconds,
+        collection_exclude_patterns,
+        channel_collection_exclude_patterns,
+    )
 
 # Load configuration at module level
-EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS, SHORT_VIDEO_MAX_SECONDS = load_config()
+(EXCLUDE_PATTERNS, CHANNEL_EXCLUDE_PATTERNS, EXCLUDE_IDS, SHORT_VIDEO_MAX_SECONDS,
+ COLLECTION_EXCLUDE_PATTERNS, CHANNEL_COLLECTION_EXCLUDE_PATTERNS) = load_config()
 
 # Default channel list file (next to this script)
 CHANNELS_FILE = 'channels.json'
@@ -174,6 +197,8 @@ def resolve_channel(channel_ref: Dict[str, Any], default_query: Optional[str] = 
         'uploadsPlaylistId': item['contentDetails']['relatedPlaylists']['uploads'],
         # An explicit "query": null in channels.json disables the filter for that channel
         'query': channel_ref['query'] if 'query' in channel_ref else default_query,
+        # Opt-in: only channels that set "collections": true expose their playlists
+        'collections': bool(channel_ref.get('collections', False)),
     }
 
     if not quiet:
@@ -225,35 +250,15 @@ def get_all_channel_videos(uploads_playlist_id: str, channel_title: str = '',
     Returns:
         List of video IDs
     """
-    youtube = build('youtube', 'v3', developerKey=API_KEY)
-    playlist_id = uploads_playlist_id
-    video_ids = []
-    next_page_token = None
+    if not quiet:
+        print(f"📂 Fetching all videos from {channel_title or uploads_playlist_id}...")
 
-    try:
-        if not quiet:
-            print(f"📂 Fetching all videos from {channel_title or playlist_id}...")
-        while True:
-            playlist_response = youtube.playlistItems().list(
-                part='contentDetails',
-                playlistId=playlist_id,
-                maxResults=max_results,
-                pageToken=next_page_token
-            ).execute()
+    video_ids = get_playlist_video_ids(uploads_playlist_id, channel_title, max_results, quiet)
 
-            for item in playlist_response.get('items', []):
-                video_ids.append(item['contentDetails']['videoId'])
+    if not quiet:
+        print(f"✓ Found {len(video_ids)} total videos")
 
-            next_page_token = playlist_response.get('nextPageToken')
-            if not next_page_token:
-                break
-
-        if not quiet:
-            print(f"✓ Found {len(video_ids)} total videos")
-        return video_ids
-    except HttpError as e:
-        print(f"❌ An HTTP error occurred: {e}")
-        return []
+    return video_ids
 
 def get_video_details(video_ids: List[str], quiet: bool = False) -> List[Dict[str, Any]]:
     """
@@ -470,6 +475,305 @@ def fetch_videos(channels: List[Dict[str, Any]], max_results: int = 50,
     return unique_videos
 
 # ============================================================================
+# COLLECTION (PLAYLIST) FUNCTIONS
+# ============================================================================
+
+def get_playlist_video_ids(playlist_id: str, label: str = '',
+                           max_results: int = 50, quiet: bool = False) -> List[str]:
+    """
+    Fetch every video ID of a playlist, preserving the playlist order.
+
+    Args:
+        playlist_id: Playlist ID (PL..., or a channel uploads playlist UU...)
+        label: Human readable name, used in error messages
+        max_results: Max results per API page
+        quiet: Suppress progress messages
+
+    Returns:
+        Ordered list of video IDs (empty when the playlist cannot be read)
+    """
+    youtube = build('youtube', 'v3', developerKey=API_KEY)
+    video_ids: List[str] = []
+    next_page_token = None
+
+    try:
+        while True:
+            response = youtube.playlistItems().list(
+                part='contentDetails',
+                playlistId=playlist_id,
+                maxResults=max_results,
+                pageToken=next_page_token
+            ).execute()
+
+            for item in response.get('items', []):
+                video_id = item.get('contentDetails', {}).get('videoId')
+                if video_id:
+                    video_ids.append(video_id)
+
+            next_page_token = response.get('nextPageToken')
+            if not next_page_token:
+                break
+    except HttpError as e:
+        print(f"❌ Could not read playlist {label or playlist_id}: {e}")
+        return []
+
+    return video_ids
+
+def get_channel_playlists(channel_id: str, channel_title: str = '',
+                          max_results: int = 50, quiet: bool = False) -> List[Dict[str, Any]]:
+    """
+    Fetch the public playlists of a channel.
+
+    Args:
+        channel_id: Resolved channel ID (UC...). playlists.list has no forHandle.
+        channel_title: Channel name, used as a fallback label
+        max_results: Max results per API page
+        quiet: Suppress progress messages
+
+    Returns:
+        List of playlist dicts with the fields needed to build a collection
+    """
+    youtube = build('youtube', 'v3', developerKey=API_KEY)
+    playlists: List[Dict[str, Any]] = []
+    next_page_token = None
+
+    try:
+        if not quiet:
+            print(f"📂 Fetching playlists from {channel_title or channel_id}...")
+        while True:
+            response = youtube.playlists().list(
+                part='snippet,contentDetails',
+                channelId=channel_id,
+                maxResults=max_results,
+                pageToken=next_page_token
+            ).execute()
+
+            for item in response.get('items', []):
+                snippet = item.get('snippet', {})
+                thumbnails = snippet.get('thumbnails', {})
+                thumbnail = (
+                    thumbnails.get('high')
+                    or thumbnails.get('medium')
+                    or thumbnails.get('default')
+                    or {}
+                ).get('url', '')
+
+                playlists.append({
+                    'playlistId': item['id'],
+                    'title': snippet.get('title', ''),
+                    'description': snippet.get('description', ''),
+                    'thumbnail': thumbnail,
+                    'publishedAt': snippet.get('publishedAt', ''),
+                    'itemCount': int(item.get('contentDetails', {}).get('itemCount', 0)),
+                    'channelId': snippet.get('channelId', channel_id),
+                    'channelTitle': snippet.get('channelTitle', channel_title),
+                })
+
+            next_page_token = response.get('nextPageToken')
+            if not next_page_token:
+                break
+    except HttpError as e:
+        print(f"❌ Could not fetch playlists for {channel_title or channel_id}: {e}")
+        return []
+
+    return playlists
+
+def is_excluded_playlist(playlist: Dict[str, Any],
+                         extra_exclude_patterns: Optional[List[str]] = None) -> bool:
+    """
+    Decide whether a playlist should not be exposed as a collection.
+
+    Drops the auto-generated uploads playlist (UU..., which mirrors the channel
+    rather than a curated set), empty playlists, and titles matching the
+    configured exclusion patterns.
+    """
+    if playlist.get('playlistId', '').startswith('UU'):
+        return True
+
+    if playlist.get('itemCount', 0) <= 0:
+        return True
+
+    patterns = list(COLLECTION_EXCLUDE_PATTERNS)
+    if extra_exclude_patterns:
+        patterns.extend(extra_exclude_patterns)
+
+    if not patterns:
+        return False
+
+    exclude_regex = re.compile('|'.join(patterns), re.IGNORECASE)
+    return bool(exclude_regex.search(playlist.get('title', '')))
+
+def fetch_collections(channels: List[Dict[str, Any]],
+                      max_playlists_per_channel: int = 50,
+                      quiet: bool = False) -> List[Dict[str, Any]]:
+    """
+    Fetch the playlists of every channel that opted into collections.
+
+    Args:
+        channels: Resolved channels (only those with 'collections' set are used)
+        max_playlists_per_channel: Safety cap per channel
+        quiet: Suppress progress messages
+
+    Returns:
+        List of playlist dicts with an ordered 'videoIds' list
+    """
+    collections: List[Dict[str, Any]] = []
+    seen_playlist_ids = set()
+
+    for channel in channels:
+        if not channel.get('collections'):
+            continue
+
+        channel_title = channel.get('channelTitle') or channel['channelId']
+        if not quiet:
+            print(f"\n🗂️  Collections for {channel_title}")
+
+        playlists = get_channel_playlists(channel['channelId'], channel_title, quiet=quiet)
+        channel_patterns = CHANNEL_COLLECTION_EXCLUDE_PATTERNS.get(channel['channelId'], [])
+        kept = [
+            playlist for playlist in playlists
+            if not is_excluded_playlist(playlist, channel_patterns)
+        ]
+        skipped = len(playlists) - len(kept)
+
+        if len(kept) > max_playlists_per_channel:
+            if not quiet:
+                print(f"⚠️  {len(kept)} playlists found, keeping the first "
+                      f"{max_playlists_per_channel}")
+            kept = kept[:max_playlists_per_channel]
+
+        if not quiet:
+            print(f"✓ {len(kept)} playlist(s) selected"
+                  + (f" (skipped {skipped})" if skipped else ""))
+
+        for playlist in kept:
+            playlist_id = playlist['playlistId']
+            if playlist_id in seen_playlist_ids:
+                continue
+            seen_playlist_ids.add(playlist_id)
+
+            video_ids = get_playlist_video_ids(playlist_id, playlist.get('title', ''), quiet=quiet)
+            if not video_ids:
+                if not quiet:
+                    print(f"  ⚠️  {playlist.get('title', '')}: no accessible videos, skipping")
+                continue
+
+            collection = dict(playlist)
+            collection['videoIds'] = video_ids
+            collections.append(collection)
+
+    return collections
+
+def link_collections_to_videos(collections: List[Dict[str, Any]], videos: List[Dict],
+                               quiet: bool = False) -> List[Dict[str, Any]]:
+    """
+    Keep only the playlist videos that survived the pipeline filters.
+
+    src/videos.json stays the single source of video metadata, so a playlist
+    entry is reduced to the IDs that are present there. Collections left with no
+    videos (e.g. every item filtered out) are dropped.
+
+    Args:
+        collections: Playlists with a 'videoIds' list
+        videos: The final, filtered video list
+        quiet: Suppress progress messages
+
+    Returns:
+        Collections whose 'videoIds' only reference known videos
+    """
+    available_ids = {video.get('videoId') for video in videos}
+    linked: List[Dict[str, Any]] = []
+
+    for collection in collections:
+        original_ids = collection.get('videoIds', [])
+        kept_ids = [video_id for video_id in original_ids if video_id in available_ids]
+
+        if not kept_ids:
+            if not quiet:
+                print(f"  ⚠️  {collection.get('title', '')}: no videos in the catalog, skipping")
+            continue
+
+        if not quiet and len(kept_ids) != len(original_ids):
+            print(f"  ℹ️  {collection.get('title', '')}: "
+                  f"{len(kept_ids)}/{len(original_ids)} videos available")
+
+        collection = dict(collection)
+        collection['videoIds'] = kept_ids
+        linked.append(collection)
+
+    if not quiet:
+        print(f"✓ {len(linked)} collection(s) linked to the video catalog")
+
+    return linked
+
+def public_collection(collection: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Project a fetched playlist onto the exact field set consumed by the frontend.
+
+    Keeps src/collections.json stable: video metadata is never duplicated, the
+    collection only carries playlist metadata plus an ordered list of video IDs.
+    """
+    video_ids = collection.get('videoIds', [])
+    return {
+        'playlistId': collection['playlistId'],
+        'title': collection.get('title', ''),
+        'description': collection.get('description', ''),
+        'channelId': collection.get('channelId', ''),
+        'channelTitle': collection.get('channelTitle', ''),
+        'thumbnail': collection.get('thumbnail', ''),
+        'publishedAt': collection.get('publishedAt', ''),
+        'videoCount': len(video_ids),
+        'itemCount': collection.get('itemCount', len(video_ids)),
+        'videoIds': video_ids,
+    }
+
+def print_collections_summary(collections: List[Dict]) -> None:
+    """Print how many collections were written and how complete they are."""
+    if not collections:
+        print("\n🗂️  No collections were generated")
+        return
+
+    print(f"\n🗂️  Collections: {len(collections)}")
+    for collection in collections:
+        channel = collection.get('channelTitle') or 'Unknown channel'
+        print(f"  - {collection.get('title', '')[:60]} ({channel}) "
+              f"{collection.get('videoCount', 0)}/{collection.get('itemCount', 0)} videos")
+
+def print_configured_collections(channels: List[Dict[str, Any]]) -> None:
+    """
+    Print the playlists that would become collections, without writing anything.
+
+    Used by --list-collections to verify the configuration (and to confirm a
+    channel actually exposes public playlists) before running the pipeline.
+    """
+    total = 0
+
+    for channel in channels:
+        channel_title = channel.get('channelTitle') or channel['channelId']
+        if not channel.get('collections'):
+            print(f"\n🗂️  {channel_title}: collections disabled")
+            continue
+
+        print(f"\n🗂️  {channel_title} ({channel['channelId']})")
+        playlists = get_channel_playlists(channel['channelId'], channel_title)
+        channel_patterns = CHANNEL_COLLECTION_EXCLUDE_PATTERNS.get(channel['channelId'], [])
+        kept = [
+            playlist for playlist in playlists
+            if not is_excluded_playlist(playlist, channel_patterns)
+        ]
+
+        if not kept:
+            print("  (no usable playlists)")
+            continue
+
+        for playlist in kept:
+            print(f"  - {playlist['playlistId']}  "
+                  f"{playlist['itemCount']:>3} videos  {playlist.get('title', '')}")
+        total += len(kept)
+
+    print(f"\n✓ {total} collection(s) would be generated")
+
+# ============================================================================
 # UTILITIES
 # ============================================================================
 
@@ -662,7 +966,10 @@ def run_pipeline(
     save_intermediate: bool = False,
     quiet: bool = False,
     no_stats: bool = False,
-    short_video_max_seconds: Optional[int] = None
+    short_video_max_seconds: Optional[int] = None,
+    collections_enabled: bool = True,
+    collections_path: str = '../src/collections.json',
+    max_collections_per_channel: int = 50
 ) -> List[Dict[str, Any]]:
     """
     Execute the fetch -> filter -> merge tags -> save pipeline.
@@ -677,6 +984,9 @@ def run_pipeline(
         no_stats: Skip the end-of-run summary
         short_video_max_seconds: Drop videos at or below this length
             (None = use the configured value, 0 = keep shorts)
+        collections_enabled: Fetch the playlists of channels that opted in
+        collections_path: Where the collections file is written
+        max_collections_per_channel: Safety cap of playlists per channel
 
     Returns:
         The saved videos
@@ -706,6 +1016,23 @@ def run_pipeline(
     videos = [public_video(video) for video in videos]
     backup_output(output_path, quiet=quiet)
     save_videos(videos, output_path, 'videos')
+
+    # Step 5: Collections (YouTube playlists) from the channels that opt in.
+    # Nothing is written when no channel enables them, so a disabled setup never
+    # wipes a previously generated file.
+    if collections_enabled and any(channel.get('collections') for channel in resolved_channels):
+        collections = fetch_collections(
+            resolved_channels,
+            max_playlists_per_channel=max_collections_per_channel,
+            quiet=quiet,
+        )
+        collections = link_collections_to_videos(collections, videos, quiet=quiet)
+        collections = [public_collection(collection) for collection in collections]
+        backup_output(collections_path, quiet=quiet)
+        save_videos(collections, collections_path, 'collections')
+
+        if not no_stats:
+            print_collections_summary(collections)
 
     if not no_stats:
         print_pipeline_summary(videos, new_videos)
@@ -741,6 +1068,9 @@ Examples:
   # Show the configured channels (from channels.json)
   python update_videos.py --list-channels
 
+  # Show the playlists that would become collections, without writing
+  python update_videos.py --list-collections
+
   # One-off channel override (repeatable)
   python update_videos.py --channel @SomePainter --channel UC1234567890abcdefghijkl
 
@@ -772,6 +1102,14 @@ Tags are added manually with the prompt in TAGGING_PROMPT.md, never by this scri
     parser.add_argument('--shorts-max-seconds', type=int, default=None, metavar='SECONDS',
                        help='Drop videos this long or shorter as shorts '
                             '(default: short_video_max_seconds from exclude_patterns.json; 0 keeps them)')
+    parser.add_argument('--no-collections', action='store_true',
+                       help='Skip YouTube playlist (collection) fetching')
+    parser.add_argument('--collections-output', type=str, default='../src/collections.json',
+                       help='Collections output file (default: ../src/collections.json)')
+    parser.add_argument('--max-collections-per-channel', type=int, default=50, metavar='N',
+                       help='Keep at most N playlists per channel (default: 50)')
+    parser.add_argument('--list-collections', action='store_true',
+                       help='Resolve channels and print their playlists, then exit')
 
     args = parser.parse_args()
 
@@ -788,6 +1126,12 @@ Tags are added manually with the prompt in TAGGING_PROMPT.md, never by this scri
         resolve_channels(channel_entries, default_query=search_query)
         return
 
+    if args.list_collections:
+        print_configured_collections(
+            resolve_channels(channel_entries, default_query=search_query)
+        )
+        return
+
     run_pipeline(
         channel_entries,
         search_query,
@@ -796,7 +1140,10 @@ Tags are added manually with the prompt in TAGGING_PROMPT.md, never by this scri
         save_intermediate=args.save_intermediate,
         quiet=args.quiet,
         no_stats=args.no_stats,
-        short_video_max_seconds=args.shorts_max_seconds
+        short_video_max_seconds=args.shorts_max_seconds,
+        collections_enabled=not args.no_collections,
+        collections_path=args.collections_output,
+        max_collections_per_channel=args.max_collections_per_channel,
     )
 
 if __name__ == "__main__":

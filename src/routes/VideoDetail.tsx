@@ -1,12 +1,6 @@
 import { useParams, Link } from "react-router";
 
-import type { IVideo } from "~/types";
-
-import videos from "../videos.json";
-
-const videosById = new Map<string, IVideo>(
-  (videos as IVideo[]).map((video) => [video.videoId, video]),
-);
+import { videosById } from "~/lib/catalog";
 
 export default function VideoDetail() {
   const { videoId } = useParams<{ videoId: string }>();
@@ -15,7 +9,7 @@ export default function VideoDetail() {
 
   if (!video) {
     return (
-      <div className="p-8 text-center">
+      <div className="flex-1 p-8 text-center lg:ml-64">
         <h2 className="text-2xl">Vídeo no encontrado</h2>
         <Link
           to="/"
@@ -38,7 +32,7 @@ export default function VideoDetail() {
   );
 
   return (
-    <main className="flex-1 p-4 md:p-6">
+    <main className="flex-1 p-4 md:p-6 lg:ml-64">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Video + Info */}
         <div className="lg:col-span-2">

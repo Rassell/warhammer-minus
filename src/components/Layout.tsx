@@ -1,23 +1,27 @@
 import { Outlet } from "react-router";
 
+import { FiltersProvider } from "~/hooks/useFilters";
 import { SearchProvider } from "~/hooks/useSearch";
 import { SidebarProvider } from "~/hooks/useSidebar";
 
 import ScrollToTop from "./ScrollToTop";
 import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 export default function Layout() {
   return (
     <SearchProvider>
       <SidebarProvider>
-        <div className="min-h-screen bg-zinc-950 text-white">
-          <Navbar />
-          <ScrollToTop />
-          <div className="flex pt-14">
-            <Outlet />
+        <FiltersProvider>
+          <div className="min-h-screen bg-zinc-950 text-white">
+            <Navbar />
+            <ScrollToTop />
+            <div className="flex pt-14">
+              <Sidebar />
+              <Outlet />
+            </div>
           </div>
-        </div>
-        <footer className="py-8">
+          <footer className="py-8">
           <div className="max-w-7xl mx-auto px-4 text-center">
             <p className="text-killteam-steel text-sm">
               Unofficial fan-made tool. Not affiliated with Games Workshop Or
@@ -42,6 +46,7 @@ export default function Layout() {
             </div>
           </div>
         </footer>
+        </FiltersProvider>
       </SidebarProvider>
     </SearchProvider>
   );
