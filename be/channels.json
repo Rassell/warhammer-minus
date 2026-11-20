@@ -27,6 +27,13 @@
       "query": null,
       "enabled": true,
       "collections": true
+    },
+    {
+      "handle": "@AngelGiraldeZ",
+      "label": "Angel Giraldez",
+      "query": null,
+      "enabled": true,
+      "collections": true
     }
   ]
 }
